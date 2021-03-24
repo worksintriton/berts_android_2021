@@ -1,8 +1,10 @@
-package com.triton.bertsproject;
+package com.triton.bertsproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.triton.bertsproject.R;
 
 public class LoginActivity extends AppCompatActivity {
 
