@@ -18,7 +18,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/purple_700</item>
+        <item name="colorAccent">@color/yellow</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="tabBackground">@drawable/tab_background</item>

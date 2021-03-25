@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-<!--    Berts Projec Color Codes-->
+<!--    Berts Project Color Codes-->
 
     <color name="background_color">#F5F5F5</color>
     <color name="dark_blue">#014492</color>
@@ -17,6 +17,6 @@
     <color name="dark_grey">#38393A</color>
     <color name="blue">#3B5998</color>
     <color name="grey">#38393A</color>
-
+    <color name="stroke_color">#E8E8E8</color>
 
 </resources>

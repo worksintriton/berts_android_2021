@@ -26,4 +26,6 @@
     <string name="forget_password_withouI">Forgot your password</string>
     <string name="forget_password_reason">Enter your email below receive your password reset instructions.</string>
     <string name="reset_link">Send Reset Email</string>
+    <string name="login">"Login "</string>
+    <string name="register">Register</string>
 </resources>
