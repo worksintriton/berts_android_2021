@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BertsProject</string>
+    <string name="app_name">Bert\'s Auto</string>
     <string name="image_description">Image Description</string>
     <string name="toolbar_title">Toolbar Title</string>
     <string name="email">Email</string>
@@ -28,4 +28,5 @@
     <string name="reset_link">Send Reset Email</string>
     <string name="login">"Login "</string>
     <string name="register">Register</string>
+    <string name="forget_password_withouI_simple">Forget Password</string>
 </resources>

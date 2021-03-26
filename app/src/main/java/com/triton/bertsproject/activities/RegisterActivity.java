@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.android.material.tabs.TabLayout;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +40,14 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.tablayout)
+    TabLayout tablayout;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.viewpager)
+    ViewPager viewpager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +67,15 @@ public class RegisterActivity extends AppCompatActivity {
             Animatoo.animateSwipeRight(context);
 
         });
+
+        // Create an adapter that knows which fragment should be shown on each page
+        RegisterFragmentPagerAdapter adapter = new RegisterFragmentPagerAdapter(this, getSupportFragmentManager());
+
+        // Set the adapter onto the view pager
+        viewpager.setAdapter(adapter);
+
+        // Give the TabLayout the ViewPager
+        tablayout.setupWithViewPager(viewpager);
     }
 
     @Override

@@ -24,19 +24,19 @@
 
         <activity android:name=".activities.ForgetPasswordActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".activities.RegisterActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan" />
 
 
         <activity android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +48,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
+            android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             />
 

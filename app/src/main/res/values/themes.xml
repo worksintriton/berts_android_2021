@@ -24,6 +24,16 @@
         <item name="tabBackground">@drawable/tab_background</item>
     </style>
 
+    <!-- customised application theme. -->
+    <style name="Customtheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/yellow</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="tabBackground">@drawable/tab_background</item>
+    </style>
+
 
     <style name="TabLayout" parent="Widget.Design.TabLayout">
         <item name="tabTextColor">@color/dark_blue</item>
@@ -34,8 +44,14 @@
         <item name="android:textSize">16sp</item>
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
-<!--        <item name="android:fontFamily">@font/futuramediumbt</item>-->
+        <item name="android:fontFamily">@font/lato_bold</item>
 
     </style>
+
+    <style name="checkBoxStyle" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/dark_blue</item>
+        <item name="android:textColorSecondary">@color/dark_blue</item>
+    </style>
+
 
 </resources>

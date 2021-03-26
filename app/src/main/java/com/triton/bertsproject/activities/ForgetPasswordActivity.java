@@ -45,7 +45,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         Log.w("Oncreate", TAG);
 
-        txt_toolbar_title.setText(R.string.register);
+        txt_toolbar_title.setText(R.string.forget_password_withouI_simple);
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
