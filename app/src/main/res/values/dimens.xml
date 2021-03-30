@@ -62,6 +62,11 @@
     <dimen name="tab_spacing_half">5dp</dimen>
     <dimen name="_50dp">50dp</dimen>
     <dimen name="_0dp">0dp</dimen>
-    <dimen name="_30dp">30dp</dimen> <!-- i.e., 10dp spacing between tabs. -->
+    <dimen name="_30dp">30dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+    <dimen name="_minus50dp">-50dp</dimen>
+    <dimen name="_150dp">150dp</dimen>
+    <dimen name="_130dp">130dp</dimen>
+    <dimen name="_65dp">65dp</dimen> <!-- i.e., 10dp spacing between tabs. -->
 
 </resources>

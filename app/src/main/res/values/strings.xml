@@ -29,4 +29,21 @@
     <string name="login">"Login "</string>
     <string name="register">Register</string>
     <string name="forget_password_withouI_simple">Forget Password</string>
+    <string name="home">Home</string>
+    <string name="my_garage">My Garage</string>
+    <string name="shop">Shop</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="profile">Profile</string>
+    <string name="hello">Hello,</string>
+    <string name="guest">Guest</string>
+    <string name="count">6</string>
+    <string name="add_veh_desc">Add a vehicle to find exact fit parts</string>
+    <string name="add_veh_btn_txt">Add a Vehicle</string>
+    <string name="search">Search VIN, Parts or Products</string>
+    <string name="add_user_desc">Sign in to get special offers, deals and many more...</string>
+    <string name="create_account">Create an Account</string>
+    <string name="shopby">SHOP BY</string>
+    <string name="gurantee_fit">Guaranteed Fit</string>
+    <string name="fast_shipping">Fast shipping</string>
+    <string name="local_returns">local returns</string>
 </resources>

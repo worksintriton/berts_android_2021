@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.viewpager)
     ViewPager viewpager;
 
+    String fromactivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +61,38 @@ public class RegisterActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            fromactivity = extras.getString("fromactivity");
+
+        }
+
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+            if(fromactivity!=null&&!fromactivity.isEmpty()){
 
-            Animatoo.animateSwipeRight(context);
+                if(fromactivity.equals("HomeFragment")){
+
+                    startActivity(new Intent(RegisterActivity.this,DashboardActivity.class));
+
+                    Animatoo.animateSwipeRight(context);
+
+                }
+
+                else if(fromactivity.equals("LoginActivity")){
+
+                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+
+                    Animatoo.animateSwipeRight(context);
+
+                }
+
+
+            }
+
+
 
         });
 
@@ -108,9 +136,23 @@ public class RegisterActivity extends AppCompatActivity {
 
          super.onBackPressed();
 
-        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+        if(fromactivity!=null&&!fromactivity.isEmpty()) {
 
-        Animatoo.animateSwipeRight(context);
+            if (fromactivity.equals("HomeFragment")) {
 
-    }
+                startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+
+                Animatoo.animateSwipeRight(context);
+
+            } else if (fromactivity.equals("LoginActivity")) {
+
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+
+                Animatoo.animateSwipeRight(context);
+
+            }
+
+        }
+
+        }
 }

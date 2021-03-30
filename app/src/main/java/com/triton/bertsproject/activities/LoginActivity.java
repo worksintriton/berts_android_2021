@@ -1,7 +1,5 @@
 package com.triton.bertsproject.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
@@ -69,9 +68,19 @@ public class LoginActivity extends AppCompatActivity {
 
         btn_sigin.setOnClickListener(v -> {
 
-            startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 
-            Animatoo.animateSwipeLeft(context);
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+        });
+
+        img_back.setOnClickListener(v -> {
+
+            startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+
+            Animatoo.animateSwipeRight(context);
+
         });
 
         txt_forget_password.setOnClickListener(v -> {
@@ -114,6 +123,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // super.onBackPressed(); commented this line in order to disable back press
         //Write your code here
-        Toast.makeText(getApplicationContext(), "Back press disabled!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+
+        Animatoo.animateSwipeRight(context);
     }
 }
