@@ -12,10 +12,6 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\icn1.PNG"
     },
     {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_dashboard.xml.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_dashboard.xml"
-    },
-    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user_bb.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\user_bb.png"
     },
@@ -184,6 +180,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner_solid_white_background.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_solid_white_background.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_eye.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\eye.png"
     },
@@ -214,6 +214,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_retailer_dashboard.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_retailer_dashboard.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -276,7 +280,15 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_blue_background.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_shopbyname.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_shopbyname.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_berts_logo_fb.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\berts_logo_fb.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_search_products.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_search_products.xml"
     }
 ]

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                     sleep(5*1000);
 
                     // After 5 seconds redirect to another intent
-                    Intent i=new Intent(context, LoginActivity.class);
+                    Intent i=new Intent(context, RetailerDashboardActivity.class);
                     startActivity(i);
                     Animatoo.animateSlideRight(SplashActivity.this);
 

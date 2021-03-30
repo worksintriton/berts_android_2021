@@ -21,15 +21,16 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".activities.DashboardActivity"
+        <activity android:name=".retailer.SearchProductsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".retailer.RetailerDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.ForgetPasswordActivity"

@@ -17,6 +17,7 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.tabs.TabLayout;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if(fromactivity.equals("HomeFragment")){
 
-                    startActivity(new Intent(RegisterActivity.this,DashboardActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, RetailerDashboardActivity.class));
 
                     Animatoo.animateSwipeRight(context);
 
@@ -140,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             if (fromactivity.equals("HomeFragment")) {
 
-                startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                startActivity(new Intent(RegisterActivity.this, RetailerDashboardActivity.class));
 
                 Animatoo.animateSwipeRight(context);
 

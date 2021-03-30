@@ -67,6 +67,10 @@
     <dimen name="_minus50dp">-50dp</dimen>
     <dimen name="_150dp">150dp</dimen>
     <dimen name="_130dp">130dp</dimen>
-    <dimen name="_65dp">65dp</dimen> <!-- i.e., 10dp spacing between tabs. -->
+    <dimen name="_65dp">65dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_120dp">120dp</dimen>
+    <dimen name="_25dp">25dp</dimen>
+    <dimen name="_35dp">35dp</dimen> <!-- i.e., 10dp spacing between tabs. -->
 
 </resources>

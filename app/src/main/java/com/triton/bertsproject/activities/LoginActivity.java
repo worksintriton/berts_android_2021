@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+            startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
 
             Animatoo.animateSwipeRight(context);
 
@@ -123,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // super.onBackPressed(); commented this line in order to disable back press
         //Write your code here
-        startActivity(new Intent(LoginActivity.this,DashboardActivity.class));
+        startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
 
         Animatoo.animateSwipeRight(context);
     }

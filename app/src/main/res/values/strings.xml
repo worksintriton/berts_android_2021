@@ -40,10 +40,23 @@
     <string name="add_veh_desc">Add a vehicle to find exact fit parts</string>
     <string name="add_veh_btn_txt">Add a Vehicle</string>
     <string name="search">Search VIN, Parts or Products</string>
-    <string name="add_user_desc">Sign in to get special offers, deals and many more...</string>
+    <string name="add_user_desc">Sign in to get special offers, deals and many more…</string>
     <string name="create_account">Create an Account</string>
     <string name="shopby">SHOP BY</string>
     <string name="gurantee_fit">Guaranteed Fit</string>
     <string name="fast_shipping">Fast shipping</string>
     <string name="local_returns">local returns</string>
+    <string name="shopbyname">ShopByName</string>
+    <string name="search_key_info">Search Keywords Information</string>
+    <string name="search_key_info_desc">You can narrow your search results to specific parts, Products or VIN/Chassis Number. See example search keywords below</string>
+    <string name="vin_info">VIN/Chassis Number Search</string>
+    <string name="vin_info_desc">VIN: 1XXXXXXX234XX</string>
+    <string name="partsnosearch_info">Parts Number Search</string>
+    <string name="partsnosearch_info_desc">GXXA1</string>
+    <string name="prod_search_info_desc">rear brake pads</string>
+    <string name="viewall">VIEW ALL</string>
+    <string name="top_categories">Top Categories</string>
+    <string name="brands">top brands</string>
+    <string name="makes">top makes</string>
+    <string name="headlight"><![CDATA[Headlights & Lighitings]]></string>
 </resources>

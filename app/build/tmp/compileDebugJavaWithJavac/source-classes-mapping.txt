@@ -1,29 +1,36 @@
-com/triton/bertsproject/fragment/MyGarageFragment.java
- com.triton.bertsproject.fragment.MyGarageFragment
-com/triton/bertsproject/fragment/ShopFragment.java
- com.triton.bertsproject.fragment.ShopFragment
 com/triton/bertsproject/BuildConfig.java
  com.triton.bertsproject.BuildConfig
+com/triton/bertsproject/retailerfragment/ShopFragment.java
+ com.triton.bertsproject.retailerfragment.ShopFragment
 com/triton/bertsproject/activities/RegisterActivity.java
  com.triton.bertsproject.activities.RegisterActivity
-com/triton/bertsproject/activities/SplashActivity.java
- com.triton.bertsproject.activities.SplashActivity
- com.triton.bertsproject.activities.SplashActivity$1
+com/triton/bertsproject/retailerfragment/HomeFragment.java
+ com.triton.bertsproject.retailerfragment.HomeFragment
+com/triton/bertsproject/retailer/SearchProductsActivity.java
+ com.triton.bertsproject.retailer.SearchProductsActivity
+com/triton/bertsproject/retailerfragment/ProfileFragment.java
+ com.triton.bertsproject.retailerfragment.ProfileFragment
 com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity
-com/triton/bertsproject/fragment/LiveChatFragment.java
- com.triton.bertsproject.fragment.LiveChatFragment
+com/triton/bertsproject/retailer/RetailerDashboardActivity.java
+ com.triton.bertsproject.retailer.RetailerDashboardActivity
+com/triton/bertsproject/retailerfragment/LiveChatFragment.java
+ com.triton.bertsproject.retailerfragment.LiveChatFragment
 com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment
+com/triton/bertsproject/adapter/ShopbyAdapter.java
+ com.triton.bertsproject.adapter.ShopbyAdapter
+ com.triton.bertsproject.adapter.ShopbyAdapter$AddEduViewHolder
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
-com/triton/bertsproject/fragment/ProfileFragment.java
- com.triton.bertsproject.fragment.ProfileFragment
 com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity
 com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
  com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
-com/triton/bertsproject/activities/DashboardActivity.java
- com.triton.bertsproject.activities.DashboardActivity
-com/triton/bertsproject/fragment/HomeFragment.java
- com.triton.bertsproject.fragment.HomeFragment
+com/triton/bertsproject/model/ShopByNameModel.java
+ com.triton.bertsproject.model.ShopByNameModel
+com/triton/bertsproject/activities/SplashActivity.java
+ com.triton.bertsproject.activities.SplashActivity
+ com.triton.bertsproject.activities.SplashActivity$1
+com/triton/bertsproject/retailerfragment/MyGarageFragment.java
+ com.triton.bertsproject.retailerfragment.MyGarageFragment
