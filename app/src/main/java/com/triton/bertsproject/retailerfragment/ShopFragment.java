@@ -1,66 +1,200 @@
 package com.triton.bertsproject.retailerfragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.ShoplistAdapter;
+import com.triton.bertsproject.model.ShoplistModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ShopFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ShopFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class ShopFragment extends Fragment implements View.OnClickListener {
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.spin_kit_loadingView)
+    SpinKitView spin_kit_loadingView;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rv_top_categories)
+    RecyclerView rv_top_categories;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rv_top_brands)
+    RecyclerView rv_top_brands;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rv_top_makes)
+    RecyclerView rv_top_makes;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_toolbar_title)
+    TextView txt_toolbar_title;
+
+    List<ShoplistModel> shoplistModels;
+
+    List<ShoplistModel> shoplistModels1;
+
+    List<ShoplistModel> shoplistModels2;
+
+    private static final String TAG = "ShopFragment";
+
+    View view;
 
     public ShopFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShopFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ShopFragment newInstance(String param1, String param2) {
-        ShopFragment fragment = new ShopFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        view = inflater.inflate(R.layout.fragment_shop, container, false);
+
+        ButterKnife.bind(this, view);
+
+        Log.w("Oncreate ", TAG);
+
+        txt_toolbar_title.setText(R.string.shop);
+
+        spin_kit_loadingView.setVisibility(View.GONE);
+
+        setView();
+
+        return view;
+    }
+
+    private void setView() {
+
+        shoplistModels = new ArrayList<>();
+
+        shoplistModels1 = new ArrayList<>();
+
+        shoplistModels2 = new ArrayList<>();
+
+        shoplistModels.add(new ShoplistModel("Auto Body Parts",R.drawable.tc_img1));
+
+        shoplistModels.add(new ShoplistModel("Headlights & Lighitings",R.drawable.tc_img2));
+
+        shoplistModels.add(new ShoplistModel("Engine",R.drawable.tc_img3));
+
+        shoplistModels.add(new ShoplistModel("Brakes & Suspension",R.drawable.tc_img4));
+
+        rv_top_categories.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        rv_top_categories.setMotionEventSplittingEnabled(false);
+
+        rv_top_categories.setNestedScrollingEnabled(false);
+
+        //int size =3;
+
+        rv_top_categories.setItemAnimator(new DefaultItemAnimator());
+
+        ShoplistAdapter shoplistAdapter = new ShoplistAdapter(getContext(), shoplistModels);
+
+        rv_top_categories.setAdapter(shoplistAdapter);
+
+        /* ************************************************************************/
+
+        shoplistModels1.add(new ShoplistModel("Garrett",R.drawable.tc_img1));
+
+        shoplistModels1.add(new ShoplistModel("Boregson",R.drawable.tc_img2));
+
+        shoplistModels1.add(new ShoplistModel("Bosch",R.drawable.tc_img3));
+
+        shoplistModels1.add(new ShoplistModel("K&N",R.drawable.tc_img4));
+
+        rv_top_brands.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        rv_top_brands.setMotionEventSplittingEnabled(false);
+
+        rv_top_brands.setNestedScrollingEnabled(false);
+
+        //int size =3;
+
+        rv_top_brands.setItemAnimator(new DefaultItemAnimator());
+
+        ShoplistAdapter shoplistAdapter1 = new ShoplistAdapter(getContext(), shoplistModels1);
+
+        rv_top_brands.setAdapter(shoplistAdapter1);
+
+
+        /* ************************************************************************/
+
+        shoplistModels2.add(new ShoplistModel("Nissan",R.drawable.tc_img1));
+
+        shoplistModels2.add(new ShoplistModel("Mazda",R.drawable.tc_img2));
+
+        shoplistModels2.add(new ShoplistModel("Chevrolet",R.drawable.tc_img3));
+
+        shoplistModels2.add(new ShoplistModel("BMW",R.drawable.tc_img4));
+
+        rv_top_makes.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        rv_top_makes.setMotionEventSplittingEnabled(false);
+
+        rv_top_makes.setNestedScrollingEnabled(false);
+
+        //int size =3;
+
+        rv_top_makes.setItemAnimator(new DefaultItemAnimator());
+
+        ShoplistAdapter shoplistAdapter2 = new ShoplistAdapter(getContext(), shoplistModels2);
+
+        rv_top_makes.setAdapter(shoplistAdapter2);
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

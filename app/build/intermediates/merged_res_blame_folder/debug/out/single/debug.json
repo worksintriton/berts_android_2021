@@ -12,6 +12,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\icn1.PNG"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tc_img3.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\tc_img3.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user_bb.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\user_bb.png"
     },
@@ -26,6 +30,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cart.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\cart.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_keyboard_arrow_right_24.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_keyboard_arrow_right_24.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_whole_saler_register.xml.flat",
@@ -84,12 +92,28 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_searchprodlist.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_searchprodlist.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\font_lato_bold.ttf.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\font\\lato_bold.ttf"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner_green_corner.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_green_corner.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_filterlist.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_filterlist.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_search_product_list.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_search_product_list.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\font_lato_bolditalic.ttf.flat",
@@ -124,6 +148,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tc_img4.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\tc_img4.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\font_lato_italic.ttf.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\font\\lato_italic.ttf"
     },
@@ -154,6 +182,14 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\back.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tc_img1.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\tc_img1.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_splist1.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\splist1.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\font_lato_blackitalic.ttf.flat",
@@ -188,6 +224,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\eye.png"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_shoplist.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_shoplist.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_berts_logo.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\berts_logo.png"
     },
@@ -220,8 +260,16 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_retailer_dashboard.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tc_img2.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\tc_img2.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_check_circle_24.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_check_circle_24.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_background_selected.xml.flat",
@@ -250,6 +298,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_sort_24.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_sort_24.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\font_lato_light.ttf.flat",

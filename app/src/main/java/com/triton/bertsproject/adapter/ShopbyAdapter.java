@@ -14,7 +14,7 @@ import com.triton.bertsproject.model.ShopByNameModel;
 
 import java.util.List;
 
-public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.AddEduViewHolder> {
+public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.ShopbyHolder> {
     Context context;
     List<ShopByNameModel> shopByNameModels;
     View view;
@@ -27,13 +27,13 @@ public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.AddEduView
 
     @NonNull
     @Override
-    public AddEduViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ShopbyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_shopbyname, parent, false);
-        return new AddEduViewHolder(view);
+        return new ShopbyHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AddEduViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ShopbyHolder holder, final int position) {
 
         final ShopByNameModel shopByNameModel = shopByNameModels.get(position);
 
@@ -53,9 +53,9 @@ public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.AddEduView
         return shopByNameModels.size();
     }
 
-    public static class AddEduViewHolder extends RecyclerView.ViewHolder {
+    public static class ShopbyHolder extends RecyclerView.ViewHolder {
         TextView txt_shopbyname;
-        public AddEduViewHolder(View itemView) {
+        public ShopbyHolder(View itemView) {
             super(itemView);
             txt_shopbyname = itemView.findViewById(R.id.txt_shopbyname);
 

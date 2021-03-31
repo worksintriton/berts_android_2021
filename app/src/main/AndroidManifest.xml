@@ -21,17 +21,25 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.SearchProductsActivity"
+        <activity android:name=".retailer.RetailerProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.SearchProductListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.SearchProductsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.RetailerDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.ForgetPasswordActivity"
             android:screenOrientation="portrait"

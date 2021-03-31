@@ -139,7 +139,7 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
                 break;
             case R.id.shop:
                 active_tag = "3";
-                //replaceFragment(new ShopFragment());
+                replaceFragment(new ShopFragment());
                 break;
             case R.id.chat:
                 active_tag = "4";

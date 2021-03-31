@@ -21,5 +21,8 @@
     <color name="item_inactive_color">#7B7B7B</color>
     <color name="item_active_color">#014492</color>
     <color name="red">#E60000</color>
+    <color name="grey_bgnd">#B8BABC</color>
+    <color name="green">#1BF19D</color>
+    <color name="thickblue">#56CCF2</color>
 
 </resources>

@@ -1,3 +1,8 @@
+com/triton/bertsproject/retailer/SearchProductListActivity.java
+ com.triton.bertsproject.retailer.SearchProductListActivity
+com/triton/bertsproject/adapter/ShoplistAdapter.java
+ com.triton.bertsproject.adapter.ShoplistAdapter
+ com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
 com/triton/bertsproject/BuildConfig.java
  com.triton.bertsproject.BuildConfig
 com/triton/bertsproject/retailerfragment/ShopFragment.java
@@ -20,9 +25,11 @@ com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment
 com/triton/bertsproject/adapter/ShopbyAdapter.java
  com.triton.bertsproject.adapter.ShopbyAdapter
- com.triton.bertsproject.adapter.ShopbyAdapter$AddEduViewHolder
+ com.triton.bertsproject.adapter.ShopbyAdapter$ShopbyHolder
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
+com/triton/bertsproject/model/ShoplistModel.java
+ com.triton.bertsproject.model.ShoplistModel
 com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity
 com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
