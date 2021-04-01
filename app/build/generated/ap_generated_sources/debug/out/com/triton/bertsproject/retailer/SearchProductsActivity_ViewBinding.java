@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailer;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -32,6 +33,7 @@ public class SearchProductsActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
   }
 
   @Override
@@ -46,5 +48,6 @@ public class SearchProductsActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = null;
     target.img_back = null;
     target.txt_toolbar_title = null;
+    target.edt_search = null;
   }
 }
