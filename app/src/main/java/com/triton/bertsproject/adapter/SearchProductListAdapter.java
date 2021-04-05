@@ -1,9 +1,11 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -11,8 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.SearchProductlistModel;
+import com.triton.bertsproject.retailer.RetailerCartActivity;
 
 import java.util.List;
 
@@ -78,6 +82,14 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             holder.txt_price.setText(price);
 
         }
+
+        holder.btn_addcart.setOnClickListener(v -> {
+
+            context.startActivity(new Intent(context, RetailerCartActivity.class));
+
+            Animatoo.animateSwipeRight(context);
+
+        });
     }
 
     @Override
@@ -89,6 +101,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
         ImageView img_product_image;
         TextView txt_product_name, txt_parts_no,txt_total_reviews,txt_price;
         RatingBar ratingBar;
+        Button btn_addcart;
 
         public ShoplistHolder(View itemView) {
             super(itemView);
@@ -104,6 +117,8 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
 
             txt_price = itemView.findViewById(R.id.txt_price);
+
+            btn_addcart = itemView.findViewById(R.id.btn_addcart);
         }
     }
 }

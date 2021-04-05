@@ -9,6 +9,8 @@ com/triton/bertsproject/retailerfragment/ProfileFragment.java
  com.triton.bertsproject.retailerfragment.ProfileFragment
 com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity
+com/triton/bertsproject/model/OrderlistModel.java
+ com.triton.bertsproject.model.OrderlistModel
 com/triton/bertsproject/retailerfragment/LiveChatFragment.java
  com.triton.bertsproject.retailerfragment.LiveChatFragment
 com/triton/bertsproject/model/SearchProductlistModel.java
@@ -18,28 +20,38 @@ com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
 com/triton/bertsproject/adapter/ShopbyAdapter.java
  com.triton.bertsproject.adapter.ShopbyAdapter
  com.triton.bertsproject.adapter.ShopbyAdapter$ShopbyHolder
-com/triton/bertsproject/activities/SplashActivity.java
- com.triton.bertsproject.activities.SplashActivity
- com.triton.bertsproject.activities.SplashActivity$1
+com/triton/bertsproject/retailer/RetailerProductListActivity.java
+ com.triton.bertsproject.retailer.RetailerProductListActivity
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
+com/triton/bertsproject/retailer/OrderListActivity.java
+ com.triton.bertsproject.retailer.OrderListActivity
 com/triton/bertsproject/model/ShopByNameModel.java
  com.triton.bertsproject.model.ShopByNameModel
-com/triton/bertsproject/retailerfragment/MyGarageFragment.java
- com.triton.bertsproject.retailerfragment.MyGarageFragment
+com/triton/bertsproject/adapter/ShoplistAdapter.java
+ com.triton.bertsproject.adapter.ShoplistAdapter
+ com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
 com/triton/bertsproject/BuildConfig.java
  com.triton.bertsproject.BuildConfig
 com/triton/bertsproject/retailerfragment/ShopFragment.java
  com.triton.bertsproject.retailerfragment.ShopFragment
+com/triton/bertsproject/adapter/OrderListAdapter.java
+ com.triton.bertsproject.adapter.OrderListAdapter
+ com.triton.bertsproject.adapter.OrderListAdapter$OrderListHolder
 com/triton/bertsproject/adapter/SearchFilterlistAdapter.java
  com.triton.bertsproject.adapter.SearchFilterlistAdapter
  com.triton.bertsproject.adapter.SearchFilterlistAdapter$ShopFilterlistHolder
+com/triton/bertsproject/adapter/CartProductListAdapter.java
+ com.triton.bertsproject.adapter.CartProductListAdapter
+ com.triton.bertsproject.adapter.CartProductListAdapter$ShoplistHolder
 com/triton/bertsproject/retailerfragment/HomeFragment.java
  com.triton.bertsproject.retailerfragment.HomeFragment
 com/triton/bertsproject/model/RetailerProductlistModel.java
  com.triton.bertsproject.model.RetailerProductlistModel
 com/triton/bertsproject/retailer/SearchProductsActivity.java
  com.triton.bertsproject.retailer.SearchProductsActivity
+com/triton/bertsproject/utils/SwipeToDeleteCallback.java
+ com.triton.bertsproject.utils.SwipeToDeleteCallback
 com/triton/bertsproject/retailer/RetailerDashboardActivity.java
  com.triton.bertsproject.retailer.RetailerDashboardActivity
 com/triton/bertsproject/model/ShoplistModel.java
@@ -53,8 +65,12 @@ com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
  com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
 com/triton/bertsproject/model/SearchFilterListModel.java
  com.triton.bertsproject.model.SearchFilterListModel
-com/triton/bertsproject/adapter/ShoplistAdapter.java
- com.triton.bertsproject.adapter.ShoplistAdapter
- com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
-com/triton/bertsproject/retailer/RetailerProductListActivity.java
- com.triton.bertsproject.retailer.RetailerProductListActivity
+com/triton/bertsproject/activities/SplashActivity.java
+ com.triton.bertsproject.activities.SplashActivity
+ com.triton.bertsproject.activities.SplashActivity$1
+com/triton/bertsproject/retailer/RetailerCartActivity.java
+ com.triton.bertsproject.retailer.RetailerCartActivity
+ com.triton.bertsproject.retailer.RetailerCartActivity$1
+ com.triton.bertsproject.retailer.RetailerCartActivity$2
+com/triton/bertsproject/retailerfragment/MyGarageFragment.java
+ com.triton.bertsproject.retailerfragment.MyGarageFragment

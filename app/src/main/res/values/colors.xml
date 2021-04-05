@@ -24,5 +24,9 @@
     <color name="grey_bgnd">#B8BABC</color>
     <color name="green">#1BF19D</color>
     <color name="thickblue">#56CCF2</color>
+    <color name="thickYellow">#FFE11C</color>
+    <color name="lighter_grey">#B1B1B1</color>
+    <color name="med_green">#57B157</color>
+    <color name="thick_red">#F91111</color>
 
 </resources>

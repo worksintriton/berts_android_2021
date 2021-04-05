@@ -28,6 +28,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.triton.bertsproject.retailer.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.RetailerCartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.triton.bertsproject.retailer.RetailerProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"

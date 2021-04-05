@@ -1076,6 +1076,7 @@ color ic_launcher_background
 color item_active_color
 color item_inactive_color
 color light_grey
+color lighter_grey
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1110,6 +1111,7 @@ color material_timepicker_button_stroke
 color material_timepicker_clock_text_color
 color material_timepicker_clockface
 color material_timepicker_modebutton_tint
+color med_green
 color mtrl_bottom_nav_colored_item_tint
 color mtrl_bottom_nav_colored_ripple_color
 color mtrl_bottom_nav_item_tint
@@ -1195,6 +1197,8 @@ color teal_200
 color teal_700
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color thickYellow
+color thick_red
 color thickblue
 color tooltip_background_dark
 color tooltip_background_light
@@ -1252,6 +1256,7 @@ dimen _4sp
 dimen _50dp
 dimen _5dp
 dimen _5sp
+dimen _60dp
 dimen _65dp
 dimen _6dp
 dimen _6sp
@@ -1777,6 +1782,7 @@ drawable home_bb
 drawable home_car_banner
 drawable ic_baseline_add_24
 drawable ic_baseline_check_circle_24
+drawable ic_baseline_delete_forever_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_sort_24
 drawable ic_clock_black_24dp
@@ -1825,8 +1831,11 @@ drawable notify_panel_notification_icon_bg
 drawable rectangle_corner_blue_background
 drawable rectangle_corner_blue_outline
 drawable rectangle_corner_green_corner
+drawable rectangle_corner_med_green_background
 drawable rectangle_corner_solid_white_background
+drawable rectangle_corner_thick_red_background
 drawable rectangle_corner_thickblue_background
+drawable rectangle_corner_thickyellow_background
 drawable rectangle_corner_white_background
 drawable rectangle_corner_yellow_background
 drawable search
@@ -1960,6 +1969,7 @@ id bottomNavigation
 id bounce
 id btn_addVeh
 id btn_addcart
+id btn_proceed
 id btn_reset_link
 id btn_sigin
 id btn_sigin_with_facebook
@@ -2010,6 +2020,7 @@ id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
+id decrease
 id default_activity_button
 id deltaRelative
 id dependency_ordering
@@ -2114,7 +2125,11 @@ id img_search
 id img_shplst
 id img_tick
 id img_user_icon
+id increase
 id info
+id integer_number
+id integer_number2
+id integer_number3
 id invisible
 id inward
 id italic
@@ -2227,6 +2242,7 @@ id right
 id rightToLeft
 id right_icon
 id right_side
+id rl_orderstatus
 id rounded
 id row_index_key
 id rv_filterlist
@@ -2360,6 +2376,11 @@ id txt_local_returns
 id txt_makes
 id txt_model_name
 id txt_or
+id txt_order_ID
+id txt_order_ID_label
+id txt_order_status
+id txt_orders
+id txt_orders_label
 id txt_parts_name
 id txt_parts_no
 id txt_partsnosearch_info
@@ -2380,6 +2401,8 @@ id txt_stock_status
 id txt_terms_conditions
 id txt_toolbar_title
 id txt_top_categories
+id txt_total_label
+id txt_total_price
 id txt_total_results
 id txt_total_reviews
 id txt_user_desc
@@ -2476,13 +2499,17 @@ layout abc_tooltip
 layout activity_add_vehicle
 layout activity_forget_password
 layout activity_login
+layout activity_order_list
 layout activity_register
+layout activity_retailer_cart
 layout activity_retailer_dashboard
 layout activity_retailer_product_list
 layout activity_search_product_list
 layout activity_search_products
 layout activity_splash
+layout adapter_cart_prodlist
 layout adapter_filterlist
+layout adapter_orderlist
 layout adapter_prodlist_gridview
 layout adapter_prodlist_listview
 layout adapter_searchprodlist
@@ -2593,8 +2620,10 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string Retailer
+string _1
 string _2016
 string _2_0l_xxxxcs_fl_turbo
+string _58_00
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2634,6 +2663,7 @@ string bottomsheet_action_expand_halfway
 string brand_name
 string brands
 string btn_add
+string cart
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -2651,6 +2681,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fast_shipping
+string feb_28_2021_10_19
 string firstname
 string fit_desc
 string forget_password
@@ -2689,6 +2720,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string minus
 string model_name
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
@@ -2727,6 +2759,7 @@ string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string my_garage
 string or
+string order_status
 string out_of_stock
 string parts_name
 string parts_no
@@ -2738,7 +2771,9 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string plus
 string price
+string proceed
 string prod_search_info_desc
 string product_name
 string profile
@@ -2769,6 +2804,9 @@ string top_categories
 string total_results
 string total_reviews
 string total_reviews_count
+string txt_order_ID_label
+string txt_orders_label
+string txt_total_label
 string viewall
 string vin
 string vin_info
@@ -3244,6 +3282,7 @@ style Theme_AppCompat_Light_DialogWhenLarge
 style Theme_AppCompat_Light_NoActionBar
 style Theme_AppCompat_NoActionBar
 style Theme_BertsProject
+style Theme_BertsProject_Cart
 style Theme_BertsProject_SearchProduct
 style Theme_Design
 style Theme_Design_BottomSheetDialog

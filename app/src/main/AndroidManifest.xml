@@ -21,7 +21,17 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.RetailerProductListActivity"
+        <activity android:name=".retailer.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".retailer.RetailerCartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.RetailerProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan" />
