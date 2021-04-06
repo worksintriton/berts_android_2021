@@ -28,5 +28,8 @@
     <color name="lighter_grey">#B1B1B1</color>
     <color name="med_green">#57B157</color>
     <color name="thick_red">#F91111</color>
+    <color name="greyish">#C9C9C9</color>
+    <color name="light_blue">#B5CEEB</color>
+    <color name="med_grey">#979797</color>
 
 </resources>

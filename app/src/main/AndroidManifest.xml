@@ -21,10 +21,15 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.OrderListActivity"
+        <activity android:name=".retailer.RetailerOrderTrackActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".retailer.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.RetailerCartActivity"
             android:screenOrientation="portrait"

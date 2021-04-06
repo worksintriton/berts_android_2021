@@ -97,6 +97,15 @@
     <string name="txt_orders_label">Orders</string>
     <string name="txt_total_label">Total</string>
     <string name="_58_00">$58.00</string>
+    <string name="confirmed_your_order">Confirmed Your Order</string>
+    <string name="shipped_from_the_seller">Shipped from the seller</string>
+    <string name="waiting">Waiting</string>
+    <string name="shipping">Shipping</string>
+    <string name="your_address">Your Address</string>
+    <string name="delivery_in_progress">Delivery in progress</string>
+    <string name="track_order_status">Track order status</string>
+    <string name="cancel">Cancel</string>
+    <string name="estimated_delivery_date_mar_17">Estimated delivery date : Mar 17</string>
 
 
     <string-array name="array_name">
