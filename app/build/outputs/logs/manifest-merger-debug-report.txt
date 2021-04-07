@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0b040ae6fd7360855475a012c5af81a6\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.mohammadatif:Animatoo:master] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e79b10fdd0dcd866e9b23745908922b\jetified-Animatoo-master\AndroidManifest.xml:2:1-11:12
@@ -47,22 +47,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\santh\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1435e0b5216c3fd72a2d6579c29d3ee1\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\035487676af6db782633ffbdc1d98b21\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\3fd5b4b866d23b43b0e15439a0ee99e7\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
-INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
+INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
 	package
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:4:5-38
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-81:12
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-91:12
 		INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:11-69
@@ -77,7 +77,7 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:6:5-10:40
 	android:anyDensity
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:7:9-34
 application
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:12:5-79:19
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:12:5-89:19
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0b040ae6fd7360855475a012c5af81a6\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0b040ae6fd7360855475a012c5af81a6\material-1.3.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -110,8 +110,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\sa
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:20:9-40
 	android:usesCleartextTraffic
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:21:9-44
-activity#com.triton.bertsproject.retailer.OrderListActivity
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:9-27:54
+activity#com.triton.bertsproject.retailer.MyWishlistActivity
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:9-27:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:25:13-49
 	android:windowSoftInputMode
@@ -119,8 +119,8 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:9-27:54
 	android:theme
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:26:13-59
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:19-61
-activity#com.triton.bertsproject.retailer.RetailerCartActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:19-62
+activity#com.triton.bertsproject.retailer.RetailerOrderTrackActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:28:9-32:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:30:13-49
@@ -129,28 +129,28 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:28:9-32:55
 	android:theme
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:31:13-59
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:29:13-58
-activity#com.triton.bertsproject.retailer.RetailerProductListActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:29:13-64
+activity#com.triton.bertsproject.retailer.OrderListActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:33:9-37:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:35:13-49
 	android:windowSoftInputMode
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:37:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:36:13-68
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:36:13-59
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:34:13-65
-activity#com.triton.bertsproject.retailer.SearchProductListActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:34:13-55
+activity#com.triton.bertsproject.retailer.RetailerCartActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:38:9-42:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:40:13-49
 	android:windowSoftInputMode
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:42:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:41:13-68
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:41:13-59
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:39:13-63
-activity#com.triton.bertsproject.retailer.SearchProductsActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:39:13-58
+activity#com.triton.bertsproject.retailer.RetailerProductListActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:43:9-47:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:45:13-49
@@ -159,39 +159,39 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:43:9-47:55
 	android:theme
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:46:13-68
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:44:13-60
-activity#com.triton.bertsproject.retailer.RetailerDashboardActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:44:13-65
+activity#com.triton.bertsproject.retailer.SearchProductListActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:48:9-52:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:50:13-49
 	android:windowSoftInputMode
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:52:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:51:13-54
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:51:13-68
 	android:name
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:49:13-63
-activity#com.triton.bertsproject.activities.ForgetPasswordActivity
+activity#com.triton.bertsproject.retailer.SearchProductsActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:53:9-57:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:55:13-49
 	android:windowSoftInputMode
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:57:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:56:13-47
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:56:13-68
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:54:13-62
-activity#com.triton.bertsproject.activities.RegisterActivity
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:54:13-60
+activity#com.triton.bertsproject.retailer.RetailerDashboardActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:58:9-62:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:60:13-49
 	android:windowSoftInputMode
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:62:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:61:13-47
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:61:13-54
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:59:13-56
-activity#com.triton.bertsproject.activities.SplashActivity
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:63:9-73:20
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:59:13-63
+activity#com.triton.bertsproject.activities.ForgetPasswordActivity
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:63:9-67:55
 	android:screenOrientation
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:65:13-49
 	android:windowSoftInputMode
@@ -199,27 +199,47 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:63:9-73:20
 	android:theme
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:66:13-47
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:64:13-54
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:68:13-72:29
-action#android.intent.action.MAIN
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:69:17-69
-	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:69:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:71:17-77
-	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:71:27-74
-activity#com.triton.bertsproject.activities.LoginActivity
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:74:9-78:55
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:64:13-62
+activity#com.triton.bertsproject.activities.RegisterActivity
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:68:9-72:55
 	android:screenOrientation
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:76:13-49
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:70:13-49
 	android:windowSoftInputMode
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:78:13-52
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:72:13-52
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:77:13-47
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:71:13-47
 	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:75:13-53
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:69:13-56
+activity#com.triton.bertsproject.activities.SplashActivity
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:73:9-83:20
+	android:screenOrientation
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:75:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:77:13-52
+	android:theme
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:76:13-47
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:74:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:78:13-82:29
+action#android.intent.action.MAIN
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:79:17-69
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:79:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:81:17-77
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:81:27-74
+activity#com.triton.bertsproject.activities.LoginActivity
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:84:9-88:55
+	android:screenOrientation
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:86:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:88:13-52
+	android:theme
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:87:13-47
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:85:13-53
 uses-sdk
 INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml

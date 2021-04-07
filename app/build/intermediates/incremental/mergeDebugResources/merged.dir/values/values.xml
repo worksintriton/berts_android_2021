@@ -470,11 +470,13 @@
     <color name="green">#1BF19D</color>
     <color name="grey">#38393A</color>
     <color name="grey_bgnd">#B8BABC</color>
+    <color name="greyish">#C9C9C9</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="ic_launcher_background">#FFFFFF</color>
     <color name="item_active_color">#014492</color>
     <color name="item_inactive_color">#7B7B7B</color>
+    <color name="light_blue">#B5CEEB</color>
     <color name="light_grey">#B8BABC</color>
     <color name="lighter_grey">#B1B1B1</color>
     <color name="material_blue_grey_800">#ff37474f</color>
@@ -490,6 +492,7 @@
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
     <color name="med_green">#57B157</color>
+    <color name="med_grey">#979797</color>
     <color name="mtrl_btn_text_color_disabled">#61000000</color>
     <color name="mtrl_btn_transparent_bg_color">#00ffffff</color>
     <color name="mtrl_scrim_color">#52000000</color>
@@ -1154,6 +1157,7 @@
     <string name="brand_name">Brand Name</string>
     <string name="brands">top brands</string>
     <string name="btn_add">Add to Cart</string>
+    <string name="cancel">Cancel</string>
     <string name="cart">Cart</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
@@ -1161,13 +1165,16 @@
     <string name="chip_text">Chip text</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="confirmed_your_order">Confirmed Your Order</string>
     <string name="count">6</string>
     <string name="country">Country</string>
     <string name="create_account">Create an Account</string>
+    <string name="delivery_in_progress">Delivery in progress</string>
     <string name="email">Email</string>
     <string name="email_coupons"><![CDATA[Send me email for discount & Coupon from Bert\'s Auto]]></string>
     <string name="engine">Engine</string>
     <string name="error_icon_content_description">Error</string>
+    <string name="estimated_delivery_date_mar_17">Estimated delivery date : Mar 17</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
@@ -1249,6 +1256,7 @@
     <string description="a11y string to indicate this button changes the input mode to a text field [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_text_input_mode">Switch to text input mode</string>
     <string description="a11y string to indicate this button switches the user to choosing a year [CHAR_LIMIT=NONE]" name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
     <string name="my_garage">My Garage</string>
+    <string name="my_wishlist">Wishlist</string>
     <string name="or">OR</string>
     <string name="order_status">Completed</string>
     <string name="out_of_stock">Out of stock</string>
@@ -1278,6 +1286,8 @@
     <string name="search_key_info_desc">You can narrow your search results to specific parts, Products or VIN/Chassis Number. See example search keywords below</string>
     <string name="search_menu_title">Search</string>
     <string name="search_products">Search Products</string>
+    <string name="shipped_from_the_seller">Shipped from the seller</string>
+    <string name="shipping">Shipping</string>
     <string name="shop">Shop</string>
     <string name="shopby">SHOP BY</string>
     <string name="shopbyname">ShopByName</string>
@@ -1295,6 +1305,7 @@
     <string name="total_results">5000 Results</string>
     <string name="total_reviews">(120 Reviews)</string>
     <string name="total_reviews_count">(123)</string>
+    <string name="track_order_status">Track order status</string>
     <string name="txt_order_ID_label">Order ID</string>
     <string name="txt_orders_label">Orders</string>
     <string name="txt_total_label">Total</string>
@@ -1303,8 +1314,10 @@
     <string name="vin_info">VIN/Chassis Number Search</string>
     <string name="vin_info_desc">VIN: 1XXXXXXX234XX</string>
     <string name="vin_xasd">VIN:XASD</string>
+    <string name="waiting">Waiting</string>
     <string name="wholesaler">WHOLESALER</string>
     <string name="year">Year</string>
+    <string name="your_address">Your Address</string>
     <string name="zipcode">Zipcode</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

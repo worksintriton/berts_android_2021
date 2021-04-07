@@ -3,6 +3,8 @@ com/triton/bertsproject/adapter/SearchProductListAdapter.java
  com.triton.bertsproject.adapter.SearchProductListAdapter$ShoplistHolder
 com/triton/bertsproject/retailer/SearchProductListActivity.java
  com.triton.bertsproject.retailer.SearchProductListActivity
+com/triton/bertsproject/retailer/RetailerOrderTrackActivity.java
+ com.triton.bertsproject.retailer.RetailerOrderTrackActivity
 com/triton/bertsproject/activities/RegisterActivity.java
  com.triton.bertsproject.activities.RegisterActivity
 com/triton/bertsproject/retailerfragment/ProfileFragment.java
@@ -15,6 +17,9 @@ com/triton/bertsproject/retailerfragment/LiveChatFragment.java
  com.triton.bertsproject.retailerfragment.LiveChatFragment
 com/triton/bertsproject/model/SearchProductlistModel.java
  com.triton.bertsproject.model.SearchProductlistModel
+com/triton/bertsproject/retailer/MyWishlistActivity.java
+ com.triton.bertsproject.retailer.MyWishlistActivity
+ com.triton.bertsproject.retailer.MyWishlistActivity$1
 com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment
 com/triton/bertsproject/adapter/ShopbyAdapter.java
@@ -33,6 +38,9 @@ com/triton/bertsproject/adapter/ShoplistAdapter.java
  com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
 com/triton/bertsproject/BuildConfig.java
  com.triton.bertsproject.BuildConfig
+com/triton/bertsproject/adapter/MywishListAdapter.java
+ com.triton.bertsproject.adapter.MywishListAdapter
+ com.triton.bertsproject.adapter.MywishListAdapter$ShoplistHolder
 com/triton/bertsproject/retailerfragment/ShopFragment.java
  com.triton.bertsproject.retailerfragment.ShopFragment
 com/triton/bertsproject/adapter/OrderListAdapter.java

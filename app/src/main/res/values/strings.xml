@@ -106,6 +106,7 @@
     <string name="track_order_status">Track order status</string>
     <string name="cancel">Cancel</string>
     <string name="estimated_delivery_date_mar_17">Estimated delivery date : Mar 17</string>
+    <string name="my_wishlist">Wishlist</string>
 
 
     <string-array name="array_name">
