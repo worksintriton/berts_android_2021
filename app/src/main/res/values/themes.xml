@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -26,6 +27,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -56,6 +58,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="tabBackground">@drawable/tab_background</item>
+
+        <!-- Status bar stuff. -->
+
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 
 
@@ -76,6 +83,23 @@
         <item name="colorAccent">@color/dark_blue</item>
         <item name="android:textColorSecondary">@color/dark_blue</item>
     </style>
+
+    <style name="TextViewRegular">
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/selector</item>
+        <item name="itemTextColor">@color/selector</item>
+        <item name="itemTextAppearanceActive">@style/MyBottomNavigationView.TextAppearance</item>
+        <item name="itemTextAppearanceInactive">@style/MyBottomNavigationView.TextAppearance</item>
+    </style>
+
+    <style name="MyBottomNavigationView.TextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">@font/lato_regular</item>
+    </style>
+
 
 
 </resources>

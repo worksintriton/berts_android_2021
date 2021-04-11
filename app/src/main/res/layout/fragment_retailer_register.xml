@@ -33,152 +33,54 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <EditText
+                <com.triton.bertsproject.customView.CustomEditText
                     android:id="@+id/edt_firstname"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="@integer/_int1"
-                    android:background="@drawable/rectangle_corner_white_background"
-                    android:fontFamily="@font/lato_regular"
-                    android:hint="@string/firstname"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:maxLines="@integer/_int1"
-                    android:padding="@dimen/_15dp"
-                    android:textColor="@color/dark_blue"
-                    android:textColorHint="@color/light_grey"
-                    android:textSize="@dimen/_14sp"
-                    tools:ignore="Autofill,LabelFor,TextFields" />
+                    android:orientation="vertical"
+                    app:inputType="text_normal"
+                    />
 
-                <EditText
+                <com.triton.bertsproject.customView.CustomEditText
                     android:id="@+id/edt_lastname"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5dp"
                     android:layout_marginLeft="@dimen/_5dp"
                     android:layout_weight="@integer/_int1"
-                    android:background="@drawable/rectangle_corner_white_background"
-                    android:fontFamily="@font/lato_regular"
-                    android:hint="@string/lastname"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:maxLines="@integer/_int1"
-                    android:padding="@dimen/_15dp"
-                    android:textColor="@color/dark_blue"
-                    android:textColorHint="@color/light_grey"
-                    android:textSize="@dimen/_14sp"
-                    tools:ignore="Autofill,LabelFor,TextFields" />
+                    android:orientation="vertical"
+                    app:inputType="text_normal"/>
+
             </LinearLayout>
 
-            <EditText
+            <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_email"
+                android:layout_marginTop="@dimen/margin_common"                android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:inputType="email"
+                android:layout_height="wrap_content"/>
+
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edt_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/email"
-                android:imeOptions="actionDone"
-                android:inputType="textEmailAddress"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_common"
+                app:inputType="password"
+                android:layout_height="wrap_content"/>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_password"
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edt_cnfmpassword"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/edt_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rectangle_corner_white_background"
-                        android:fontFamily="@font/lato_regular"
-                        android:hint="@string/password"
-                        android:inputType="textPassword"
-                        android:padding="@dimen/_15dp"
-                        android:textColorHint="@color/light_grey"
-                        android:textSize="@dimen/_14sp"
-                        tools:ignore="Autofill,LabelFor" />
-
-                    <ImageView
-                        android:id="@+id/img_passwd"
-                        android:layout_width="@dimen/_24dp"
-                        android:layout_height="@dimen/_24dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="@dimen/_5dp"
-                        android:contentDescription="@string/image_description"
-                        android:src="@drawable/eye" />
-
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_cnfm_password"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/edt_cnfm_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rectangle_corner_white_background"
-                        android:fontFamily="@font/lato_regular"
-                        android:hint="@string/confirm_password"
-                        android:inputType="textPassword"
-                        android:padding="@dimen/_15dp"
-                        android:textColorHint="@color/light_grey"
-                        android:textSize="@dimen/_14sp"
-                        tools:ignore="Autofill,LabelFor" />
-
-                    <ImageView
-                        android:id="@+id/img_cnfm_passwd"
-                        android:layout_width="@dimen/_24dp"
-                        android:layout_height="@dimen/_24dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="@dimen/_5dp"
-                        android:contentDescription="@string/image_description"
-                        android:src="@drawable/eye" />
-
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_common"
+                app:inputType="password"
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/margin_common"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -194,14 +96,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_bold"
-                    android:gravity="center_horizontal"
                     android:lineSpacingExtra="@dimen/_8sp"
                     android:maxLines="@integer/_int2"
                     android:padding="@dimen/_5dp"
                     android:text="@string/email_coupons"
-                    android:textAlignment="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_12sp" />
+                    android:textSize="@dimen/_14sp" />
 
             </LinearLayout>
 
@@ -221,16 +121,25 @@
                 android:id="@+id/txt_terms_conditions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10dp"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_common"
                 android:lineSpacingExtra="@dimen/_8sp"
-                android:maxLines="@integer/_int2"
                 android:padding="@dimen/_5dp"
+                android:fontFamily="@font/lato_bold"
                 android:text="@string/terms_conditions"
-                android:textAlignment="center"
                 android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_12sp" />
+                android:textSize="@dimen/_14sp" />
+
+            <TextView
+                android:id="@+id/txt_terms_condition1s"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/_8sp"
+                android:padding="@dimen/_5dp"
+                android:gravity="center"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/terms_conditions1"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/_14sp" />
 
             <TextView
                 android:id="@+id/txt_or"
@@ -239,6 +148,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/lato_bold"
                 android:padding="@dimen/_5dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:text="@string/or"
                 android:textColor="@color/dark_grey"
                 android:textSize="@dimen/_14sp" />
@@ -248,6 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_20dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -259,8 +170,8 @@
 
                     <ImageView
                         android:id="@+id/img_facebk"
-                        android:layout_width="@dimen/_24dp"
-                        android:layout_height="@dimen/_24dp"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="@dimen/_30dp"
                         android:layout_margin="@dimen/_10dp"
                         android:contentDescription="@string/image_description"
                         android:src="@drawable/facebook" />
@@ -273,8 +184,10 @@
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/sigin_with_facebook"
                         android:textAllCaps="false"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14sp" />
+                        android:textSize="@dimen/_14sp"
+                        android:gravity="center" />
 
 
                 </RelativeLayout>

@@ -7,6 +7,6 @@
 
 
     <!-- Round Corners -->
-    <corners android:radius="5dp" />
+    <corners android:radius="@dimen/_10dp" />
 
 </shape>

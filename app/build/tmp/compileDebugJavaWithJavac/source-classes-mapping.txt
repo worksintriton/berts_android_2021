@@ -5,6 +5,9 @@ com/triton/bertsproject/retailer/SearchProductListActivity.java
  com.triton.bertsproject.retailer.SearchProductListActivity
 com/triton/bertsproject/retailer/RetailerOrderTrackActivity.java
  com.triton.bertsproject.retailer.RetailerOrderTrackActivity
+com/triton/bertsproject/customView/CustomEditText.java
+ com.triton.bertsproject.customView.CustomEditText
+ com.triton.bertsproject.customView.CustomEditText$1
 com/triton/bertsproject/activities/RegisterActivity.java
  com.triton.bertsproject.activities.RegisterActivity
 com/triton/bertsproject/retailerfragment/ProfileFragment.java

@@ -47,4 +47,6 @@ dependencies {
 
     /* Animation Transition */
     implementation 'com.github.mohammadatif:Animatoo:master'
+
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3'
 }

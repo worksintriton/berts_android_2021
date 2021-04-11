@@ -25,9 +25,11 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:backgroundTint="@android:color/transparent"
             app:elevation="0dp"
+            app:itemIconSize="@dimen/_18dp"
+            style="@style/MyBottomNavigationView"
             app:itemIconTint="@color/selector"
             app:itemRippleColor="@android:color/white"
             app:itemTextColor="@color/selector"

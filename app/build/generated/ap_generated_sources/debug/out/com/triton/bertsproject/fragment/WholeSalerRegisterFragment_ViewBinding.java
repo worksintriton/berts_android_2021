@@ -8,6 +8,7 @@ import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.customView.CustomEditText;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -19,6 +20,15 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     this.target = target;
 
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
+    target.edt_firstname = Utils.findRequiredViewAsType(source, R.id.edt_firstname, "field 'edt_firstname'", CustomEditText.class);
+    target.edt_lastname = Utils.findRequiredViewAsType(source, R.id.edt_lastname, "field 'edt_lastname'", CustomEditText.class);
+    target.edt_email = Utils.findRequiredViewAsType(source, R.id.edt_email, "field 'edt_email'", CustomEditText.class);
+    target.edt_password = Utils.findRequiredViewAsType(source, R.id.edt_password, "field 'edt_password'", CustomEditText.class);
+    target.edt_cnfmpassword = Utils.findRequiredViewAsType(source, R.id.edt_cnfmpassword, "field 'edt_cnfmpassword'", CustomEditText.class);
+    target.edt_zipcode = Utils.findRequiredViewAsType(source, R.id.edt_zipcode, "field 'edt_zipcode'", CustomEditText.class);
+    target.edt_country = Utils.findRequiredViewAsType(source, R.id.edt_country, "field 'edt_country'", CustomEditText.class);
+    target.edt_state = Utils.findRequiredViewAsType(source, R.id.edt_state, "field 'edt_state'", CustomEditText.class);
+    target.edt_revenue = Utils.findRequiredViewAsType(source, R.id.edt_revenue, "field 'edt_revenue'", CustomEditText.class);
   }
 
   @Override
@@ -29,5 +39,14 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     this.target = null;
 
     target.spin_kit_loadingView = null;
+    target.edt_firstname = null;
+    target.edt_lastname = null;
+    target.edt_email = null;
+    target.edt_password = null;
+    target.edt_cnfmpassword = null;
+    target.edt_zipcode = null;
+    target.edt_country = null;
+    target.edt_state = null;
+    target.edt_revenue = null;
   }
 }

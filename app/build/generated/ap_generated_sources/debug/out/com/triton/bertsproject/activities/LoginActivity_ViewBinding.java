@@ -3,7 +3,6 @@ package com.triton.bertsproject.activities;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -12,6 +11,7 @@ import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.customView.CustomEditText;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -27,7 +27,8 @@ public class LoginActivity_ViewBinding implements Unbinder {
   public LoginActivity_ViewBinding(LoginActivity target, View source) {
     this.target = target;
 
-    target.edt_email = Utils.findRequiredViewAsType(source, R.id.edt_email, "field 'edt_email'", EditText.class);
+    target.edt_email = Utils.findRequiredViewAsType(source, R.id.edt_email, "field 'edt_email'", CustomEditText.class);
+    target.edt_password = Utils.findRequiredViewAsType(source, R.id.edt_password, "field 'edt_password'", CustomEditText.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
     target.btn_sigin_with_facebook = Utils.findRequiredViewAsType(source, R.id.btn_sigin_with_facebook, "field 'btn_sigin_with_facebook'", Button.class);
@@ -44,6 +45,7 @@ public class LoginActivity_ViewBinding implements Unbinder {
     this.target = null;
 
     target.edt_email = null;
+    target.edt_password = null;
     target.spin_kit_loadingView = null;
     target.btn_sigin = null;
     target.btn_sigin_with_facebook = null;

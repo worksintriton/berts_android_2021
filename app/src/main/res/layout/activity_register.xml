@@ -14,7 +14,59 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <include layout="@layout/header_layout" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:titleTextAppearance="@color/dark_blue"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                tools:ignore="UnusedAttribute">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginStart="@dimen/_20dp"
+                    android:layout_marginLeft="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginEnd="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:background="@drawable/rectangle_corner_yellow_background">
+
+                    <ImageView
+                        android:id="@+id/img_back"
+                        android:layout_width="@dimen/_20dp"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/back" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/lato_black"
+                    android:padding="@dimen/_5dp"
+                    android:text="@string/toolbar_title"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_14sp" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </LinearLayout>
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
@@ -29,7 +81,8 @@
             app:tabPaddingStart="@dimen/_0dp"
             app:tabRippleColor="@null"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/dark_blue">
+            app:tabTextColor="@color/dark_blue"
+            app:tabUnboundedRipple="false">
 
 
             <com.google.android.material.tabs.TabItem
@@ -67,7 +120,6 @@
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_20dp"
                 android:background="@android:color/transparent" />
 
 
@@ -87,10 +139,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical"
         android:layout_marginStart="@dimen/_30dp"
         android:layout_marginEnd="@dimen/_30dp"
-        android:layout_marginBottom="@dimen/_20dp"/>
+        android:orientation="vertical" />
 
 
 </RelativeLayout>

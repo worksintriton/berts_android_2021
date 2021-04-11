@@ -32,4 +32,8 @@
     <color name="light_blue">#B5CEEB</color>
     <color name="med_grey">#979797</color>
 
+    <color name="transparent">#00000000</color>
+    <color name="txt_common">#1B304D</color>
+    <color name="hint_color">#B8BABC</color>
+    <color name="light_yellow">#FFF41C</color>
 </resources>

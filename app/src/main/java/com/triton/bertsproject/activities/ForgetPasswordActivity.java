@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.customView.CustomEditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +24,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     private static final String TAG = "ForgetPasswordActivity";
 
     Context context = ForgetPasswordActivity.this;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.edt_email)
+    CustomEditText edt_email;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -46,6 +51,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         Log.w("Oncreate", TAG);
 
         txt_toolbar_title.setText(R.string.forget_password_withouI_simple);
+
+        edt_email.setTitle(getString(R.string.email));
 
         spin_kit_loadingView.setVisibility(View.GONE);
 

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.customView.CustomEditText;
 import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 
 import butterknife.BindView;
@@ -29,7 +29,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.edt_email)
-    EditText edt_email;
+    CustomEditText edt_email;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.edt_password)
+    CustomEditText edt_password;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -91,6 +95,10 @@ public class LoginActivity extends AppCompatActivity {
             Animatoo.animateSwipeRight(context);
 
         });
+
+        edt_email.setTitle(getString(R.string.email));
+
+        edt_password.setTitle(getString(R.string.password));
 
     }
 
