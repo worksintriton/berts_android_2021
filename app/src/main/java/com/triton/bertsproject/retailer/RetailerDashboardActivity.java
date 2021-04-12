@@ -147,7 +147,7 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
                 break;
             case R.id.profile:
                 active_tag = "5";
-                //replaceFragment(new ProfileFragment());
+                replaceFragment(new ProfileFragment());
                 break;
 
             default:

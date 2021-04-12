@@ -100,6 +100,15 @@
         <item name="fontFamily">@font/lato_regular</item>
     </style>
 
+    <style name="itemProfile">
+        <item name="android:paddingLeft">@dimen/margin_common</item>
+        <item name="android:paddingBottom">@dimen/margin_common</item>
+        <item name="android:paddingTop">@dimen/margin_common</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 
 
 </resources>

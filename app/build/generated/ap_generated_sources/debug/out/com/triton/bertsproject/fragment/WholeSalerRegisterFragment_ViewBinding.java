@@ -2,6 +2,7 @@
 package com.triton.bertsproject.fragment;
 
 import android.view.View;
+import android.widget.Spinner;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
@@ -26,8 +27,8 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_password = Utils.findRequiredViewAsType(source, R.id.edt_password, "field 'edt_password'", CustomEditText.class);
     target.edt_cnfmpassword = Utils.findRequiredViewAsType(source, R.id.edt_cnfmpassword, "field 'edt_cnfmpassword'", CustomEditText.class);
     target.edt_zipcode = Utils.findRequiredViewAsType(source, R.id.edt_zipcode, "field 'edt_zipcode'", CustomEditText.class);
-    target.edt_country = Utils.findRequiredViewAsType(source, R.id.edt_country, "field 'edt_country'", CustomEditText.class);
-    target.edt_state = Utils.findRequiredViewAsType(source, R.id.edt_state, "field 'edt_state'", CustomEditText.class);
+    target.sp_country = Utils.findRequiredViewAsType(source, R.id.sp_country, "field 'sp_country'", Spinner.class);
+    target.sp_state = Utils.findRequiredViewAsType(source, R.id.sp_state, "field 'sp_state'", Spinner.class);
     target.edt_revenue = Utils.findRequiredViewAsType(source, R.id.edt_revenue, "field 'edt_revenue'", CustomEditText.class);
   }
 
@@ -45,8 +46,8 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_password = null;
     target.edt_cnfmpassword = null;
     target.edt_zipcode = null;
-    target.edt_country = null;
-    target.edt_state = null;
+    target.sp_country = null;
+    target.sp_state = null;
     target.edt_revenue = null;
   }
 }

@@ -25,6 +25,8 @@ com/triton/bertsproject/retailer/MyWishlistActivity.java
  com.triton.bertsproject.retailer.MyWishlistActivity$1
 com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment
+ com.triton.bertsproject.fragment.WholeSalerRegisterFragment$1
+ com.triton.bertsproject.fragment.WholeSalerRegisterFragment$2
 com/triton/bertsproject/adapter/ShopbyAdapter.java
  com.triton.bertsproject.adapter.ShopbyAdapter
  com.triton.bertsproject.adapter.ShopbyAdapter$ShopbyHolder
@@ -36,6 +38,11 @@ com/triton/bertsproject/retailer/OrderListActivity.java
  com.triton.bertsproject.retailer.OrderListActivity
 com/triton/bertsproject/model/ShopByNameModel.java
  com.triton.bertsproject.model.ShopByNameModel
+com/triton/bertsproject/customView/CustomTextarea.java
+ com.triton.bertsproject.customView.CustomTextarea
+ com.triton.bertsproject.customView.CustomTextarea$1
+com/triton/bertsproject/retailer/ShippingAddressActivity.java
+ com.triton.bertsproject.retailer.ShippingAddressActivity
 com/triton/bertsproject/adapter/ShoplistAdapter.java
  com.triton.bertsproject.adapter.ShoplistAdapter
  com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
@@ -61,10 +68,16 @@ com/triton/bertsproject/model/RetailerProductlistModel.java
  com.triton.bertsproject.model.RetailerProductlistModel
 com/triton/bertsproject/retailer/SearchProductsActivity.java
  com.triton.bertsproject.retailer.SearchProductsActivity
+com/triton/bertsproject/retailer/ShippingAddressAddActivity.java
+ com.triton.bertsproject.retailer.ShippingAddressAddActivity
 com/triton/bertsproject/utils/SwipeToDeleteCallback.java
  com.triton.bertsproject.utils.SwipeToDeleteCallback
 com/triton/bertsproject/retailer/RetailerDashboardActivity.java
  com.triton.bertsproject.retailer.RetailerDashboardActivity
+com/triton/bertsproject/retailer/RetailerProfileAccountActivity.java
+ com.triton.bertsproject.retailer.RetailerProfileAccountActivity
+ com.triton.bertsproject.retailer.RetailerProfileAccountActivity$1
+ com.triton.bertsproject.retailer.RetailerProfileAccountActivity$2
 com/triton/bertsproject/model/ShoplistModel.java
  com.triton.bertsproject.model.ShoplistModel
 com/triton/bertsproject/adapter/RetailerProductListAdapter.java

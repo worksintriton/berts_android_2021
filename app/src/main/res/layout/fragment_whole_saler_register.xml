@@ -92,14 +92,66 @@
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="horizontal">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@integer/_int1"
+                    android:background="@drawable/rectangle_corner_white_background"
+                    android:padding="@dimen/margin_common">
+
+                    <Spinner
+                        android:id="@+id/sp_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_24dp"
+                        android:layout_height="@dimen/_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_right_down"
+                        tools:ignore="ContentDescription" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_weight="@integer/_int1"
+                    android:background="@drawable/rectangle_corner_white_background"
+                    android:padding="@dimen/margin_common">
+
+                    <Spinner
+                        android:id="@+id/sp_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_24dp"
+                        android:layout_height="@dimen/_24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_right_down"
+                        tools:ignore="ContentDescription" />
+
+                </RelativeLayout>
+
                 <com.triton.bertsproject.customView.CustomEditText
                     android:id="@+id/edt_country"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="@integer/_int1"
                     android:orientation="vertical"
-                    app:inputType="text_normal"
-                    />
+                    android:visibility="gone"
+                    app:inputType="text_normal" />
 
                 <com.triton.bertsproject.customView.CustomEditText
                     android:id="@+id/edt_state"
@@ -109,7 +161,8 @@
                     android:layout_marginLeft="@dimen/_5dp"
                     android:layout_weight="@integer/_int1"
                     android:orientation="vertical"
-                    app:inputType="text_normal"/>
+                    android:visibility="gone"
+                    app:inputType="text_normal" />
 
             </LinearLayout>
 

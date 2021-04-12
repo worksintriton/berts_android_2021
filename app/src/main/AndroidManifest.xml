@@ -21,7 +21,11 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.MyWishlistActivity"
+        <activity android:name=".retailer.ShippingAddressAddActivity"></activity>
+        <activity android:name=".retailer.ShippingAddressActivity" />
+        <activity android:name=".retailer.RetailerProfileAccountActivity" />
+        <activity
+            android:name=".retailer.MyWishlistActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan" />
