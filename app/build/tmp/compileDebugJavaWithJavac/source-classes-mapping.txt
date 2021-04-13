@@ -1,3 +1,5 @@
+com/triton/bertsproject/retailer/FilterlistActivity.java
+ com.triton.bertsproject.retailer.FilterlistActivity
 com/triton/bertsproject/adapter/SearchProductListAdapter.java
  com.triton.bertsproject.adapter.SearchProductListAdapter
  com.triton.bertsproject.adapter.SearchProductListAdapter$ShoplistHolder
@@ -10,8 +12,9 @@ com/triton/bertsproject/customView/CustomEditText.java
  com.triton.bertsproject.customView.CustomEditText$1
 com/triton/bertsproject/activities/RegisterActivity.java
  com.triton.bertsproject.activities.RegisterActivity
-com/triton/bertsproject/retailerfragment/ProfileFragment.java
- com.triton.bertsproject.retailerfragment.ProfileFragment
+com/triton/bertsproject/activities/SplashActivity.java
+ com.triton.bertsproject.activities.SplashActivity
+ com.triton.bertsproject.activities.SplashActivity$1
 com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity
 com/triton/bertsproject/model/OrderlistModel.java
@@ -34,8 +37,8 @@ com/triton/bertsproject/retailer/RetailerProductListActivity.java
  com.triton.bertsproject.retailer.RetailerProductListActivity
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
-com/triton/bertsproject/retailer/OrderListActivity.java
- com.triton.bertsproject.retailer.OrderListActivity
+com/triton/bertsproject/retailerfragment/MyGarageFragment.java
+ com.triton.bertsproject.retailerfragment.MyGarageFragment
 com/triton/bertsproject/model/ShopByNameModel.java
  com.triton.bertsproject.model.ShopByNameModel
 com/triton/bertsproject/customView/CustomTextarea.java
@@ -89,12 +92,11 @@ com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
  com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
 com/triton/bertsproject/model/SearchFilterListModel.java
  com.triton.bertsproject.model.SearchFilterListModel
-com/triton/bertsproject/activities/SplashActivity.java
- com.triton.bertsproject.activities.SplashActivity
- com.triton.bertsproject.activities.SplashActivity$1
+com/triton/bertsproject/retailer/OrderListActivity.java
+ com.triton.bertsproject.retailer.OrderListActivity
+com/triton/bertsproject/retailerfragment/ProfileFragment.java
+ com.triton.bertsproject.retailerfragment.ProfileFragment
 com/triton/bertsproject/retailer/RetailerCartActivity.java
  com.triton.bertsproject.retailer.RetailerCartActivity
  com.triton.bertsproject.retailer.RetailerCartActivity$1
  com.triton.bertsproject.retailer.RetailerCartActivity$2
-com/triton/bertsproject/retailerfragment/MyGarageFragment.java
- com.triton.bertsproject.retailerfragment.MyGarageFragment

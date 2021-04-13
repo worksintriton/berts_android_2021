@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.view.View;
+import android.widget.RelativeLayout;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
@@ -19,6 +20,9 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     this.target = target;
 
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
+    target.rl_wishlist = Utils.findRequiredViewAsType(source, R.id.rl_wishlist, "field 'rl_wishlist'", RelativeLayout.class);
+    target.rl_ordrhist = Utils.findRequiredViewAsType(source, R.id.rl_ordrhist, "field 'rl_ordrhist'", RelativeLayout.class);
+    target.rl_ordrtrack = Utils.findRequiredViewAsType(source, R.id.rl_ordrtrack, "field 'rl_ordrtrack'", RelativeLayout.class);
   }
 
   @Override
@@ -29,5 +33,8 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     this.target = null;
 
     target.spin_kit_loadingView = null;
+    target.rl_wishlist = null;
+    target.rl_ordrhist = null;
+    target.rl_ordrtrack = null;
   }
 }

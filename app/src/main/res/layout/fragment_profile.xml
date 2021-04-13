@@ -182,7 +182,7 @@
                 android:id="@+id/cv_before_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp">
 
@@ -248,7 +248,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/_10dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardCornerRadius="10dp"
                 app:cardPreventCornerOverlap="true"
                 tools:ignore="UnusedAttribute">
@@ -612,7 +612,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20dp"
                 android:elevation="@dimen/_10dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardCornerRadius="10dp"
                 app:cardPreventCornerOverlap="true"
                 tools:ignore="UnusedAttribute">

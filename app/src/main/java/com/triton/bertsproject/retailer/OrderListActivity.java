@@ -76,7 +76,7 @@ public class OrderListActivity extends AppCompatActivity {
 
         ButterKnife.bind( this);
         Log.w("Oncreate", TAG);
-        txt_toolbar_title.setText(R.string.cart);
+        txt_toolbar_title.setText(R.string.order_history);
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

@@ -141,6 +141,21 @@
     <string name="select_vehicle">Select Vehicle</string>
     <string name="_2016_bmw_a228i">2016 BMW A228i</string>
     <string name="_2_0l_xxxxcs_fl_turbo_vin_xasd">2.0L XXXXCS Fl Turbo VIN:XASD</string>
+    <string name="selected_vehicle1">Selected Vehicle</string>
+    <string name="select_a_year">Select a year</string>
+    <string name="make">Make</string>
+    <string name="select_a_vendor">Select a vendor</string>
+    <string name="select_brand">Select brand</string>
+    <string name="brandsss">Brand</string>
+    <string name="category1">Category</string>
+    <string name="select_category">Select category</string>
+    <string name="price_range">Price range</string>
+    <string name="select_a_range">Select a range</string>
+    <string name="rate">Rate</string>
+    <string name="color">Color</string>
+    <string name="select_color">Select color</string>
+    <string name="apply">Apply</string>
+    <string name="reset">Reset</string>
 
 
     <string-array name="array_name">

@@ -21,7 +21,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.ShippingAddressAddActivity"></activity>
+        <activity android:name=".retailer.FilterlistActivity"></activity>
+        <activity android:name=".retailer.ShippingAddressAddActivity" />
         <activity android:name=".retailer.ShippingAddressActivity" />
         <activity android:name=".retailer.RetailerProfileAccountActivity" />
         <activity

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
@@ -50,9 +51,9 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 //    @BindView(R.id.img_back)
 //    ImageView img_back;
 //
-//    @SuppressLint("NonConstantResourceId")
-//    @BindView(R.id.txt_toolbar_title)
-//    TextView txt_toolbar_title;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_toolbar_title)
+      TextView txt_toolbar_title;
 //
 //    @SuppressLint("NonConstantResourceId")
 //    @BindView(R.id.edt_search)
@@ -99,6 +100,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
+        txt_toolbar_title.setText(R.string.search_products);
 
         tag = getIntent().getStringExtra("tag");
 

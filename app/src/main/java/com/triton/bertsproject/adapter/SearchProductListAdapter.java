@@ -61,15 +61,15 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
         }
 
-        if (searchProductlistModel.getRating()!= null) {
-
-            holder.ratingBar.setNumStars(Integer.parseInt(searchProductlistModel.getRating()));
-
-        }
+//        if (searchProductlistModel.getRating()!= null) {
+//
+//            holder.ratingBar.setNumStars(Integer.parseInt(searchProductlistModel.getRating()));
+//
+//        }
 
         if (searchProductlistModel.getReview()!= null) {
 
-            String review = searchProductlistModel.getReview()+ " Reviews";
+            String review = "(" + searchProductlistModel.getReview()+ " Reviews )";
 
             holder.txt_total_reviews.setText(review);
 

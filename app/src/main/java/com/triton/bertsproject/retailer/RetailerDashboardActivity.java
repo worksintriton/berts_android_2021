@@ -135,7 +135,7 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
                 break;
             case R.id.garage:
                 active_tag = "2";
-               // replaceFragment(new MyGarageFragment());
+                replaceFragment(new MyGarageFragment());
                 break;
             case R.id.shop:
                 active_tag = "3";
