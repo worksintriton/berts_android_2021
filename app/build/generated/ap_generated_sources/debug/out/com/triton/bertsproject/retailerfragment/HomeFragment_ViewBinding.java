@@ -27,6 +27,7 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.txt_user_login = Utils.findRequiredViewAsType(source, R.id.txt_user_login, "field 'txt_user_login'", TextView.class);
     target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
     target.rv_shopby = Utils.findRequiredViewAsType(source, R.id.rv_shopby, "field 'rv_shopby'", RecyclerView.class);
+    target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
   }
 
   @Override
@@ -41,5 +42,6 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.txt_user_login = null;
     target.edt_search = null;
     target.rv_shopby = null;
+    target.btn_addVeh = null;
   }
 }

@@ -26,10 +26,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.triton.bertsproject.retailer.FilterlistActivity" />
-        <activity android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity" />
-        <activity android:name="com.triton.bertsproject.retailer.ShippingAddressActivity" />
-        <activity android:name="com.triton.bertsproject.retailer.RetailerProfileAccountActivity" />
+        <activity android:name="com.triton.bertsproject.retailer.AddVehicleActivity" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.RetailerReceiptActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.FilterlistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.ShippingAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.triton.bertsproject.retailer.RetailerProfileAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.triton.bertsproject.retailer.MyWishlistActivity"
             android:screenOrientation="portrait"

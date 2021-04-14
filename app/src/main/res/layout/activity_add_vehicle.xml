@@ -33,157 +33,100 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/_20dp">
 
-            <TextView
-                android:id="@+id/txt_brand_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
-                android:padding="@dimen/_5dp"
-                android:text="@string/brand_name"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_14sp" />
-
-            <EditText
-                android:id="@+id/edt_brandname"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/brand_name"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
+                android:padding="@dimen/margin_common">
 
+                <Spinner
+                    android:id="@+id/sp_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:entries="@array/year"/>
 
-            <TextView
-                android:id="@+id/txt_model_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
-                android:padding="@dimen/_5dp"
-                android:layout_marginTop="@dimen/_10dp"
-                android:text="@string/model_name"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_14sp" />
+                <ImageView
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_right_down"
+                    tools:ignore="ContentDescription" />
 
-            <EditText
-                android:id="@+id/edt_modelname"
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_16dp"
                 android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/model_name"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
+                android:padding="@dimen/margin_common">
 
-            <TextView
-                android:id="@+id/txt_vin_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:fontFamily="@font/lato_regular"
-                android:padding="@dimen/_5dp"
-                android:text="@string/vin"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_14sp" />
+                <Spinner
+                    android:id="@+id/sp_brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:entries="@array/brand"/>
 
-            <EditText
-                android:id="@+id/edt_vin"
+                <ImageView
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_right_down"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_16dp"
                 android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/vin_xasd"
-                android:imeOptions="actionDone"
-                android:inputType="number"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
+                android:padding="@dimen/margin_common">
 
-            <TextView
-                android:id="@+id/txt_enginee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:fontFamily="@font/lato_regular"
-                android:padding="@dimen/_5dp"
-                android:text="@string/engine"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_14sp" />
+                <Spinner
+                    android:id="@+id/sp_make"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:entries="@array/make"/>
 
-            <EditText
-                android:id="@+id/edt_ccengine"
+                <ImageView
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_right_down"
+                    tools:ignore="ContentDescription" />
+
+            </RelativeLayout>
+
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edt_vinno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/_2_0l_xxxxcs_fl_turbo"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:layout_marginTop="@dimen/_10dp"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_16dp"
+                android:orientation="vertical"
+                app:inputType="number"
+                app:hint="VIN NO"/>
 
-            <TextView
-                android:id="@+id/txt_year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:fontFamily="@font/lato_regular"
-                android:padding="@dimen/_5dp"
-                android:text="@string/year"
-                android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_14sp" />
-
-            <EditText
-                android:id="@+id/edt_year"
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edt_partsname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:background="@drawable/rectangle_corner_white_background"
-                android:fontFamily="@font/lato_regular"
-                android:hint="@string/_2016"
-                android:imeOptions="actionDone"
-                android:inputType="text"
-                android:maxLines="@integer/_int1"
-                android:padding="@dimen/_15dp"
-                android:textColor="@color/dark_blue"
-                android:textColorHint="@color/light_grey"
-                android:textSize="@dimen/_14sp"
-                tools:ignore="Autofill,LabelFor,TextFields" />
-
-            <Button
-                android:id="@+id/btn_addVeh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20dp"
-                android:background="@drawable/rectangle_corner_yellow_background"
-                android:fontFamily="@font/lato_bold"
-                android:text="@string/add_vehicle"
-                android:textAllCaps="false"
-                android:textColor="@color/dark_blue"
-                android:textSize="@dimen/_14sp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_16dp"
+                android:orientation="vertical"
+                app:inputType="text_normal"
+                app:hint="@string/parts_names"/>
 
 
         </LinearLayout>
@@ -196,7 +139,21 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/_30dp"
         android:layout_marginEnd="@dimen/_30dp"
-        android:orientation="vertical" />
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_addVeh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_20dp"
+            android:background="@drawable/rectangle_corner_yellow_background"
+            android:fontFamily="@font/lato_bold"
+            android:text="@string/add_vehicle"
+            android:textAllCaps="false"
+            android:textColor="@color/dark_blue"
+            android:textSize="@dimen/_14sp" />
+    </LinearLayout>
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit_loadingView"

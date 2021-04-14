@@ -17,6 +17,7 @@ import com.triton.bertsproject.customView.CustomEditText;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class RetailerProfileAccountActivity extends AppCompatActivity {
 
@@ -59,10 +60,19 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.edt_revenue)
     CustomEditText edt_revenue;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_toolbar_title)
+    TextView txt_toolbar_title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailer_profile_account);
+
+        ButterKnife.bind(this);
+
+        txt_toolbar_title.setText(R.string.edit_profile);
 
         edt_firstname.setTitle(getString(R.string.firstname));
 

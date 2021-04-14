@@ -23,6 +23,7 @@ import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.adapter.ShopbyAdapter;
 import com.triton.bertsproject.model.ShopByNameModel;
+import com.triton.bertsproject.retailer.AddVehicleActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
 
 import java.util.ArrayList;
@@ -52,6 +53,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_shopby)
     RecyclerView rv_shopby;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_addVeh)
+    Button btn_addVeh;
 
     List<ShopByNameModel> shopByNameModels;
 
@@ -115,6 +120,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Animatoo.animateSwipeLeft(getContext());
 
         });
+
+        btn_addVeh.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), AddVehicleActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeLeft(getContext());
+        });
+
 
         setView();
 

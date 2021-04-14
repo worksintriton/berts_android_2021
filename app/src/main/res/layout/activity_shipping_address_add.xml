@@ -39,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                app:inputType="email" />
+                app:inputType="email"
+                app:hint="@string/email"/>
 
             <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_phoneno"
@@ -47,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                app:inputType="number" />
+                app:inputType="number"
+                app:hint="Phone Number"/>
 
             <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_zipcode"
@@ -55,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                app:inputType="number" />
+                app:inputType="number"
+                app:hint="@string/zipcode"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -68,7 +71,8 @@
                     android:id="@+id/sp_country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent" />
+                    android:background="@android:color/transparent"
+                    />
 
                 <ImageView
                     android:layout_width="@dimen/_24dp"

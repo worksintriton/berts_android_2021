@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.LoginActivity"
     android:background="@color/background_color">
 
 
@@ -73,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:inputType="password" />
 
             <com.triton.bertsproject.customView.CustomEditText
@@ -81,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:inputType="password" />
 
             <com.triton.bertsproject.customView.CustomEditText
@@ -177,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:inputType="number" />
 
 

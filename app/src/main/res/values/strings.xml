@@ -156,12 +156,40 @@
     <string name="select_color">Select color</string>
     <string name="apply">Apply</string>
     <string name="reset">Reset</string>
+    <string name="filter">Filter</string>
+    <string name="new_addr">New Address</string>
+    <string name="ship_addr">Shipping Address</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+    <string name="ft1236784678">FT1236784678</string>
+    <string name="download_invoice">DOWNLOAD INVOICE</string>
+    <string name="add_review">ADD REVIEW</string>
+    <string name="delivered_address">Delivered Address</string>
+    <string name="delivered_via_bert_s_on_apr_12_2021">Delivered via Bert\'s on Apr 12, 2021</string>
+    <string name="_56_hagley_park_road">56 Hagley Park Road</string>
+    <string name="_1_874_586_4951">+1 874 586 4951</string>
+    <string name="_876_kingston_jamaica">876 Kingston, Jamaica</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="_6476_7687">6476 **** **** 7687</string>
+    <string name="parts_names">Parts Name</string>
 
 
     <string-array name="array_name">
         <item>Price : Low to High</item>
         <item>Price : High to Low</item>
         <item>Popularity</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>2021</item>
+    </string-array>
+
+    <string-array name="brand">
+        <item>Audi</item>
+    </string-array>
+
+    <string-array name="make">
+        <item>A8</item>
     </string-array>
 
 </resources>

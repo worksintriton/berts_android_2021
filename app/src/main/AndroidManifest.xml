@@ -21,10 +21,37 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.FilterlistActivity"></activity>
-        <activity android:name=".retailer.ShippingAddressAddActivity" />
-        <activity android:name=".retailer.ShippingAddressActivity" />
-        <activity android:name=".retailer.RetailerProfileAccountActivity" />
+        <activity android:name=".retailer.AddVehicleActivity"></activity>
+        <activity
+            android:name=".retailer.RetailerReceiptActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".retailer.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".retailer.FilterlistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.ShippingAddressAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.ShippingAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.RetailerProfileAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.MyWishlistActivity"
             android:screenOrientation="portrait"

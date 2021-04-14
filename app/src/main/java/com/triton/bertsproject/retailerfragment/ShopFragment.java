@@ -46,6 +46,8 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+
+
     List<ShoplistModel> shoplistModels;
 
     List<ShoplistModel> shoplistModels1;
@@ -81,6 +83,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
         spin_kit_loadingView.setVisibility(View.GONE);
 
         setView();
+
 
         return view;
     }

@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.view.View;
+import android.widget.Button;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
@@ -19,6 +20,7 @@ public class MyGarageFragment_ViewBinding implements Unbinder {
     this.target = target;
 
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
+    target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
   }
 
   @Override
@@ -29,5 +31,6 @@ public class MyGarageFragment_ViewBinding implements Unbinder {
     this.target = null;
 
     target.spin_kit_loadingView = null;
+    target.btn_addVeh = null;
   }
 }

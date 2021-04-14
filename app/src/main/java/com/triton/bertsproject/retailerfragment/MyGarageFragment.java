@@ -1,16 +1,20 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.retailer.AddVehicleActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +24,10 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
     SpinKitView spin_kit_loadingView;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_addVeh)
+    Button btn_addVeh;
 
     private static final String TAG = "MyGarageFragment";
 
@@ -44,6 +52,17 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener {
         ButterKnife.bind(this, view);
 
         Log.w("Oncreate ", TAG);
+
+        btn_addVeh.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), AddVehicleActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeLeft(getContext());
+        });
 
         spin_kit_loadingView.setVisibility(View.GONE);
 

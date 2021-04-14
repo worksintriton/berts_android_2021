@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".retailerfragment.ShopFragment">
+>
 
 
     <LinearLayout
@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/lato_black"
                 android:padding="@dimen/_5dp"
-                android:text="@string/toolbar_title"
+                android:text="@string/filter"
                 android:textColor="@color/dark_blue"
                 android:textSize="@dimen/_16sp" />
 
@@ -576,7 +576,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20dp"
                     android:layout_weight="0.2"
-                    android:background="@drawable/rectangle_corner_yellow_background"
+                    android:background="@drawable/rectangle_corner_white_background"
                     android:fontFamily="@font/lato_bold"
                     android:text="@string/reset"
                     android:textAllCaps="false"
@@ -611,6 +611,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         app:SpinKit_Color="@color/dark_blue" />
 
     <LinearLayout

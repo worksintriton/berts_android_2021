@@ -19,6 +19,7 @@ import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.OrderListActivity;
 import com.triton.bertsproject.retailer.RetailerOrderTrackActivity;
+import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 
 import java.util.Objects;
 
@@ -42,6 +43,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_ordrtrack)
     RelativeLayout rl_ordrtrack;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rlEdit)
+    RelativeLayout rlEdit;
 
     private static final String TAG = "ProfileFragment";
 
@@ -93,6 +98,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         rl_ordrtrack.setOnClickListener(v -> {
 
             Intent intent = new Intent(getContext(), RetailerOrderTrackActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+        });
+
+        rlEdit.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
 
             intent.putExtra("fromactivity",TAG);
 

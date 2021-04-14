@@ -3,6 +3,7 @@ package com.triton.bertsproject.retailer;
 
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
@@ -36,6 +37,7 @@ public class RetailerProfileAccountActivity_ViewBinding implements Unbinder {
     target.sp_country = Utils.findRequiredViewAsType(source, R.id.sp_country, "field 'sp_country'", Spinner.class);
     target.sp_state = Utils.findRequiredViewAsType(source, R.id.sp_state, "field 'sp_state'", Spinner.class);
     target.edt_revenue = Utils.findRequiredViewAsType(source, R.id.edt_revenue, "field 'edt_revenue'", CustomEditText.class);
+    target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
   }
 
   @Override
@@ -55,5 +57,6 @@ public class RetailerProfileAccountActivity_ViewBinding implements Unbinder {
     target.sp_country = null;
     target.sp_state = null;
     target.edt_revenue = null;
+    target.txt_toolbar_title = null;
   }
 }
