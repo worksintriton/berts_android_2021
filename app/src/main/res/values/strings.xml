@@ -172,12 +172,57 @@
     <string name="payment_method">Payment Method</string>
     <string name="_6476_7687">6476 **** **** 7687</string>
     <string name="parts_names">Parts Name</string>
-
+    <string name="product_detail">Product Detail</string>
+    <string name="prod_name">Power Stop K5975 Front and Rear Z23 Evolution Sport Geomet Coated Performance 2-Wheel Set</string>
+    <string name="part_no_k5975">Part No: K5975</string>
+    <string name="_120_reviews"><u>(120 Reviews)</u></string>
+    <string name="_130_49">$130.49</string>
+    <string name="product_description">Product Description</string>
+    <string name="prod_desc_text">The Power Stop Z36 Truck and Tow Performance brake kit provides the superior stopping power demanded by those who tow boats, haul loads, tackle mountains, lift trucks, and play in the harshest conditions. The brake rotors are drilled to keep temperatures down during extreme braking and slotted to sweep away any debris for constant pad contact. Combined with our Z36 Carbon-Fiber Ceramic performance friction formulation, you can confidently push your rig to the limit.</string>
+    <string name="product_information">Product Information</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="power_stop">Power Stop</string>
+    <string name="model_valu"><![CDATA[Power Stop K2073–36 Z36 Truck & Tow Front and Rear Brake Kit]]></string>
+    <string name="model">Model</string>
+    <string name="weight">Item Weight</string>
+    <string name="_119_pounds">119 pounds</string>
+    <string name="product_dimensions">Product Dimensions</string>
+    <string name="_14_x_14_x_10_inches">14 x 14 x 10 inches</string>
+    <string name="vehicle_fitment">Vehicle Fitment</string>
+    <string name="_4_cyl_1_8l">4 Cyl 1.8L</string>
+    <string name="premium">Premium</string>
+    <string name="question_answers_5"><![CDATA[Question & Answers (5)]]></string>
+    <string name="q">Q:</string>
+    <string name="do_i_need_to_change_my_calipers_too"><u>Do I need to change my calipers too?</u></string>
+    <string name="by_ken_royer_on_october_25_2020">By Ken Royer on October 25, 2020</string>
+    <string name="only_if_needed_their_calipers_are_good_too">Only if needed…their calipers are good too…</string>
+    <string name="a">A:</string>
+    <string name="by_kevin_peter_on_november_25_2020">By Kevin Peter on November 25, 2020</string>
+    <string name="customer_reviews">Customer Reviews</string>
+    <string name="_4_5_out_of_5">4.5 out of 5</string>
+    <string name="_120_ratings1">120 Ratings</string>
+    <string name="_5_star">5 star</string>
+    <string name="_80">80%</string>
+    <string name="_4_star">4 Star</string>
+    <string name="_60">60%</string>
+    <string name="_3_star">3 Star</string>
+    <string name="_40">40%</string>
+    <string name="_20">20%</string>
+    <string name="_2_star">2 Star</string>
+    <string name="_5">5%</string>
+    <string name="_1_star">1 Star</string>
+    <string name="write_a_review">Write a Review</string>
+    <string name="fits_great_stops_great_will_definitely_recommend_family_and_friends">Fits great, stops great. Will definitely recommend family and friends.</string>
+    <string name="related_products">related products</string>
 
     <string-array name="array_name">
         <item>Price : Low to High</item>
         <item>Price : High to Low</item>
         <item>Popularity</item>
+    </string-array>
+
+    <string-array name="array_filter">
+        <item>Most Revalent</item>
     </string-array>
 
     <string-array name="year">

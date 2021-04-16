@@ -6,8 +6,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +44,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_reset_link)
+    Button btn_reset_link;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +70,23 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
             Animatoo.animateSwipeLeft(context);
         });
+
+        btn_reset_link.setOnClickListener(v -> checkValidation());
+
+    }
+
+    private void checkValidation() {
+
+        if(edt_email.edtContent.getText().toString().equals("") || !isValidEmail(edt_email.edtContent.getText().toString() )){
+
+            edt_email.setError("Please Enter Valid Mail ID");
+
+        }
+
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
     @Override

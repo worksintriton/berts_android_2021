@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -100,6 +102,30 @@ public class LoginActivity extends AppCompatActivity {
 
         edt_password.setTitle(getString(R.string.password));
 
+        btn_sigin.setOnClickListener(v -> checkValidation());
+
+    }
+
+    private void checkValidation() {
+
+        if(edt_email.edtContent.getText().toString().equals("") || !isValidEmail(edt_email.edtContent.getText().toString() )){
+
+            edt_email.setError("Please Enter Valid Mail ID");
+
+        }
+
+        else if(edt_password.edtContent.getText().toString().equals("")){
+
+            edt_password.setError("Please Enter Valid Password");
+
+        }
+
+
+
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
     @Override

@@ -2,6 +2,7 @@
 package com.triton.bertsproject.activities;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -30,6 +31,7 @@ public class ForgetPasswordActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.btn_reset_link = Utils.findRequiredViewAsType(source, R.id.btn_reset_link, "field 'btn_reset_link'", Button.class);
   }
 
   @Override
@@ -43,5 +45,6 @@ public class ForgetPasswordActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = null;
     target.img_back = null;
     target.txt_toolbar_title = null;
+    target.btn_reset_link = null;
   }
 }

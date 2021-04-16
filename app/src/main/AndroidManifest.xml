@@ -21,17 +21,28 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.AddVehicleActivity"></activity>
+        <activity android:name=".retailer.ProductDetailDescriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+
+        <activity android:name=".retailer.AddVehicleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".retailer.RetailerReceiptActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.FilterlistActivity"
             android:screenOrientation="portrait"
@@ -107,11 +118,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".activities.LoginActivity"
