@@ -48,6 +48,8 @@ dependencies {
     /* Animation Transition */
     implementation 'com.github.mohammadatif:Animatoo:master'
 
+    implementation "com.github.skydoves:expandablelayout:1.0.6"
+
     implementation 'com.github.siyamed:android-shape-imageview:0.9.3'
 
     implementation 'com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1'

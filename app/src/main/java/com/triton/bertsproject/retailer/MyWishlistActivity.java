@@ -144,7 +144,7 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
         List<RetailerProductlistModel> retailerProductlistModels = new ArrayList<>();
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...", "Part No: K5975", "5", "120", "139.20", R.drawable.splist1, false, true));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...", "Jeep CJ-Style Replacement Mirrors", "5", "(120)", "139.20", R.drawable.primg3, false, true));
 
         rv_productlist.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

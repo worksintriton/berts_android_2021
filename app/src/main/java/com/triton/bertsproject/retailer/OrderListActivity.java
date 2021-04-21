@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 
 public class OrderListActivity extends AppCompatActivity {
 
-    private static final String TAG = "RetailerCartActivity";
+    private static final String TAG = "OrderListActivity";
 
 //    public static String active_tag = "1";
 //
@@ -101,11 +101,11 @@ public class OrderListActivity extends AppCompatActivity {
 
         List<OrderlistModel> orderlistModels = new ArrayList<>();
 
-        orderlistModels.add(new OrderlistModel("Power Stop K5975 Front and Rear Z23 Evolution...", "Part No: K5975", "Completed", "20-01-2021", "139.20","ABCDEFGHI12345678", R.drawable.splist1));
+        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "Completed", "Feb 28,2021 - 10.19", "139.20","FT1236784678", R.drawable.splist1));
 
-        orderlistModels.add(new OrderlistModel("Power Stop K5975 Front and Rear Z23 Evolution...", "Part No: K5975", "Cancelled", "20-01-2021", "139.20","ABCDEFGHI12345678", R.drawable.splist1));
+        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "Cancelled", "Feb 28,2021 - 10.19", "139.20","FT1236784678", R.drawable.splist1));
 
-        orderlistModels.add(new OrderlistModel("Power Stop K5975 Front and Rear Z23 Evolution...", "Part No: K5975", "On Going", "20-01-2021", "139.20", "ABCDEFGHI12345678", R.drawable.splist1));
+        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "On Going", "Feb 28,2021 - 10.19", "139.20", "FT1236784678", R.drawable.splist1));
 
         rv_productlist.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
 

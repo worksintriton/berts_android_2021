@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.triton.bertsproject.R;
@@ -45,9 +45,9 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
         if (retailerProductlistModel.getParts_no() != null) {
             holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
         }
-        if (retailerProductlistModel.getRating() != null) {
-            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
-        }
+//        if (retailerProductlistModel.getRating() != null) {
+//            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+//        }
         if (retailerProductlistModel.getReview() != null) {
 
             String review = retailerProductlistModel.getReview() + " Reviews";
@@ -60,6 +60,8 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
 
             holder.txt_price.setText(price);
         }
+
+        //holder.cardView.setRadius(20);
 
         holder.linearLayout.setVisibility(View.GONE);
     }
@@ -84,21 +86,23 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
         ImageView img_product_image;
-        RatingBar ratingBar;
+        //RatingBar ratingBar;
         TextView txt_parts_no;
         TextView txt_price;
         TextView txt_product_name;
         TextView txt_total_reviews;
         LinearLayout linearLayout;
+        CardView cardView;
         public ShoplistHolder(View itemView) {
             super(itemView);
             img_product_image = itemView.findViewById(R.id.img_product_image);
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
             txt_parts_no =  itemView.findViewById(R.id.txt_parts_name);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+           // ratingBar = itemView.findViewById(R.id.ratingBar);
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
             txt_price =  itemView.findViewById(R.id.txt_price);
             linearLayout =  itemView.findViewById(R.id.ll_root);
+            cardView =  itemView.findViewById(R.id.cv_root);
         }
     }
 }

@@ -107,14 +107,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         });
 
-        btn_proceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(RetailerCartActivity.this,OrderListActivity.class));
-
-            }
-        });
+        btn_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,OrderListActivity.class)));
         enableSwipeToDeleteAndUndo();
     }
 

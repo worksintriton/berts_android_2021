@@ -7,6 +7,7 @@ INJECTED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:2:1-136
 MERGED from [com.google.android.material:material:1.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0b040ae6fd7360855475a012c5af81a6\material-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.mohammadatif:Animatoo:master] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e79b10fdd0dcd866e9b23745908922b\jetified-Animatoo-master\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.skydoves:expandablelayout:1.0.6] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e693875ccca5c99d34779039770983a\jetified-expandablelayout-1.0.6\AndroidManifest.xml:2:1-11:12
 MERGED from [com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7b52ff7e0db9a02b0a5c595e5b48ae71\jetified-roundedhorizontalprogress-1.0.1\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\44b21666f861b2b454523071d69d07d7\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\d9c8547f43bfc98a7c33c7a922993a2d\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -37,6 +38,7 @@ MERGED from [androidx.customview:customview:1.0.0] C:\Users\santh\.gradle\caches
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f9976ae113f170d60bfcc789044f411d\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b754b2dac55e2d093f3d16fae3e2b72a\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\8dbd859d1cd89239b42e7382b4fc40d7\core-1.3.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.databinding:viewbinding:3.6.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7be55cb177991bc1a5e096daed4094bf\jetified-viewbinding-3.6.3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1b49f6b12087442447a2c9046372b97f\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\07966c8c4706ffeaf638d555f4c86fb0\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\41c41c2fbc05e9a19fa443c48f799c3d\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -334,6 +336,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\santh\.g
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.mohammadatif:Animatoo:master] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e79b10fdd0dcd866e9b23745908922b\jetified-Animatoo-master\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.mohammadatif:Animatoo:master] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e79b10fdd0dcd866e9b23745908922b\jetified-Animatoo-master\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.skydoves:expandablelayout:1.0.6] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e693875ccca5c99d34779039770983a\jetified-expandablelayout-1.0.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.skydoves:expandablelayout:1.0.6] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7e693875ccca5c99d34779039770983a\jetified-expandablelayout-1.0.6\AndroidManifest.xml:7:5-9:41
 MERGED from [com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7b52ff7e0db9a02b0a5c595e5b48ae71\jetified-roundedhorizontalprogress-1.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.sasank.roundedhorizontalprogress:roundedhorizontalprogress:1.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7b52ff7e0db9a02b0a5c595e5b48ae71\jetified-roundedhorizontalprogress-1.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\44b21666f861b2b454523071d69d07d7\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
@@ -394,6 +398,8 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\sa
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b754b2dac55e2d093f3d16fae3e2b72a\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.3.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\8dbd859d1cd89239b42e7382b4fc40d7\core-1.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\8dbd859d1cd89239b42e7382b4fc40d7\core-1.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.databinding:viewbinding:3.6.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7be55cb177991bc1a5e096daed4094bf\jetified-viewbinding-3.6.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:3.6.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\7be55cb177991bc1a5e096daed4094bf\jetified-viewbinding-3.6.3\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1b49f6b12087442447a2c9046372b97f\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1b49f6b12087442447a2c9046372b97f\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\07966c8c4706ffeaf638d555f4c86fb0\documentfile-1.0.0\AndroidManifest.xml:20:5-44

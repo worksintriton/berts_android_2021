@@ -1,11 +1,5 @@
 package com.triton.bertsproject.retailer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
@@ -67,6 +68,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     @BindView(R.id.rv_searchprodlist)
     RecyclerView rv_searchprodlist;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_sort_filter)
+    RelativeLayout rl_sort_filter;
+
     private final static String TAG = "SearchProdListActivity";
 
     public static String active_tag = "1";
@@ -109,6 +114,16 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         bottomNavigation.setSelectedItemId(R.id.shop);
 
         bottomNavigation.setOnNavigationItemSelectedListener(this);
+
+        rl_sort_filter.setOnClickListener(v -> {
+
+            Intent intent = new Intent(SearchProductListActivity.this, FilterlistActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+        });
 
         setView();
 

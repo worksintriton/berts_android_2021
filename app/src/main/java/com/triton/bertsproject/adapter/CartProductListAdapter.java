@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+
 import java.util.List;
 
 public class CartProductListAdapter extends RecyclerView.Adapter<CartProductListAdapter.ShoplistHolder> {
@@ -43,9 +43,9 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         if (retailerProductlistModel.getParts_no() != null) {
             holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
         }
-        if (retailerProductlistModel.getRating() != null) {
-            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
-        }
+//        if (retailerProductlistModel.getRating() != null) {
+//            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+//        }
         if (retailerProductlistModel.getReview() != null) {
 
             String review = retailerProductlistModel.getReview() + " Reviews";
@@ -80,7 +80,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
         ImageView img_product_image;
-        RatingBar ratingBar;
+     //   RatingBar ratingBar;
         TextView txt_parts_no;
         TextView txt_price;
         TextView txt_product_name;
@@ -88,12 +88,12 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
         public ShoplistHolder(View itemView) {
             super(itemView);
-            this.img_product_image = (ImageView) itemView.findViewById(R.id.img_product_image);
-            this.txt_product_name = (TextView) itemView.findViewById(R.id.txt_product_name);
-            this.txt_parts_no = (TextView) itemView.findViewById(R.id.txt_parts_name);
-            this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
-            this.txt_total_reviews = (TextView) itemView.findViewById(R.id.txt_total_reviews);
-            this.txt_price = (TextView) itemView.findViewById(R.id.txt_price);
+            img_product_image = itemView.findViewById(R.id.img_product_image);
+            txt_product_name = itemView.findViewById(R.id.txt_product_name);
+            txt_parts_no = itemView.findViewById(R.id.txt_parts_name);
+           // this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
+            txt_total_reviews =  itemView.findViewById(R.id.txt_total_reviews);
+            txt_price = itemView.findViewById(R.id.txt_price);
         }
     }
 }

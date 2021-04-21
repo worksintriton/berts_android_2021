@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailer;
 
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -33,6 +34,7 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
     target.rv_filterlist = Utils.findRequiredViewAsType(source, R.id.rv_filterlist, "field 'rv_filterlist'", RecyclerView.class);
     target.rv_searchprodlist = Utils.findRequiredViewAsType(source, R.id.rv_searchprodlist, "field 'rv_searchprodlist'", RecyclerView.class);
+    target.rl_sort_filter = Utils.findRequiredViewAsType(source, R.id.rl_sort_filter, "field 'rl_sort_filter'", RelativeLayout.class);
   }
 
   @Override
@@ -48,5 +50,6 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.txt_toolbar_title = null;
     target.rv_filterlist = null;
     target.rv_searchprodlist = null;
+    target.rl_sort_filter = null;
   }
 }
