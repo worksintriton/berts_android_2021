@@ -22,6 +22,7 @@ import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.OrderListActivity;
 import com.triton.bertsproject.retailer.RetailerOrderTrackActivity;
 import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
+import com.triton.bertsproject.retailer.RetailerSetttingsActivity;
 
 import java.util.Objects;
 
@@ -50,6 +51,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.rlEdit)
     RelativeLayout rlEdit;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_settings)
+    RelativeLayout rl_settings;
+
     private static final String TAG = "ProfileFragment";
 
     View view;
@@ -74,7 +79,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 //        // clone the inflater using the ContextThemeWrapper
 //        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
 
-        getContext().getTheme().applyStyle(R.style.Fragment, true);
+        Objects.requireNonNull(getContext()).getTheme().applyStyle(R.style.Fragment, true);
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -121,6 +126,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         rlEdit.setOnClickListener(v -> {
 
             Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+        });
+
+        rl_settings.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), RetailerSetttingsActivity.class);
 
             intent.putExtra("fromactivity",TAG);
 

@@ -24,6 +24,7 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     target.rl_ordrhist = Utils.findRequiredViewAsType(source, R.id.rl_ordrhist, "field 'rl_ordrhist'", RelativeLayout.class);
     target.rl_ordrtrack = Utils.findRequiredViewAsType(source, R.id.rl_ordrtrack, "field 'rl_ordrtrack'", RelativeLayout.class);
     target.rlEdit = Utils.findRequiredViewAsType(source, R.id.rlEdit, "field 'rlEdit'", RelativeLayout.class);
+    target.rl_settings = Utils.findRequiredViewAsType(source, R.id.rl_settings, "field 'rl_settings'", RelativeLayout.class);
   }
 
   @Override
@@ -38,5 +39,6 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     target.rl_ordrhist = null;
     target.rl_ordrtrack = null;
     target.rlEdit = null;
+    target.rl_settings = null;
   }
 }

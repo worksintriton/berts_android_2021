@@ -1940,6 +1940,7 @@ drawable plus
 drawable primg3
 drawable profile
 drawable progress_bar_horizontal
+drawable push_notifcation
 drawable rectangle_corner_blue_background
 drawable rectangle_corner_blue_outline
 drawable rectangle_corner_green_corner
@@ -2217,6 +2218,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id expandible_listview
 id fab
 id fade
 id fill
@@ -2264,6 +2266,7 @@ id img_arrow_pr_range
 id img_arrow_rate
 id img_arrow_year
 id img_arrowwrit1
+id img_arrowwrit18
 id img_arrowwrit2
 id img_arrowwrit3
 id img_arrowwrit4
@@ -2472,19 +2475,27 @@ id right_side
 id rlEdit
 id rlEmail
 id rl_aboutus
+id rl_currncy
+id rl_date
 id rl_downloadquotation
+id rl_lang
 id rl_login_after
 id rl_logout
+id rl_measurment_unit
 id rl_orderstatus
 id rl_ordrhist
 id rl_ordrtrack
 id rl_profile
+id rl_push_notifications
 id rl_receipt
 id rl_settings
 id rl_sort_filter
 id rl_wishlist
 id round
 id rounded
+id rowParentText
+id rowSecondText
+id rowThirdText
 id row_index_key
 id rv_addrlist
 id rv_brand
@@ -2644,6 +2655,7 @@ id txt_addrs_type
 id txt_addrtxt1
 id txt_addrtxt2
 id txt_addrtxt3
+id txt_all_categories
 id txt_ans
 id txt_ans_date
 id txt_ans_label
@@ -2656,6 +2668,7 @@ id txt_categ_selected_value
 id txt_color
 id txt_color_selected_value
 id txt_count
+id txt_currncy
 id txt_cust_revw_label
 id txt_cycl
 id txt_cycl1
@@ -2683,6 +2696,7 @@ id txt_forget_password
 id txt_forget_password_reason
 id txt_gurantee_fit
 id txt_hifen
+id txt_lang
 id txt_like_count
 id txt_list_of_vehicles
 id txt_local_returns
@@ -2691,6 +2705,7 @@ id txt_make
 id txt_make_selected_value
 id txt_makes
 id txt_manufacturer
+id txt_measurment_unit
 id txt_model
 id txt_or
 id txt_order_ID
@@ -2729,6 +2744,7 @@ id txt_prod_search_info
 id txt_prod_search_info_desc
 id txt_product_name
 id txt_product_name1
+id txt_push_notifications
 id txt_qnans_fit
 id txt_quest
 id txt_quest_date
@@ -2758,6 +2774,7 @@ id txt_stock_status
 id txt_street
 id txt_terms_condition1s
 id txt_terms_conditions
+id txt_time
 id txt_toolbar_title
 id txt_top_categories
 id txt_total_label
@@ -2894,12 +2911,14 @@ layout activity_my_wishlist
 layout activity_order_list
 layout activity_product_detail_description
 layout activity_register
+layout activity_retailer_all_categories
 layout activity_retailer_cart
 layout activity_retailer_dashboard
 layout activity_retailer_order_track
 layout activity_retailer_product_list
 layout activity_retailer_profile_account
 layout activity_retailer_receipt
+layout activity_retailer_settings
 layout activity_search_product_list
 layout activity_search_products
 layout activity_shipping_address
@@ -3000,6 +3019,9 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout row_first
+layout row_second
+layout row_third
 layout sample
 layout samples
 layout select_dialog_item_material
@@ -3099,6 +3121,7 @@ string add_veh_btn_txt
 string add_veh_desc
 string add_vehicle
 string afasdfasf
+string all_categories
 string app_name
 string appbar_scrolling_view_behavior
 string apply
@@ -3129,7 +3152,9 @@ string confirmed_your_order
 string count
 string country
 string create_account
+string currency
 string customer_reviews
+string date_format
 string default_val
 string delete
 string delivered_address
@@ -3174,6 +3199,7 @@ string item_view_role_description
 string jeep_cj_style_replacement_mirrors
 string jhon_nelson
 string k_metal
+string languages
 string lastname
 string list_of_vehicles
 string live_chat
@@ -3278,6 +3304,7 @@ string product_dimensions
 string product_information
 string product_name
 string profile
+string push_notification
 string q
 string question_answers_5
 string rate
@@ -3323,6 +3350,7 @@ string status_bar_notification_info_overflow
 string str_new
 string terms_conditions
 string terms_conditions1
+string time
 string toolbar_title
 string top_categories
 string total_results

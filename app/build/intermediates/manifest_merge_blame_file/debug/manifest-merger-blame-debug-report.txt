@@ -22,7 +22,7 @@
 15-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:10:9-37
 16
 17    <application
-17-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:12:5-133:19
+17-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:12:5-141:19
 18        android:allowBackup="true"
 18-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:13:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -44,49 +44,49 @@
 28        android:usesCleartextTraffic="true" >
 28-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:20:9-44
 29        <activity
-29-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:23:9-28:20
-30            android:name="com.triton.bertsproject.retailer.ProductDetailDescriptionActivity"
-30-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:23:19-76
+29-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:23:9-34:20
+30            android:name="com.triton.bertsproject.retailer.RetailerAllCategoriesActivity"
+30-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:23:19-73
 31            android:screenOrientation="portrait"
 31-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:24:13-49
 32            android:theme="@style/Theme.BertsProject.SearchProduct"
 32-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:25:13-68
 33            android:windowSoftInputMode="adjustPan" >
 33-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:26:13-52
-34        </activity>
-35        <activity
-35-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:30:9-33:55
-36            android:name="com.triton.bertsproject.retailer.AddVehicleActivity"
-36-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:30:19-62
-37            android:screenOrientation="portrait"
-37-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:31:13-49
-38            android:theme="@style/Customtheme"
-38-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:32:13-47
-39            android:windowSoftInputMode="adjustPan" />
-39-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:33:13-52
+34            <intent-filter>
+34-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:28:13-32:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:29:17-69
+35-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:29:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:31:17-77
+37-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:31:27-74
+38            </intent-filter>
+39        </activity>
 40        <activity
 40-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:35:9-39:55
-41            android:name="com.triton.bertsproject.retailer.RetailerReceiptActivity"
-41-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:36:13-61
+41            android:name="com.triton.bertsproject.retailer.RetailerSetttingsActivity"
+41-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:36:13-63
 42            android:screenOrientation="portrait"
 42-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:37:13-49
-43            android:theme="@style/Customtheme"
-43-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:38:13-47
+43            android:theme="@style/Theme.BertsProject.SearchProduct"
+43-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:38:13-68
 44            android:windowSoftInputMode="adjustPan" />
 44-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:39:13-52
 45        <activity
 45-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:40:9-44:55
-46            android:name="com.triton.bertsproject.retailer.ChangePasswordActivity"
-46-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:41:13-60
+46            android:name="com.triton.bertsproject.retailer.ProductDetailDescriptionActivity"
+46-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:41:13-70
 47            android:screenOrientation="portrait"
 47-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:42:13-49
-48            android:theme="@style/Customtheme"
-48-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:43:13-47
+48            android:theme="@style/Theme.BertsProject.SearchProduct"
+48-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:43:13-68
 49            android:windowSoftInputMode="adjustPan" />
 49-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:44:13-52
 50        <activity
 50-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:45:9-49:55
-51            android:name="com.triton.bertsproject.retailer.FilterlistActivity"
+51            android:name="com.triton.bertsproject.retailer.AddVehicleActivity"
 51-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:46:13-56
 52            android:screenOrientation="portrait"
 52-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:47:13-49
@@ -96,8 +96,8 @@
 54-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:49:13-52
 55        <activity
 55-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:50:9-54:55
-56            android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity"
-56-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:51:13-64
+56            android:name="com.triton.bertsproject.retailer.RetailerReceiptActivity"
+56-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:51:13-61
 57            android:screenOrientation="portrait"
 57-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:52:13-49
 58            android:theme="@style/Customtheme"
@@ -106,8 +106,8 @@
 59-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:54:13-52
 60        <activity
 60-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:55:9-59:55
-61            android:name="com.triton.bertsproject.retailer.ShippingAddressActivity"
-61-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:56:13-61
+61            android:name="com.triton.bertsproject.retailer.ChangePasswordActivity"
+61-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:56:13-60
 62            android:screenOrientation="portrait"
 62-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:57:13-49
 63            android:theme="@style/Customtheme"
@@ -116,8 +116,8 @@
 64-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:59:13-52
 65        <activity
 65-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:60:9-64:55
-66            android:name="com.triton.bertsproject.retailer.RetailerProfileAccountActivity"
-66-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:61:13-68
+66            android:name="com.triton.bertsproject.retailer.FilterlistActivity"
+66-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:61:13-56
 67            android:screenOrientation="portrait"
 67-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:62:13-49
 68            android:theme="@style/Customtheme"
@@ -126,38 +126,38 @@
 69-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:64:13-52
 70        <activity
 70-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:65:9-69:55
-71            android:name="com.triton.bertsproject.retailer.MyWishlistActivity"
-71-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:66:13-56
+71            android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity"
+71-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:66:13-64
 72            android:screenOrientation="portrait"
 72-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:67:13-49
-73            android:theme="@style/Theme.BertsProject.Cart"
-73-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:68:13-59
+73            android:theme="@style/Customtheme"
+73-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:68:13-47
 74            android:windowSoftInputMode="adjustPan" />
 74-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:69:13-52
 75        <activity
 75-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:70:9-74:55
-76            android:name="com.triton.bertsproject.retailer.RetailerOrderTrackActivity"
-76-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:71:13-64
+76            android:name="com.triton.bertsproject.retailer.ShippingAddressActivity"
+76-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:71:13-61
 77            android:screenOrientation="portrait"
 77-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:72:13-49
-78            android:theme="@style/Theme.BertsProject.Cart"
-78-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:73:13-59
+78            android:theme="@style/Customtheme"
+78-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:73:13-47
 79            android:windowSoftInputMode="adjustPan" />
 79-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:74:13-52
 80        <activity
 80-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:75:9-79:55
-81            android:name="com.triton.bertsproject.retailer.OrderListActivity"
-81-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:76:13-55
+81            android:name="com.triton.bertsproject.retailer.RetailerProfileAccountActivity"
+81-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:76:13-68
 82            android:screenOrientation="portrait"
 82-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:77:13-49
-83            android:theme="@style/Theme.BertsProject.Cart"
-83-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:78:13-59
+83            android:theme="@style/Customtheme"
+83-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:78:13-47
 84            android:windowSoftInputMode="adjustPan" />
 84-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:79:13-52
 85        <activity
 85-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:80:9-84:55
-86            android:name="com.triton.bertsproject.retailer.RetailerCartActivity"
-86-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:81:13-58
+86            android:name="com.triton.bertsproject.retailer.MyWishlistActivity"
+86-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:81:13-56
 87            android:screenOrientation="portrait"
 87-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:82:13-49
 88            android:theme="@style/Theme.BertsProject.Cart"
@@ -166,95 +166,115 @@
 89-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:84:13-52
 90        <activity
 90-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:85:9-89:55
-91            android:name="com.triton.bertsproject.retailer.RetailerProductListActivity"
-91-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:86:13-65
+91            android:name="com.triton.bertsproject.retailer.RetailerOrderTrackActivity"
+91-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:86:13-64
 92            android:screenOrientation="portrait"
 92-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:87:13-49
-93            android:theme="@style/Theme.BertsProject.SearchProduct"
-93-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:88:13-68
+93            android:theme="@style/Theme.BertsProject.Cart"
+93-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:88:13-59
 94            android:windowSoftInputMode="adjustPan" />
 94-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:89:13-52
 95        <activity
 95-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:90:9-94:55
-96            android:name="com.triton.bertsproject.retailer.SearchProductListActivity"
-96-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:91:13-63
+96            android:name="com.triton.bertsproject.retailer.OrderListActivity"
+96-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:91:13-55
 97            android:screenOrientation="portrait"
 97-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:92:13-49
-98            android:theme="@style/Theme.BertsProject.SearchProduct"
-98-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:93:13-68
+98            android:theme="@style/Theme.BertsProject.Cart"
+98-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:93:13-59
 99            android:windowSoftInputMode="adjustPan" />
 99-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:94:13-52
 100        <activity
 100-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:95:9-99:55
-101            android:name="com.triton.bertsproject.retailer.SearchProductsActivity"
-101-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:96:13-60
+101            android:name="com.triton.bertsproject.retailer.RetailerCartActivity"
+101-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:96:13-58
 102            android:screenOrientation="portrait"
 102-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:97:13-49
-103            android:theme="@style/Theme.BertsProject.SearchProduct"
-103-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:98:13-68
+103            android:theme="@style/Theme.BertsProject.Cart"
+103-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:98:13-59
 104            android:windowSoftInputMode="adjustPan" />
 104-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:99:13-52
 105        <activity
 105-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:100:9-104:55
-106            android:name="com.triton.bertsproject.retailer.RetailerDashboardActivity"
+106            android:name="com.triton.bertsproject.retailer.SearchProductListActivity"
 106-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:101:13-63
 107            android:screenOrientation="portrait"
 107-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:102:13-49
-108            android:theme="@style/Parent"
-108-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:103:13-42
+108            android:theme="@style/Theme.BertsProject.SearchProduct"
+108-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:103:13-68
 109            android:windowSoftInputMode="adjustPan" />
 109-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:104:13-52
 110        <activity
 110-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:105:9-109:55
-111            android:name="com.triton.bertsproject.activities.ForgetPasswordActivity"
-111-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:106:13-62
+111            android:name="com.triton.bertsproject.retailer.RetailerProductListActivity"
+111-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:106:13-65
 112            android:screenOrientation="portrait"
 112-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:107:13-49
-113            android:theme="@style/Customtheme"
-113-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:108:13-47
+113            android:theme="@style/Theme.BertsProject.SearchProduct"
+113-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:108:13-68
 114            android:windowSoftInputMode="adjustPan" />
 114-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:109:13-52
 115        <activity
 115-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:110:9-114:55
-116            android:name="com.triton.bertsproject.activities.RegisterActivity"
-116-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:111:13-56
+116            android:name="com.triton.bertsproject.retailer.SearchProductsActivity"
+116-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:111:13-60
 117            android:screenOrientation="portrait"
 117-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:112:13-49
-118            android:theme="@style/Customtheme"
-118-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:113:13-47
+118            android:theme="@style/Theme.BertsProject.SearchProduct"
+118-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:113:13-68
 119            android:windowSoftInputMode="adjustPan" />
 119-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:114:13-52
 120        <activity
-120-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:115:9-127:20
-121            android:name="com.triton.bertsproject.activities.SplashActivity"
-121-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:116:13-54
+120-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:115:9-119:55
+121            android:name="com.triton.bertsproject.retailer.RetailerDashboardActivity"
+121-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:116:13-63
 122            android:screenOrientation="portrait"
 122-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:117:13-49
-123            android:theme="@style/Customtheme"
-123-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:118:13-47
-124            android:windowSoftInputMode="adjustPan" >
+123            android:theme="@style/Parent"
+123-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:118:13-42
+124            android:windowSoftInputMode="adjustPan" />
 124-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:119:13-52
-125            <intent-filter>
-125-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:121:13-125:29
-126                <action android:name="android.intent.action.MAIN" />
-126-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:122:17-69
-126-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:122:25-66
-127
-128                <category android:name="android.intent.category.LAUNCHER" />
-128-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:124:17-77
-128-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:124:27-74
-129            </intent-filter>
-130        </activity>
-131        <activity
-131-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:128:9-132:55
-132            android:name="com.triton.bertsproject.activities.LoginActivity"
-132-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:129:13-53
-133            android:screenOrientation="portrait"
-133-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:130:13-49
-134            android:theme="@style/Customtheme"
-134-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:131:13-47
-135            android:windowSoftInputMode="adjustPan" />
-135-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:132:13-52
-136    </application>
-137
-138</manifest>
+125        <activity
+125-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:120:9-124:55
+126            android:name="com.triton.bertsproject.activities.ForgetPasswordActivity"
+126-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:121:13-62
+127            android:screenOrientation="portrait"
+127-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:122:13-49
+128            android:theme="@style/Customtheme"
+128-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:123:13-47
+129            android:windowSoftInputMode="adjustPan" />
+129-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:124:13-52
+130        <activity
+130-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:125:9-129:55
+131            android:name="com.triton.bertsproject.activities.RegisterActivity"
+131-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:126:13-56
+132            android:screenOrientation="portrait"
+132-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:127:13-49
+133            android:theme="@style/Customtheme"
+133-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:128:13-47
+134            android:windowSoftInputMode="adjustPan" />
+134-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:129:13-52
+135        <activity
+135-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:130:9-135:20
+136            android:name="com.triton.bertsproject.activities.SplashActivity"
+136-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:131:13-54
+137            android:screenOrientation="portrait"
+137-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:132:13-49
+138            android:theme="@style/Customtheme"
+138-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:133:13-47
+139            android:windowSoftInputMode="adjustPan" >
+139-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:134:13-52
+140        </activity>
+141        <activity
+141-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:136:9-140:55
+142            android:name="com.triton.bertsproject.activities.LoginActivity"
+142-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:137:13-53
+143            android:screenOrientation="portrait"
+143-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:138:13-49
+144            android:theme="@style/Customtheme"
+144-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:139:13-47
+145            android:windowSoftInputMode="adjustPan" />
+145-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:140:13-52
+146    </application>
+147
+148</manifest>

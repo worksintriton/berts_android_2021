@@ -19,7 +19,6 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.ShoplistAdapter;
 import com.triton.bertsproject.model.ShoplistModel;
-import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 
 import java.util.ArrayList;

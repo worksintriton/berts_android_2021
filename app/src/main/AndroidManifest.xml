@@ -20,18 +20,33 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.ProductDetailDescriptionActivity"
+        <activity android:name=".retailer.RetailerAllCategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
-
-        <activity android:name=".retailer.AddVehicleActivity"
+        <activity
+            android:name=".retailer.RetailerSetttingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.ProductDetailDescriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".retailer.AddVehicleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".retailer.RetailerReceiptActivity"
             android:screenOrientation="portrait"
@@ -83,12 +98,12 @@
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".retailer.RetailerProductListActivity"
+            android:name=".retailer.SearchProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".retailer.SearchProductListActivity"
+            android:name=".retailer.RetailerProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan" />
@@ -117,13 +132,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity
             android:name=".activities.LoginActivity"
