@@ -2315,6 +2315,9 @@ id img_product_image2
 id img_profile
 id img_qnans_fit
 id img_receipt
+id img_right_arrow
+id img_right_arrow1
+id img_right_arrow2
 id img_search
 id img_settings
 id img_ship
@@ -2577,6 +2580,9 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tb_brand
+id tb_makes
+id tb_topcat
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
@@ -2792,6 +2798,10 @@ id useLogo
 id view
 id view10
 id view11
+id view12
+id view13
+id view14
+id view15
 id view2
 id view3
 id view4
@@ -3162,6 +3172,7 @@ string icon_content_description
 string image_description
 string item_view_role_description
 string jeep_cj_style_replacement_mirrors
+string jhon_nelson
 string k_metal
 string lastname
 string list_of_vehicles
@@ -3568,6 +3579,7 @@ style CardView_Dark
 style CardView_Light
 style Customtheme
 style EmptyTheme
+style Fragment
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text
 style MaterialAlertDialog_MaterialComponents_Picker_Date_Calendar
@@ -3580,6 +3592,7 @@ style MaterialAlertDialog_MaterialComponents_Title_Text
 style MaterialAlertDialog_MaterialComponents_Title_Text_CenterStacked
 style MyBottomNavigationView
 style MyBottomNavigationView_TextAppearance
+style Parent
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents

@@ -25,7 +25,6 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
             android:name="com.triton.bertsproject.retailer.ProductDetailDescriptionActivity"
@@ -106,7 +105,7 @@
         <activity
             android:name="com.triton.bertsproject.retailer.RetailerDashboardActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject"
+            android:theme="@style/Parent"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.triton.bertsproject.activities.ForgetPasswordActivity"

@@ -51,7 +51,9 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_retailer_dashboard);
 
         ButterKnife.bind(this);
@@ -99,7 +101,7 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
         }else{
             bottomNavigation.setSelectedItemId(R.id.home);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, active, active_tag);
+            transaction.add(R.id.fragment_container, active, active_tag);
             transaction.commitNowAllowingStateLoss();
         }
         bottomNavigation.setOnNavigationItemSelectedListener(this);

@@ -1,8 +1,10 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.ShoplistAdapter;
 import com.triton.bertsproject.model.ShoplistModel;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
+import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +50,6 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
-
-
     List<ShoplistModel> shoplistModels;
 
     List<ShoplistModel> shoplistModels1;
@@ -57,6 +59,8 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "ShopFragment";
 
     View view;
+
+    Context context;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -71,8 +75,20 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        // clone the inflater using the ContextThemeWrapper
+        assert container != null;
+
+        context = container.getContext();
+
+        // create ContextThemeWrapper from the original Activity Context with the custom theme
+        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Fragment);
+
+        // clone the inflater using the ContextThemeWrapper
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_shop, container, false);
+        view = localInflater.inflate(R.layout.fragment_shop, container, false);
 
         ButterKnife.bind(this, view);
 
@@ -111,6 +127,14 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
         rv_top_categories.setNestedScrollingEnabled(false);
 
         //int size =3;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        boolean includeEdge = true;
+
+        rv_top_categories.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 

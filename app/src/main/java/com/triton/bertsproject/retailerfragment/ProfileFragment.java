@@ -1,9 +1,11 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +67,15 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+//        // create ContextThemeWrapper from the original Activity Context with the custom theme
+//        final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Fragment);
+//
+//        // clone the inflater using the ContextThemeWrapper
+//        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+
+        getContext().getTheme().applyStyle(R.style.Fragment, true);
+
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 

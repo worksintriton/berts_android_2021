@@ -5,10 +5,8 @@
     android:id="@+id/cv_shoplist"
     android:layout_width="@dimen/_150dp"
     android:layout_height="@dimen/_150dp"
-    android:layout_marginEnd="@dimen/_20dp"
-    android:layout_marginRight="@dimen/_20dp"
-    android:layout_marginBottom="@dimen/_20dp"
     app:cardBackgroundColor="@color/white"
+    android:layout_marginBottom="@dimen/_10sp"
     app:cardCornerRadius="@dimen/_10dp">
 
     <LinearLayout
