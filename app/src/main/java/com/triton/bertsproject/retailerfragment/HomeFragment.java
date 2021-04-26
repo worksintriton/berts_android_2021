@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -24,6 +25,7 @@ import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.adapter.ShopbyAdapter;
 import com.triton.bertsproject.model.ShopByNameModel;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
+import com.triton.bertsproject.retailer.RetailerCartActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
 
 import java.util.ArrayList;
@@ -49,6 +51,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.edt_search)
     EditText edt_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.fl_cart)
+    FrameLayout fl_cart;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_shopby)
@@ -132,6 +138,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Animatoo.animateSwipeLeft(getContext());
         });
 
+        fl_cart.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), RetailerCartActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeLeft(getContext());
+        });
+
 
         setView();
 
@@ -144,7 +161,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         shopByNameModels.add(new ShopByNameModel("Categories"));
 
-        shopByNameModels.add(new ShopByNameModel("Brand"));
+        shopByNameModels.add(new ShopByNameModel("Brands"));
 
         shopByNameModels.add(new ShopByNameModel("Makes"));
 

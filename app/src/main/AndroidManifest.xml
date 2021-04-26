@@ -20,18 +20,15 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.RetailerAllCategoriesActivity"
+        <activity android:name=".retailer.ShippingMethodActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Parent"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".retailer.RetailerAllCategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".retailer.RetailerSetttingsActivity"
             android:screenOrientation="portrait"
@@ -66,7 +63,15 @@
             android:name=".retailer.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan" >
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
         <activity
             android:name=".retailer.ShippingAddressActivity"
             android:screenOrientation="portrait"
@@ -132,6 +137,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan">
+
         </activity>
         <activity
             android:name=".activities.LoginActivity"

@@ -2,7 +2,6 @@
 package com.triton.bertsproject.retailer;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -37,7 +36,8 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.rv_productlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_productlist'", RecyclerView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
-    target.btn_proceed = Utils.findRequiredViewAsType(source, R.id.btn_proceed, "field 'btn_proceed'", Button.class);
+    target.txt_deliveryaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddrchange, "field 'txt_deliveryaddrchange'", TextView.class);
+    target.txt_shipaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_shipaddrchange, "field 'txt_shipaddrchange'", TextView.class);
   }
 
   @Override
@@ -54,6 +54,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.rv_productlist = null;
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;
-    target.btn_proceed = null;
+    target.txt_deliveryaddrchange = null;
+    target.txt_shipaddrchange = null;
   }
 }

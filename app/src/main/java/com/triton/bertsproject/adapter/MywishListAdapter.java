@@ -64,6 +64,10 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
         //holder.cardView.setRadius(20);
 
         holder.linearLayout.setVisibility(View.GONE);
+
+        holder.ll_multipleadd.setVisibility(View.GONE);
+
+        holder.img_delete.setVisibility(View.GONE);
     }
 
     public void removeItem(int position) {
@@ -85,23 +89,25 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
-        ImageView img_product_image;
+        ImageView img_product_image,img_delete;
         //RatingBar ratingBar;
         TextView txt_parts_no;
         TextView txt_price;
         TextView txt_product_name;
         TextView txt_total_reviews;
-        LinearLayout linearLayout;
+        LinearLayout linearLayout,ll_multipleadd;
         CardView cardView;
         public ShoplistHolder(View itemView) {
             super(itemView);
             img_product_image = itemView.findViewById(R.id.img_product_image);
+            img_delete = itemView.findViewById(R.id.img_delete);
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
             txt_parts_no =  itemView.findViewById(R.id.txt_parts_name);
            // ratingBar = itemView.findViewById(R.id.ratingBar);
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
             txt_price =  itemView.findViewById(R.id.txt_price);
             linearLayout =  itemView.findViewById(R.id.ll_root);
+            ll_multipleadd =  itemView.findViewById(R.id.ll_multipleadd);
             cardView =  itemView.findViewById(R.id.cv_root);
         }
     }

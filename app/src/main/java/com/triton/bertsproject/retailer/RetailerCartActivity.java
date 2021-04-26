@@ -78,9 +78,17 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+//    @SuppressLint("NonConstantResourceId")
+//    @BindView(R.id.btn_proceed)
+//    Button btn_proceed;
+
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.btn_proceed)
-    Button btn_proceed;
+    @BindView(R.id.txt_deliveryaddrchange)
+    TextView txt_deliveryaddrchange;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_shipaddrchange)
+    TextView txt_shipaddrchange;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +115,21 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         });
 
-        btn_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,OrderListActivity.class)));
+        txt_deliveryaddrchange.setOnClickListener(v -> {
+
+            startActivity(new Intent(RetailerCartActivity.this, ShippingAddressActivity.class));
+
+            Animatoo.animateSwipeRight(context);
+        });
+
+        txt_shipaddrchange.setOnClickListener(v -> {
+
+            startActivity(new Intent(RetailerCartActivity.this, ShippingMethodActivity.class));
+
+            Animatoo.animateSwipeRight(context);
+        });
+
+        //btn_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,OrderListActivity.class)));
         enableSwipeToDeleteAndUndo();
     }
 

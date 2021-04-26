@@ -39,7 +39,7 @@
     <string name="hello">Hello,</string>
     <string name="guest">Guest</string>
     <string name="count">6</string>
-    <string name="add_veh_desc">Add a vehicle to find exact fit parts</string>
+    <string name="add_veh_desc">Add A Vehicle To Find Exact Fit Parts</string>
     <string name="add_veh_btn_txt">Add a Vehicle</string>
     <string name="search">Search VIN, Parts or Products</string>
     <string name="add_user_desc">Sign in to get special offers, deals \n and many more…</string>
@@ -222,6 +222,21 @@
     <string name="time">Time</string>
     <string name="push_notification">Push notification</string>
     <string name="all_categories">All categories</string>
+    <string name="_0">0</string>
+    <string name="cod">COD</string>
+    <string name="_24_hours">24 Hours</string>
+    <string name="choose">Choose</string>
+    <string name="change">Change</string>
+    <string name="sample">Sample</string>
+    <string name="sample_adrar_algeria">sample, Adrar, Algeria</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
+    <string name="shipping_method">Choose Shipping Method</string>
+    <string name="price1">$13.49</string>
+    <string name="shipping_by_quantity">Shipping By Quantity</string>
+    <string name="_1_3_business_days">1–3 Business Days</string>
+    <string name="express_delivery">Express Delivery</string>
+    <string name="shipping_by_weight">Shipping by Weight</string>
+    <string name="_4_6_business_days">4–6 Business Days</string>
 
     <string-array name="array_name">
         <item>Price : Low to High</item>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 //        }
         if (retailerProductlistModel.getReview() != null) {
 
-            String review = retailerProductlistModel.getReview() + " Reviews";
+            String review = "(" + retailerProductlistModel.getReview() + " Reviews )";
 
             holder.txt_total_reviews.setText(review);
         }
@@ -79,21 +80,24 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
-        ImageView img_product_image;
+        ImageView img_product_image,img_delete;
      //   RatingBar ratingBar;
         TextView txt_parts_no;
         TextView txt_price;
         TextView txt_product_name;
         TextView txt_total_reviews;
+        LinearLayout ll_multipleadd;
 
         public ShoplistHolder(View itemView) {
             super(itemView);
             img_product_image = itemView.findViewById(R.id.img_product_image);
+            img_delete = itemView.findViewById(R.id.img_delete);
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
             txt_parts_no = itemView.findViewById(R.id.txt_parts_name);
            // this.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
             txt_total_reviews =  itemView.findViewById(R.id.txt_total_reviews);
             txt_price = itemView.findViewById(R.id.txt_price);
+            ll_multipleadd = itemView.findViewById(R.id.ll_multipleadd);
         }
     }
 }
