@@ -237,6 +237,25 @@
     <string name="express_delivery">Express Delivery</string>
     <string name="shipping_by_weight">Shipping by Weight</string>
     <string name="_4_6_business_days">4–6 Business Days</string>
+    <string name="checkout_screen">Checkout Screen</string>
+    <string name="order_total_1">Order Total #1</string>
+    <string name="x_1">x 1</string>
+    <string name="proceed_to_buy">Proceed to Buy</string>
+    <string name="order_total">Order Total</string>
+    <string name="select_code">Select Code</string>
+    <string name="coupons">Coupons</string>
+    <string name="merchandise_subtotal">Merchandise Subtotal</string>
+    <string name="discount_subtotal">Discount Subtotal</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="payment">Payment</string>
+    <string name="select_coupons">Select Coupons</string>
+    <string name="coupon_description">Coupon Description</string>
+    <string name="coupon_date">Coupon Date</string>
+    <string name="_15">15%</string>
+    <string name="coupon_name">Coupon Name</string>
+    <string name="paypal">Paypal</string>
+    <string name="offline_payment">Offline</string>
+    <string name="select_payment_method">Select Payment Method</string>
 
     <string-array name="array_name">
         <item>Price : Low to High</item>

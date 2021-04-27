@@ -1830,6 +1830,7 @@ drawable berts_logo
 drawable berts_logo_fb
 drawable bg_edt_error
 drawable bg_edt_white
+drawable bg_sale
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1883,6 +1884,7 @@ drawable ic_downloadqtn
 drawable ic_edit
 drawable ic_eye_open
 drawable ic_feather_edit
+drawable ic_free_ship
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -2269,6 +2271,8 @@ id img
 id img2
 id img_aboutus
 id img_arrow
+id img_arrow1
+id img_arrow2
 id img_arrow_brand
 id img_arrow_categ
 id img_arrow_color
@@ -2351,6 +2355,8 @@ id img_vehc_icon
 id img_vehc_icon1
 id img_wishlist
 id imvEmailError
+id imvFreeShip
+id imvFreeShip1
 id increase
 id info
 id inputEmail
@@ -2482,12 +2488,17 @@ id progress_horizontal
 id radio
 id ratingBar
 id ratio
+id rdGroupPayment
+id rdOffline
+id rdPaypal
 id rectangles
 id reverseSawtooth
 id right
 id rightToLeft
 id right_icon
 id right_side
+id rlContent
+id rlContent1
 id rlEdit
 id rlEmail
 id rl_aboutus
@@ -2654,8 +2665,16 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvCoupon
+id tvCoupon1
+id tvDate
+id tvDate1
+id tvDesc
+id tvDesc1
 id tvMailError
 id tvMailErrorDetail
+id tvSaleoff
+id tvSaleoff1
 id txt_1star_label
 id txt_1star_perc
 id txt_2star_label
@@ -2687,6 +2706,7 @@ id txt_color
 id txt_color_selected_value
 id txt_count
 id txt_count_number
+id txt_coupon_apply_label
 id txt_currncy
 id txt_cust_revw_label
 id txt_cycl
@@ -2704,6 +2724,8 @@ id txt_deliveryaddrchange
 id txt_deliveryaddrtype
 id txt_desc_label
 id txt_dimen
+id txt_dis_total_price
+id txt_discount_total_label
 id txt_dislike_count
 id txt_dist_pincode_state
 id txt_download_invoice
@@ -2730,6 +2752,8 @@ id txt_make_selected_value
 id txt_makes
 id txt_manufacturer
 id txt_measurment_unit
+id txt_merch_subtotal_label
+id txt_merch_subtotal_value
 id txt_model
 id txt_or
 id txt_order_ID
@@ -2741,6 +2765,8 @@ id txt_order_shipped
 id txt_order_shipping
 id txt_order_status
 id txt_order_statuss
+id txt_order_total
+id txt_order_total_label
 id txt_order_waiting
 id txt_order_youraddr
 id txt_orders
@@ -2752,6 +2778,8 @@ id txt_parts_no
 id txt_parts_no1
 id txt_partsnosearch_info
 id txt_partsnosearch_info_desc
+id txt_payment_method
+id txt_payment_method_label
 id txt_paymntmethod
 id txt_phnum
 id txt_pr_range
@@ -2762,6 +2790,7 @@ id txt_premium2
 id txt_premium3
 id txt_price
 id txt_price1
+id txt_prod_count
 id txt_prod_desc
 id txt_prod_info_label
 id txt_prod_search_info
@@ -2781,6 +2810,7 @@ id txt_review_countings
 id txt_saveasdefault
 id txt_search_key_info
 id txt_search_key_info_desc
+id txt_select_coupon
 id txt_select_vehc
 id txt_select_vehc1
 id txt_select_vehc2
@@ -2788,7 +2818,9 @@ id txt_select_vehc21
 id txt_select_vehc3
 id txt_select_vehc31
 id txt_settings
+id txt_ship_subtotal_value
 id txt_shipaddrchange
+id txt_shipp_subtotal_label
 id txt_shippingaddrdays
 id txt_shippingaddrdays1
 id txt_shippingaddrdays2
@@ -2817,6 +2849,7 @@ id txt_time
 id txt_toolbar_title
 id txt_top_categories
 id txt_total_label
+id txt_total_order
 id txt_total_price
 id txt_total_rating_calc
 id txt_total_results
@@ -2858,7 +2891,12 @@ id view12
 id view13
 id view14
 id view15
+id view16
+id view17
+id view18
+id view19
 id view2
+id view21
 id view3
 id view4
 id view5
@@ -2943,11 +2981,14 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_vehicle
 layout activity_change_password
+layout activity_checkout_screen
+layout activity_coupon_apply_detail
 layout activity_filterlist
 layout activity_forget_password
 layout activity_login
 layout activity_my_wishlist
 layout activity_order_list
+layout activity_payment_method
 layout activity_product_detail_description
 layout activity_register
 layout activity_retailer_all_categories
@@ -3103,6 +3144,7 @@ string _120_reviews
 string _130_49
 string _14_02_1994
 string _14_x_14_x_10_inches
+string _15
 string _1_3_business_days
 string _1_874_586_4951
 string _1_star
@@ -3188,6 +3230,7 @@ string change_password
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
+string checkout_screen
 string chennai
 string chip_text
 string choose
@@ -3198,6 +3241,10 @@ string confirm_password
 string confirmed_your_order
 string count
 string country
+string coupon_date
+string coupon_description
+string coupon_name
+string coupons
 string create_account
 string currency
 string customer_reviews
@@ -3208,6 +3255,7 @@ string delivered_address
 string delivered_via_bert_s_on_apr_12_2021
 string delivery_in_progress
 string detail_address
+string discount_subtotal
 string do_i_need_to_change_my_calipers_too
 string download_invoice
 string download_quotation
@@ -3273,6 +3321,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string merchandise_subtotal
 string minus
 string model
 string model_name
@@ -3318,10 +3367,13 @@ string my_wishlist
 string my_wishlistt
 string new_addr
 string now_available_n_stock_izuzu_and_mazda_parts
+string offline_payment
 string only_if_needed_their_calipers_are_good_too
 string or
 string order_history
 string order_status
+string order_total
+string order_total_1
 string order_tracking
 string out_of_stock
 string part_no_k5975
@@ -3336,7 +3388,9 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string payment
 string payment_method
+string paypal
 string plus
 string power_stop
 string premium
@@ -3344,6 +3398,7 @@ string price
 string price1
 string price_range
 string proceed
+string proceed_to_buy
 string proceed_to_checkout
 string prod_desc_text
 string prod_name
@@ -3380,7 +3435,10 @@ string select_a_vendor
 string select_a_year
 string select_brand
 string select_category
+string select_code
 string select_color
+string select_coupons
+string select_payment_method
 string select_vehicle
 string selected_vehicle1
 string set_as_default
@@ -3408,6 +3466,7 @@ string terms_conditions1
 string time
 string toolbar_title
 string top_categories
+string total_amount
 string total_results
 string total_reviews
 string total_reviews_count
@@ -3427,6 +3486,7 @@ string waiting
 string weight
 string wholesaler
 string write_a_review
+string x_1
 string year
 string your_address
 string zipcode

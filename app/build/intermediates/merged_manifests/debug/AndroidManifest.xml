@@ -27,6 +27,29 @@
         android:testOnly="true"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.triton.bertsproject.retailer.PaymentMethodActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.triton.bertsproject.retailer.CouponApplyDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.triton.bertsproject.retailer.CheckoutScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name="com.triton.bertsproject.retailer.ShippingMethodActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Parent"
@@ -70,13 +93,7 @@
             android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.triton.bertsproject.retailer.ShippingAddressActivity"
             android:screenOrientation="portrait"
@@ -141,8 +158,7 @@
             android:name="com.triton.bertsproject.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.triton.bertsproject.activities.LoginActivity"
             android:screenOrientation="portrait"
