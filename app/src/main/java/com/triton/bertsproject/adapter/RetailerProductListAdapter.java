@@ -71,15 +71,15 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
         }
 
-        if (retailerProductlistModel.getRating()!= null) {
-
-            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
-
-        }
+//        if (retailerProductlistModel.getRating()!= null) {
+//
+//            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+//
+//        }
 
         if (retailerProductlistModel.getReview()!= null) {
 
-            String review = retailerProductlistModel.getReview()+ " Reviews";
+            String review = "(" + retailerProductlistModel.getReview()+ ")";
 
             holder.txt_total_reviews.setText(review);
 
@@ -87,7 +87,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
         if (retailerProductlistModel.getPrice()!= null) {
 
-            String price = "\u0024"+retailerProductlistModel.getPrice();
+            String price = ""+retailerProductlistModel.getPrice();
 
             holder.txt_price.setText(price);
 
@@ -112,7 +112,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
         ImageView img_product_image;
         TextView txt_product_name, txt_parts_name,txt_total_reviews,txt_price,txt_stock_status;
-        RatingBar ratingBar;
+  //      RatingBar ratingBar;
         LinearLayout ll_product_status;
 
         public ShoplistHolder(View itemView) {
@@ -124,7 +124,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
             txt_parts_name = itemView.findViewById(R.id.txt_parts_name);
 
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+//            ratingBar = itemView.findViewById(R.id.ratingBar);
 
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
 

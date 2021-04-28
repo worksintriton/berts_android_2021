@@ -100,7 +100,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
         ImageView img_product_image;
         TextView txt_product_name, txt_parts_no,txt_total_reviews,txt_price;
-        RatingBar ratingBar;
+       // RatingBar ratingBar;
         Button btn_addcart;
 
         public ShoplistHolder(View itemView) {
@@ -112,7 +112,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
             txt_parts_no = itemView.findViewById(R.id.txt_parts_no);
 
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+     //       ratingBar = itemView.findViewById(R.id.ratingBar);
 
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
 

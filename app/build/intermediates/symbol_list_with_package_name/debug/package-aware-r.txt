@@ -1287,6 +1287,8 @@ dimen _14sp
 dimen _150dp
 dimen _15dp
 dimen _15sp
+dimen _160dp
+dimen _165dp
 dimen _16dp
 dimen _16sp
 dimen _17dp
@@ -1828,6 +1830,7 @@ drawable back
 drawable banner
 drawable berts_logo
 drawable berts_logo_fb
+drawable bg_cycler_blue
 drawable bg_edt_error
 drawable bg_edt_white
 drawable bg_sale
@@ -1885,9 +1888,12 @@ drawable ic_edit
 drawable ic_eye_open
 drawable ic_feather_edit
 drawable ic_free_ship
+drawable ic_grid
+drawable ic_heart_outline
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_list
 drawable ic_logout
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
@@ -2357,6 +2363,8 @@ id img_wishlist
 id imvEmailError
 id imvFreeShip
 id imvFreeShip1
+id imvGrid
+id imvList
 id increase
 id info
 id inputEmail
@@ -2486,7 +2494,6 @@ id progress_bar_5star
 id progress_circular
 id progress_horizontal
 id radio
-id ratingBar
 id ratio
 id rdGroupPayment
 id rdOffline
@@ -2501,6 +2508,8 @@ id rlContent
 id rlContent1
 id rlEdit
 id rlEmail
+id rlGrid
+id rlList
 id rl_aboutus
 id rl_currncy
 id rl_date
@@ -2606,7 +2615,6 @@ id stroke
 id submenuarrow
 id submit_area
 id sw_saveasdefault
-id switch1
 id tabMode
 id tabRetailer
 id tablayout
@@ -2896,6 +2904,7 @@ id view17
 id view18
 id view19
 id view2
+id view20
 id view21
 id view3
 id view4
@@ -3160,6 +3169,7 @@ string _3_star
 string _40
 string _4_5_out_of_5
 string _4_6_business_days
+string _4_94_1_054_00
 string _4_cyl_1_8l
 string _4_star
 string _5

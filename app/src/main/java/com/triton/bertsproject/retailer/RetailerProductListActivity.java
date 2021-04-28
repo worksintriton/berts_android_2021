@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +47,17 @@ public class RetailerProductListActivity extends AppCompatActivity {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
-    @SuppressLint({"NonConstantResourceId", "UseSwitchCompatOrMaterialCode"})
-    @BindView(R.id.switch1)
-    Switch Switch;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rlList)
+    LinearLayout rlList;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rlGrid)
+    LinearLayout rlGrid;
+
+//    @SuppressLint({"NonConstantResourceId", "UseSwitchCompatOrMaterialCode"})
+//    @BindView(R.id.switch1)
+//    Switch Switch;
 //
 //    @SuppressLint("NonConstantResourceId")
 //    @BindView(R.id.edt_search)
@@ -93,19 +104,25 @@ public class RetailerProductListActivity extends AppCompatActivity {
             Animatoo.animateSwipeLeft(context);
         });
 
-        Switch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        rlList.setOnClickListener(v -> {
 
-            if(isChecked){
+            rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
 
-                setlistView();
-            }
+            rlGrid.setBackgroundResource(R.color.transparent);
 
-            else {
-
-                setView();
-            }
-
+            setlistView();
         });
+
+
+        rlGrid.setOnClickListener(v -> {
+
+            rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+            rlList.setBackgroundResource(R.color.transparent);
+
+            setView();
+        });
+
 
         setView();
 
@@ -115,13 +132,13 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         retailerProductlistModels.clear();
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,false,false));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,false));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,false,true));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,true));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,true,false));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,false));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,true,true));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,true));
 
         rv_prodlist.setLayoutManager(new LinearLayoutManager(RetailerProductListActivity.this,LinearLayoutManager.VERTICAL,false));
 
@@ -142,19 +159,29 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         retailerProductlistModels.clear();
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,false,false));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,false));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,false,true));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,true));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,true,false));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,false));
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1,true,true));
+        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,true));
 
         rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListActivity.this, 2));
 
         rv_prodlist.setMotionEventSplittingEnabled(false);
 
         //int size =3;
+
+        //int size =3;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        boolean includeEdge = true;
+
+        rv_prodlist.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 

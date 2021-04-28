@@ -22,8 +22,9 @@ com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
 com/triton/bertsproject/adapter/ShopbyAdapter.java
  com.triton.bertsproject.adapter.ShopbyAdapter
  com.triton.bertsproject.adapter.ShopbyAdapter$ShopbyHolder
-com/triton/bertsproject/retailer/RetailerProductListActivity.java
- com.triton.bertsproject.retailer.RetailerProductListActivity
+com/triton/bertsproject/retailer/RetailerCartActivity.java
+ com.triton.bertsproject.retailer.RetailerCartActivity
+ com.triton.bertsproject.retailer.RetailerCartActivity$1
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
 com/triton/bertsproject/customView/CustomTextarea.java
@@ -48,9 +49,8 @@ com/triton/bertsproject/retailer/RetailerProfileAccountActivity.java
  com.triton.bertsproject.retailer.RetailerProfileAccountActivity$2
 com/triton/bertsproject/model/ShoplistModel.java
  com.triton.bertsproject.model.ShoplistModel
-com/triton/bertsproject/adapter/RetailerProductListAdapter.java
- com.triton.bertsproject.adapter.RetailerProductListAdapter
- com.triton.bertsproject.adapter.RetailerProductListAdapter$ShoplistHolder
+com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
+ com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
 com/triton/bertsproject/model/SearchFilterListModel.java
  com.triton.bertsproject.model.SearchFilterListModel
 com/triton/bertsproject/activities/SplashActivity.java
@@ -126,8 +126,8 @@ com/triton/bertsproject/retailer/RetailerDashboardActivity.java
  com.triton.bertsproject.retailer.RetailerDashboardActivity
 com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity
-com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
- com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
-com/triton/bertsproject/retailer/RetailerCartActivity.java
- com.triton.bertsproject.retailer.RetailerCartActivity
- com.triton.bertsproject.retailer.RetailerCartActivity$1
+com/triton/bertsproject/retailer/RetailerProductListActivity.java
+ com.triton.bertsproject.retailer.RetailerProductListActivity
+com/triton/bertsproject/adapter/RetailerProductListAdapter.java
+ com.triton.bertsproject.adapter.RetailerProductListAdapter
+ com.triton.bertsproject.adapter.RetailerProductListAdapter$ShoplistHolder

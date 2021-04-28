@@ -3,7 +3,7 @@ package com.triton.bertsproject.retailer;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -30,7 +30,8 @@ public class RetailerProductListActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
-    target.Switch = Utils.findRequiredViewAsType(source, R.id.switch1, "field 'Switch'", Switch.class);
+    target.rlList = Utils.findRequiredViewAsType(source, R.id.rlList, "field 'rlList'", LinearLayout.class);
+    target.rlGrid = Utils.findRequiredViewAsType(source, R.id.rlGrid, "field 'rlGrid'", LinearLayout.class);
     target.rv_prodlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_prodlist'", RecyclerView.class);
   }
 
@@ -44,7 +45,8 @@ public class RetailerProductListActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = null;
     target.img_back = null;
     target.txt_toolbar_title = null;
-    target.Switch = null;
+    target.rlList = null;
+    target.rlGrid = null;
     target.rv_prodlist = null;
   }
 }
