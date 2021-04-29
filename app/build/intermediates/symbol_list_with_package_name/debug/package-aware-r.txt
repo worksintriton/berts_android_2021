@@ -161,6 +161,8 @@ attr badgeGravity
 attr badgeStyle
 attr badgeTextColor
 attr barLength
+attr bar_color
+attr bar_highlight_color
 attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr barrierMargin
@@ -328,6 +330,7 @@ attr cornerSizeBottomLeft
 attr cornerSizeBottomRight
 attr cornerSizeTopLeft
 attr cornerSizeTopRight
+attr corner_radius
 attr counterEnabled
 attr counterMaxLength
 attr counterOverflowTextAppearance
@@ -346,6 +349,7 @@ attr customIntegerValue
 attr customNavigationLayout
 attr customPixelDimension
 attr customStringValue
+attr data_type
 attr dayInvalidStyle
 attr daySelectedStyle
 attr dayStyle
@@ -384,6 +388,9 @@ attr duration
 attr editTextBackground
 attr editTextColor
 attr editTextStyle
+attr el_duration
+attr el_expanded
+attr el_parallax
 attr elevation
 attr elevationOverlayColor
 attr elevationOverlayEnabled
@@ -404,19 +411,6 @@ attr errorIconTintMode
 attr errorTextAppearance
 attr errorTextColor
 attr expandActivityOverflowButtonDrawable
-attr expandable_animation
-attr expandable_duration
-attr expandable_isExpanded
-attr expandable_parentLayout
-attr expandable_secondLayout
-attr expandable_showSpinner
-attr expandable_spinner
-attr expandable_spinner_animate
-attr expandable_spinner_color
-attr expandable_spinner_gravity
-attr expandable_spinner_margin
-attr expandable_spinner_rotation
-attr expandable_spinner_size
 attr expanded
 attr expandedHintEnabled
 attr expandedTitleGravity
@@ -442,6 +436,7 @@ attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr fill_color
 attr firstBaselineToTopHeight
+attr fix_gap
 attr floatingActionButtonStyle
 attr flow_firstHorizontalBias
 attr flow_firstHorizontalStyle
@@ -475,6 +470,7 @@ attr fontVariationSettings
 attr fontWeight
 attr foregroundInsidePadding
 attr framePosition
+attr gap
 attr gapBetweenBars
 attr gestureInsetBottomIgnored
 attr goIcon
@@ -624,6 +620,10 @@ attr layout_keyline
 attr layout_optimizationLevel
 attr layout_scrollFlags
 attr layout_scrollInterpolator
+attr left_thumb_color
+attr left_thumb_color_pressed
+attr left_thumb_image
+attr left_thumb_image_pressed
 attr liftOnScroll
 attr liftOnScrollTargetViewId
 attr limitBoundsTo
@@ -684,6 +684,8 @@ attr maxImageSize
 attr maxLines
 attr maxVelocity
 attr maxWidth
+attr max_start_value
+attr max_value
 attr measureWithLargestChild
 attr menu
 attr minHeight
@@ -691,6 +693,8 @@ attr minHideDelay
 attr minSeparation
 attr minTouchTargetSize
 attr minWidth
+attr min_start_value
+attr min_value
 attr mock_diagonalsColor
 attr mock_label
 attr mock_labelBackgroundColor
@@ -755,6 +759,7 @@ attr popupMenuBackground
 attr popupMenuStyle
 attr popupTheme
 attr popupWindowStyle
+attr position
 attr prefixText
 attr prefixTextAppearance
 attr prefixTextColor
@@ -776,6 +781,10 @@ attr region_heightMoreThan
 attr region_widthLessThan
 attr region_widthMoreThan
 attr reverseLayout
+attr right_thumb_color
+attr right_thumb_color_pressed
+attr right_thumb_image
+attr right_thumb_image_pressed
 attr rippleColor
 attr round
 attr roundPercent
@@ -848,6 +857,7 @@ attr state_lifted
 attr statusBarBackground
 attr statusBarForeground
 attr statusBarScrim
+attr steps
 attr strokeColor
 attr strokeWidth
 attr subMenuArrow
@@ -1070,6 +1080,8 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color checkbox_themeable_attribute_color
+color colorNew
+color color_line
 color dark_blue
 color dark_grey
 color design_bottom_navigation_shadow_color
@@ -1419,6 +1431,8 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen action_bar_size
 dimen appcompat_dialog_background_inset
+dimen bubble_thumb_height
+dimen bubble_thumb_width
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1728,6 +1742,8 @@ dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
 dimen tab_spacing_half
 dimen test_mtrl_calendar_day_cornerSize
+dimen thumb_height
+dimen thumb_width
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1872,7 +1888,6 @@ drawable home_car_banner
 drawable horizontal_blue_line
 drawable horizontal_line
 drawable ic_about
-drawable ic_arrow_down
 drawable ic_baseline_add_24
 drawable ic_baseline_add_darkgrey
 drawable ic_baseline_check_circle_24
@@ -1880,6 +1895,8 @@ drawable ic_baseline_delete_forever_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_remove_24
 drawable ic_baseline_sort_24
+drawable ic_black_checkbox
+drawable ic_blue_checkbox
 drawable ic_camera
 drawable ic_clock_black_24dp
 drawable ic_down_arrow
@@ -1888,6 +1905,7 @@ drawable ic_edit
 drawable ic_eye_open
 drawable ic_feather_edit
 drawable ic_free_ship
+drawable ic_green_checkbox
 drawable ic_grid
 drawable ic_heart_outline
 drawable ic_keyboard_black_24dp
@@ -1902,9 +1920,13 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_ordrhist
 drawable ic_ordrtrack
 drawable ic_receipt
+drawable ic_red_checkbox
 drawable ic_right_down
 drawable ic_setting
 drawable ic_smallright
+drawable ic_star_empty
+drawable ic_star_filled
+drawable ic_thumb_rangeprice
 drawable ic_up_arrow
 drawable ic_warning
 drawable icn1
@@ -2038,6 +2060,12 @@ id TOP_START
 id ThreeBounce
 id WanderingCubes
 id Wave
+id _byte
+id _double
+id _float
+id _integer
+id _long
+id _short
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2099,7 +2127,6 @@ id all
 id always
 id animateToEnd
 id animateToStart
-id arrow
 id asConfigured
 id async
 id auto
@@ -2137,6 +2164,7 @@ id buttonPanel
 id cache_measures
 id cancel_action
 id cancel_button
+id cb_flist
 id cb_terms
 id center
 id center_horizontal
@@ -2166,12 +2194,12 @@ id contiguous
 id coordinator
 id cos
 id counterclockwise
-id cover
 id custom
 id customPanel
 id cut
 id cv_aboutus
 id cv_before_login
+id cv_fllist
 id cv_loginafter
 id cv_logout
 id cv_register_with_facebook
@@ -2234,6 +2262,13 @@ id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
+id expandable_layout_brand
+id expandable_layout_categ
+id expandable_layout_color
+id expandable_layout_make
+id expandable_layout_price_range
+id expandable_layout_rating
+id expandable_layout_yr
 id expanded_menu
 id expandible_listview
 id fab
@@ -2250,7 +2285,6 @@ id floating
 id footerView
 id forever
 id fragment_container
-id frame_parent
 id garage
 id ghost_view
 id ghost_view_holder
@@ -2275,6 +2309,31 @@ id ignoreRequest
 id image
 id img
 id img2
+id img_1star
+id img_1star1
+id img_1star2
+id img_1star3
+id img_1star4
+id img_2star
+id img_2star1
+id img_2star2
+id img_2star3
+id img_2star4
+id img_3star
+id img_3star1
+id img_3star2
+id img_3star3
+id img_3star4
+id img_4star
+id img_4star1
+id img_4star2
+id img_4star3
+id img_4star4
+id img_5star
+id img_5star1
+id img_5star2
+id img_5star3
+id img_5star4
 id img_aboutus
 id img_arrow
 id img_arrow1
@@ -2303,6 +2362,7 @@ id img_background
 id img_banner
 id img_car_icon
 id img_cart
+id img_colorlist
 id img_cust_revw
 id img_delete
 id img_deliveryaddr
@@ -2389,10 +2449,16 @@ id linear
 id listMode
 id list_item
 id ll_address_list_show
+id ll_brand
+id ll_categ
+id ll_color
 id ll_delete
 id ll_edit
+id ll_makes
 id ll_multipleadd
+id ll_price_range
 id ll_product_status
+id ll_rating
 id ll_root
 id ll_shipdaddr
 id ll_year
@@ -2481,20 +2547,21 @@ id pin
 id position
 id postLayout
 id profile
-id progress_bar
-id progress_bar_1
 id progress_bar_1star
-id progress_bar_2
 id progress_bar_2star
-id progress_bar_3
 id progress_bar_3star
-id progress_bar_4
 id progress_bar_4star
 id progress_bar_5star
 id progress_circular
 id progress_horizontal
 id radio
+id rangeSeekbar
 id ratio
+id rb_1star
+id rb_2star
+id rb_3star
+id rb_4star
+id rb_5star
 id rdGroupPayment
 id rdOffline
 id rdPaypal
@@ -2538,6 +2605,7 @@ id rv_brand
 id rv_categ
 id rv_color
 id rv_filterlist
+id rv_makes
 id rv_pr_range
 id rv_productlist
 id rv_rate
@@ -2683,16 +2751,21 @@ id tvMailError
 id tvMailErrorDetail
 id tvSaleoff
 id tvSaleoff1
+id txt_1star
 id txt_1star_label
 id txt_1star_perc
 id txt_2star_label
 id txt_2star_perc
+id txt_2stars
 id txt_3star_label
 id txt_3star_perc
+id txt_3stars
 id txt_4star_label
 id txt_4star_perc
+id txt_4stars
 id txt_5star_label
 id txt_5star_perc
+id txt_5stars
 id txt_aboutus
 id txt_addreview
 id txt_addrs_type
@@ -2745,6 +2818,7 @@ id txt_fast_shipping
 id txt_fit_desc
 id txt_fit_desc1
 id txt_flistname
+id txt_fllistname
 id txt_forget_password
 id txt_forget_password_reason
 id txt_gurantee_fit
@@ -3008,6 +3082,7 @@ layout activity_retailer_product_list
 layout activity_retailer_profile_account
 layout activity_retailer_receipt
 layout activity_retailer_settings
+layout activity_sample
 layout activity_search_product_list
 layout activity_search_products
 layout activity_shipping_address
@@ -3015,6 +3090,8 @@ layout activity_shipping_address_add
 layout activity_shipping_method
 layout activity_splash
 layout adapter_cart_prodlist
+layout adapter_filter_colorlist
+layout adapter_filter_yearlist
 layout adapter_filterlist
 layout adapter_orderlist
 layout adapter_prodlist_gridview
@@ -3042,8 +3119,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout expandable_layout_child
-layout expandable_layout_frame
 layout fragment_home
 layout fragment_live_chat
 layout fragment_my_garage
@@ -3112,8 +3187,7 @@ layout notification_template_part_time
 layout row_first
 layout row_second
 layout row_third
-layout sample
-layout samples
+layout samplelayout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -3165,6 +3239,7 @@ string _24_hours
 string _2_0l_xxxxcs_fl_turbo
 string _2_0l_xxxxcs_fl_turbo_vin_xasd
 string _2_star
+string _2_stars
 string _3_star
 string _40
 string _4_5_out_of_5
@@ -3176,6 +3251,7 @@ string _5
 string _56_hagley_park_road
 string _58_00
 string _5_star
+string _5_stars
 string _60
 string _6476_7687
 string _80
@@ -3282,6 +3358,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string fast_shipping
 string feb_28_2021_10_19
+string fill_height
 string filter
 string firstname
 string fit_desc
@@ -3471,6 +3548,7 @@ string sort_filter
 string state
 string status_bar_notification_info_overflow
 string str_new
+string tap_to_toggle_expansion
 string terms_conditions
 string terms_conditions1
 string time
@@ -4323,12 +4401,13 @@ styleable ConstraintLayout_placeholder content placeholder_emptyVisibility
 styleable ConstraintSet android_orientation android_id android_visibility android_layout_width android_layout_height android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom android_maxWidth android_maxHeight android_minWidth android_minHeight android_pivotX android_pivotY android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_layout_marginStart android_layout_marginEnd android_translationZ android_elevation animate_relativeTo barrierAllowsGoneWidgets barrierDirection barrierMargin chainUseRtl constraint_referenced_ids constraint_referenced_tags deriveConstraintsFrom drawPath flow_firstHorizontalBias flow_firstHorizontalStyle flow_firstVerticalBias flow_firstVerticalStyle flow_horizontalAlign flow_horizontalBias flow_horizontalGap flow_horizontalStyle flow_lastHorizontalBias flow_lastHorizontalStyle flow_lastVerticalBias flow_lastVerticalStyle flow_maxElementsWrap flow_verticalAlign flow_verticalBias flow_verticalGap flow_verticalStyle flow_wrapMode layout_constrainedHeight layout_constrainedWidth layout_constraintBaseline_creator layout_constraintBaseline_toBaselineOf layout_constraintBottom_creator layout_constraintBottom_toBottomOf layout_constraintBottom_toTopOf layout_constraintCircle layout_constraintCircleAngle layout_constraintCircleRadius layout_constraintDimensionRatio layout_constraintEnd_toEndOf layout_constraintEnd_toStartOf layout_constraintGuide_begin layout_constraintGuide_end layout_constraintGuide_percent layout_constraintHeight_default layout_constraintHeight_max layout_constraintHeight_min layout_constraintHeight_percent layout_constraintHorizontal_bias layout_constraintHorizontal_chainStyle layout_constraintHorizontal_weight layout_constraintLeft_creator layout_constraintLeft_toLeftOf layout_constraintLeft_toRightOf layout_constraintRight_creator layout_constraintRight_toLeftOf layout_constraintRight_toRightOf layout_constraintStart_toEndOf layout_constraintStart_toStartOf layout_constraintTag layout_constraintTop_creator layout_constraintTop_toBottomOf layout_constraintTop_toTopOf layout_constraintVertical_bias layout_constraintVertical_chainStyle layout_constraintVertical_weight layout_constraintWidth_default layout_constraintWidth_max layout_constraintWidth_min layout_constraintWidth_percent layout_editor_absoluteX layout_editor_absoluteY layout_goneMarginBottom layout_goneMarginEnd layout_goneMarginLeft layout_goneMarginRight layout_goneMarginStart layout_goneMarginTop motionProgress motionStagger pathMotionArc pivotAnchor transitionEasing transitionPathRotate
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
+styleable CrystalRangeSeekbar bar_color bar_highlight_color corner_radius data_type fix_gap gap left_thumb_color left_thumb_color_pressed left_thumb_image left_thumb_image_pressed max_start_value max_value min_start_value min_value position right_thumb_color right_thumb_color_pressed right_thumb_image right_thumb_image_pressed steps
 styleable CustomAttribute attributeName customBoolean customColorDrawableValue customColorValue customDimension customFloatValue customIntegerValue customPixelDimension customStringValue
 styleable CustomButtonChoose title value
 styleable CustomEditText hint inputType
 styleable CustomTextarea hinText input
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
-styleable ExpandableLayout expandable_animation expandable_duration expandable_isExpanded expandable_parentLayout expandable_secondLayout expandable_showSpinner expandable_spinner expandable_spinner_animate expandable_spinner_color expandable_spinner_gravity expandable_spinner_margin expandable_spinner_rotation expandable_spinner_size
+styleable ExpandableLayout android_orientation el_duration el_expanded el_parallax
 styleable ExtendedFloatingActionButton collapsedSize elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
 styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding

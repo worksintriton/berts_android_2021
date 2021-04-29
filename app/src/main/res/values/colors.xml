@@ -52,4 +52,7 @@
     <color name="green_light">#CDF7C9</color>
 
     <color name="pinkk">#ffedf1</color>
+
+    <color name="color_line">#E0E0E0</color>
+    <color name="colorNew">#56ccf2</color>
 </resources>

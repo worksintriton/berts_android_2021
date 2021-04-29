@@ -88,12 +88,12 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\icn3.PNG"
     },
     {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_feather_edit.png.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_feather_edit.png"
-    },
-    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cutomer_spinner_bgnd.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\cutomer_spinner_bgnd.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_feather_edit.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_feather_edit.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_right_arrow.png.flat",
@@ -152,6 +152,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_blue_checkbox.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_blue_checkbox.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_add_24.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
     },
@@ -168,12 +172,20 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_shopbyname.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_samplelayout.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\samplelayout.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_filter_yearlist.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_filter_yearlist.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner_blue_outline.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_blue_outline.xml"
     },
     {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_samples.xml.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\samples.xml"
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_star_empty.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_star_empty.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tc_img3.png.flat",
@@ -202,6 +214,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_star_filled.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_star_filled.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_right_down.png.flat",
@@ -236,12 +252,12 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\chat_bb.png"
     },
     {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_heart_outline.png.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_heart_outline.png"
-    },
-    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_delete.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\delete.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_heart_outline.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_heart_outline.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_edt_error.xml.flat",
@@ -270,6 +286,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_filter_colorlist.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_filter_colorlist.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_background_unselected.xml.flat",
@@ -340,6 +360,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_vehlist.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sample.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_sample.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_profile.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\profile.png"
     },
@@ -390,6 +414,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_location.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\location.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_thumb_rangeprice.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_thumb_rangeprice.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user_bb.png.flat",
@@ -520,6 +548,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_payment_method.xml"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_red_checkbox.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_red_checkbox.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_background_selected.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\tab_background_selected.xml"
     },
@@ -590,10 +622,6 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_horizontal_blue_line.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\horizontal_blue_line.xml"
-    },
-    {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_sample.xml.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\sample.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_plus.png.flat",
@@ -696,6 +724,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\push_notifcation.png"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_black_checkbox.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_black_checkbox.png"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_retailer_product_list.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_retailer_product_list.xml"
     },
@@ -744,12 +776,16 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_thickyellow_background.xml"
     },
     {
-        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_check_circle_24.xml.flat",
-        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_check_circle_24.xml"
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_green_checkbox.png.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_green_checkbox.png"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_list.png.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_list.png"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_check_circle_24.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_baseline_check_circle_24.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_spinner_item.xml.flat",

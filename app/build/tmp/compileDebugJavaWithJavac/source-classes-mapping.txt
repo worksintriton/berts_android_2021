@@ -22,11 +22,12 @@ com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
 com/triton/bertsproject/adapter/ShopbyAdapter.java
  com.triton.bertsproject.adapter.ShopbyAdapter
  com.triton.bertsproject.adapter.ShopbyAdapter$ShopbyHolder
-com/triton/bertsproject/retailer/RetailerCartActivity.java
- com.triton.bertsproject.retailer.RetailerCartActivity
- com.triton.bertsproject.retailer.RetailerCartActivity$1
+com/triton/bertsproject/retailer/RetailerProductListActivity.java
+ com.triton.bertsproject.retailer.RetailerProductListActivity
 com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
+com/triton/bertsproject/model/FilterColorlistModel.java
+ com.triton.bertsproject.model.FilterColorlistModel
 com/triton/bertsproject/customView/CustomTextarea.java
  com.triton.bertsproject.customView.CustomTextarea
  com.triton.bertsproject.customView.CustomTextarea$1
@@ -35,6 +36,9 @@ com/triton/bertsproject/adapter/ShoplistAdapter.java
  com.triton.bertsproject.adapter.ShoplistAdapter$ShoplistHolder
 com/triton/bertsproject/BuildConfig.java
  com.triton.bertsproject.BuildConfig
+com/triton/bertsproject/adapter/FilterlistAdapter.java
+ com.triton.bertsproject.adapter.FilterlistAdapter
+ com.triton.bertsproject.adapter.FilterlistAdapter$FilterlistHolder
 com/triton/bertsproject/model/RetailerProductlistModel.java
  com.triton.bertsproject.model.RetailerProductlistModel
 com/triton/bertsproject/retailer/SearchProductsActivity.java
@@ -49,8 +53,9 @@ com/triton/bertsproject/retailer/RetailerProfileAccountActivity.java
  com.triton.bertsproject.retailer.RetailerProfileAccountActivity$2
 com/triton/bertsproject/model/ShoplistModel.java
  com.triton.bertsproject.model.ShoplistModel
-com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
- com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
+com/triton/bertsproject/adapter/RetailerProductListAdapter.java
+ com.triton.bertsproject.adapter.RetailerProductListAdapter
+ com.triton.bertsproject.adapter.RetailerProductListAdapter$ShoplistHolder
 com/triton/bertsproject/model/SearchFilterListModel.java
  com.triton.bertsproject.model.SearchFilterListModel
 com/triton/bertsproject/activities/SplashActivity.java
@@ -78,6 +83,8 @@ com/triton/bertsproject/customView/CustomEditText.java
  com.triton.bertsproject.customView.CustomEditText$1
 com/triton/bertsproject/activities/RegisterActivity.java
  com.triton.bertsproject.activities.RegisterActivity
+com/triton/bertsproject/model/FilterlistModel.java
+ com.triton.bertsproject.model.FilterlistModel
 com/triton/bertsproject/model/OrderlistModel.java
  com.triton.bertsproject.model.OrderlistModel
 com/triton/bertsproject/retailer/RetailerReceiptActivity.java
@@ -126,8 +133,13 @@ com/triton/bertsproject/retailer/RetailerDashboardActivity.java
  com.triton.bertsproject.retailer.RetailerDashboardActivity
 com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity
-com/triton/bertsproject/retailer/RetailerProductListActivity.java
- com.triton.bertsproject.retailer.RetailerProductListActivity
-com/triton/bertsproject/adapter/RetailerProductListAdapter.java
- com.triton.bertsproject.adapter.RetailerProductListAdapter
- com.triton.bertsproject.adapter.RetailerProductListAdapter$ShoplistHolder
+com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
+ com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
+com/triton/bertsproject/retailer/SampleActivity.java
+ com.triton.bertsproject.retailer.SampleActivity
+com/triton/bertsproject/adapter/FilterColorlistAdapter.java
+ com.triton.bertsproject.adapter.FilterColorlistAdapter
+ com.triton.bertsproject.adapter.FilterColorlistAdapter$FilterlistHolder
+com/triton/bertsproject/retailer/RetailerCartActivity.java
+ com.triton.bertsproject.retailer.RetailerCartActivity
+ com.triton.bertsproject.retailer.RetailerCartActivity$1
