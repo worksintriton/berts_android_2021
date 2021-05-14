@@ -1869,6 +1869,7 @@ drawable custom_progress_primary
 drawable cutomer_spinner_bgnd
 drawable dark_active_indicator
 drawable dark_inactive_indicator
+drawable dd4you_logo
 drawable delete
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1882,6 +1883,7 @@ drawable facebook
 drawable fav_icn
 drawable feather_icon
 drawable garage_bb
+drawable gradent_bg
 drawable heart_outline
 drawable home_bb
 drawable home_car_banner
@@ -1937,6 +1939,7 @@ drawable image_banner
 drawable isuzulogo
 drawable location
 drawable logo
+drawable logo_bg
 drawable madaza_logo
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -1977,6 +1980,7 @@ drawable primg3
 drawable profile
 drawable progress_bar_horizontal
 drawable push_notifcation
+drawable rate_up_bg
 drawable rectangle_corner_blue_background
 drawable rectangle_corner_blue_outline
 drawable rectangle_corner_green_corner
@@ -1997,6 +2001,8 @@ drawable right_arrow
 drawable rounded_progress_bar_horizontal
 drawable search
 drawable shadow__background
+drawable shape_01
+drawable shape_02
 drawable ship_icon
 drawable shiptruck
 drawable splist1
@@ -2016,6 +2022,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable trash
 drawable txt_counter_bgnd
+drawable update_bg
 drawable user_bb
 drawable user_icon
 drawable vertical_blue_line
@@ -2031,6 +2038,8 @@ font lato_lightitalic
 font lato_regular
 font lato_thin
 font lato_thinitalic
+font merienda_one
+font raleway_medium
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -2124,9 +2133,15 @@ id add
 id alertTitle
 id aligned
 id all
+id already_done_btn
 id always
 id animateToEnd
 id animateToStart
+id app_update_ll
+id app_update_message_tv
+id app_update_negative_btn
+id app_update_positive_btn
+id app_update_title
 id asConfigured
 id async
 id auto
@@ -2159,10 +2174,12 @@ id btn_sigin
 id btn_sigin_with_facebook
 id btn_signin
 id btn_update
+id btn_website
 id butt
 id buttonPanel
 id cache_measures
 id cancel_action
+id cancel_btn
 id cancel_button
 id cb_flist
 id cb_terms
@@ -2204,6 +2221,7 @@ id cv_loginafter
 id cv_logout
 id cv_register_with_facebook
 id cv_root
+id cv_shopby
 id cv_shoplist
 id date_picker_actions
 id decelerate
@@ -2218,6 +2236,9 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id dev_contact
+id dev_copyright
+id dev_invite_btn
 id dialog_button
 id dimensions
 id direct
@@ -2260,7 +2281,10 @@ id endToStart
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id exitBtn
 id exitUntilCollapsed
+id exit_bg
+id exit_message
 id expand_activities_button
 id expandable_layout_brand
 id expandable_layout_categ
@@ -2288,6 +2312,7 @@ id fragment_container
 id garage
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -2307,6 +2332,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id img
 id img2
 id img_1star
@@ -2440,12 +2466,14 @@ id jumpToStart
 id labelGroup
 id labeled
 id largeLabel
+id later_btn
 id layout
 id left
 id leftToRight
 id line1
 id line3
 id linear
+id linear_layout
 id listMode
 id list_item
 id ll_address_list_show
@@ -2546,6 +2574,7 @@ id percent
 id pin
 id position
 id postLayout
+id powered_by_tv
 id profile
 id progress_bar_1star
 id progress_bar_2star
@@ -2556,6 +2585,10 @@ id progress_circular
 id progress_horizontal
 id radio
 id rangeSeekbar
+id rate_us_bg
+id rate_us_message
+id rate_us_rating_bar
+id rate_us_title
 id ratio
 id rb_1star
 id rb_2star
@@ -2566,6 +2599,7 @@ id rdGroupPayment
 id rdOffline
 id rdPaypal
 id rectangles
+id refresh_layout
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2591,6 +2625,7 @@ id rl_ordrtrack
 id rl_profile
 id rl_push_notifications
 id rl_receipt
+id rl_root
 id rl_settings
 id rl_sort_filter
 id rl_wishlist
@@ -2682,6 +2717,7 @@ id stretch
 id stroke
 id submenuarrow
 id submit_area
+id sure_btn
 id sw_saveasdefault
 id tabMode
 id tabRetailer
@@ -2837,6 +2873,7 @@ id txt_measurment_unit
 id txt_merch_subtotal_label
 id txt_merch_subtotal_value
 id txt_model
+id txt_no_records
 id txt_or
 id txt_order_ID
 id txt_order_ID_label
@@ -2995,6 +3032,8 @@ id view_ship_to_wait
 id view_wait_to_shipping
 id viewpager
 id visible
+id wa_Btn_App
+id wa_Btn_Web
 id withText
 id withinBounds
 id wrap
@@ -3088,6 +3127,9 @@ layout activity_search_products
 layout activity_shipping_address
 layout activity_shipping_address_add
 layout activity_shipping_method
+layout activity_show_all_brands
+layout activity_show_all_makesz
+layout activity_show_all_parent_categories
 layout activity_splash
 layout adapter_cart_prodlist
 layout adapter_filter_colorlist
@@ -3101,6 +3143,7 @@ layout adapter_shipaddrlist
 layout adapter_shopbyname
 layout adapter_shoplist
 layout adapter_vehlist
+layout app_update
 layout custom_dialog
 layout custom_edittext
 layout custom_textarea
@@ -3119,6 +3162,9 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dev_info
+layout dialog_exit
+layout dialog_rate_us
 layout fragment_home
 layout fragment_live_chat
 layout fragment_my_garage
@@ -3285,6 +3331,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string about_dev
 string about_us
 string add_new_address
 string add_review
@@ -3294,6 +3341,7 @@ string add_veh_desc
 string add_vehicle
 string afasdfasf
 string all_categories
+string app_info_btn
 string app_name
 string appbar_scrolling_view_behavior
 string apply
@@ -3304,11 +3352,13 @@ string brand_name
 string brands
 string brandss
 string brandsss
+string brnd_dis_msg
 string btn_add
 string by_ken_royer_on_october_25_2020
 string by_kevin_peter_on_november_25_2020
 string cancel
 string cart
+string cat_dis_msg
 string categories
 string category1
 string change
@@ -3325,6 +3375,7 @@ string cod
 string color
 string confirm_password
 string confirmed_your_order
+string copyright
 string count
 string country
 string coupon_date
@@ -3341,6 +3392,8 @@ string delivered_address
 string delivered_via_bert_s_on_apr_12_2021
 string delivery_in_progress
 string detail_address
+string dev_contact_text
+string dev_name
 string discount_subtotal
 string do_i_need_to_change_my_calipers_too
 string download_invoice
@@ -3453,6 +3506,7 @@ string my_garage
 string my_wishlist
 string my_wishlistt
 string new_addr
+string no_data_found
 string now_available_n_stock_izuzu_and_mazda_parts
 string offline_payment
 string only_if_needed_their_calipers_are_good_too
@@ -3570,7 +3624,9 @@ string vin
 string vin_info
 string vin_info_desc
 string vin_xasd
+string visit_website_btn
 string waiting
+string web_info_btn
 string weight
 string wholesaler
 string write_a_review
@@ -4107,6 +4163,7 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
+style Theme_PlayCore_Transparent
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark

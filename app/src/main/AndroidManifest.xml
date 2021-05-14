@@ -9,6 +9,9 @@
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,10 +23,177 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.SampleActivity"
+        <activity android:name=".retailer.ShowAllMakeszActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".retailer.ShowAllBrandsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".retailer.ShowAllParentCategoriesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.SampleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.PaymentMethodActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.CouponApplyDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.CheckoutScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.ShippingMethodActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Parent"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerAllCategoriesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerSetttingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.ProductDetailDescriptionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.AddVehicleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerReceiptActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.ChangePasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.FilterlistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.ShippingAddressAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.ShippingAddressActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerProfileAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.MyWishlistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerOrderTrackActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.OrderListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerCartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.Cart"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.SearchProductListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerProductListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.SearchProductsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.RetailerDashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Parent"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activities.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,136 +201,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".retailer.PaymentMethodActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.CouponApplyDetailActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.CheckoutScreenActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.ShippingMethodActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Parent"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerAllCategoriesActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerSetttingsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.ProductDetailDescriptionActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.AddVehicleActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerReceiptActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.ChangePasswordActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.FilterlistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.ShippingAddressAddActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.ShippingAddressActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerProfileAccountActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.MyWishlistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.Cart"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerOrderTrackActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.Cart"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.OrderListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.Cart"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerCartActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.Cart"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.SearchProductListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerProductListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.SearchProductsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".retailer.RetailerDashboardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Parent"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.ForgetPasswordActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activities.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
-        <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+
+
     </application>
 
 </manifest>

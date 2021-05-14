@@ -261,6 +261,9 @@
     <string name="fill_height">Fill height</string>
     <string name="_5_stars">5 Stars</string>
     <string name="_2_stars">2 Stars</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="cat_dis_msg">No Categories Found</string>
+    <string name="brnd_dis_msg">No Brands Found</string>
 
 
     <string-array name="array_name">
