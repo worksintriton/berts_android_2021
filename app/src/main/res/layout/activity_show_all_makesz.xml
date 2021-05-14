@@ -2,9 +2,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rl_root"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_color">
 
+    <TextView
+        android:id="@+id/txt_no_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/lato_black"
+        android:padding="@dimen/_5dp"
+        android:text="@string/no_data_found"
+        android:textColor="@color/dark_blue"
+        android:textSize="@dimen/_16sp"
+        android:visibility="gone"/>
 
     <LinearLayout
         android:id="@+id/headerView"
@@ -18,11 +30,9 @@
         <RelativeLayout
             android:layout_width="@dimen/_35dp"
             android:layout_height="@dimen/_35dp"
-            android:layout_marginStart="@dimen/_10dp"
-            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_20dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginEnd="@dimen/_10dp"
-            android:layout_marginRight="@dimen/_10dp"
             android:layout_marginBottom="@dimen/_10dp"
             android:background="@drawable/rectangle_corner_yellow_background">
 
@@ -56,11 +66,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:visibility="gone"
             android:layout_width="@dimen/_35dp"
             android:layout_height="@dimen/_35dp"
             android:layout_margin="@dimen/_10dp"
-            android:background="@drawable/rectangle_corner_yellow_background">
+            android:background="@drawable/rectangle_corner_yellow_background"
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/img_cart"
@@ -142,6 +152,11 @@
 
             </TableLayout>
 
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingClass">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_top_makes"
@@ -149,6 +164,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_20dp" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

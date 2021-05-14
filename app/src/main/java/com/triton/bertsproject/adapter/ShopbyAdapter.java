@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.ShopByNameModel;
 import com.triton.bertsproject.retailer.ShowAllBrandsActivity;
-import com.triton.bertsproject.retailer.ShowAllMakeszActivity;
+import com.triton.bertsproject.retailer.ShowAllParentMakesActivity;
 import com.triton.bertsproject.retailer.ShowAllParentCategoriesActivity;
 
 import java.util.List;
@@ -64,7 +64,7 @@ public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.ShopbyHold
 
                 else {
 
-                    context.startActivity(new Intent(context, ShowAllMakeszActivity.class));
+                    context.startActivity(new Intent(context, ShowAllParentMakesActivity.class));
                 }
 
 

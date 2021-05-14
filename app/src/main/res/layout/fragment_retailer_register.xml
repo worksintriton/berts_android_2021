@@ -40,6 +40,8 @@
                     android:layout_weight="@integer/_int1"
                     android:orientation="vertical"
                     app:inputType="text_normal"
+                    app:hint="@string/firstname"
+
                     />
 
                 <com.triton.bertsproject.customView.CustomEditText
@@ -47,10 +49,10 @@
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5dp"
-                    android:layout_marginLeft="@dimen/_5dp"
                     android:layout_weight="@integer/_int1"
                     android:orientation="vertical"
-                    app:inputType="text_normal"/>
+                    app:inputType="text_normal"
+                    app:hint="@string/lastname"/>
 
             </LinearLayout>
 
@@ -59,7 +61,8 @@
                 android:layout_marginTop="@dimen/margin_common"                android:layout_width="match_parent"
                 android:orientation="vertical"
                 app:inputType="email"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:hint="@string/email"/>
 
             <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_password"
@@ -67,6 +70,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/margin_common"
                 app:inputType="password"
+                app:hint="@string/password"
                 android:layout_height="wrap_content"/>
 
             <com.triton.bertsproject.customView.CustomEditText
@@ -75,6 +79,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/margin_common"
                 app:inputType="password"
+                app:hint="@string/confirm_password"
                 android:layout_height="wrap_content"/>
 
             <LinearLayout

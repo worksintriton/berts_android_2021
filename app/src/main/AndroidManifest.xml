@@ -23,7 +23,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.ShowAllMakeszActivity"
+        <activity android:name=".retailer.ShowAllParentMakesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"

@@ -10,6 +10,9 @@ com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity
 com/triton/bertsproject/retailer/CouponApplyDetailActivity.java
  com.triton.bertsproject.retailer.CouponApplyDetailActivity
+com/triton/bertsproject/retailer/ShowAllParentMakesActivity.java
+ com.triton.bertsproject.retailer.ShowAllParentMakesActivity
+ com.triton.bertsproject.retailer.ShowAllParentMakesActivity$1
 com/triton/bertsproject/retailer/ShippingMethodActivity.java
  com.triton.bertsproject.retailer.ShippingMethodActivity
 com/triton/bertsproject/retailer/MyWishlistActivity.java
@@ -140,6 +143,9 @@ com/triton/bertsproject/adapter/OrderListAdapter.java
 com/triton/bertsproject/adapter/SearchFilterlistAdapter.java
  com.triton.bertsproject.adapter.SearchFilterlistAdapter
  com.triton.bertsproject.adapter.SearchFilterlistAdapter$ShopFilterlistHolder
+com/triton/bertsproject/adapter/ParentMakesListAdapter.java
+ com.triton.bertsproject.adapter.ParentMakesListAdapter
+ com.triton.bertsproject.adapter.ParentMakesListAdapter$ShoplistHolder
 com/triton/bertsproject/retailer/AddVehicleActivity.java
  com.triton.bertsproject.retailer.AddVehicleActivity
 com/triton/bertsproject/adapter/CartProductListAdapter.java
@@ -164,11 +170,6 @@ com/triton/bertsproject/retailer/RetailerDashboardActivity.java
 com/triton/bertsproject/adapter/ParentCategoriesListAdapter.java
  com.triton.bertsproject.adapter.ParentCategoriesListAdapter
  com.triton.bertsproject.adapter.ParentCategoriesListAdapter$ViewHolder
-com/triton/bertsproject/adapter/ParentMakeListAdapter.java
- com.triton.bertsproject.adapter.ParentMakeListAdapter
- com.triton.bertsproject.adapter.ParentMakeListAdapter$ShoplistHolder
-com/triton/bertsproject/retailer/ShowAllMakeszActivity.java
- com.triton.bertsproject.retailer.ShowAllMakeszActivity
 com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity
 com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java

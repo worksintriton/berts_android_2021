@@ -34,7 +34,7 @@
         android:testOnly="true"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.triton.bertsproject.retailer.ShowAllMakeszActivity"
+            android:name="com.triton.bertsproject.retailer.ShowAllParentMakesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan" />

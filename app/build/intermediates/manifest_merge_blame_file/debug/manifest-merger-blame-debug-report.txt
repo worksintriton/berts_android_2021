@@ -58,8 +58,8 @@
 35-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:23:9-44
 36        <activity
 36-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:26:9-30:56
-37            android:name="com.triton.bertsproject.retailer.ShowAllMakeszActivity"
-37-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:26:19-65
+37            android:name="com.triton.bertsproject.retailer.ShowAllParentMakesActivity"
+37-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:26:19-70
 38            android:screenOrientation="portrait"
 38-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:27:13-49
 39            android:theme="@style/Theme.BertsProject.SearchProduct"
