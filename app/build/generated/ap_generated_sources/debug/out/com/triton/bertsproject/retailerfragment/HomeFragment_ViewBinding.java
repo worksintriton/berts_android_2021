@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
@@ -30,6 +31,8 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.fl_cart = Utils.findRequiredViewAsType(source, R.id.fl_cart, "field 'fl_cart'", FrameLayout.class);
     target.rv_shopby = Utils.findRequiredViewAsType(source, R.id.rv_shopby, "field 'rv_shopby'", RecyclerView.class);
     target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
+    target.txt_user_type = Utils.findRequiredViewAsType(source, R.id.txt_user_type, "field 'txt_user_type'", TextView.class);
+    target.cl_loginbefore = Utils.findRequiredViewAsType(source, R.id.cl_loginbefore, "field 'cl_loginbefore'", CardView.class);
   }
 
   @Override
@@ -46,5 +49,7 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.fl_cart = null;
     target.rv_shopby = null;
     target.btn_addVeh = null;
+    target.txt_user_type = null;
+    target.cl_loginbefore = null;
   }
 }

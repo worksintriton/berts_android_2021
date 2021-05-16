@@ -78,6 +78,8 @@ public class RetailerRegisterFragment extends Fragment {
 
     DD4YouConfig dd4YouConfig;
 
+
+
     public RetailerRegisterFragment() {
         // Required empty public constructor
     }
@@ -175,11 +177,15 @@ public class RetailerRegisterFragment extends Fragment {
 
         else if(!email.matches(emailPattern)){
 
-            edt_email.setError("Please enter correct email address");
+            isvalid =false;
 
-            edt_email.requestFocus();
+            edt_password.setError("Password and Confirm Password Doesn't Match");
 
-            isvalid = false;
+            edt_password.requestFocus();
+
+            edt_cnfmpassword.setError("Password and Confirm Password Doesn't Match");
+
+            edt_cnfmpassword.requestFocus();
         }
 
         if(isvalid){
@@ -242,7 +248,6 @@ public class RetailerRegisterFragment extends Fragment {
                                 response.body().getData().getProfile().getEmail(),
                                 response.body().getData().getProfile().getUser_type(),
                                 response.body().getData().getProfile().getAvatar()
-
                         );
 
                         startActivity(new Intent(getContext(), RetailerDashboardActivity.class));

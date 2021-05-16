@@ -2,30 +2,52 @@ package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.BrandListAdapter;
+import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
+import com.triton.bertsproject.adapter.ParentMakesListAdapter;
 import com.triton.bertsproject.adapter.ShoplistAdapter;
+import com.triton.bertsproject.api.APIClient;
+import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.model.ShoplistModel;
+import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
+import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
+import com.triton.bertsproject.retailer.ShowAllParentMakesActivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
+import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.dd4you.appsconfig.DD4YouConfig;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ShopFragment extends Fragment implements View.OnClickListener {
 
@@ -49,17 +71,55 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
-    List<ShoplistModel> shoplistModels;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_viewall_catg)
+    TextView txt_viewall_catg;
 
-    List<ShoplistModel> shoplistModels1;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_viewall_brands)
+    TextView txt_viewall_brands;
 
-    List<ShoplistModel> shoplistModels2;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_viewall_makes)
+    TextView txt_viewall_makes;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_no_recordscateg)
+    TextView txt_no_recordscateg;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_no_recordsbrands)
+    TextView txt_no_recordsbrands;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_no_recordsmakes)
+    TextView txt_no_recordsmakes;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.tb_topcat)
+    TableLayout tb_topcat;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.tb_brand)
+    TableLayout tb_brand;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.tb_makes)
+    TableLayout tb_makes;
+
+    List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList ;
+
+    List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList ;
+
+    List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList ;
 
     private static final String TAG = "ShopFragment";
 
     View view;
 
     Context context;
+
+    DD4YouConfig dd4YouConfig;
 
     public ShopFragment() {
         // Required empty public constructor
@@ -93,106 +153,346 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         Log.w("Oncreate ", TAG);
 
+        dd4YouConfig = new DD4YouConfig(getContext());
+
         txt_toolbar_title.setText(R.string.shop);
+
+        tb_topcat.setVisibility(View.GONE);
+
+        rv_top_categories.setVisibility(View.GONE);
+
+        tb_brand.setVisibility(View.GONE);
+
+        rv_top_brands.setVisibility(View.GONE);
+
+        tb_makes.setVisibility(View.GONE);
+
+        rv_top_makes.setVisibility(View.GONE);
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        setView();
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallcategoriesListResponseCall();
+
+            fetchallbrandsListResponseCall();
+
+            fetchallmakesListResponseCall();
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
 
 
         return view;
     }
 
-    private void setView() {
+    @SuppressLint("LongLogTag")
+    private void fetchallcategoriesListResponseCall() {
 
-        shoplistModels = new ArrayList<>();
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllParentCategoriesResponse> call = apiInterface.fetchallcategoriesListResponseCall(RestUtils.getContentType());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
 
-        shoplistModels1 = new ArrayList<>();
+        call.enqueue(new Callback<FetchAllParentCategoriesResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Response<FetchAllParentCategoriesResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
 
-        shoplistModels2 = new ArrayList<>();
+                if (response.body() != null) {
 
-        shoplistModels.add(new ShoplistModel("Auto Body Parts",R.drawable.tc_img1));
+                    if(response.body().isStatus()){
 
-        shoplistModels.add(new ShoplistModel("Headlights & Lighitings",R.drawable.tc_img2));
+                        Log.w(TAG,"FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
 
-        shoplistModels.add(new ShoplistModel("Engine",R.drawable.tc_img3));
+                        categoriesBeanList = response.body().getData().getCategories();
 
-        shoplistModels.add(new ShoplistModel("Brakes & Suspension",R.drawable.tc_img4));
+                        if(categoriesBeanList != null && categoriesBeanList.size()>0){
+
+                            rv_top_categories.setVisibility(View.VISIBLE);
+
+                            tb_topcat.setVisibility(View.VISIBLE);
+
+                            setViewCategList(categoriesBeanList);
+                        }
+
+                        else {
+
+
+                            rv_top_categories.setVisibility(View.GONE);
+
+                            tb_topcat.setVisibility(View.VISIBLE);
+
+                            txt_no_recordscateg.setVisibility(View.VISIBLE);
+
+                            txt_no_recordscateg.setText(R.string.cat_dis_msg);
+                        }
+                    }
+
+                    else {
+
+                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllParentCategoriesResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FetchAllParentCategoriesResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void setViewCategList(List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList) {
+
 
         rv_top_categories.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         rv_top_categories.setMotionEventSplittingEnabled(false);
 
-        rv_top_categories.setNestedScrollingEnabled(false);
+        rv_top_categories.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =4;
 
         int spanCount = 2; // 3 columns
 
         int spacing = 0; // 50px
 
-        boolean includeEdge = true;
-
-        rv_top_categories.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+        rv_top_categories.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ShoplistAdapter shoplistAdapter = new ShoplistAdapter(getContext(), shoplistModels);
+        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(getContext(), categoriesBeanList, size);
 
-        rv_top_categories.setAdapter(shoplistAdapter);
+        rv_top_categories.setAdapter(parentCategoriesListAdapter);
 
-        /* ************************************************************************/
 
-        shoplistModels1.add(new ShoplistModel("Garrett",R.drawable.tc_img1));
 
-        shoplistModels1.add(new ShoplistModel("Boregson",R.drawable.tc_img2));
+    }
 
-        shoplistModels1.add(new ShoplistModel("Bosch",R.drawable.tc_img3));
+    @SuppressLint("LongLogTag")
+    private void fetchallbrandsListResponseCall() {
 
-        shoplistModels1.add(new ShoplistModel("K&N",R.drawable.tc_img4));
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllBrandsResponse> call = apiInterface.fetchallbrandsListResponseCall(RestUtils.getContentType());
+        Log.w(TAG,"FetchAllBrandsResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllBrandsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllBrandsResponse> call, @NonNull Response<FetchAllBrandsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(response.body().isStatus()){
+
+                        Log.w(TAG,"FetchAllBrandsResponse" + new Gson().toJson(response.body()));
+
+                        brandsBeanList = response.body().getData().getBrands();
+
+                        if(brandsBeanList != null && brandsBeanList.size()>0){
+
+                            rv_top_brands.setVisibility(View.VISIBLE);
+
+                            tb_brand.setVisibility(View.VISIBLE);
+
+                            txt_no_recordsbrands.setVisibility(View.GONE);
+
+                            setViewBrandList(brandsBeanList);
+                        }
+
+                        else {
+
+                            rv_top_brands.setVisibility(View.GONE);
+
+                            tb_brand.setVisibility(View.VISIBLE);
+
+                            txt_no_recordsbrands.setVisibility(View.VISIBLE);
+
+                            txt_viewall_brands.setText(R.string.brnd_dis_msg);
+                        }
+                    }
+
+                    else {
+
+                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllBrandsResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FetchAllParentCategoriesResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+
+    private void setViewBrandList(List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList) {
 
         rv_top_brands.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         rv_top_brands.setMotionEventSplittingEnabled(false);
 
-        rv_top_brands.setNestedScrollingEnabled(false);
+        rv_top_brands.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =4;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        rv_top_brands.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
 
         rv_top_brands.setItemAnimator(new DefaultItemAnimator());
 
-        ShoplistAdapter shoplistAdapter1 = new ShoplistAdapter(getContext(), shoplistModels1);
+        BrandListAdapter brandListAdapter = new BrandListAdapter(getContext(), brandsBeanList, size);
 
-        rv_top_brands.setAdapter(shoplistAdapter1);
+        rv_top_brands.setAdapter(brandListAdapter);
 
 
-        /* ************************************************************************/
 
-        shoplistModels2.add(new ShoplistModel("Nissan",R.drawable.tc_img1));
+    }
 
-        shoplistModels2.add(new ShoplistModel("Mazda",R.drawable.tc_img2));
 
-        shoplistModels2.add(new ShoplistModel("Chevrolet",R.drawable.tc_img3));
+    @SuppressLint("LongLogTag")
+    private void fetchallmakesListResponseCall() {
 
-        shoplistModels2.add(new ShoplistModel("BMW",R.drawable.tc_img4));
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllParentMakesResponse> call = apiInterface.fetchallmakesListResponseCall(RestUtils.getContentType());
+        Log.w(TAG,"FetchAllParentMakesResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllParentMakesResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllParentMakesResponse> call, @NonNull Response<FetchAllParentMakesResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(response.body().isStatus()){
+
+                        Log.w(TAG,"FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
+
+                        makesBeanList = response.body().getData().getMakes();
+
+                        if(makesBeanList != null && makesBeanList.size()>0){
+
+                            rv_top_makes.setVisibility(View.VISIBLE);
+
+                            tb_makes.setVisibility(View.VISIBLE);
+
+                            txt_no_recordsmakes.setVisibility(View.GONE);
+
+                            setViewMakesList(makesBeanList);
+                        }
+
+                        else {
+
+                            tb_makes.setVisibility(View.VISIBLE);
+
+                            rv_top_makes.setVisibility(View.GONE);
+
+                            txt_no_recordsmakes.setVisibility(View.VISIBLE);
+
+                            txt_no_recordsmakes.setText(R.string.brnd_dis_msg);
+                        }
+                    }
+
+                    else {
+
+                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllParentMakesResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FetchAllParentMakesResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+
+    private void setViewMakesList(List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList) {
 
         rv_top_makes.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         rv_top_makes.setMotionEventSplittingEnabled(false);
 
-        rv_top_makes.setNestedScrollingEnabled(false);
+        rv_top_makes.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =4;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        rv_top_makes.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ShoplistAdapter shoplistAdapter2 = new ShoplistAdapter(getContext(), shoplistModels2);
+        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(getContext(), makesBeanList,size);
 
-        rv_top_makes.setAdapter(shoplistAdapter2);
+        rv_top_makes.setAdapter(parentMakesListAdapter);
+
 
 
     }
-
     @Override
     public void onStart() {
         super.onStart();

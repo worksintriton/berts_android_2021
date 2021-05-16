@@ -220,7 +220,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
         rv_top_categories.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =categoriesBeanList.size();
 
         int spanCount = 2; // 3 columns
 
@@ -230,7 +230,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(ShowAllParentCategoriesActivity.this, categoriesBeanList);
+        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(ShowAllParentCategoriesActivity.this, categoriesBeanList,size);
 
         rv_top_categories.setAdapter(parentCategoriesListAdapter);
 

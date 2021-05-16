@@ -1,29 +1,40 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.bumptech.glide.Glide;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.OrderListActivity;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.retailer.RetailerOrderTrackActivity;
 import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 import com.triton.bertsproject.retailer.RetailerSetttingsActivity;
+import com.triton.bertsproject.sessionmanager.SessionManager;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -55,9 +66,47 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.rl_settings)
     RelativeLayout rl_settings;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_login_after)
+    RelativeLayout rl_login_after;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_login_after)
+    LinearLayout ll_login_after;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_logout)
+    CardView cv_logout;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_before_login)
+    CardView cv_before_login;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_username)
+    TextView txt_username;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_profile)
+    ImageView img_profile;
+
     private static final String TAG = "ProfileFragment";
 
     View view;
+
+    String userid,username,imgUrl;
+
+    SessionManager sessionManager;
+
+    Dialog dialog;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_signin)
+    Button btn_sigin;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_user_login)
+    TextView txt_user_login;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -69,6 +118,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,42 +138,83 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         Log.w("Oncreate ", TAG);
 
-        rl_wishlist.setOnClickListener(v -> {
+        sessionManager = new SessionManager(getContext());
 
-            Intent intent = new Intent(getContext(), MyWishlistActivity.class);
+        HashMap<String, String> user = sessionManager.getProfileDetails();
 
-            intent.putExtra("fromactivity",TAG);
+        if(sessionManager.isLoggedIn())
+        {
 
-            startActivity(intent);
+            rl_login_after.setVisibility(View.VISIBLE);
 
-            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
-        });
+            ll_login_after.setVisibility(View.VISIBLE);
 
-        rl_ordrhist.setOnClickListener(v -> {
+            cv_before_login.setVisibility(View.GONE);
 
-            Intent intent = new Intent(getContext(), OrderListActivity.class);
+            userid = user.get(SessionManager.KEY_ID);
 
-            intent.putExtra("fromactivity",TAG);
+            imgUrl = user.get(SessionManager.KEY_PROFILE_IMAGE);
 
-            startActivity(intent);
+            username = user.get(SessionManager.KEY_FIRST_NAME) + " " + user.get(SessionManager.KEY_LAST_NAME);
 
-            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+            txt_username.setText(" "+username);
 
-        });
+            Glide.with(getContext())
+                    .load(imgUrl)
+                    .into(img_profile);
 
-        rl_ordrtrack.setOnClickListener(v -> {
+            Log.w(TAG, "Session Details : userid " +userid + " Username "+ username +" Image Url "+ imgUrl );
 
-            Intent intent = new Intent(getContext(), RetailerOrderTrackActivity.class);
+            cv_logout.setOnClickListener(this);
 
-            intent.putExtra("fromactivity",TAG);
+            rl_wishlist.setOnClickListener(v -> {
 
-            startActivity(intent);
+                Intent intent = new Intent(getContext(), MyWishlistActivity.class);
 
-            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+                intent.putExtra("fromactivity",TAG);
 
-        });
+                startActivity(intent);
 
-        rlEdit.setOnClickListener(v -> {
+                Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+            });
+
+            rl_ordrhist.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), OrderListActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+            rl_ordrtrack.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), RetailerOrderTrackActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+            rl_settings.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), RetailerSetttingsActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+            txt_username.setOnClickListener(v -> {
 
             Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
 
@@ -135,17 +226,43 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         });
 
-        rl_settings.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getContext(), RetailerSetttingsActivity.class);
+        }
 
-            intent.putExtra("fromactivity",TAG);
+        else
+        {
+            cv_before_login.setVisibility(View.VISIBLE);
 
-            startActivity(intent);
+            rl_login_after.setVisibility(View.GONE);
 
-            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+            ll_login_after.setVisibility(View.GONE);
 
-        });
+            txt_user_login.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+            });
+
+            btn_sigin.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), RegisterActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+
+
+        }
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -178,8 +295,48 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
 
+        if (v.getId() == R.id.cv_logout) {
+            gotologout();
+        }
+
+    }
+
+    private void gotologout() {
+
+        try {
+
+            dialog = new Dialog(getContext());
+
+            dialog.setContentView(R.layout.alert_logout_layout);
+
+            Button btn_no = dialog.findViewById(R.id.btn_no);
+
+            Button btn_yes = dialog.findViewById(R.id.btn_yes);
+
+            btn_yes.setOnClickListener(view -> {
+
+                dialog.dismiss();
+
+                sessionManager.logoutUser();
+
+                sessionManager.setIsLogin(false);
+
+                startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
+
+            });
+
+            btn_no.setOnClickListener(view -> dialog.dismiss());
+
+            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            dialog.show();
+
+        } catch (WindowManager.BadTokenException e) {
+            e.printStackTrace();
+        }
     }
 }

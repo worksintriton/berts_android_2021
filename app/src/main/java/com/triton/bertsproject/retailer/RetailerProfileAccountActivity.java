@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,15 +20,20 @@ import android.widget.Toast;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
+import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.customView.CustomEditText;
 import com.triton.bertsproject.requestpojo.SignupRequest;
+import com.triton.bertsproject.requestpojo.UpdateProfileRequest;
 import com.triton.bertsproject.responsepojo.SignupResponse;
+import com.triton.bertsproject.responsepojo.UpdateProfileResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -85,12 +91,17 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_update)
+    Button btn_update;
+
     Dialog alertDialog;
 
     DD4YouConfig dd4YouConfig;
 
+    SessionManager sessionManager;
 
-
+    String userid, firstname, lastname, zipcode, revenue, countryid, stateid,email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -234,39 +245,177 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         edt_revenue.setTitle(getString(R.string.revenue));
 
+        sessionManager = new SessionManager(this);
+
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        if(sessionManager.isLoggedIn())
+        {
+            userid = user.get(SessionManager.KEY_ID);
+
+            firstname = user.get(SessionManager.KEY_FIRST_NAME);
+
+            lastname = user.get(SessionManager.KEY_LAST_NAME);
+
+            email = user.get(SessionManager.KEY_EMAIL_ID);
+
+//            zipcode = user.get(SessionManager.KEY_ZIPCODE);
+
+        }
+
+        if(firstname!=null&&!firstname.isEmpty()){
+
+            edt_firstname.setTitle(firstname);
+        }
+
+        if(lastname!=null&&!lastname.isEmpty()){
+
+            edt_lastname.setTitle(lastname);
+        }
+
+//        if(zipcode!=null&&!zipcode.isEmpty()){
+//
+//            edt_zipcode.setTitle(zipcode);
+//        }
+
+        edt_revenue.setVisibility(View.GONE);
+
+        btn_update.setOnClickListener(v -> {
+
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                checkValidation();
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
+
+
+        });
+
+
+
         spin_kit_loadingView.setVisibility(View.GONE);
     }
 
+    private void checkValidation() {
+
+        boolean isvalid = true;
+
+        String emailPattern = "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
+
+        String firstname = edt_firstname.edtContent.getText().toString();
+
+        String lastname = edt_lastname.edtContent.getText().toString();
+
+        String email = edt_email.edtContent.getText().toString();
+
+        String password = edt_password.edtContent.getText().toString();
+
+        String cnfm_password = edt_cnfmpassword.edtContent.getText().toString();
+
+        if(firstname.equals("")){
+
+            isvalid =false;
+
+            edt_firstname.setError("Please Fill First Name");
+
+            edt_firstname.requestFocus();
+        }
+
+        else if(lastname.equals("")){
+
+            isvalid =false;
+
+            edt_lastname.setError("Please Fill Last Name");
+
+            edt_lastname.requestFocus();
+        }
+
+        else if(email.equals("")){
+
+            isvalid =false;
+
+            edt_email.setError("Please Fill Mail ID");
+
+            edt_email.requestFocus();
+        }
+
+        else if(!email.matches(emailPattern)){
+
+            edt_email.setError("Please enter correct email address");
+
+            edt_email.requestFocus();
+
+            isvalid = false;
+        }
+
+        if(isvalid){
+
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                registerResponseCall(firstname,lastname,email);
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
+
+
+        }
+    }
+
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(RetailerProfileAccountActivity.this);
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(RetailerProfileAccountActivity.this, RetailerProfileAccountActivity.class));
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
+
     @SuppressLint("LongLogTag")
-    private void registerResponseCall() {
+    private void registerResponseCall(String firstname, String lastname, String email) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<SignupResponse> call = apiInterface.signupResponseCall(RestUtils.getContentType(),signupRequest());
-        Log.w(TAG,"SignupResponse url  :%s"+ call.request().url().toString());
+        Call<UpdateProfileResponse> call = apiInterface.updateResponseCall(RestUtils.getContentType(),updateProfileRequest(firstname,lastname,email));
+        Log.w(TAG,"UpdateProfileResponse url  :%s"+ call.request().url().toString());
 
-        call.enqueue(new Callback<SignupResponse>() {
+        call.enqueue(new Callback<UpdateProfileResponse>() {
             @SuppressLint("LogNotTimber")
             @Override
-            public void onResponse(@NonNull Call<SignupResponse> call, @NonNull Response<SignupResponse> response) {
+            public void onResponse(@NonNull Call<UpdateProfileResponse> call, @NonNull Response<UpdateProfileResponse> response) {
                 spin_kit_loadingView.setVisibility(View.GONE);
 
                 if (response.body() != null) {
 
                     if(response.body().isStatus()) {
 
-                        Log.w(TAG, "SignupResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG, "UpdateProfileResponse" + new Gson().toJson(response.body()));
 
                         SessionManager sessionManager = new SessionManager(RetailerProfileAccountActivity.this);
                         sessionManager.setIsLogin(true);
                         sessionManager.createLoginSession(
-                                response.body().getData().getProfile().getId(),
-                                response.body().getData().getProfile().getFirst_name(),
-                                response.body().getData().getProfile().getLast_name(),
-                                response.body().getData().getProfile().getEmail(),
-                                response.body().getData().getProfile().getUser_type(),
-                                response.body().getData().getProfile().getAvatar()
+                                response.body().getData().getId(),
+                                response.body().getData().getFirst_name(),
+                                response.body().getData().getLast_name(),
+                                response.body().getData().getEmail(),
+                                response.body().getData().getUser_type(),
+                                response.body().getData().getAvatar()
 
                         );
 
@@ -286,34 +435,32 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
 
             @Override
-            public void onFailure(@NonNull Call<SignupResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<UpdateProfileResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"SignupResponse flr"+t.getMessage());
+                Log.w(TAG,"UpdateProfileResponse flr"+t.getMessage());
             }
         });
 
     }
 
     @SuppressLint("LongLogTag")
-    private SignupRequest signupRequest() {
+    private UpdateProfileRequest updateProfileRequest(String firstname, String lastname, String email) {
 
         /*
-         * first_name : testab
-         * last_name : testab
-         * email : prabhu.ims2c@gmail.com
-         * password : test1234
-         * role : retail
+         * first_name : testl
+         * last_name : testc
+         * about_me : testc_abt
+         * id : 541
          */
 
-        SignupRequest signupRequest = new SignupRequest();
-        signupRequest.setFirst_name("");
-        signupRequest.setLast_name("");
-        signupRequest.setEmail("");
-        signupRequest.setPassword("");
-        signupRequest.setRole("retail");
+        UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest();
+        updateProfileRequest.setFirst_name(firstname);
+        updateProfileRequest.setLast_name(lastname);
+        updateProfileRequest.setId(userid);
+        updateProfileRequest.setAbout_me("testc_abt");
 
-        Log.w(TAG,"SignupRequest "+ new Gson().toJson(signupRequest));
-        return signupRequest;
+        Log.w(TAG,"UpdateProfileRequest "+ new Gson().toJson(updateProfileRequest));
+        return updateProfileRequest;
     }
 
     public void showErrorLoading(String errormesage){

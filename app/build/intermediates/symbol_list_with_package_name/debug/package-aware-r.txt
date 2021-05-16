@@ -2131,6 +2131,7 @@ id actions
 id activity_chooser_view_content
 id add
 id alertTitle
+id alert_header_txtview
 id aligned
 id all
 id already_done_btn
@@ -2164,6 +2165,7 @@ id btn_addcart
 id btn_addcart1
 id btn_addnewaddr
 id btn_apply
+id btn_no
 id btn_proceed
 id btn_reset
 id btn_reset_link
@@ -2175,6 +2177,7 @@ id btn_sigin_with_facebook
 id btn_signin
 id btn_update
 id btn_website
+id btn_yes
 id butt
 id buttonPanel
 id cache_measures
@@ -2198,6 +2201,7 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id cl_loginbefore
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2476,12 +2480,14 @@ id linear
 id linear_layout
 id listMode
 id list_item
+id llNotification
 id ll_address_list_show
 id ll_brand
 id ll_categ
 id ll_color
 id ll_delete
 id ll_edit
+id ll_login_after
 id ll_makes
 id ll_multipleadd
 id ll_price_range
@@ -3143,6 +3149,7 @@ layout adapter_shipaddrlist
 layout adapter_shopbyname
 layout adapter_shoplist
 layout adapter_vehlist
+layout alert_logout_layout
 layout app_update
 layout custom_dialog
 layout custom_edittext

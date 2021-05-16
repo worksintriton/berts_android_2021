@@ -10,7 +10,7 @@
         android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -23,17 +23,23 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".retailer.ShowAllParentMakesActivity"
+        <activity android:name=".retailer.ShowAllChildMakesActivity"></activity>
+        <activity android:name=".retailer.ShowAllChildMakesListActivity" />
+        <activity android:name=".retailer.ShowAllChildCategActivity" />
+        <activity
+            android:name=".retailer.ShowAllParentMakesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".retailer.ShowAllBrandsActivity"
+        <activity
+            android:name=".retailer.ShowAllBrandsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".retailer.ShowAllParentCategoriesActivity"
+        <activity
+            android:name=".retailer.ShowAllParentCategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
@@ -206,8 +212,6 @@
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
-
-
     </application>
 
 </manifest>

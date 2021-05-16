@@ -220,7 +220,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
         rv_top_brands.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =brandsBeanList.size();
 
         int spanCount = 2; // 3 columns
 
@@ -230,7 +230,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
         rv_top_brands.setItemAnimator(new DefaultItemAnimator());
 
-        BrandListAdapter brandListAdapter = new BrandListAdapter(ShowAllBrandsActivity.this, brandsBeanList);
+        BrandListAdapter brandListAdapter = new BrandListAdapter(ShowAllBrandsActivity.this, brandsBeanList,size);
 
         rv_top_brands.setAdapter(brandListAdapter);
 

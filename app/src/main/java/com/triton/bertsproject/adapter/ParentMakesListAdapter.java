@@ -21,10 +21,12 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
     Context context;
     List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList;
     View view;
+    int size;
 
-    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanLists) {
+    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanLists, int size) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
+        this.size = size;
 
     }
 
@@ -66,7 +68,7 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
 
     @Override
     public int getItemCount() {
-        return makesBeanList.size();
+        return size;
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {

@@ -30,9 +30,16 @@ public class SessionManager {
     public static final String KEEPLOGIN = "keeplogin";
     public static final String KEEPPROFILEUPDATE = "keepprofileupdate";
 
+    public static final String KEY_COUNTRY_ID = "country_id";
+    public static final String KEY_STATE_ID = "state_id";
+    public static final String KEY_ADDRESS = "address";
+    public static final String KEY_ZIPCODE = "zip_code";
 
-
-
+//
+//"country_id": null,
+//        "state_id": null,
+//        "address": null,
+//        "zip_code": null,
 
     @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context) {
@@ -58,6 +65,28 @@ public class SessionManager {
 
     }
 
+//    public void createLoginSession(String id, String firstname, String lastname, String useremail,String usertype,String profileimage
+//
+//    ,String countryid,String stateid,String address,String zipcode) {
+//
+//
+//        editor.putBoolean(IS_LOGIN, true);
+//        editor.putString(KEY_ID, id);
+//        editor.putString(KEY_FIRST_NAME, firstname);
+//        editor.putString(KEY_LAST_NAME, lastname);
+//        editor.putString(KEY_EMAIL_ID, useremail);
+//        editor.putString(KEY_TYPE, usertype);
+//        editor.putString(KEY_PROFILE_IMAGE, profileimage);
+//        editor.putString(KEY_COUNTRY_ID, countryid);
+//        editor.putString(KEY_STATE_ID, stateid);
+//        editor.putString(KEY_ADDRESS, address);
+//        editor.putString(KEY_ZIPCODE, zipcode);
+//        Log.e(TAG, "................................>> session Login Details " + "KEY_ID" + id);
+//
+//        editor.commit();
+//
+//    }
+//
 
 
     public HashMap<String, String> getProfileDetails() {

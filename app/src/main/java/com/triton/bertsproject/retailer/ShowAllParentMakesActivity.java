@@ -219,7 +219,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
         rv_top_makes.setNestedScrollingEnabled(true);
 
-        //int size =3;
+        int size =makesBeanList.size();
 
         int spanCount = 2; // 3 columns
 
@@ -229,7 +229,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(ShowAllParentMakesActivity.this, makesBeanList);
+        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(ShowAllParentMakesActivity.this, makesBeanList, size);
 
         rv_top_makes.setAdapter(parentMakesListAdapter);
 

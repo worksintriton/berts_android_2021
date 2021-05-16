@@ -113,15 +113,15 @@
                     android:src="@drawable/profile"
                     app:siRadius="@dimen/_5dp" />
 
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentBottom="true"-->
-<!--                    android:layout_marginStart="-25dp"-->
-<!--                    android:layout_marginBottom="@dimen/margin_common"-->
-<!--                    android:layout_toEndOf="@+id/img_profile"-->
-<!--                    android:contentDescription="@string/image_description"-->
-<!--                    android:src="@drawable/ic_camera" />-->
+                <!--                <ImageView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_alignParentBottom="true"-->
+                <!--                    android:layout_marginStart="-25dp"-->
+                <!--                    android:layout_marginBottom="@dimen/margin_common"-->
+                <!--                    android:layout_toEndOf="@+id/img_profile"-->
+                <!--                    android:contentDescription="@string/image_description"-->
+                <!--                    android:src="@drawable/ic_camera" />-->
             </RelativeLayout>
 
             <TextView
@@ -240,446 +240,454 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_loginafter"
+            <LinearLayout
+                android:id="@+id/ll_login_after"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="@dimen/_10dp"
-                android:visibility="visible"
-                app:cardCornerRadius="10dp"
-                app:cardPreventCornerOverlap="true"
-                tools:ignore="UnusedAttribute">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_loginafter"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_10dp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    tools:ignore="UnusedAttribute">
 
-                    <RelativeLayout
-                        android:id="@+id/rl_wishlist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_wishlist"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/wishlist" />
-
-                        <TextView
-                            android:id="@+id/txt_wishlist"
+                        <RelativeLayout
+                            android:id="@+id/rl_wishlist"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_wishlist"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/my_wishlistt"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="10dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit1"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_wishlist"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/wishlist" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_wishlist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="false"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_wishlist"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/my_wishlistt"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                    <View
-                        android:id="@+id/view14"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="@dimen/_20dp"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginEnd="@dimen/_20dp"
-                        android:background="@color/background_color" />
+                            <ImageView
+                                android:id="@+id/img_arrowwrit1"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_ordrhist"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_ordrhist"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_ordrhist" />
+                        <View
+                            android:id="@+id/view14"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_20dp"
+                            android:background="@color/background_color" />
 
-                        <TextView
-                            android:id="@+id/txt_ordrhist"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/rl_ordrhist"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_ordrhist"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/order_history"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit2"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_ordrhist"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_ordrhist" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_ordrhist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_ordrhist"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/order_history"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                    <View
-                        android:id="@+id/view13"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="@dimen/_20dp"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginEnd="@dimen/_20dp"
-                        android:background="@color/background_color" />
+                            <ImageView
+                                android:id="@+id/img_arrowwrit2"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_ordrtrack"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_ordrtrack"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_ordrtrack" />
+                        <View
+                            android:id="@+id/view13"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_20dp"
+                            android:background="@color/background_color" />
 
-                        <TextView
-                            android:id="@+id/txt_ordrtrack"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/rl_ordrtrack"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_ordrtrack"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/order_tracking"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit3"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_ordrtrack"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_ordrtrack" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_ordrtrack"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_ordrtrack"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/order_tracking"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="@dimen/_20dp"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginEnd="@dimen/_20dp"
-                        android:background="@color/background_color" />
+                            <ImageView
+                                android:id="@+id/img_arrowwrit3"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_receipt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_receipt"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_receipt" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_20dp"
+                            android:background="@color/background_color" />
 
-                        <TextView
-                            android:id="@+id/txt_receipt"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/rl_receipt"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_receipt"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/receipts"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit4"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_receipt"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_receipt" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_receipt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_receipt"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/receipts"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                    <View
-                        android:id="@+id/view12"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="@dimen/_20dp"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginEnd="@dimen/_20dp"
-                        android:background="@color/background_color" />
+                            <ImageView
+                                android:id="@+id/img_arrowwrit4"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_downloadquotation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginBottom="@dimen/_10dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_downloadquotation"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_downloadqtn" />
+                        <View
+                            android:id="@+id/view12"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_20dp"
+                            android:background="@color/background_color" />
 
-                        <TextView
-                            android:id="@+id/txt_downloadquotation"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/rl_downloadquotation"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_downloadquotation"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/download_quotation"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginBottom="@dimen/_10dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit5"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_downloadquotation"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_downloadqtn" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_downloadquotation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_downloadquotation"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/download_quotation"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                </LinearLayout>
+                            <ImageView
+                                android:id="@+id/img_arrowwrit5"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_aboutus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20dp"
-                android:elevation="@dimen/_10dp"
-                app:cardCornerRadius="10dp"
-                app:cardPreventCornerOverlap="true"
-                tools:ignore="UnusedAttribute">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_aboutus"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:elevation="@dimen/_10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    tools:ignore="UnusedAttribute">
 
-                    <RelativeLayout
-                        android:id="@+id/rl_aboutus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_aboutus"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_about" />
-
-                        <TextView
-                            android:id="@+id/txt_aboutus"
+                        <RelativeLayout
+                            android:id="@+id/rl_aboutus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_aboutus"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/about_us"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="10dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit6"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_aboutus"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_about" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_aboutus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_aboutus"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/about_us"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                    <View
-                        android:id="@+id/view15"
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginStart="@dimen/_20dp"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:layout_marginEnd="@dimen/_20dp"
-                        android:background="@color/background_color" />
+                            <ImageView
+                                android:id="@+id/img_arrowwrit6"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
 
-                    <RelativeLayout
-                        android:id="@+id/rl_settings"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry">
+                        </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/img_settings"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_setting" />
+                        <View
+                            android:id="@+id/view15"
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_20dp"
+                            android:background="@color/background_color" />
 
-                        <TextView
-                            android:id="@+id/txt_settings"
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:id="@+id/rl_settings"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_settings"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/setting"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit7"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_settings"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_setting" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_settings"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_settings"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/setting"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                </LinearLayout>
+                            <ImageView
+                                android:id="@+id/img_arrowwrit7"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20dp"
-                android:elevation="@dimen/_10dp"
-                android:visibility="visible"
-                app:cardCornerRadius="10dp"
-                app:cardPreventCornerOverlap="true"
-                tools:ignore="UnusedAttribute">
-
-                <LinearLayout
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_logout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:elevation="@dimen/_10dp"
+                    android:visibility="visible"
+                    app:cardCornerRadius="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    tools:ignore="UnusedAttribute">
 
-                    <RelativeLayout
-                        android:id="@+id/rl_logout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:padding="@dimen/_10dp"
-                        tools:ignore="RtlSymmetry,UselessParent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/img_logout"
-                            android:layout_width="@dimen/_24dp"
-                            android:layout_height="@dimen/_24dp"
-                            android:layout_centerVertical="true"
-                            android:layout_gravity="center_vertical"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_logout" />
-
-                        <TextView
-                            android:id="@+id/txt_logout"
+                        <RelativeLayout
+                            android:id="@+id/rl_logout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10dp"
-                            android:layout_toEndOf="@id/img_logout"
-                            android:fontFamily="@font/lato_bold"
-                            android:text="@string/log_out"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:ignore="RelativeOverlap" />
+                            android:layout_marginTop="10dp"
+                            android:padding="@dimen/_10dp"
+                            tools:ignore="RtlSymmetry,UselessParent">
 
-                        <ImageView
-                            android:id="@+id/img_arrowwrit8"
-                            android:layout_width="@dimen/_12dp"
-                            android:layout_height="@dimen/_12dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="@dimen/margin_common"
-                            android:contentDescription="@string/image_description"
-                            android:src="@drawable/ic_smallright" />
+                            <ImageView
+                                android:id="@+id/img_logout"
+                                android:layout_width="@dimen/_24dp"
+                                android:layout_height="@dimen/_24dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_logout" />
 
-                    </RelativeLayout>
+                            <TextView
+                                android:id="@+id/txt_logout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/_10dp"
+                                android:layout_toEndOf="@id/img_logout"
+                                android:fontFamily="@font/lato_bold"
+                                android:text="@string/log_out"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:ignore="RelativeOverlap" />
 
-                </LinearLayout>
+                            <ImageView
+                                android:id="@+id/img_arrowwrit8"
+                                android:layout_width="@dimen/_12dp"
+                                android:layout_height="@dimen/_12dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/margin_common"
+                                android:contentDescription="@string/image_description"
+                                android:src="@drawable/ic_smallright" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
 
         </LinearLayout>
 

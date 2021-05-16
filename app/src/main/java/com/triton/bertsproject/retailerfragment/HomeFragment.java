@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,9 +28,12 @@ import com.triton.bertsproject.model.ShopByNameModel;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
+import com.triton.bertsproject.sessionmanager.SessionManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,11 +68,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.btn_addVeh)
     Button btn_addVeh;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_user_type)
+    TextView txt_user_type;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cl_loginbefore)
+    CardView cl_loginbefore;
+
     List<ShopByNameModel> shopByNameModels;
 
     private static final String TAG = "HomeFragment";
 
     View view;
+
+    String username;
+
+    SessionManager sessionManager;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -80,6 +96,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -90,30 +107,49 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         Log.w("Oncreate ", TAG);
 
-        txt_user_login.setOnClickListener(v -> {
+        sessionManager = new SessionManager(getContext());
 
-            Intent intent = new Intent(getContext(), LoginActivity.class);
+        HashMap<String, String> user = sessionManager.getProfileDetails();
 
-            intent.putExtra("fromactivity",TAG);
+        if(sessionManager.isLoggedIn())
+        {
+            cl_loginbefore.setVisibility(View.GONE);
 
-            startActivity(intent);
+            username = user.get(SessionManager.KEY_FIRST_NAME) + " " + user.get(SessionManager.KEY_LAST_NAME);
 
-            Animatoo.animateSwipeLeft(getContext());
-        });
+            txt_user_type.setText(""+username);
 
-        btn_sigin.setOnClickListener(v -> {
 
-           Intent intent = new Intent(getContext(), RegisterActivity.class);
+        }
 
-            intent.putExtra("fromactivity",TAG);
+        else {
 
-            startActivity(intent);
+            cl_loginbefore.setVisibility(View.VISIBLE);
 
-            Animatoo.animateSwipeRight(getContext());
+            txt_user_login.setOnClickListener(v -> {
 
-        });
+                Intent intent = new Intent(getContext(), LoginActivity.class);
 
-        spin_kit_loadingView.setVisibility(View.GONE);
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+            });
+
+            btn_sigin.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), RegisterActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+        }
 
         edt_search.setOnClickListener(v -> {
 
@@ -123,7 +159,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             startActivity(intent);
 
-            Animatoo.animateSwipeLeft(getContext());
+            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
 
         });
 
@@ -135,7 +171,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             startActivity(intent);
 
-            Animatoo.animateSwipeLeft(getContext());
+            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
         });
 
         fl_cart.setOnClickListener(v -> {
@@ -146,9 +182,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             startActivity(intent);
 
-            Animatoo.animateSwipeLeft(getContext());
+            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
         });
 
+
+        spin_kit_loadingView.setVisibility(View.GONE);
 
         setView();
 

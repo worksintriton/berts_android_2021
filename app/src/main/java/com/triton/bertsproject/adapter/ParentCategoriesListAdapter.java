@@ -1,7 +1,6 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
-import com.triton.bertsproject.model.ShoplistModel;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
-import com.triton.bertsproject.retailer.RetailerProductListActivity;
 
 import java.util.List;
 
@@ -25,10 +21,12 @@ public class ParentCategoriesListAdapter extends RecyclerView.Adapter<ParentCate
     Context context;
     List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList;
     View view;
+    int size;
 
-    public ParentCategoriesListAdapter(Context context, List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanLists) {
+    public ParentCategoriesListAdapter(Context context, List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanLists, int size) {
         this.context = context;
         this.categoriesBeanList = categoriesBeanLists;
+        this.size=size;
 
     }
 
@@ -70,7 +68,7 @@ public class ParentCategoriesListAdapter extends RecyclerView.Adapter<ParentCate
 
     @Override
     public int getItemCount() {
-        return categoriesBeanList.size();
+        return size;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
