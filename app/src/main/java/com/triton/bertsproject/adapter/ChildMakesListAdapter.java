@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,11 +22,11 @@ import java.util.List;
 
 public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAdapter.ShoplistHolder> {
     Context context;
-    List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanList;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList;
     View view;
     int size;
 
-    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanLists, int size) {
+    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanLists, int size) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
         this.size = size;
@@ -34,14 +36,14 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
     @NonNull
     @Override
     public ShoplistHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_shoplist, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_modellist, parent, false);
         return new ShoplistHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final FetchChildMakeslistRequestResponse.DataBean.MakesBean makesBean = makesBeanList.get(position);
+        final FetchChildMakeslistRequestResponse.DataBean.MakeBean makesBean = makesBeanList.get(position);
 
         if (makesBean.getName()!= null && !makesBean.getName().isEmpty()) {
 
@@ -75,7 +77,7 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
         ImageView img_shplst;
         TextView txt_shoplistname;
-        CardView cardView;
+        LinearLayout ll_shoplist;
         public ShoplistHolder(View itemView) {
             super(itemView);
 
@@ -83,7 +85,7 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
 
             txt_shoplistname = itemView.findViewById(R.id.txt_shoplistname);
 
-            cardView = itemView.findViewById(R.id.cv_shoplist);
+            ll_shoplist = itemView.findViewById(R.id.ll_shoplist);
 
         }
     }

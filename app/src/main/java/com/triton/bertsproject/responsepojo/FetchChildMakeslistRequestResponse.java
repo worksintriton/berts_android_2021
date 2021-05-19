@@ -6,44 +6,39 @@ public class FetchChildMakeslistRequestResponse {
 
 
     /**
-     * status : true
-     * error_code : 0
-     * error_message :
-     * data : {"makes":[{"id":"312","make_id":"6","name":"Sambar","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"311","make_id":"6","name":"Liberty","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"310","make_id":"6","name":"Baja","status":"1","created_at":"2019-10-11 09:47:22","make_name":"Subaru"},{"id":"309","make_id":"6","name":"Trezia","status":"1","created_at":"2019-10-11 09:47:15","make_name":"Subaru"},{"id":"308","make_id":"6","name":"Legacy Outback","status":"1","created_at":"2019-10-11 09:47:08","make_name":"Subaru"},{"id":"307","make_id":"6","name":"Impeza WRX","status":"1","created_at":"2019-10-11 09:47:01","make_name":"Subaru"},{"id":"306","make_id":"6","name":"Alcyone","status":"1","created_at":"2019-10-11 09:46:54","make_name":"Subaru"},{"id":"305","make_id":"6","name":"Leone","status":"1","created_at":"2019-10-11 09:46:42","make_name":"Subaru"},{"id":"304","make_id":"6","name":"XV","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"303","make_id":"6","name":"Wrx","status":"1","created_at":"2019-10-11 09:47:22","make_name":"Subaru"},{"id":"302","make_id":"6","name":"Outback","status":"1","created_at":"2019-10-11 09:47:15","make_name":"Subaru"},{"id":"301","make_id":"6","name":"Legacy","status":"1","created_at":"2019-10-11 09:47:08","make_name":"Subaru"},{"id":"300","make_id":"6","name":"Impreza","status":"1","created_at":"2019-10-11 09:47:01","make_name":"Subaru"},{"id":"299","make_id":"6","name":"Forester","status":"1","created_at":"2019-10-11 09:46:54","make_name":"Subaru"},{"id":"298","make_id":"6","name":"Exiga","status":"1","created_at":"2019-10-11 09:46:42","make_name":"Subaru"}],"display_message":""}
+     * status : Success
+     * code : 200
+     * message : Models list successful
+     * data : {"make":[{"id":"63","make_id":"2","name":"Fargo Filly","status":"1","created_at":"2019-10-11 09:34:50","make_name":"Isuzu"},{"id":"62","make_id":"2","name":"Gemini","status":"1","created_at":"2019-10-10 06:38:21","make_name":"Isuzu"},{"id":"61","make_id":"2","name":"Aska","status":"1","created_at":"2019-10-10 06:38:13","make_name":"Isuzu"},{"id":"60","make_id":"2","name":"Qkr","status":"1","created_at":"2019-10-11 09:35:51","make_name":"Isuzu"},{"id":"59","make_id":"2","name":"Pick-Up","status":"1","created_at":"2019-10-11 09:35:44","make_name":"Isuzu"},{"id":"58","make_id":"2","name":"Nqr","status":"1","created_at":"2019-10-11 09:35:35","make_name":"Isuzu"},{"id":"57","make_id":"2","name":"Npr","status":"1","created_at":"2019-10-11 09:35:29","make_name":"Isuzu"},{"id":"56","make_id":"2","name":"Nmr","status":"1","created_at":"2019-10-11 09:35:21","make_name":"Isuzu"},{"id":"55","make_id":"2","name":"Nkr","status":"1","created_at":"2019-10-11 09:35:14","make_name":"Isuzu"},{"id":"54","make_id":"2","name":"Juston","status":"1","created_at":"2019-10-11 09:35:08","make_name":"Isuzu"},{"id":"53","make_id":"2","name":"Forward","status":"1","created_at":"2019-10-11 09:35:01","make_name":"Isuzu"},{"id":"52","make_id":"2","name":"Elf","status":"1","created_at":"2019-10-11 09:34:50","make_name":"Isuzu"},{"id":"51","make_id":"2","name":"D-MAX","status":"1","created_at":"2019-10-10 06:38:21","make_name":"Isuzu"},{"id":"50","make_id":"2","name":"Como","status":"1","created_at":"2019-10-10 06:38:13","make_name":"Isuzu"}]}
      */
 
-    private boolean status;
-    private int error_code;
-    private String error_message;
-    /**
-     * makes : [{"id":"312","make_id":"6","name":"Sambar","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"311","make_id":"6","name":"Liberty","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"310","make_id":"6","name":"Baja","status":"1","created_at":"2019-10-11 09:47:22","make_name":"Subaru"},{"id":"309","make_id":"6","name":"Trezia","status":"1","created_at":"2019-10-11 09:47:15","make_name":"Subaru"},{"id":"308","make_id":"6","name":"Legacy Outback","status":"1","created_at":"2019-10-11 09:47:08","make_name":"Subaru"},{"id":"307","make_id":"6","name":"Impeza WRX","status":"1","created_at":"2019-10-11 09:47:01","make_name":"Subaru"},{"id":"306","make_id":"6","name":"Alcyone","status":"1","created_at":"2019-10-11 09:46:54","make_name":"Subaru"},{"id":"305","make_id":"6","name":"Leone","status":"1","created_at":"2019-10-11 09:46:42","make_name":"Subaru"},{"id":"304","make_id":"6","name":"XV","status":"1","created_at":"2019-10-11 09:47:31","make_name":"Subaru"},{"id":"303","make_id":"6","name":"Wrx","status":"1","created_at":"2019-10-11 09:47:22","make_name":"Subaru"},{"id":"302","make_id":"6","name":"Outback","status":"1","created_at":"2019-10-11 09:47:15","make_name":"Subaru"},{"id":"301","make_id":"6","name":"Legacy","status":"1","created_at":"2019-10-11 09:47:08","make_name":"Subaru"},{"id":"300","make_id":"6","name":"Impreza","status":"1","created_at":"2019-10-11 09:47:01","make_name":"Subaru"},{"id":"299","make_id":"6","name":"Forester","status":"1","created_at":"2019-10-11 09:46:54","make_name":"Subaru"},{"id":"298","make_id":"6","name":"Exiga","status":"1","created_at":"2019-10-11 09:46:42","make_name":"Subaru"}]
-     * display_message :
-     */
-
+    private String status;
+    private int code;
+    private String message;
     private DataBean data;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getError_code() {
-        return error_code;
+    public int getCode() {
+        return code;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public DataBean getData() {
@@ -55,35 +50,26 @@ public class FetchChildMakeslistRequestResponse {
     }
 
     public static class DataBean {
-        private String display_message;
         /**
-         * id : 312
-         * make_id : 6
-         * name : Sambar
+         * id : 63
+         * make_id : 2
+         * name : Fargo Filly
          * status : 1
-         * created_at : 2019-10-11 09:47:31
-         * make_name : Subaru
+         * created_at : 2019-10-11 09:34:50
+         * make_name : Isuzu
          */
 
-        private List<MakesBean> makes;
+        private List<MakeBean> make;
 
-        public String getDisplay_message() {
-            return display_message;
+        public List<MakeBean> getMake() {
+            return make;
         }
 
-        public void setDisplay_message(String display_message) {
-            this.display_message = display_message;
+        public void setMake(List<MakeBean> make) {
+            this.make = make;
         }
 
-        public List<MakesBean> getMakes() {
-            return makes;
-        }
-
-        public void setMakes(List<MakesBean> makes) {
-            this.makes = makes;
-        }
-
-        public static class MakesBean {
+        public static class MakeBean {
             private String id;
             private String make_id;
             private String name;

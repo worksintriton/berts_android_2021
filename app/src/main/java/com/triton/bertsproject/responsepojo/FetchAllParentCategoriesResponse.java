@@ -6,39 +6,39 @@ public class FetchAllParentCategoriesResponse {
 
 
     /**
-     * status : true
-     * error_code : 0
-     * error_message : 
+     * status : Success
+     * code : 200
+     * message : Categories list successful
      * data : {"categories":[{"id":"1","slug":"electronics","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"Electronics","keywords":"Electronics","category_order":"1","homepage_order":"1","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_581-327_6078ce48c912c.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078ce48e3c43.jpg","created_at":"2019-09-16 05:47:08","lang_id":"1","name":"Electronics"},{"id":"27","slug":"Car Paints","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"description for paints","keywords":"keyword for paints","category_order":"1","homepage_order":"1","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_968-544_6078cd0673fb2.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078cd06d25a7.jpg","created_at":"2019-11-07 06:10:20","lang_id":"1","name":"Car & Bike paints"},{"id":"3","slug":"automotive","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"","keywords":"","category_order":"5","homepage_order":"5","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_496-279_6078cc90e4933.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078cc9102616.jpg","created_at":"2019-10-08 03:40:11","lang_id":"1","name":"Automotive"},{"id":"32","slug":"car-accessories","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"Keep your car tidy or add your own personal touch with our wide range of interior car accessories. A car bin is probably one of the handiest accessories you can buy for your car. These handy contraptions simply strap to the rear of the driver or passenger seat and provide the perfect place to stow your empty crisp packets and drink cans. If you have little ones, then Keep your car tidy or add your own personal touch with our wide range of interior car accessories. A car bin is probably one of th","keywords":"Keep your car tidy or add your own personal touch with our wide range of interior car accessories. A car bin is probably one of the handiest accessories you can buy for your car. These handy contraptions simply strap to the rear of the driver or passenger seat and provide the perfect place to stow your empty crisp packets and drink cans. If you have little ones, then Keep your car tidy or add your own personal touch with our wide range of interior car accessories. A car bin is probably one of th","category_order":"5","homepage_order":"5","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_199-112_6078c5f8eaeb7.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078c5f8efb44.jpg","created_at":"2019-11-07 22:08:46","lang_id":"1","name":"Car Accessories"},{"id":"43","slug":"new-motor","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"New type of motor is arrivel","keywords":"motor new bike","category_order":"10","homepage_order":"5","visibility":"1","show_on_homepage":"1","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_165-93_6078c2dde9685.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078c2ddecf89.jpg","created_at":"2019-11-08 05:43:42","lang_id":"1","name":"New Motor"},{"id":"17","slug":"brakes","parent_id":"0","top_parent_id":"0","category_level":"1","parent_slug":"","top_parent_slug":"","description":"","keywords":"","category_order":"12","homepage_order":"1","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_150-85_6078cbc81e31b.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078cbc82136f.jpg","created_at":"2019-10-14 03:43:32","lang_id":"1","name":"Brakes"}]}
      */
 
-    private boolean status;
-    private int error_code;
-    private String error_message;
+    private String status;
+    private int code;
+    private String message;
     private DataBean data;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getError_code() {
-        return error_code;
+    public int getCode() {
+        return code;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public DataBean getData() {
@@ -56,8 +56,8 @@ public class FetchAllParentCategoriesResponse {
          * parent_id : 0
          * top_parent_id : 0
          * category_level : 1
-         * parent_slug : 
-         * top_parent_slug : 
+         * parent_slug :
+         * top_parent_slug :
          * description : Electronics
          * keywords : Electronics
          * category_order : 1

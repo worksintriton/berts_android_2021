@@ -6,39 +6,39 @@ public class FetchChildCateglistResponse {
 
 
     /**
-     * status : true
-     * error_code : 0
-     * error_message :
+     * status : Success
+     * code : 200
+     * message : Categories list successful
      * data : {"categories":[{"id":"5","slug":"car-audio","parent_id":"1","top_parent_id":"1","category_level":"2","parent_slug":"electronics","top_parent_slug":"electronics","description":"","keywords":"","category_order":"2","homepage_order":"1","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_484-272_6078cc12cbf1d.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078cc12e1c9c.jpg","created_at":"2019-10-08 03:42:42","lang_id":"1","name":"Car audio"},{"id":"30","slug":"interior-car-accessories","parent_id":"1","top_parent_id":"1","category_level":"2","parent_slug":"electronics","top_parent_slug":"electronics","description":"Auto rubber bushing: engine mount, strut mount, center bearing, differential mount, control arm bushing, stabilizer bushing, other suspension bushing Suspension Parts: shock absorber, control arm, ball joint,stabilizer link, tie rod end, steering rack CV joint, drive shaft, cv joint boot Brake parts: brake pads, brake disc, brake master cylinder, wheel cylinder Fuel pump, water pump, radiator, gasket kit, engine beltAuto rubber bushing: engine mount, strut mount, center bearing, differential mou","keywords":"engine mount, strut mount, center bearing, differential mount, control arm bushing, stabilizer bushing, other suspension bushing Suspension Parts","category_order":"6","homepage_order":"8","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_451-254_6078c784e18bf.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078c7850325b.jpg","created_at":"2019-11-07 22:00:54","lang_id":"1","name":"Interior Car Accessories"},{"id":"19","slug":"mirror","parent_id":"1","top_parent_id":"1","category_level":"2","parent_slug":"electronics","top_parent_slug":"electronics","description":"","keywords":"","category_order":"465","homepage_order":"1434","visibility":"1","show_on_homepage":"0","storage":"local","image_1":"http://dciinternal.in/dev01/uploads/category/category_172-97_6078cb8013510.jpg","image_2":"http://dciinternal.in/dev01/uploads/category/category_440-541_6078cb801700c.jpg","created_at":"2019-10-15 05:22:01","lang_id":"1","name":"Mirror"}]}
      */
 
-    private boolean status;
-    private int error_code;
-    private String error_message;
+    private String status;
+    private int code;
+    private String message;
     private DataBean data;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getError_code() {
-        return error_code;
+    public int getCode() {
+        return code;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public DataBean getData() {

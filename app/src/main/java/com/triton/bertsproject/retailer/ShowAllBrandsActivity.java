@@ -71,7 +71,9 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
     private DD4YouConfig dd4YouConfig;
 
-    List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList ;
+    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList ;
+
+    AlertDialog alertDialog;
 
     private static final String TAG = "ShowAllBrandsActivity";
 
@@ -146,11 +148,11 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllBrandsResponse" + new Gson().toJson(response.body()));
 
-                        brandsBeanList = response.body().getData().getBrands();
+                        brandsBeanList = response.body().getData().getBrand();
 
                         if(brandsBeanList != null && brandsBeanList.size()>0){
 
@@ -177,8 +179,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
-
+                        showErrorLoading(response.body().getMessage());
                     }
 
 
@@ -199,6 +200,26 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
     }
 
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ShowAllBrandsActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
+
     private void callnointernet() {
         AlertDialog.Builder builder=new AlertDialog.Builder(ShowAllBrandsActivity.this);
         builder.setTitle("No Internet Conncetion");
@@ -212,7 +233,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList) {
+    private void setView(List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList) {
 
         rv_top_brands.setLayoutManager(new GridLayoutManager(ShowAllBrandsActivity.this, 2));
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -74,11 +75,16 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
     private DD4YouConfig dd4YouConfig;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanList ;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList ;
 
     private static final String TAG = "ShowAllChildMakesActivity";
 
+    String make_id, make_name;
 
+    AlertDialog alertDialog;
+
+
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +109,26 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
             callnointernet();
 
         }
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            make_id = extras.getString("make_id");
+            make_name = extras.getString("make_name");
+            Log.w(TAG,"make_id : "+make_id +"make_name : "+make_name);
+        }
+
+
+        if(make_name!=null&&!make_name.isEmpty()){
+
+            txt_toolbar_title.setText(make_name);
+        }
+
+        else {
+
+            txt_toolbar_title.setText(R.string.make);
+        }
+
+
 
         txt_toolbar_title.setText(R.string.make);
 
@@ -149,11 +175,11 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
 
-                        makesBeanList = response.body().getData().getMakes();
+                        makesBeanList = response.body().getData().getMake();
 
                         if(makesBeanList != null && makesBeanList.size()>0){
 
@@ -180,7 +206,7 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+                        showErrorLoading(response.body().getMessage());
 
                     }
 
@@ -210,8 +236,8 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
          * SORT_BY : DESC
          */
         FetchChildMakeslistRequest fetchChildMakeslistRequest = new FetchChildMakeslistRequest();
-        fetchChildMakeslistRequest.setMAKE_ID("");
-        fetchChildMakeslistRequest.setSORT_BY("");
+        fetchChildMakeslistRequest.setMAKE_ID(make_id);
+        fetchChildMakeslistRequest.setSORT_BY("DESC");
 
         Log.w(TAG,"FetchChildMakeslistRequest "+ new Gson().toJson(fetchChildMakeslistRequest));
         return fetchChildMakeslistRequest;
@@ -232,21 +258,15 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanList) {
+    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList) {
 
-        rv_top_makes.setLayoutManager(new GridLayoutManager(ShowAllChildMakesActivity.this, 2));
+        rv_top_makes.setLayoutManager(new LinearLayoutManager(ShowAllChildMakesActivity.this));
 
         rv_top_makes.setMotionEventSplittingEnabled(false);
 
         rv_top_makes.setNestedScrollingEnabled(true);
 
         int size =makesBeanList.size();
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        rv_top_makes.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
@@ -304,5 +324,23 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
     }
 
 
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ShowAllChildMakesActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
 
 }

@@ -109,6 +109,8 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        Log.w("oncreate",TAG);
+
         txt_toolbar_title.setText(R.string.edit_profile);
 
         edt_firstname.setTitle(getString(R.string.firstname));
@@ -271,6 +273,11 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         if(lastname!=null&&!lastname.isEmpty()){
 
             edt_lastname.setTitle(lastname);
+        }
+
+        if(email!=null&&!email.isEmpty()){
+
+            edt_email.setTitle(email);
         }
 
 //        if(zipcode!=null&&!zipcode.isEmpty()){

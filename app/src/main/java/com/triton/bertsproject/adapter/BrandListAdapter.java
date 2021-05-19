@@ -1,6 +1,8 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.retailer.RetailerProductListActivity;
+import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
 
 import java.util.List;
 
 public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.ShoplistHolder> {
     Context context;
-    List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList ;
+    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList ;
     View view;
     int size;
+    private static final String TAG = "BrandListAdapter";
 
-    public BrandListAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanLists, int size) {
+    public BrandListAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanLists, int size) {
         this.context = context;
         this.brandsBeanList = brandsBeanLists;
         this.size=size;
@@ -40,7 +46,7 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final FetchAllBrandsResponse.DataBean.BrandsBean brandsBean = brandsBeanList.get(position);
+        final FetchAllBrandsResponse.DataBean.BrandBean brandsBean = brandsBeanList.get(position);
 
         if (brandsBean.getName()!= null && !brandsBean.getName().isEmpty()) {
 
@@ -57,12 +63,20 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
 
         }
 
-//        holder.cardView.setOnClickListener(v -> {
-//
-//            context.startActivity(new Intent(context, RetailerProductListActivity.class));
-//
-//            Animatoo.animateSwipeLeft(context);
-//        });
+        holder.cardView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, RetailerProductListActivity.class);
+
+            intent.putExtra("brand_id",brandsBean.getId());
+
+            intent.putExtra("fromactivity",TAG);
+
+            Log.w(TAG,"brand_id : "+brandsBean.getId());
+
+            context.startActivity(intent);
+
+            Animatoo.animateSwipeLeft(context);
+        });
 
     }
 

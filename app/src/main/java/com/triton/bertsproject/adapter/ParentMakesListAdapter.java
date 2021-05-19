@@ -1,6 +1,8 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +13,23 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
+import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
+import com.triton.bertsproject.retailer.ShowAllChildMakesActivity;
 
 import java.util.List;
 
 public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesListAdapter.ShoplistHolder> {
     Context context;
-    List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList;
+    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
     View view;
     int size;
+    private static final String TAG = "ParentMakesListAdapter";
 
-    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanLists, int size) {
+    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanLists, int size) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
         this.size = size;
@@ -40,7 +46,7 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final FetchAllParentMakesResponse.DataBean.MakesBean makesBean = makesBeanList.get(position);
+        final FetchAllParentMakesResponse.DataBean.MakeBean makesBean = makesBeanList.get(position);
 
         if (makesBean.getName()!= null && !makesBean.getName().isEmpty()) {
 
@@ -57,12 +63,22 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
 
         }
 
-//        holder.cardView.setOnClickListener(v -> {
-//
-//            context.startActivity(new Intent(context, RetailerProductListActivity.class));
-//
-//            Animatoo.animateSwipeLeft(context);
-//        });
+
+        holder.cardView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, ShowAllChildMakesActivity.class);
+
+            intent.putExtra("make_id",makesBean.getId());
+
+            intent.putExtra("make_name",makesBean.getName());
+
+            Log.w(TAG,"make_id " +makesBean.getId() + "make_name "+makesBean.getName());
+
+            context.startActivity(intent);
+
+            Animatoo.animateSwipeLeft(context);
+        });
+
 
     }
 

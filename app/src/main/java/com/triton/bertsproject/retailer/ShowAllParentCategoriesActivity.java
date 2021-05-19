@@ -21,6 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
@@ -75,6 +76,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
     List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList ;
 
+    AlertDialog alertDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,7 +147,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
 
@@ -176,7 +178,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+                        showErrorLoading(response.body().getMessage());
 
                     }
 
@@ -281,6 +283,27 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
     }
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ShowAllParentCategoriesActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
+
+
 
 
 }

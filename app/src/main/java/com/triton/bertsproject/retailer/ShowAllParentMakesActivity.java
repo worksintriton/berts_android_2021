@@ -29,6 +29,7 @@ import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,7 +72,9 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
     private DD4YouConfig dd4YouConfig;
 
-    List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList ;
+    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList ;
+
+    AlertDialog alertDialog;
 
     private static final String TAG = "ShowAllParentMakesActivity";
 
@@ -145,11 +148,11 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
 
-                        makesBeanList = response.body().getData().getMakes();
+                        makesBeanList = response.body().getData().getMake();
 
                         if(makesBeanList != null && makesBeanList.size()>0){
 
@@ -176,8 +179,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
-
+                        showErrorLoading(response.body().getMessage());
                     }
 
 
@@ -211,7 +213,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList) {
+    private void setView(List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList) {
 
         rv_top_makes.setLayoutManager(new GridLayoutManager(ShowAllParentMakesActivity.this, 2));
 
@@ -283,5 +285,22 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
     }
 
 
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ShowAllParentMakesActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
 
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
 }

@@ -71,6 +71,8 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
     @BindView(R.id.refresh_layout)
     SwipeRefreshLayout refresh_layout;
 
+    AlertDialog alertDialog;
+
     private static final String TAG = "ShowAllChildCategActivity";
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
@@ -79,6 +81,9 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
     List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanList ;
 
+    String parent_id, categ_name;
+
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,20 +97,25 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         //registerBroadcastReceiver();
 
-        if (dd4YouConfig.isInternetConnectivity()) {
 
-            fetchallcategoriesListResponseCall();
-
-        }
-
-        else
-        {
-            callnointernet();
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            parent_id = extras.getString("cate_id");
+            categ_name = extras.getString("cate_name");
+            Log.w(TAG,"parent_id : "+parent_id +"categ_name : "+categ_name);
         }
 
 
-        txt_toolbar_title.setText(R.string.categories);
+        if(categ_name!=null&&!categ_name.isEmpty()){
+
+            txt_toolbar_title.setText(categ_name);
+        }
+
+        else {
+
+            txt_toolbar_title.setText(R.string.categories);
+        }
+
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -116,7 +126,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
                     refresh_layout.setEnabled(false);
                     if (dd4YouConfig.isInternetConnectivity()) {
 
-                        fetchallcategoriesListResponseCall();
+                        fetchallchildcategoriesListResponseCall();
 
                     }
 
@@ -128,10 +138,23 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
                 }
         );
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallchildcategoriesListResponseCall();
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
+
     }
 
     @SuppressLint("LongLogTag")
-    private void fetchallcategoriesListResponseCall() {
+    private void fetchallchildcategoriesListResponseCall() {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
@@ -147,7 +170,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchChildCateglistResponse" + new Gson().toJson(response.body()));
 
@@ -178,7 +201,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+                        showErrorLoading(response.body().getMessage());
 
                     }
 
@@ -206,7 +229,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
          */
 
         FetchChildCateglistRequest fetchChildCateglistRequest = new FetchChildCateglistRequest();
-        fetchChildCateglistRequest.setPARENT_ID("");
+        fetchChildCateglistRequest.setPARENT_ID(parent_id);
 
         Log.w(TAG,"FetchChildCateglistRequest "+ new Gson().toJson(fetchChildCateglistRequest));
         return fetchChildCateglistRequest;
@@ -278,7 +301,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
         super.onResume();
         if (dd4YouConfig.isInternetConnectivity()) {
 
-            fetchallcategoriesListResponseCall();
+            fetchallchildcategoriesListResponseCall();
 
         }else {
             callnointernet();
@@ -295,4 +318,26 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
     }
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ShowAllChildCategActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
+
+
+
 }

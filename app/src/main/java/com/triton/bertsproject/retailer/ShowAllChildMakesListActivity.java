@@ -73,7 +73,7 @@ public class ShowAllChildMakesListActivity extends AppCompatActivity {
 
     private DD4YouConfig dd4YouConfig;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanList ;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList ;
 
     private static final String TAG = "ShowAllChildMakesListActivity";
 
@@ -147,11 +147,11 @@ public class ShowAllChildMakesListActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
 
-                        makesBeanList = response.body().getData().getMakes();
+                        makesBeanList = response.body().getData().getMake();
 
                         if(makesBeanList != null && makesBeanList.size()>0){
 
@@ -178,7 +178,7 @@ public class ShowAllChildMakesListActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -229,7 +229,7 @@ public class ShowAllChildMakesListActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.MakesBean> makesBeanList) {
+    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList) {
 
         rv_top_makes.setLayoutManager(new GridLayoutManager(ShowAllChildMakesListActivity.this, 2));
 

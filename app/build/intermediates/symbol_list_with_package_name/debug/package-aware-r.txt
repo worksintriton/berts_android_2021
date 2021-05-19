@@ -2495,6 +2495,7 @@ id ll_product_status
 id ll_rating
 id ll_root
 id ll_shipdaddr
+id ll_shoplist
 id ll_year
 id masked
 id material_clock_display
@@ -2880,6 +2881,9 @@ id txt_merch_subtotal_label
 id txt_merch_subtotal_value
 id txt_model
 id txt_no_records
+id txt_no_recordsbrands
+id txt_no_recordscateg
+id txt_no_recordsmakes
 id txt_or
 id txt_order_ID
 id txt_order_ID_label
@@ -3023,6 +3027,7 @@ id view19
 id view2
 id view20
 id view21
+id view22
 id view3
 id view4
 id view5
@@ -3134,6 +3139,9 @@ layout activity_shipping_address
 layout activity_shipping_address_add
 layout activity_shipping_method
 layout activity_show_all_brands
+layout activity_show_all_child_categ
+layout activity_show_all_child_makes
+layout activity_show_all_child_makes_list
 layout activity_show_all_makesz
 layout activity_show_all_parent_categories
 layout activity_splash
@@ -3141,6 +3149,7 @@ layout adapter_cart_prodlist
 layout adapter_filter_colorlist
 layout adapter_filter_yearlist
 layout adapter_filterlist
+layout adapter_modellist
 layout adapter_orderlist
 layout adapter_prodlist_gridview
 layout adapter_prodlist_listview

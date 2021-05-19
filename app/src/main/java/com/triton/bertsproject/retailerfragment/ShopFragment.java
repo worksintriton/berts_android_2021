@@ -34,6 +34,9 @@ import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.retailer.RetailerDashboardActivity;
+import com.triton.bertsproject.retailer.ShowAllBrandsActivity;
+import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
+import com.triton.bertsproject.retailer.ShowAllParentCategoriesActivity;
 import com.triton.bertsproject.retailer.ShowAllParentMakesActivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -109,9 +112,11 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
     List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList ;
 
-    List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList ;
+    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList ;
 
-    List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList ;
+    AlertDialog alertDialog;
+
+    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList ;
 
     private static final String TAG = "ShopFragment";
 
@@ -187,6 +192,35 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         }
 
+        txt_viewall_catg.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, ShowAllParentCategoriesActivity.class);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+
+
+        });
+
+        txt_viewall_brands.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, ShowAllBrandsActivity.class);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+        });
+
+        txt_viewall_makes.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, ShowAllParentMakesActivity.class);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+        });
+
 
         return view;
     }
@@ -208,7 +242,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
 
@@ -238,8 +272,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                     else {
 
-                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
-
+                        showErrorLoading(response.body().getMessage());
                     }
 
 
@@ -316,11 +349,11 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllBrandsResponse" + new Gson().toJson(response.body()));
 
-                        brandsBeanList = response.body().getData().getBrands();
+                        brandsBeanList = response.body().getData().getBrand();
 
                         if(brandsBeanList != null && brandsBeanList.size()>0){
 
@@ -347,8 +380,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                     else {
 
-                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
-
+                        showErrorLoading(response.body().getMessage());
                     }
 
 
@@ -370,7 +402,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void setViewBrandList(List<FetchAllBrandsResponse.DataBean.BrandsBean> brandsBeanList) {
+    private void setViewBrandList(List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList) {
 
         rv_top_brands.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
@@ -414,11 +446,11 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()){
+                    if(200==response.body().getCode()){
 
                         Log.w(TAG,"FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
 
-                        makesBeanList = response.body().getData().getMakes();
+                        makesBeanList = response.body().getData().getMake();
 
                         if(makesBeanList != null && makesBeanList.size()>0){
 
@@ -445,8 +477,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
                     else {
 
-                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_SHORT).show();
-
+                        showErrorLoading(response.body().getMessage());
                     }
 
 
@@ -468,7 +499,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void setViewMakesList(List<FetchAllParentMakesResponse.DataBean.MakesBean> makesBeanList) {
+    private void setViewMakesList(List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList) {
 
         rv_top_makes.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
@@ -492,6 +523,25 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
 
 
+    }
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
     }
     @Override
     public void onStart() {
