@@ -3,6 +3,8 @@ package com.triton.bertsproject.retailer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -22,18 +24,25 @@ import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
+import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.customView.CustomEditText;
+import com.triton.bertsproject.requestpojo.GetStateRequest;
 import com.triton.bertsproject.requestpojo.SignupRequest;
 import com.triton.bertsproject.requestpojo.UpdateProfileRequest;
+import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
+import com.triton.bertsproject.responsepojo.GetCountryResponse;
+import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.SignupResponse;
 import com.triton.bertsproject.responsepojo.UpdateProfileResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
+import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -102,6 +111,11 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     SessionManager sessionManager;
 
     String userid, firstname, lastname, zipcode, revenue, countryid, stateid,email;
+
+    List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList ;
+
+    List<GetStateResponse.DataBean.StatesBean> statesBeanList ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +124,8 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Log.w("oncreate",TAG);
+
+        dd4YouConfig = new DD4YouConfig(this);
 
         txt_toolbar_title.setText(R.string.edit_profile);
 
@@ -124,126 +140,6 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         edt_cnfmpassword.setTitle(getString(R.string.confirm_password));
 
         edt_zipcode.setTitle(getString(R.string.zipcode));
-
-        ArrayList<String> arrayList = new ArrayList<>();
-
-        arrayList.add("Country");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        arrayList.add("India");
-
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(RetailerProfileAccountActivity.this, R.layout.spinner_item, arrayList);
-
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
-
-        sp_country.setAdapter(spinnerArrayAdapter);
-
-        sp_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int arg2, long arg3) {
-                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-
-            }
-        });
-
-        ArrayList<String> arrayList1 = new ArrayList<>();
-
-        arrayList1.add("State");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        arrayList1.add("Tamilnadu");
-
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(RetailerProfileAccountActivity.this, R.layout.spinner_item, arrayList1);
-
-        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item); // The drop down view
-
-        sp_state.setAdapter(spinnerArrayAdapter1);
-
-        sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int arg2, long arg3) {
-                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-
-            }
-        });
 
         edt_revenue.setTitle(getString(R.string.revenue));
 
@@ -286,6 +182,19 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 //        }
 
         edt_revenue.setVisibility(View.GONE);
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallcountryListResponseCall();
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
+
 
         btn_update.setOnClickListener(v -> {
 
@@ -488,5 +397,281 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         }
     }
+
+    /* Get Country */
+
+    @SuppressLint("LongLogTag")
+    private void fetchallcountryListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<GetCountryResponse> call = apiInterface.fetchallcountryListResponseCall(RestUtils.getContentType());
+        Log.w(TAG,"GetCountryResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<GetCountryResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<GetCountryResponse> call, @NonNull Response<GetCountryResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"GetCountryResponse" + new Gson().toJson(response.body()));
+
+                        countriesBeanList = response.body().getData().getCountries();
+
+                        if(countriesBeanList != null && countriesBeanList.size()>0){
+
+
+                            setCountry(countriesBeanList);
+
+
+                        }
+
+                        else {
+
+
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<GetCountryResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"GetCountryResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+
+    private void setCountry(List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList) {
+
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add("Select Country");
+
+        for(int i=0;i<countriesBeanList.size();i++){
+
+            arrayList.add(countriesBeanList.get(i).getName());
+        }
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(RetailerProfileAccountActivity.this, R.layout.spinner_item, arrayList);
+
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
+
+        sp_country.setAdapter(spinnerArrayAdapter);
+
+        sp_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
+
+                countryid =  countriesBeanList.get(position).getId() ;
+
+                Log.w(TAG,"country_id "+countryid);
+
+                if (dd4YouConfig.isInternetConnectivity()) {
+
+                    fetchallstateListResponseCall(countryid);
+
+                }
+
+                else
+                {
+                    callnointernet();
+
+                }
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+
+    }
+
+    /* Get Country */
+
+    @SuppressLint("LongLogTag")
+    private void fetchallstateListResponseCall(String countryid) {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<GetStateResponse> call = apiInterface.fetchallstateListResponseCall(RestUtils.getContentType(),getStateRequest(countryid));
+        Log.w(TAG,"GetStateResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<GetStateResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<GetStateResponse> call, @NonNull Response<GetStateResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"GetCountryResponse" + new Gson().toJson(response.body()));
+
+                        statesBeanList = response.body().getData().getStates();
+
+                        if(countriesBeanList != null && countriesBeanList.size()>0){
+
+
+                            setState(statesBeanList);
+
+
+                        }
+
+                        else {
+
+
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<GetStateResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"GetStateResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+
+    private void setState(List<GetStateResponse.DataBean.StatesBean> statesBeanList) {
+
+        ArrayList<String> arrayList1 = new ArrayList<>();
+
+        arrayList1.add("Select State");
+
+        for(int i=0;i<statesBeanList.size();i++){
+
+            arrayList1.add(statesBeanList.get(i).getName());
+        }
+
+
+        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(RetailerProfileAccountActivity.this, R.layout.spinner_item, arrayList1);
+
+        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item); // The drop down view
+
+        sp_state.setAdapter(spinnerArrayAdapter1);
+
+        sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int arg2, long arg3) {
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
+
+                stateid = statesBeanList.get(arg2).getId();
+
+                Log.w(TAG,"stateid "+stateid);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private GetStateRequest getStateRequest(String countryid) {
+
+        /*
+         * COUNTRY_ID : 101
+         */
+
+        GetStateRequest getStateRequest = new GetStateRequest();
+        getStateRequest.setCOUNTRY_ID(countryid);
+
+        Log.w(TAG,"GetStateRequest "+ new Gson().toJson(getStateRequest));
+        return getStateRequest;
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    //    private void registerBroadcastReceiver() {
+//        if (dd4YouNetReceiver == null)
+//            dd4YouNetReceiver = new DD4YouNetReceiver(rl_root,1000);
+//        dd4YouNetReceiver.register(this.getApplicationContext());
+//    }
+//    private void unregisterBroadcastReceiver() {
+//        if (dd4YouNetReceiver != null)        {
+//            dd4YouNetReceiver.unregister(this.getApplicationContext());
+//        }
+//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+//        unregisterBroadcastReceiver();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // unregisterBroadcastReceiver();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+
 
 }

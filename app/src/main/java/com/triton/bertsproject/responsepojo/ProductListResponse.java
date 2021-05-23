@@ -2,14 +2,14 @@ package com.triton.bertsproject.responsepojo;
 
 import java.util.List;
 
-public class FetchProductBasedOnBrandResponse {
+public class ProductListResponse {
 
 
     /**
      * status : Success
      * code : 200
      * message : Product list successful
-     * data : {"page":1,"per_page":15,"total_count":1,"total_pages":1,"prdoucts":[{"id":"2","title":"Gear lever","slug":"gear-lever-2","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"50000","currency":"USD","description":"<p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-27 12:53:00","promote_end_date":"2021-04-27 12:53:00","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"22","external_link":null,"quantity":"-13","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-27 12:53:00","part_number":"ABCD1234","brand_id":"1","colors":"red","weight":"10","height":"10","length":"10","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"6D9RTP0QWER357246","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]}],"page_count":1}
+     * data : {"page":1,"per_page":15,"total_count":2,"total_pages":1,"prdoucts":[{"id":"4","title":"Engine Piston","slug":"engine-piston-4","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"10000","currency":"USD","description":"<p>Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-30 13:16:45","promote_end_date":"2021-04-30 13:16:45","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"6","external_link":null,"quantity":"498","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-30 13:16:45","part_number":"ABCD12344","brand_id":"2","colors":"black","weight":"10","height":"30","length":"20","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"4Y1SL65848Z411439","subcategory_name":"Interior Car Accessories","category_name":"Performance & Tuning","images":[{"id":"344","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c0265723ce.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02659c654.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c0265d21ee.jpg","image_order":"1","storage":"local"},{"id":"345","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c026f2f630.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c026f4b440.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c026f67bf5.jpg","image_order":"2","storage":"local"},{"id":"346","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c02771cb3c.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02773d836.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c02775e7d0.jpg","image_order":"3","storage":"local"}],"reviews_comments":0,"reviews_ratings":0},{"id":"2","title":"Gear lever","slug":"gear-lever-2","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"50000","currency":"USD","description":"<p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-27 12:53:00","promote_end_date":"2021-04-27 12:53:00","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"22","external_link":null,"quantity":"500","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-27 12:53:00","part_number":"ABCD1234","brand_id":"1","colors":"red","weight":"10","height":"10","length":"10","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"6D9RTP0QWER357246","subcategory_name":"Interior Car Accessories","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":2,"reviews_ratings":4.5}],"page_count":2}
      */
 
     private String status;
@@ -18,10 +18,10 @@ public class FetchProductBasedOnBrandResponse {
     /**
      * page : 1
      * per_page : 15
-     * total_count : 1
+     * total_count : 2
      * total_pages : 1
-     * prdoucts : [{"id":"2","title":"Gear lever","slug":"gear-lever-2","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"50000","currency":"USD","description":"<p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-27 12:53:00","promote_end_date":"2021-04-27 12:53:00","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"22","external_link":null,"quantity":"-13","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-27 12:53:00","part_number":"ABCD1234","brand_id":"1","colors":"red","weight":"10","height":"10","length":"10","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"6D9RTP0QWER357246","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]}]
-     * page_count : 1
+     * prdoucts : [{"id":"4","title":"Engine Piston","slug":"engine-piston-4","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"10000","currency":"USD","description":"<p>Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-30 13:16:45","promote_end_date":"2021-04-30 13:16:45","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"6","external_link":null,"quantity":"498","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-30 13:16:45","part_number":"ABCD12344","brand_id":"2","colors":"black","weight":"10","height":"30","length":"20","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"4Y1SL65848Z411439","subcategory_name":"Interior Car Accessories","category_name":"Performance & Tuning","images":[{"id":"344","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c0265723ce.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02659c654.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c0265d21ee.jpg","image_order":"1","storage":"local"},{"id":"345","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c026f2f630.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c026f4b440.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c026f67bf5.jpg","image_order":"2","storage":"local"},{"id":"346","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c02771cb3c.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02773d836.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c02775e7d0.jpg","image_order":"3","storage":"local"}],"reviews_comments":0,"reviews_ratings":0},{"id":"2","title":"Gear lever","slug":"gear-lever-2","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"50000","currency":"USD","description":"<p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-27 12:53:00","promote_end_date":"2021-04-27 12:53:00","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"22","external_link":null,"quantity":"500","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-27 12:53:00","part_number":"ABCD1234","brand_id":"1","colors":"red","weight":"10","height":"10","length":"10","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"6D9RTP0QWER357246","subcategory_name":"Interior Car Accessories","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":2,"reviews_ratings":4.5}]
+     * page_count : 2
      */
 
     private DataBean data;
@@ -65,15 +65,15 @@ public class FetchProductBasedOnBrandResponse {
         private int total_pages;
         private int page_count;
         /**
-         * id : 2
-         * title : Gear lever
-         * slug : gear-lever-2
+         * id : 4
+         * title : Engine Piston
+         * slug : engine-piston-4
          * category_id : 1
          * subcategory_id : 30
          * third_category_id : null
-         * price : 50000
+         * price : 10000
          * currency : USD
-         * description : <p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.</p>
+         * description : <p>Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.Engine piston suitable for all vehicles manufactured under Honda, Mazda, Isuzu.</p>
          * product_condition : null
          * country_id : null
          * state_id : null
@@ -82,34 +82,38 @@ public class FetchProductBasedOnBrandResponse {
          * user_id : 1
          * status : 1
          * is_promoted : 0
-         * promote_start_date : 2021-04-27 12:53:00
-         * promote_end_date : 2021-04-27 12:53:00
+         * promote_start_date : 2021-04-30 13:16:45
+         * promote_end_date : 2021-04-30 13:16:45
          * promote_plan : none
          * promote_day : 0
          * visibility : 1
          * rating : 0
-         * hit : 22
+         * hit : 6
          * external_link : null
-         * quantity : -13
+         * quantity : 498
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-04-27 12:53:00
-         * part_number : ABCD1234
-         * brand_id : 1
-         * colors : red
+         * created_at : 2021-04-30 13:16:45
+         * part_number : ABCD12344
+         * brand_id : 2
+         * colors : black
          * weight : 10
-         * height : 10
-         * length : 10
+         * height : 30
+         * length : 20
          * tag_hot : 0
          * tag_new : 0
          * unit : 100
          * discount : 0
          * video : null
-         * vin : 6D9RTP0QWER357246
-         * images : [{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]
+         * vin : 4Y1SL65848Z411439
+         * subcategory_name : Interior Car Accessories
+         * category_name : Performance & Tuning
+         * images : [{"id":"344","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c0265723ce.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02659c654.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c0265d21ee.jpg","image_order":"1","storage":"local"},{"id":"345","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c026f2f630.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c026f4b440.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c026f67bf5.jpg","image_order":"2","storage":"local"},{"id":"346","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c02771cb3c.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02773d836.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c02775e7d0.jpg","image_order":"3","storage":"local"}]
+         * reviews_comments : 0
+         * reviews_ratings : 0
          */
 
         private List<PrdouctsBean> prdoucts;
@@ -207,12 +211,16 @@ public class FetchProductBasedOnBrandResponse {
             private String discount;
             private Object video;
             private String vin;
+            private String subcategory_name;
+            private String category_name;
+            private int reviews_comments;
+            private int reviews_ratings;
             /**
-             * id : 339
-             * product_id : 2
-             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg
-             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg
-             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg
+             * id : 344
+             * product_id : 4
+             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_608c0265723ce.jpg
+             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_608c02659c654.jpg
+             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_608c0265d21ee.jpg
              * image_order : 1
              * storage : local
              */
@@ -569,6 +577,38 @@ public class FetchProductBasedOnBrandResponse {
 
             public void setVin(String vin) {
                 this.vin = vin;
+            }
+
+            public String getSubcategory_name() {
+                return subcategory_name;
+            }
+
+            public void setSubcategory_name(String subcategory_name) {
+                this.subcategory_name = subcategory_name;
+            }
+
+            public String getCategory_name() {
+                return category_name;
+            }
+
+            public void setCategory_name(String category_name) {
+                this.category_name = category_name;
+            }
+
+            public int getReviews_comments() {
+                return reviews_comments;
+            }
+
+            public void setReviews_comments(int reviews_comments) {
+                this.reviews_comments = reviews_comments;
+            }
+
+            public int getReviews_ratings() {
+                return reviews_ratings;
+            }
+
+            public void setReviews_ratings(int reviews_ratings) {
+                this.reviews_ratings = reviews_ratings;
             }
 
             public List<ImagesBean> getImages() {

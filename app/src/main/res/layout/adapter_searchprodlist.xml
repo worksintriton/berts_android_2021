@@ -8,6 +8,7 @@
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/_5dp"
     app:cardElevation="@dimen/_10dp"
+    android:id="@+id/cv_root"
     tools:ignore="UnusedAttribute">
 
     <LinearLayout

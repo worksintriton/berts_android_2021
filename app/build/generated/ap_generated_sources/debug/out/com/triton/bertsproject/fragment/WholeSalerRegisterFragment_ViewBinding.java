@@ -2,6 +2,7 @@
 package com.triton.bertsproject.fragment;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.Spinner;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -30,6 +31,7 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.sp_country = Utils.findRequiredViewAsType(source, R.id.sp_country, "field 'sp_country'", Spinner.class);
     target.sp_state = Utils.findRequiredViewAsType(source, R.id.sp_state, "field 'sp_state'", Spinner.class);
     target.edt_revenue = Utils.findRequiredViewAsType(source, R.id.edt_revenue, "field 'edt_revenue'", CustomEditText.class);
+    target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
   }
 
   @Override
@@ -49,5 +51,6 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.sp_country = null;
     target.sp_state = null;
     target.edt_revenue = null;
+    target.btn_sigin = null;
   }
 }

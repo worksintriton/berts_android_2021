@@ -12,19 +12,21 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 
 import java.util.List;
 
 public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.ShoplistHolder> {
     Context context;
-    List<RetailerProductlistModel> retailerProductlistModels;
+    List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList;
     View view;
 
-    public MywishListAdapter(Context context2, List<RetailerProductlistModel> retailerProductlistModels2) {
+    public MywishListAdapter(Context context2,  List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList) {
         this.context = context2;
-        this.retailerProductlistModels = retailerProductlistModels2;
+        this.wishlistBeanList = wishlistBeanList;
     }
 
     @NonNull
@@ -35,28 +37,35 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
     }
 
     public void onBindViewHolder(@NonNull ShoplistHolder holder, int position) {
-        RetailerProductlistModel retailerProductlistModel = this.retailerProductlistModels.get(position);
-        if (retailerProductlistModel.getProduct_name() != null) {
-            holder.txt_product_name.setText(retailerProductlistModel.getProduct_name());
+        WishlistSuccessResponse.DataBean.WishlistBean wishlistBean = this.wishlistBeanList.get(position);
+
+        if (wishlistBean.getTitle() != null&&!wishlistBean.getTitle().isEmpty())  {
+            holder.txt_product_name.setText(wishlistBean.getTitle());
         }
-        if (retailerProductlistModel.getProdut_image() != 0) {
-            holder.img_product_image.setImageResource(retailerProductlistModel.getProdut_image());
+        if (wishlistBean.getImages().get(0).getImage_default()!= null&&!wishlistBean.getImages().get(0).getImage_default().isEmpty()) {
+
+            String imgUrl = wishlistBean.getImages().get(0).getImage_default();
+
+            Glide.with(context)
+                    .load(imgUrl)
+                    .into(holder.img_product_image);
+
         }
-        if (retailerProductlistModel.getParts_no() != null) {
-            holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
-        }
-//        if (retailerProductlistModel.getRating() != null) {
-//            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+//        if (retailerProductlistModel.getParts_no() != null) {
+//            holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
 //        }
-        if (retailerProductlistModel.getReview() != null) {
+////        if (retailerProductlistModel.getRating() != null) {
+////            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+////        }
+//        if (retailerProductlistModel.getReview() != null) {
+//
+//            String review = retailerProductlistModel.getReview() + " Reviews";
+//
+//            holder.txt_total_reviews.setText(review);
+//        }
+        if (wishlistBean.getPrice() != null) {
 
-            String review = retailerProductlistModel.getReview() + " Reviews";
-
-            holder.txt_total_reviews.setText(review);
-        }
-        if (retailerProductlistModel.getPrice() != null) {
-
-            String price = "\u0024" + retailerProductlistModel.getPrice();
+            String price = "\u0024" + wishlistBean.getPrice();
 
             holder.txt_price.setText(price);
         }
@@ -70,22 +79,8 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
         holder.img_delete.setVisibility(View.GONE);
     }
 
-    public void removeItem(int position) {
-        this.retailerProductlistModels.remove(position);
-        notifyItemRemoved(position);
-    }
-
-    public void restoreItem(RetailerProductlistModel item, int position) {
-        this.retailerProductlistModels.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public List<RetailerProductlistModel> getData() {
-        return this.retailerProductlistModels;
-    }
-
     public int getItemCount() {
-        return this.retailerProductlistModels.size();
+        return this.wishlistBeanList.size();
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {

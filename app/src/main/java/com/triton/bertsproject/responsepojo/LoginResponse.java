@@ -4,45 +4,45 @@ public class LoginResponse {
 
 
     /**
-     * status : true
-     * error_code : 0
-     * error_message :
-     * data : {"authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDEiLCJwcm9maWxlIjp7ImlkIjoiNTQxIiwiZW1haWwiOiJwcmFiaHUuaW1zY0BnbWFpbC5jb20iLCJyb2xlIjoiY3VzdG9tZXIifX0.sZEzGBIikPJ2k67NfZ1sIcbEd4gR6caXEunP-1wiDN0","profile":{"id":"541","username":"testc testc","slug":"testc-testc-541","email":"prabhu.imsc@gmail.com","email_status":"1","token":"60991de8838de3-95528567-60532706","role":"customer","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":"2021-05-14 11:34:04","show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-10 11:50:00","first_name":"testc","last_name":"testc","request_wholesale":"0"},"ship_address_default":null}
+     * status : Success
+     * code : 200
+     * message : User Logged In Successfuly
+     * data : {"authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTAiLCJwcm9maWxlIjp7ImlkIjoiNTUwIiwiZW1haWwiOiJzYW50aG9zaG5ydjk0QGdtYWlsLmNvbSIsInJvbGUiOiJyZXRhaWwifX0.NdldaopNh_DSsym6hdHdyszeIpbx2z73wAbgwO2OgTs","profile":{"id":"550","username":"Sam San","slug":"sam-san-550","email":"santhoshnrv94@gmail.com","email_status":"1","token":"60a1129ce51846-99617687-44387230","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-16 12:39:56","first_name":"Sam","last_name":"San","request_wholesale":"0","revenue":null},"ship_address_default":null}
      */
 
-    private boolean status;
-    private int error_code;
-    private String error_message;
+    private String status;
+    private int code;
+    private String message;
     /**
-     * authorization : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDEiLCJwcm9maWxlIjp7ImlkIjoiNTQxIiwiZW1haWwiOiJwcmFiaHUuaW1zY0BnbWFpbC5jb20iLCJyb2xlIjoiY3VzdG9tZXIifX0.sZEzGBIikPJ2k67NfZ1sIcbEd4gR6caXEunP-1wiDN0
-     * profile : {"id":"541","username":"testc testc","slug":"testc-testc-541","email":"prabhu.imsc@gmail.com","email_status":"1","token":"60991de8838de3-95528567-60532706","role":"customer","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":"2021-05-14 11:34:04","show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-10 11:50:00","first_name":"testc","last_name":"testc","request_wholesale":"0"}
+     * authorization : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NTAiLCJwcm9maWxlIjp7ImlkIjoiNTUwIiwiZW1haWwiOiJzYW50aG9zaG5ydjk0QGdtYWlsLmNvbSIsInJvbGUiOiJyZXRhaWwifX0.NdldaopNh_DSsym6hdHdyszeIpbx2z73wAbgwO2OgTs
+     * profile : {"id":"550","username":"Sam San","slug":"sam-san-550","email":"santhoshnrv94@gmail.com","email_status":"1","token":"60a1129ce51846-99617687-44387230","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-16 12:39:56","first_name":"Sam","last_name":"San","request_wholesale":"0","revenue":null}
      * ship_address_default : null
      */
 
     private DataBean data;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getError_code() {
-        return error_code;
+    public int getCode() {
+        return code;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getError_message() {
-        return error_message;
+    public String getMessage() {
+        return message;
     }
 
-    public void setError_message(String error_message) {
-        this.error_message = error_message;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public DataBean getData() {
@@ -56,13 +56,13 @@ public class LoginResponse {
     public static class DataBean {
         private String authorization;
         /**
-         * id : 541
-         * username : testc testc
-         * slug : testc-testc-541
-         * email : prabhu.imsc@gmail.com
+         * id : 550
+         * username : Sam San
+         * slug : sam-san-550
+         * email : santhoshnrv94@gmail.com
          * email_status : 1
-         * token : 60991de8838de3-95528567-60532706
-         * role : customer
+         * token : 60a1129ce51846-99617687-44387230
+         * role : retail
          * balance : 0
          * number_of_sales : 0
          * user_type : registered
@@ -70,7 +70,7 @@ public class LoginResponse {
          * facebook_id : null
          * avatar : http://dciinternal.in/dev01/assets/img/user.png
          * banned : 0
-         * about_me : testc_abt
+         * about_me : null
          * phone_number : null
          * country_id : null
          * state_id : null
@@ -86,7 +86,7 @@ public class LoginResponse {
          * linkedin_url : null
          * vk_url : null
          * youtube_url : null
-         * last_seen : 2021-05-14 11:34:04
+         * last_seen : null
          * show_rss_feeds : 1
          * send_email_new_message : 0
          * shipping_first_name : null
@@ -99,10 +99,11 @@ public class LoginResponse {
          * shipping_state : null
          * shipping_city : null
          * shipping_zip_code : null
-         * created_at : 2021-05-10 11:50:00
-         * first_name : testc
-         * last_name : testc
+         * created_at : 2021-05-16 12:39:56
+         * first_name : Sam
+         * last_name : San
          * request_wholesale : 0
+         * revenue : null
          */
 
         private ProfileBean profile;
@@ -147,7 +148,7 @@ public class LoginResponse {
             private Object facebook_id;
             private String avatar;
             private String banned;
-            private String about_me;
+            private Object about_me;
             private Object phone_number;
             private Object country_id;
             private Object state_id;
@@ -163,7 +164,7 @@ public class LoginResponse {
             private Object linkedin_url;
             private Object vk_url;
             private Object youtube_url;
-            private String last_seen;
+            private Object last_seen;
             private String show_rss_feeds;
             private String send_email_new_message;
             private Object shipping_first_name;
@@ -180,6 +181,7 @@ public class LoginResponse {
             private String first_name;
             private String last_name;
             private String request_wholesale;
+            private Object revenue;
 
             public String getId() {
                 return id;
@@ -293,11 +295,11 @@ public class LoginResponse {
                 this.banned = banned;
             }
 
-            public String getAbout_me() {
+            public Object getAbout_me() {
                 return about_me;
             }
 
-            public void setAbout_me(String about_me) {
+            public void setAbout_me(Object about_me) {
                 this.about_me = about_me;
             }
 
@@ -421,11 +423,11 @@ public class LoginResponse {
                 this.youtube_url = youtube_url;
             }
 
-            public String getLast_seen() {
+            public Object getLast_seen() {
                 return last_seen;
             }
 
-            public void setLast_seen(String last_seen) {
+            public void setLast_seen(Object last_seen) {
                 this.last_seen = last_seen;
             }
 
@@ -555,6 +557,14 @@ public class LoginResponse {
 
             public void setRequest_wholesale(String request_wholesale) {
                 this.request_wholesale = request_wholesale;
+            }
+
+            public Object getRevenue() {
+                return revenue;
+            }
+
+            public void setRevenue(Object revenue) {
+                this.revenue = revenue;
             }
         }
     }

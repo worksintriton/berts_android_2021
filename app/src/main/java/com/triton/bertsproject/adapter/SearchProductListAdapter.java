@@ -11,11 +11,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.SearchProductlistModel;
+import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
 
 import java.util.List;
@@ -90,6 +92,16 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             Animatoo.animateSwipeRight(context);
 
         });
+
+        holder.cv_root.setOnClickListener(v -> {
+
+            context.startActivity(new Intent(context, ProductDetailDescriptionActivity.class));
+
+            Animatoo.animateSwipeRight(context);
+
+        });
+
+
     }
 
     @Override
@@ -103,10 +115,14 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
        // RatingBar ratingBar;
         Button btn_addcart;
 
+        CardView cv_root;
+
         public ShoplistHolder(View itemView) {
             super(itemView);
 
             img_product_image = itemView.findViewById(R.id.img_product_image);
+
+            cv_root = itemView.findViewById(R.id.cv_root);
 
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
 

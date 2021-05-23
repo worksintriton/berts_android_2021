@@ -235,7 +235,7 @@ public class RetailerRegisterFragment extends Fragment {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()) {
+                    if(200==response.body().getCode()) {
 
                         Log.w(TAG, "SignupResponse" + new Gson().toJson(response.body()));
 
@@ -256,7 +256,7 @@ public class RetailerRegisterFragment extends Fragment {
 
                     else {
 
-                        Toast.makeText(getContext(),""+response.body().getError_message(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
 
                     }
 

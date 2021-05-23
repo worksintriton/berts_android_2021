@@ -267,7 +267,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size);
+        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size,parent_id);
 
         rv_top_categories.setAdapter(childCategoriesListAdapter);
 

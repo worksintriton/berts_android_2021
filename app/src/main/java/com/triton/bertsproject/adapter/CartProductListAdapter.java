@@ -11,19 +11,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.CartRemoveProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.responsepojo.ShowCartListResponse;
 
 import java.util.List;
 
 public class CartProductListAdapter extends RecyclerView.Adapter<CartProductListAdapter.ShoplistHolder> {
     Context context;
-    List<RetailerProductlistModel> retailerProductlistModels;
+    List<ShowCartListResponse.DataBean.CartBean> cartBeanList;
     View view;
+    CartRemoveProductListener cartRemoveProductListener;
 
-    public CartProductListAdapter(Context context2, List<RetailerProductlistModel> retailerProductlistModels2) {
+    public CartProductListAdapter(Context context2, List<ShowCartListResponse.DataBean.CartBean> cartBeanList,CartRemoveProductListener cartRemoveProductListener) {
         this.context = context2;
-        this.retailerProductlistModels = retailerProductlistModels2;
+        this.cartBeanList = cartBeanList;
+        this.cartRemoveProductListener=cartRemoveProductListener;
     }
 
     @NonNull
@@ -34,49 +39,52 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
     }
 
     public void onBindViewHolder(@NonNull ShoplistHolder holder, int position) {
-        RetailerProductlistModel retailerProductlistModel = this.retailerProductlistModels.get(position);
-        if (retailerProductlistModel.getProduct_name() != null) {
-            holder.txt_product_name.setText(retailerProductlistModel.getProduct_name());
+        ShowCartListResponse.DataBean.CartBean cartBean = this.cartBeanList.get(position);
+
+
+        if (cartBean.getTitle() != null&&!cartBean.getTitle().isEmpty())  {
+            holder.txt_product_name.setText(cartBean.getTitle());
         }
-        if (retailerProductlistModel.getProdut_image() != 0) {
-            holder.img_product_image.setImageResource(retailerProductlistModel.getProdut_image());
+        if (cartBean.getImages().get(0).getImage_default()!= null&&!cartBean.getImages().get(0).getImage_default().isEmpty()) {
+
+            String imgUrl = cartBean.getImages().get(0).getImage_default();
+
+            Glide.with(context)
+                    .load(imgUrl)
+                    .into(holder.img_product_image);
+
         }
-        if (retailerProductlistModel.getParts_no() != null) {
-            holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
-        }
-//        if (retailerProductlistModel.getRating() != null) {
-//            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+//        if (retailerProductlistModel.getParts_no() != null) {
+//            holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
 //        }
-        if (retailerProductlistModel.getReview() != null) {
+////        if (retailerProductlistModel.getRating() != null) {
+////            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
+////        }
+//        if (retailerProductlistModel.getReview() != null) {
+//
+//            String review = retailerProductlistModel.getReview() + " Reviews";
+//
+//            holder.txt_total_reviews.setText(review);
+//        }
+        if (cartBean.getPrice() != null) {
 
-            String review = "(" + retailerProductlistModel.getReview() + " Reviews )";
-
-            holder.txt_total_reviews.setText(review);
-        }
-        if (retailerProductlistModel.getPrice() != null) {
-
-            String price = "\u0024" + retailerProductlistModel.getPrice();
+            String price = "\u0024" + cartBean.getPrice();
 
             holder.txt_price.setText(price);
         }
+
+        holder.img_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                cartRemoveProductListener.removeproductListener(cartBean.getBasket_id());
+            }
+        });
     }
 
-    public void removeItem(int position) {
-        this.retailerProductlistModels.remove(position);
-        notifyItemRemoved(position);
-    }
-
-    public void restoreItem(RetailerProductlistModel item, int position) {
-        this.retailerProductlistModels.add(position, item);
-        notifyItemInserted(position);
-    }
-
-    public List<RetailerProductlistModel> getData() {
-        return this.retailerProductlistModels;
-    }
 
     public int getItemCount() {
-        return this.retailerProductlistModels.size();
+        return cartBeanList.size();
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {

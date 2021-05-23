@@ -1,6 +1,9 @@
 package com.triton.bertsproject.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildCateglistResponse;
+import com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity;
 
 import java.util.List;
 
@@ -23,11 +28,14 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
     List<FetchChildCateglistResponse.DataBean.CategoriesBean>  categoriesBeanList;
     View view;
     int size;
+    String parent_id;
+    private static final String TAG = "ChildCategoriesListAdapter";
 
-    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean>  categoriesBeanLists, int size) {
+    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String parent_id) {
         this.context = context;
         this.categoriesBeanList = categoriesBeanLists;
         this.size=size;
+        this.parent_id=parent_id;
 
     }
 
@@ -38,6 +46,7 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
         return new ViewHolder(view);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
@@ -58,12 +67,28 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
 
         }
 
-//        holder.cardView.setOnClickListener(v -> {
-//
-//            context.startActivity(new Intent(context, RetailerProductListActivity.class));
-//
-//            Animatoo.animateSwipeLeft(context);
-//        });
+        holder.cardView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, RetailerProductListBasedOnCategActivity.class);
+
+            intent.putExtra("parent_id",categoriesBean.getParent_id());
+
+            intent.putExtra("subcategid",categoriesBean.getId());
+
+            intent.putExtra("subcategname",categoriesBean.getName());
+
+            intent.putExtra("fromactivity",TAG);
+
+            Log.w(TAG,"parent_id : "+categoriesBean.getParent_id() + "subcategid :" +categoriesBean.getId()
+
+                            + "subcategname : "+categoriesBean.getName() +
+
+                            "fromactivity :" +TAG);
+
+            context.startActivity(intent);
+
+            Animatoo.animateSwipeLeft(context);
+        });
 
     }
 

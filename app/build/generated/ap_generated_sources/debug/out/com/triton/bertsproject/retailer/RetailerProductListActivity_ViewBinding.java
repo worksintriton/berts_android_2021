@@ -32,6 +32,7 @@ public class RetailerProductListActivity_ViewBinding implements Unbinder {
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
     target.rlList = Utils.findRequiredViewAsType(source, R.id.rlList, "field 'rlList'", LinearLayout.class);
     target.rlGrid = Utils.findRequiredViewAsType(source, R.id.rlGrid, "field 'rlGrid'", LinearLayout.class);
+    target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
     target.rv_prodlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_prodlist'", RecyclerView.class);
   }
 
@@ -47,6 +48,7 @@ public class RetailerProductListActivity_ViewBinding implements Unbinder {
     target.txt_toolbar_title = null;
     target.rlList = null;
     target.rlGrid = null;
+    target.txt_no_records = null;
     target.rv_prodlist = null;
   }
 }

@@ -2491,6 +2491,7 @@ id ll_login_after
 id ll_makes
 id ll_multipleadd
 id ll_price_range
+id ll_proceed
 id ll_product_status
 id ll_rating
 id ll_root
@@ -3129,6 +3130,8 @@ layout activity_retailer_cart
 layout activity_retailer_dashboard
 layout activity_retailer_order_track
 layout activity_retailer_product_list
+layout activity_retailer_product_list_categbased
+layout activity_retailer_product_list_makebased
 layout activity_retailer_profile_account
 layout activity_retailer_receipt
 layout activity_retailer_settings
@@ -3523,6 +3526,7 @@ string my_wishlist
 string my_wishlistt
 string new_addr
 string no_data_found
+string no_prod_found
 string now_available_n_stock_izuzu_and_mazda_parts
 string offline_payment
 string only_if_needed_their_calipers_are_good_too

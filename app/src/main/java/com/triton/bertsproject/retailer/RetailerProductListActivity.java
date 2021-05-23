@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -24,12 +25,23 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.ForgetPasswordActivity;
 import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.requestpojo.AddWishistRequest;
+import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
+import com.triton.bertsproject.requestpojo.FetchProductBasedOnBrandRequest;
+import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
+import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
+import com.triton.bertsproject.requestpojo.ShowWishistRequest;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
+import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
+import com.triton.bertsproject.responsepojo.ProductListResponse;
+import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -43,7 +55,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RetailerProductListActivity extends AppCompatActivity {
+public class RetailerProductListActivity extends AppCompatActivity implements WishlistAddProductListener {
 
     Context context = RetailerProductListActivity.this;
 
@@ -89,7 +101,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
     List<RetailerProductlistModel> retailerProductlistModels;
 
-    List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList ;
+    List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
 
     String brand_id;
 
@@ -126,7 +138,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
-            fetchallcategoriesListResponseCall();
+            fetchallproductsListResponseCall();
 
         }
 
@@ -154,7 +166,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
             rlGrid.setBackgroundResource(R.color.transparent);
 
-            setlistView();
+            setlistView(prdouctsBeanList);
         });
 
 
@@ -164,45 +176,43 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
             rlList.setBackgroundResource(R.color.transparent);
 
-            setView();
+            setGridView(prdouctsBeanList);
         });
 
-
-        setView();
 
     }
 
     @SuppressLint("LongLogTag")
-    private void fetchallcategoriesListResponseCall() {
+    private void fetchallproductsListResponseCall() {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<FetchAllParentCategoriesResponse> call = apiInterface.fetchallcategoriesListResponseCall(RestUtils.getContentType());
-        Log.w(TAG,"url  :%s"+ call.request().url().toString());
+        Call<ProductListResponse> call = apiInterface.fetchallprodbasedonbrandlistResponseCall(RestUtils.getContentType(),fetchProductBasedOnBrandRequest());
+        Log.w(TAG,"ProductListResponse url  :%s"+ call.request().url().toString());
 
-        call.enqueue(new Callback<FetchAllParentCategoriesResponse>() {
+        call.enqueue(new Callback<ProductListResponse>() {
             @SuppressLint("LogNotTimber")
             @Override
-            public void onResponse(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Response<FetchAllParentCategoriesResponse> response) {
+            public void onResponse(@NonNull Call<ProductListResponse> call, @NonNull Response<ProductListResponse> response) {
                 spin_kit_loadingView.setVisibility(View.GONE);
 
                 if (response.body() != null) {
 
                     if(200==response.body().getCode()){
 
-                        Log.w(TAG,"FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG,"ProductListResponse" + new Gson().toJson(response.body()));
 
-                        categoriesBeanList = response.body().getData().getCategories();
+                        prdouctsBeanList = response.body().getData().getPrdoucts();
 
-                        if(categoriesBeanList != null && categoriesBeanList.size()>0){
+                        if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
 
                             rv_prodlist.setVisibility(View.VISIBLE);
 
                             txt_no_records.setVisibility(View.GONE);
 
-                            setView(categoriesBeanList);
+                            setGridView(prdouctsBeanList);
                         }
 
                         else {
@@ -212,7 +222,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
                             txt_no_records.setVisibility(View.VISIBLE);
 
-                            txt_no_records.setText(R.string.cat_dis_msg);
+                            txt_no_records.setText(R.string.no_prod_found);
                         }
                     }
 
@@ -230,14 +240,29 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
 
             @Override
-            public void onFailure(@NonNull Call<FetchAllParentCategoriesResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<ProductListResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FetchAllParentCategoriesResponse flr"+t.getMessage());
+                Log.w(TAG,"ProductListResponse flr"+t.getMessage());
             }
         });
 
 
 
+    }
+
+    @SuppressLint("LongLogTag")
+    private FetchProductBasedOnBrandRequest fetchProductBasedOnBrandRequest() {
+
+
+        /*
+         * BRAND_ID : 1
+         */
+
+        FetchProductBasedOnBrandRequest fetchProductBasedOnBrandRequest = new FetchProductBasedOnBrandRequest();
+        fetchProductBasedOnBrandRequest.setBRAND_ID(brand_id);
+
+        Log.w(TAG,"FetchProductBasedOnBrandRequest "+ new Gson().toJson(fetchProductBasedOnBrandRequest));
+        return fetchProductBasedOnBrandRequest;
     }
 
     private void callnointernet() {
@@ -253,7 +278,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList) {
+    private void setGridView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
 
 
         rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListActivity.this, 2));
@@ -262,7 +287,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         rv_prodlist.setNestedScrollingEnabled(true);
 
-        int size =categoriesBeanList.size();
+        int size =prdouctsBeanList.size();
 
         int spanCount = 2; // 3 columns
 
@@ -272,9 +297,9 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(RetailerProductListActivity.this, categoriesBeanList,size);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList, false,this);
 
-        rv_prodlist.setAdapter(parentCategoriesListAdapter);
+        rv_prodlist.setAdapter(retailerProductListAdapter);
 
 
 
@@ -304,14 +329,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (dd4YouConfig.isInternetConnectivity()) {
 
-            fetchallcategoriesListResponseCall();
-
-        }else {
-            callnointernet();
-
-        }
     }
     @Override
     protected void onDestroy() {
@@ -343,17 +361,7 @@ public class RetailerProductListActivity extends AppCompatActivity {
         }
     }
 
-    private void setlistView() {
-
-        retailerProductlistModels.clear();
-
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,false));
-
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,true));
-
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,false));
-
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,true));
+    private void setlistView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
 
         rv_prodlist.setLayoutManager(new LinearLayoutManager(RetailerProductListActivity.this,LinearLayoutManager.VERTICAL,false));
 
@@ -363,47 +371,161 @@ public class RetailerProductListActivity extends AppCompatActivity {
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, retailerProductlistModels,true);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList,true,this);
 
         rv_prodlist.setAdapter(retailerProductListAdapter);
 
 
     }
 
-    private void setView() {
 
-        retailerProductlistModels.clear();
+    @SuppressLint("LongLogTag")
+    private void wishlistaddResponseCall(String productId) {
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,false));
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<WishlistSuccessResponse> call = apiInterface.wishlistaddResponseCall(RestUtils.getContentType(),addWishistRequest(productId));
+        Log.w(TAG,"WishlistSuccessResponse url  :%s"+ call.request().url().toString());
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,false,true));
+        call.enqueue(new Callback<WishlistSuccessResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<WishlistSuccessResponse> call, @NonNull Response<WishlistSuccessResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,false));
+                if (response.body() != null) {
 
-        retailerProductlistModels.add(new RetailerProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Jeep CJ-Style Replacement Mirrors","5","120","$4.94 - $1,054.00",R.drawable.splist1,true,true));
+                    if(200==response.body().getCode()) {
 
-        rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListActivity.this, 2));
+                        Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 
-        rv_prodlist.setMotionEventSplittingEnabled(false);
+                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
 
-        //int size =3;
+                    }
 
-        //int size =3;
+                    else {
 
-        int spanCount = 2; // 3 columns
+                        showErrorLoading(response.body().getMessage());
 
-        int spacing = 0; // 50px
+                    }
 
-        boolean includeEdge = true;
+                }
 
-        rv_prodlist.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
-        rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, retailerProductlistModels, false);
+            }
 
-        rv_prodlist.setAdapter(retailerProductListAdapter);
 
-      }
+            @Override
+            public void onFailure(@NonNull Call<WishlistSuccessResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"WishlistSuccessResponse flr"+t.getMessage());
+            }
+        });
 
-  }
+    }
+
+    @SuppressLint("LongLogTag")
+    private AddWishistRequest addWishistRequest(String productID) {
+
+        /*
+         * USER_ID : 541
+         * PRODUCT_ID : 33
+         * MODE : ADD
+         */
+
+        AddWishistRequest addWishistRequest = new AddWishistRequest();
+        addWishistRequest.setPRODUCT_ID(productID);
+        addWishistRequest.setUSER_ID(productID);
+        addWishistRequest.setMODE("ADD");
+
+        Log.w(TAG,"AddWishistRequest "+ new Gson().toJson(addWishistRequest));
+        return addWishistRequest;
+    }
+
+
+    @Override
+    public void addproductListener(String id) {
+
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            wishlistaddResponseCall(id);
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private void deletewishlistResponseCall(String productId) {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<WishlistSuccessResponse> call = apiInterface.deletewishlistResponseCall(RestUtils.getContentType(), removeWishistRequest(productId));
+        Log.w(TAG,"WishlistSuccessResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<WishlistSuccessResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<WishlistSuccessResponse> call, @NonNull Response<WishlistSuccessResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
+
+                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<WishlistSuccessResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"WishlistSuccessResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private RemoveWishistRequest removeWishistRequest(String productID) {
+
+        /*
+         * USER_ID : 541
+         * WISHLIST_ID : 3
+         * MODE : DELETE
+         */
+
+        RemoveWishistRequest removeWishistRequest = new RemoveWishistRequest();
+        removeWishistRequest.setUSER_ID(productID);
+        removeWishistRequest.setWISHLIST_ID(productID);
+        removeWishistRequest.setMODE("DELETE");
+
+        Log.w(TAG,"RemoveWishistRequest "+ new Gson().toJson(removeWishistRequest));
+        return removeWishistRequest;
+    }
+}

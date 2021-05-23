@@ -1,6 +1,7 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,24 +10,30 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.responsepojo.ProductListResponse;
 
 import java.util.List;
 
 public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerProductListAdapter.ShoplistHolder> {
     Context context;
-    List<RetailerProductlistModel> retailerProductlistModels;
+    List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
     View view;
     boolean check;
+    WishlistAddProductListener wishlistAddProductListener;
 
-    public RetailerProductListAdapter(Context context, List<RetailerProductlistModel> retailerProductlistModels, boolean check) {
+    public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener) {
         this.context = context;
-        this.retailerProductlistModels = retailerProductlistModels ;
+        this.prdouctsBeanList = prdouctsBeanList ;
         this.check = check;
+        this.wishlistAddProductListener=wishlistAddProductListener;
 
     }
 
@@ -51,23 +58,27 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final RetailerProductlistModel retailerProductlistModel = retailerProductlistModels.get(position);
+        final ProductListResponse.DataBean.PrdouctsBean prdouctsBean = prdouctsBeanList.get(position);
 
-        if (retailerProductlistModel.getProduct_name()!= null) {
+        if (prdouctsBean.getTitle()!= null&&!prdouctsBean.getTitle().isEmpty()) {
 
-                holder.txt_product_name.setText(retailerProductlistModel.getProduct_name());
-
-        }
-
-        if (retailerProductlistModel.getProdut_image()!= 0) {
-
-                holder.img_product_image .setImageResource(retailerProductlistModel.getProdut_image());
+                holder.txt_product_name.setText(prdouctsBean.getTitle());
 
         }
 
-        if (retailerProductlistModel.getParts_no()!= null) {
+        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
 
-            holder.txt_parts_name.setText(retailerProductlistModel.getParts_no());
+                String imgurl = prdouctsBean.getImages().get(0).getImage_default();
+
+                    Glide.with(context)
+                    .load(imgurl)
+                    .into(holder.img_product_image);
+
+        }
+
+        if (prdouctsBean.getPart_number()!= null&&!prdouctsBean.getPart_number().isEmpty()) {
+
+            holder.txt_parts_name.setText(prdouctsBean.getPart_number());
 
         }
 
@@ -77,40 +88,74 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 //
 //        }
 
-        if (retailerProductlistModel.getReview()!= null) {
+        if (prdouctsBean.getReviews_comments()!= 0) {
 
-            String review = "(" + retailerProductlistModel.getReview()+ ")";
+            String review = "(" + prdouctsBean.getReviews_comments() + ")";
 
             holder.txt_total_reviews.setText(review);
 
         }
 
-        if (retailerProductlistModel.getPrice()!= null) {
+        if (prdouctsBean.getPrice()!= null) {
 
-            String price = ""+retailerProductlistModel.getPrice();
+            String price = "$ "+prdouctsBean.getPrice();
 
             holder.txt_price.setText(price);
 
         }
 
-        if(!retailerProductlistModel.isOut_of_stock()){
+        if(prdouctsBean.getQuantity()!=null&&!prdouctsBean.getQuantity().isEmpty()){
 
-            holder.txt_stock_status.setVisibility(View.GONE);
+            String qty = prdouctsBean.getQuantity();
+
+            if(qty.equals("0")){
+
+                holder.txt_stock_status.setVisibility(View.VISIBLE);
+
+            }
+
+            else {
+
+                holder.txt_stock_status.setVisibility(View.GONE);
+            }
+
+
         }
 
-        if(!retailerProductlistModel.isProduct_status()){
+        if(prdouctsBean.getTag_new()!=null&&!prdouctsBean.getTag_new().isEmpty()){
 
-            holder.ll_product_status.setVisibility(View.GONE);
+            String tag_new = prdouctsBean.getTag_new();
+
+            if(tag_new.equals("1")){
+
+                holder.ll_product_status.setVisibility(View.VISIBLE);
+
+            }
+
+            else {
+
+                holder.ll_product_status.setVisibility(View.GONE);
+            }
         }
+
+        holder.img_heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return retailerProductlistModels.size();
+        return prdouctsBeanList.size();
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
-        ImageView img_product_image;
+        ImageView img_product_image,img_heart;
         TextView txt_product_name, txt_parts_name,txt_total_reviews,txt_price,txt_stock_status;
   //      RatingBar ratingBar;
         LinearLayout ll_product_status;
@@ -133,6 +178,8 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             ll_product_status = itemView.findViewById(R.id.ll_product_status);
 
             txt_stock_status = itemView.findViewById(R.id.txt_stock_status);
+
+            img_heart = itemView.findViewById(R.id.img_heart);
         }
     }
 }

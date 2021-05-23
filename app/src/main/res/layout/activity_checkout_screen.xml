@@ -857,6 +857,7 @@
         android:layout_gravity="bottom">
 
         <LinearLayout
+            android:id="@+id/ll_proceed"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45dp"
             android:layout_marginStart="@dimen/_20dp"
@@ -871,10 +872,10 @@
                 android:id="@+id/txt_checkout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_10dp"
                 android:layout_weight="0.75"
                 android:fontFamily="@font/lato_bold"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginStart="@dimen/_20dp"
                 android:text="@string/proceed_to_buy"
                 android:textColor="@color/dark_blue"
                 android:textSize="@dimen/_18sp" />

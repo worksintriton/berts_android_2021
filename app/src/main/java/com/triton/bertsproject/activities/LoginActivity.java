@@ -206,7 +206,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()) {
+                    if(200==response.body().getCode()) {
 
                         Log.w(TAG, "LoginResponse" + new Gson().toJson(response.body()));
 
@@ -262,11 +262,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     else {
 
-                        Toast.makeText(LoginActivity.this,""+response.body().getError_message(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,""+response.body().getMessage(),Toast.LENGTH_LONG).show();
 
                     }
 
                 }
+
+
 
             }
 

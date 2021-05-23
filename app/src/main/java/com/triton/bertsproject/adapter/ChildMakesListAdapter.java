@@ -1,6 +1,8 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
+import com.triton.bertsproject.retailer.RetailerProductListBasedOnMakeActivity;
 
 import java.util.List;
 
@@ -25,6 +29,7 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
     List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList;
     View view;
     int size;
+    private static final String TAG = "ChildMakesListAdapter";
 
     public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanLists, int size) {
         this.context = context;
@@ -60,12 +65,28 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
 //
 //        }
 
-//        holder.cardView.setOnClickListener(v -> {
-//
-//            context.startActivity(new Intent(context, RetailerProductListActivity.class));
-//
-//            Animatoo.animateSwipeLeft(context);
-//        });
+        holder.ll_shoplist.setOnClickListener(v -> {
+
+            Intent intent = new Intent(context, RetailerProductListBasedOnMakeActivity.class);
+
+            intent.putExtra("make_id",makesBean.getMake_id());
+
+            intent.putExtra("model_id",makesBean.getId());
+
+            intent.putExtra("model_name",makesBean.getName());
+
+            intent.putExtra("fromactivity",TAG);
+
+            Log.w(TAG,"make_id : "+makesBean.getMake_id() + "model_id :" +makesBean.getId()
+
+                            + "model_name : "+makesBean.getName() +
+
+                            "fromactivity :" +TAG);
+
+            context.startActivity(intent);
+
+            Animatoo.animateSwipeLeft(context);
+        });
 
     }
 
