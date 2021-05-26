@@ -2,7 +2,11 @@ package com.triton.bertsproject.api;
 
 
 import com.triton.bertsproject.model.DeleteCartListRequest;
+import com.triton.bertsproject.requestpojo.AddVehicleRequest;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
+import com.triton.bertsproject.requestpojo.DeleteVehicleRequest;
+import com.triton.bertsproject.requestpojo.EditVehicleRequest;
+import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
 import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
 import com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnBrandRequest;
@@ -12,14 +16,20 @@ import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
 import com.triton.bertsproject.requestpojo.GetStateRequest;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
+import com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
+import com.triton.bertsproject.requestpojo.ShowVehiclelistRequest;
 import com.triton.bertsproject.requestpojo.ShowWishistRequest;
 import com.triton.bertsproject.requestpojo.SignupRequest;
 import com.triton.bertsproject.requestpojo.SignupWholesalerRequest;
 import com.triton.bertsproject.requestpojo.UpdateProfileRequest;
+import com.triton.bertsproject.responsepojo.AddVehicleResponse;
+import com.triton.bertsproject.responsepojo.DeleteVehicleResponse;
+import com.triton.bertsproject.responsepojo.EditVehicleResponse;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
+import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 import com.triton.bertsproject.responsepojo.FetchChildCateglistResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
 import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
@@ -27,7 +37,9 @@ import com.triton.bertsproject.responsepojo.GetCountryResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
+import com.triton.bertsproject.responsepojo.SetDefaultVehicleResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
+import com.triton.bertsproject.responsepojo.ShowVehiclelistResponse;
 import com.triton.bertsproject.responsepojo.SignupResponse;
 import com.triton.bertsproject.responsepojo.UpdateProfileResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
@@ -65,7 +77,7 @@ public interface RestApiInterface {
     Call<GetStateResponse> fetchallstateListResponseCall(@Header("Content-Type") String type, @Body GetStateRequest getStateRequest);
 
     /*Profile Update*/
-    @POST("register-customer")
+    @POST("update-customer")
     Call<UpdateProfileResponse> updateResponseCall(@Header("Content-Type") String type, @Body UpdateProfileRequest updateProfileRequest);
 
     /*Get All Parent Categories*/
@@ -119,5 +131,29 @@ public interface RestApiInterface {
     /*delete cart*/
     @POST("cart")
     Call<ShowCartListResponse> deletecartlistResponseCall(@Header("Content-Type") String type, @Body DeleteCartListRequest deleteCartListRequest);
+
+    /*addvehicle*/
+    @POST("addvehicle")
+    Call<AddVehicleResponse> addvehiclelistResponseCall(@Header("Content-Type") String type, @Body AddVehicleRequest addVehicleRequest);
+
+    /*showvehicle*/
+    @POST("addvehicle")
+    Call<ShowVehiclelistResponse> showvehiclelistResponseCall(@Header("Content-Type") String type, @Body ShowVehiclelistRequest showVehiclelistRequest);
+
+    /*showvehicle*/
+    @POST("addvehicle")
+    Call<SetDefaultVehicleResponse> setdefaultVehResponseCall(@Header("Content-Type") String type, @Body SetDefaultVehicleRequest setDefaultVehicleRequest);
+
+    /*deletevehicle*/
+    @POST("addvehicle")
+    Call<DeleteVehicleResponse> deletevehiclelistResponseCall(@Header("Content-Type") String type, @Body DeleteVehicleRequest deleteVehicleRequest);
+
+    /*Get All Years*/
+    @POST("common")
+    Call<FetchAllYearResponse> fetchallyearListResponseCall(@Header("Content-Type") String type, @Body FetchAllYearRequest fetchAllYearRequest);
+
+    /*Edit Vehicle List*/
+    @POST("addvehicle")
+    Call<EditVehicleResponse> editvehicleListResponseCall(@Header("Content-Type") String type, @Body EditVehicleRequest editVehicleRequest);
 
 }

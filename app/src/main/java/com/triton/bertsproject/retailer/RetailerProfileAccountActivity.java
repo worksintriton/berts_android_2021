@@ -110,12 +110,19 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
-    String userid, firstname, lastname, zipcode, revenue, countryid, stateid,email;
+    String userid, firstname, lastname, countryid, stateid,country_name, state_namw,email;
 
     List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList ;
 
     List<GetStateResponse.DataBean.StatesBean> statesBeanList ;
 
+    HashMap<String, String> hashMap_Countryid = new HashMap<>();
+
+    HashMap<String, String> hashMap_Stateid = new HashMap<>();
+
+    String cid ="0",sid="0",zipcode,revenue="0";
+
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,20 +135,6 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         dd4YouConfig = new DD4YouConfig(this);
 
         txt_toolbar_title.setText(R.string.edit_profile);
-
-        edt_firstname.setTitle(getString(R.string.firstname));
-
-        edt_lastname.setTitle(getString(R.string.lastname));
-
-        edt_email.setTitle(getString(R.string.email));
-
-        edt_password.setTitle(getString(R.string.password));
-
-        edt_cnfmpassword.setTitle(getString(R.string.confirm_password));
-
-        edt_zipcode.setTitle(getString(R.string.zipcode));
-
-        edt_revenue.setTitle(getString(R.string.revenue));
 
         sessionManager = new SessionManager(this);
 
@@ -157,29 +150,48 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
             email = user.get(SessionManager.KEY_EMAIL_ID);
 
-//            zipcode = user.get(SessionManager.KEY_ZIPCODE);
+            countryid = user.get(SessionManager.KEY_COUNTRY_ID);
+
+            Log.w(TAG,"countryid"+countryid);
+
+            stateid = user.get(SessionManager.KEY_STATE_ID);
+
+            Log.w(TAG,"stateid"+stateid);
+
+            zipcode = user.get(SessionManager.KEY_ZIPCODE);
+
+            //revenue = user.get(SessionManager.KEY_REVENUE);
 
         }
 
         if(firstname!=null&&!firstname.isEmpty()){
 
-            edt_firstname.setTitle(firstname);
+            edt_firstname.edtContent.setText(firstname);
         }
 
         if(lastname!=null&&!lastname.isEmpty()){
 
-            edt_lastname.setTitle(lastname);
+            edt_lastname.edtContent.setText(lastname);
         }
 
         if(email!=null&&!email.isEmpty()){
 
-            edt_email.setTitle(email);
+            edt_email.edtContent.setText(email);
         }
 
-//        if(zipcode!=null&&!zipcode.isEmpty()){
-//
-//            edt_zipcode.setTitle(zipcode);
-//        }
+        if(zipcode!=null&&!zipcode.isEmpty()){
+
+            if(!zipcode.equals("0")){
+
+                edt_zipcode.edtContent.setText(zipcode);
+            }
+
+            else {
+
+                edt_zipcode.edtContent.setText("0");
+            }
+
+        }
 
         edt_revenue.setVisibility(View.GONE);
 
@@ -234,6 +246,8 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         String cnfm_password = edt_cnfmpassword.edtContent.getText().toString();
 
+        String zip = edt_zipcode.edtContent.getText().toString();
+
         if(firstname.equals("")){
 
             isvalid =false;
@@ -252,14 +266,41 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
             edt_lastname.requestFocus();
         }
 
-        else if(email.equals("")){
+//        else if(email.equals("")){
+//
+//            isvalid =false;
+//
+//            edt_email.setError("Please Fill Mail ID");
+//
+//            edt_email.requestFocus();
+//        }
 
-            isvalid =false;
 
-            edt_email.setError("Please Fill Mail ID");
+//        else if(zipcode.equals("")){
+//
+//            isvalid =false;
+//
+//            edt_zipcode.setError("Please Fill Zipcode");
+//
+//            edt_zipcode.requestFocus();
+//        }
+//
+//
+//        else if(country_name.equals("Select Country")){
+//
+//            isvalid =false;
+//
+//            Toast.makeText(RetailerProfileAccountActivity.this,"Please Select Country",Toast.LENGTH_SHORT).show();
+//        }
+//
+//        else if(state_namw.equals("Select State")){
+//
+//            isvalid =false;
+//
+//            Toast.makeText(RetailerProfileAccountActivity.this,"Please Select State",Toast.LENGTH_SHORT).show();
+//        }
 
-            edt_email.requestFocus();
-        }
+
 
         else if(!email.matches(emailPattern)){
 
@@ -274,7 +315,7 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
             if (dd4YouConfig.isInternetConnectivity()) {
 
-                registerResponseCall(firstname,lastname,email);
+                registerResponseCall(firstname,lastname,email,zip);
 
             }
 
@@ -303,12 +344,12 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
 
     @SuppressLint("LongLogTag")
-    private void registerResponseCall(String firstname, String lastname, String email) {
+    private void registerResponseCall(String firstname, String lastname, String email, String zip) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<UpdateProfileResponse> call = apiInterface.updateResponseCall(RestUtils.getContentType(),updateProfileRequest(firstname,lastname,email));
+        Call<UpdateProfileResponse> call = apiInterface.updateResponseCall(RestUtils.getContentType(),updateProfileRequest(firstname,lastname,email,zip));
         Log.w(TAG,"UpdateProfileResponse url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<UpdateProfileResponse>() {
@@ -319,29 +360,31 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
                 if (response.body() != null) {
 
-                    if(response.body().isStatus()) {
+                    if(200==response.body().getCode()) {
 
                         Log.w(TAG, "UpdateProfileResponse" + new Gson().toJson(response.body()));
 
                         SessionManager sessionManager = new SessionManager(RetailerProfileAccountActivity.this);
                         sessionManager.setIsLogin(true);
                         sessionManager.createLoginSession(
-                                response.body().getData().getId(),
-                                response.body().getData().getFirst_name(),
-                                response.body().getData().getLast_name(),
-                                response.body().getData().getEmail(),
-                                response.body().getData().getUser_type(),
-                                response.body().getData().getAvatar()
-
+                                response.body().getData().getUser().getId(),
+                                response.body().getData().getUser().getFirst_name(),
+                                response.body().getData().getUser().getLast_name(),
+                                response.body().getData().getUser().getEmail(),
+                                response.body().getData().getUser().getUser_type(),
+                                response.body().getData().getUser().getAvatar(),
+                                response.body().getData().getUser().getCountry_id(),
+                                response.body().getData().getUser().getState_id(),
+                                response.body().getData().getUser().getZip_code(),
+                                response.body().getData().getUser().getRevenue()
                         );
-
                         startActivity(new Intent(RetailerProfileAccountActivity.this, RetailerDashboardActivity.class));
 
                     }
 
                     else {
 
-                      Toast.makeText(RetailerProfileAccountActivity.this,""+response.body().getError_message(),Toast.LENGTH_LONG).show();
+                      Toast.makeText(RetailerProfileAccountActivity.this,""+response.body().getMessage(),Toast.LENGTH_LONG).show();
 
                     }
 
@@ -360,20 +403,30 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     }
 
     @SuppressLint("LongLogTag")
-    private UpdateProfileRequest updateProfileRequest(String firstname, String lastname, String email) {
+    private UpdateProfileRequest updateProfileRequest(String firstname, String lastname, String email, String zip) {
+
 
         /*
-         * first_name : testl
+         * first_name : testc
          * last_name : testc
          * about_me : testc_abt
-         * id : 541
+         * country_id : 101
+         * state_id : 5
+         * zip_code : 123456
+         * revenue : 0
+         * user_id : 541
          */
 
         UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest();
         updateProfileRequest.setFirst_name(firstname);
         updateProfileRequest.setLast_name(lastname);
-        updateProfileRequest.setId(userid);
         updateProfileRequest.setAbout_me("testc_abt");
+        updateProfileRequest.setCountry_id(countryid);
+        updateProfileRequest.setState_id(stateid);
+        updateProfileRequest.setZip_code(zip);
+        updateProfileRequest.setRevenue("0");
+        updateProfileRequest.setUser_id(userid);
+
 
         Log.w(TAG,"UpdateProfileRequest "+ new Gson().toJson(updateProfileRequest));
         return updateProfileRequest;
@@ -462,6 +515,7 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("LongLogTag")
     private void setCountry(List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList) {
 
         ArrayList<String> arrayList = new ArrayList<>();
@@ -471,6 +525,9 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         for(int i=0;i<countriesBeanList.size();i++){
 
             arrayList.add(countriesBeanList.get(i).getName());
+
+            hashMap_Countryid.put(countriesBeanList.get(i).getName(),countriesBeanList.get(i).getId());
+
         }
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(RetailerProfileAccountActivity.this, R.layout.spinner_item, arrayList);
@@ -479,13 +536,34 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         sp_country.setAdapter(spinnerArrayAdapter);
 
+        if (countryid!= null&&!countryid.isEmpty()&&!countryid.equals("0")) {
+
+//            String value = hashMap_Countryid.get(countryid);
+//
+//            Log.w(TAG,"country_name "+value);
+
+            int pos = spinnerArrayAdapter.getPosition(countryid);
+
+            Log.w(TAG,"position "+pos);
+
+            sp_country.setSelection(pos);
+        }
+
+
         sp_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @SuppressLint("LongLogTag")
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
 
-                countryid =  countriesBeanList.get(position).getId() ;
+                country_name = sp_country.getSelectedItem().toString();
+
+                countryid =  hashMap_Countryid.get(country_name) ;
+
+                if(countryid==null){
+
+                    countryid="0";
+                }
 
                 Log.w(TAG,"country_id "+countryid);
 
@@ -541,7 +619,7 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
                         statesBeanList = response.body().getData().getStates();
 
-                        if(countriesBeanList != null && countriesBeanList.size()>0){
+                        if(statesBeanList != null && statesBeanList.size()>0){
 
 
                             setState(statesBeanList);
@@ -580,6 +658,7 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("LongLogTag")
     private void setState(List<GetStateResponse.DataBean.StatesBean> statesBeanList) {
 
         ArrayList<String> arrayList1 = new ArrayList<>();
@@ -589,6 +668,9 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
         for(int i=0;i<statesBeanList.size();i++){
 
             arrayList1.add(statesBeanList.get(i).getName());
+
+            hashMap_Stateid.put(statesBeanList.get(i).getName(),statesBeanList.get(i).getId());
+
         }
 
 
@@ -598,13 +680,28 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         sp_state.setAdapter(spinnerArrayAdapter1);
 
+        if (stateid != null&&!stateid.isEmpty()&&!stateid.equals("0")) {
+
+//            String value = hashMap_Stateid.get(stateid);
+//
+//            Log.w(TAG,"state_name "+value);
+
+            int pos = spinnerArrayAdapter1.getPosition(stateid);
+
+            Log.w(TAG,"position "+pos);
+
+            sp_state.setSelection(pos);
+        }
+
         sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @SuppressLint("LongLogTag")
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int arg2, long arg3) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
 
-                stateid = statesBeanList.get(arg2).getId();
+                String state_name = sp_state.getSelectedItem().toString();
+
+                stateid =  hashMap_Stateid.get(state_name) ;
 
                 Log.w(TAG,"stateid "+stateid);
 

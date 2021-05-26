@@ -78,7 +78,7 @@ public class RetailerRegisterFragment extends Fragment {
 
     DD4YouConfig dd4YouConfig;
 
-
+    String cid ="0",sid="0",zipcode="0",revenue="0";
 
     public RetailerRegisterFragment() {
         // Required empty public constructor
@@ -247,7 +247,13 @@ public class RetailerRegisterFragment extends Fragment {
                                 response.body().getData().getProfile().getLast_name(),
                                 response.body().getData().getProfile().getEmail(),
                                 response.body().getData().getProfile().getUser_type(),
-                                response.body().getData().getProfile().getAvatar()
+                                response.body().getData().getProfile().getAvatar(),
+                                response.body().getData().getProfile().getCountry_id(),
+                                response.body().getData().getProfile().getState_id(),
+                                response.body().getData().getProfile().getZip_code(),
+                                response.body().getData().getProfile().getRevenue()
+
+
                         );
 
                         startActivity(new Intent(getContext(), RetailerDashboardActivity.class));

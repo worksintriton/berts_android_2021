@@ -123,6 +123,12 @@
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
+            android:name=".retailer.EditVehicleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
             android:name=".retailer.RetailerReceiptActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"

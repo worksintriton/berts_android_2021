@@ -34,6 +34,7 @@
             android:layout_margin="@dimen/_20dp">
 
             <RelativeLayout
+                android:id="@+id/rl_year"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rectangle_corner_white_background"
@@ -59,6 +60,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_amke"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_16dp"
@@ -66,7 +68,7 @@
                 android:padding="@dimen/margin_common">
 
                 <Spinner
-                    android:id="@+id/sp_brand"
+                    android:id="@+id/sp_make"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -85,6 +87,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_model"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_16dp"
@@ -92,7 +95,7 @@
                 android:padding="@dimen/margin_common">
 
                 <Spinner
-                    android:id="@+id/sp_make"
+                    android:id="@+id/sp_model"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -116,8 +119,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_16dp"
                 android:orientation="vertical"
-                app:inputType="number"
-                app:hint="VIN NO"/>
+                android:visibility="gone"
+                app:hint="VIN NO"
+                app:inputType="number" />
 
             <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_partsname"
@@ -125,8 +129,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_16dp"
                 android:orientation="vertical"
-                app:inputType="text_normal"
-                app:hint="@string/parts_names"/>
+                android:visibility="gone"
+                app:hint="@string/parts_names"
+                app:inputType="text_normal" />
 
 
         </LinearLayout>

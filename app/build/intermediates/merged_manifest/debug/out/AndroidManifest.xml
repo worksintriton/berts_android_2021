@@ -119,6 +119,11 @@
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name="com.triton.bertsproject.retailer.EditVehicleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.triton.bertsproject.retailer.RetailerReceiptActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"

@@ -38,6 +38,7 @@ import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -105,10 +106,13 @@ public class WholeSalerRegisterFragment extends Fragment {
 
     String countryid,stateid;
 
-
     List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList ;
 
     List<GetStateResponse.DataBean.StatesBean> statesBeanList ;
+
+    HashMap<String, String> hashMap_Countryid = new HashMap<>();
+
+    HashMap<String, String> hashMap_Stateid = new HashMap<>();
 
     public WholeSalerRegisterFragment() {
         // Required empty public constructor
@@ -141,6 +145,19 @@ public class WholeSalerRegisterFragment extends Fragment {
         edt_zipcode.setTitle(getString(R.string.zipcode));
 
         edt_revenue.setTitle(getString(R.string.revenue));
+
+        dd4YouConfig=new DD4YouConfig(getContext());
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallcountryListResponseCall();
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
 
         btn_sigin.setOnClickListener(v -> checkValidation());
 
@@ -222,6 +239,9 @@ public class WholeSalerRegisterFragment extends Fragment {
         for(int i=0;i<countriesBeanList.size();i++){
 
             arrayList.add(countriesBeanList.get(i).getName());
+
+            hashMap_Countryid.put(countriesBeanList.get(i).getName(),countriesBeanList.get(i).getId());
+
         }
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item, arrayList);
@@ -236,7 +256,9 @@ public class WholeSalerRegisterFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
 
-                countryid =  countriesBeanList.get(position).getId() ;
+                String country_name = sp_country.getSelectedItem().toString();
+
+                countryid =  hashMap_Countryid.get(country_name) ;
 
                 Log.w(TAG,"country_id "+countryid);
 
@@ -267,7 +289,7 @@ public class WholeSalerRegisterFragment extends Fragment {
 
     }
 
-    /* Get Country */
+    /* Get State */
 
     @SuppressLint("LongLogTag")
     private void fetchallstateListResponseCall(String countryid) {
@@ -292,7 +314,7 @@ public class WholeSalerRegisterFragment extends Fragment {
 
                         statesBeanList = response.body().getData().getStates();
 
-                        if(countriesBeanList != null && countriesBeanList.size()>0){
+                        if(statesBeanList != null && statesBeanList.size()>0){
 
 
                             setState(statesBeanList);
@@ -340,6 +362,8 @@ public class WholeSalerRegisterFragment extends Fragment {
         for(int i=0;i<statesBeanList.size();i++){
 
             arrayList1.add(statesBeanList.get(i).getName());
+
+            hashMap_Stateid.put(statesBeanList.get(i).getName(),statesBeanList.get(i).getId());
         }
 
 
@@ -355,7 +379,9 @@ public class WholeSalerRegisterFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int arg2, long arg3) {
                 ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
 
-                stateid = statesBeanList.get(arg2).getId();
+                String state_name = sp_state.getSelectedItem().toString();
+
+                stateid =  hashMap_Stateid.get(state_name) ;
 
                 Log.w(TAG,"stateid "+stateid);
 
@@ -466,7 +492,7 @@ public class WholeSalerRegisterFragment extends Fragment {
 
             isvalid =false;
 
-            edt_revenue.setError("Please Fill Zipcode");
+            edt_revenue.setError("Please Fill Revenue");
 
             edt_revenue.requestFocus();
         }
@@ -558,8 +584,13 @@ public class WholeSalerRegisterFragment extends Fragment {
                                 response.body().getData().getProfile().getLast_name(),
                                 response.body().getData().getProfile().getEmail(),
                                 response.body().getData().getProfile().getUser_type(),
-                                response.body().getData().getProfile().getAvatar()
+                                response.body().getData().getProfile().getAvatar(),
+                                response.body().getData().getProfile().getCountry_id(),
+                                response.body().getData().getProfile().getState_id(),
+                                response.body().getData().getProfile().getZip_code(),
+                                response.body().getData().getProfile().getRevenue()
                         );
+
 
                         startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
 

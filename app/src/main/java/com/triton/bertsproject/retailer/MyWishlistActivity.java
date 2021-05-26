@@ -128,11 +128,13 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
         tag = getIntent().getStringExtra("tag");
         Log.w(TAG, " tag : " + tag);
 
+        sessionManager=new SessionManager(this);
+
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
-//        user_id = user.get(SessionManager.KEY_ID);
+        user_id = user.get(SessionManager.KEY_ID);
 
-        user_id  = "541";
+        //user_id  = "541";
 
         bottomNavigation.setSelectedItemId(R.id.shop);
 

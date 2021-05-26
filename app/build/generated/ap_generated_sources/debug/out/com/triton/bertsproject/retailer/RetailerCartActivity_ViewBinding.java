@@ -40,6 +40,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.ll_proceed = Utils.findRequiredViewAsType(source, R.id.ll_proceed, "field 'll_proceed'", LinearLayout.class);
     target.txt_deliveryaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddrchange, "field 'txt_deliveryaddrchange'", TextView.class);
     target.txt_shipaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_shipaddrchange, "field 'txt_shipaddrchange'", TextView.class);
+    target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
   }
 
   @Override
@@ -59,5 +60,6 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.ll_proceed = null;
     target.txt_deliveryaddrchange = null;
     target.txt_shipaddrchange = null;
+    target.txt_no_records = null;
   }
 }

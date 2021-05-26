@@ -173,6 +173,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         ll_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,CheckoutScreenActivity.class)));
 
+        sessionManager = new SessionManager(this);
+
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
 //        user_id = user.get(SessionManager.KEY_ID);

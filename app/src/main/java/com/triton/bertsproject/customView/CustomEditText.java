@@ -170,6 +170,9 @@ public class CustomEditText extends LinearLayout {
             case 3:
                 edtContent.setInputType(InputType.TYPE_CLASS_NUMBER);
                 break;
+            case 4:
+                edtContent.setInputType(InputType.TYPE_NULL);
+                break;
         }
 
         if(type == 1){

@@ -36,6 +36,7 @@ public class MyWishlistActivity_ViewBinding implements Unbinder {
     target.rv_productlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_productlist'", RecyclerView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
   }
 
   @Override
@@ -52,5 +53,6 @@ public class MyWishlistActivity_ViewBinding implements Unbinder {
     target.rv_productlist = null;
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;
+    target.txt_no_records = null;
   }
 }

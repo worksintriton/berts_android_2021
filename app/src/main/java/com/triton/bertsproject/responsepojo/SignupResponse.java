@@ -3,19 +3,20 @@ package com.triton.bertsproject.responsepojo;
 public class SignupResponse {
 
 
+
     /**
      * status : Success
      * code : 200
      * message : User registraion Successful
-     * data : {"authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NjciLCJwcm9maWxlIjp7ImlkIjoiNTY3IiwiZW1haWwiOiJwcmFiaHUuaW1zY2RAZ21haWwuY29tIiwicm9sZSI6InJldGFpbCJ9fQ.lwl2rDx1DqIX9OF_OdhncVJ_bScM7suIaeTmKrBQ-sQ","profile":{"id":"567","username":"testab testab","slug":"testab-testab-567","email":"prabhu.imscd@gmail.com","email_status":"1","token":"60a6721cb44fb3-92435744-13125628","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-20 14:28:44","first_name":"testab","last_name":"testab","request_wholesale":"0","revenue":null}}
+     * data : {"authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ODAiLCJwcm9maWxlIjp7ImlkIjoiNTgwIiwiZW1haWwiOiJwcmFiaHUuaW1zYzJAZ21haWwuY29tIiwicm9sZSI6InJldGFpbCJ9fQ.OSgA0lswlxglrSCsId5nw8ZqB1q2nsHxo6gKyiZkfRU","profile":{"id":"580","username":"testab testab","slug":"testab-testab-580","email":"prabhu.imsc2@gmail.com","email_status":"1","token":"60ae298f61e804-05414647-38991233","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":"0","state_id":"0","address":null,"zip_code":"0","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-26 10:57:19","first_name":"testab","last_name":"testab","request_wholesale":"0","revenue":"0"}}
      */
 
     private String status;
     private int code;
     private String message;
     /**
-     * authorization : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NjciLCJwcm9maWxlIjp7ImlkIjoiNTY3IiwiZW1haWwiOiJwcmFiaHUuaW1zY2RAZ21haWwuY29tIiwicm9sZSI6InJldGFpbCJ9fQ.lwl2rDx1DqIX9OF_OdhncVJ_bScM7suIaeTmKrBQ-sQ
-     * profile : {"id":"567","username":"testab testab","slug":"testab-testab-567","email":"prabhu.imscd@gmail.com","email_status":"1","token":"60a6721cb44fb3-92435744-13125628","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-20 14:28:44","first_name":"testab","last_name":"testab","request_wholesale":"0","revenue":null}
+     * authorization : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1ODAiLCJwcm9maWxlIjp7ImlkIjoiNTgwIiwiZW1haWwiOiJwcmFiaHUuaW1zYzJAZ21haWwuY29tIiwicm9sZSI6InJldGFpbCJ9fQ.OSgA0lswlxglrSCsId5nw8ZqB1q2nsHxo6gKyiZkfRU
+     * profile : {"id":"580","username":"testab testab","slug":"testab-testab-580","email":"prabhu.imsc2@gmail.com","email_status":"1","token":"60ae298f61e804-05414647-38991233","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":null,"phone_number":null,"country_id":"0","state_id":"0","address":null,"zip_code":"0","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-26 10:57:19","first_name":"testab","last_name":"testab","request_wholesale":"0","revenue":"0"}
      */
 
     private DataBean data;
@@ -55,12 +56,12 @@ public class SignupResponse {
     public static class DataBean {
         private String authorization;
         /**
-         * id : 567
+         * id : 580
          * username : testab testab
-         * slug : testab-testab-567
-         * email : prabhu.imscd@gmail.com
+         * slug : testab-testab-580
+         * email : prabhu.imsc2@gmail.com
          * email_status : 1
-         * token : 60a6721cb44fb3-92435744-13125628
+         * token : 60ae298f61e804-05414647-38991233
          * role : retail
          * balance : 0
          * number_of_sales : 0
@@ -71,10 +72,10 @@ public class SignupResponse {
          * banned : 0
          * about_me : null
          * phone_number : null
-         * country_id : null
-         * state_id : null
+         * country_id : 0
+         * state_id : 0
          * address : null
-         * zip_code : null
+         * zip_code : 0
          * show_email : 1
          * show_phone : 1
          * show_location : 1
@@ -98,11 +99,11 @@ public class SignupResponse {
          * shipping_state : null
          * shipping_city : null
          * shipping_zip_code : null
-         * created_at : 2021-05-20 14:28:44
+         * created_at : 2021-05-26 10:57:19
          * first_name : testab
          * last_name : testab
          * request_wholesale : 0
-         * revenue : null
+         * revenue : 0
          */
 
         private ProfileBean profile;
@@ -140,10 +141,10 @@ public class SignupResponse {
             private String banned;
             private Object about_me;
             private Object phone_number;
-            private Object country_id;
-            private Object state_id;
+            private String country_id;
+            private String state_id;
             private Object address;
-            private Object zip_code;
+            private String zip_code;
             private String show_email;
             private String show_phone;
             private String show_location;
@@ -171,7 +172,7 @@ public class SignupResponse {
             private String first_name;
             private String last_name;
             private String request_wholesale;
-            private Object revenue;
+            private String revenue;
 
             public String getId() {
                 return id;
@@ -301,19 +302,19 @@ public class SignupResponse {
                 this.phone_number = phone_number;
             }
 
-            public Object getCountry_id() {
+            public String getCountry_id() {
                 return country_id;
             }
 
-            public void setCountry_id(Object country_id) {
+            public void setCountry_id(String country_id) {
                 this.country_id = country_id;
             }
 
-            public Object getState_id() {
+            public String getState_id() {
                 return state_id;
             }
 
-            public void setState_id(Object state_id) {
+            public void setState_id(String state_id) {
                 this.state_id = state_id;
             }
 
@@ -325,11 +326,11 @@ public class SignupResponse {
                 this.address = address;
             }
 
-            public Object getZip_code() {
+            public String getZip_code() {
                 return zip_code;
             }
 
-            public void setZip_code(Object zip_code) {
+            public void setZip_code(String zip_code) {
                 this.zip_code = zip_code;
             }
 
@@ -549,11 +550,11 @@ public class SignupResponse {
                 this.request_wholesale = request_wholesale;
             }
 
-            public Object getRevenue() {
+            public String getRevenue() {
                 return revenue;
             }
 
-            public void setRevenue(Object revenue) {
+            public void setRevenue(String revenue) {
                 this.revenue = revenue;
             }
         }

@@ -2219,6 +2219,7 @@ id custom
 id customPanel
 id cut
 id cv_aboutus
+id cv_addvehicle
 id cv_before_login
 id cv_fllist
 id cv_loginafter
@@ -2620,6 +2621,7 @@ id rlEmail
 id rlGrid
 id rlList
 id rl_aboutus
+id rl_amke
 id rl_currncy
 id rl_date
 id rl_downloadquotation
@@ -2627,6 +2629,7 @@ id rl_lang
 id rl_login_after
 id rl_logout
 id rl_measurment_unit
+id rl_model
 id rl_orderstatus
 id rl_ordrhist
 id rl_ordrtrack
@@ -2636,7 +2639,9 @@ id rl_receipt
 id rl_root
 id rl_settings
 id rl_sort_filter
+id rl_vehicle
 id rl_wishlist
+id rl_year
 id round
 id rounded
 id rowParentText
@@ -2658,6 +2663,7 @@ id rv_shopby
 id rv_top_brands
 id rv_top_categories
 id rv_top_makes
+id rv_vehiclelist
 id rv_year
 id save_non_transition_alpha
 id save_overlay_view
@@ -2696,10 +2702,10 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id sp_brand
 id sp_country
 id sp_filter
 id sp_make
+id sp_model
 id sp_state
 id sp_year
 id spacer
@@ -3419,6 +3425,7 @@ string download_invoice
 string download_quotation
 string edit
 string edit_profile
+string edit_vehicle
 string email
 string email_coupons
 string engine
