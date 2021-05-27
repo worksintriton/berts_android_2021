@@ -138,11 +138,21 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             }
         }
 
+        if(prdouctsBean.getWishlist()==1){
+
+            holder.img_heart.setImageResource(R.drawable.like);
+        }
+
+        else {
+
+            holder.img_heart.setImageResource(R.drawable.ic_heart_outline);
+        }
+
         holder.img_heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                wishlistAddProductListener.addproductListener(prdouctsBean.getId());
 
             }
         });

@@ -1,25 +1,15 @@
 package com.triton.bertsproject.requestpojo;
 
-public class FetchProductBasedOnBrandRequest {
+public class ShowOrderlistRequest {
 
 
     /**
-     * BRAND_ID : 2
      * MODE : LIST
-     * USER_ID :
+     * USER_ID : 541
      */
 
-    private String BRAND_ID;
     private String MODE;
     private String USER_ID;
-
-    public String getBRAND_ID() {
-        return BRAND_ID;
-    }
-
-    public void setBRAND_ID(String BRAND_ID) {
-        this.BRAND_ID = BRAND_ID;
-    }
 
     public String getMODE() {
         return MODE;

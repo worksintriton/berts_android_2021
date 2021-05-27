@@ -8,8 +8,8 @@ public class WishlistSuccessResponse {
     /**
      * status : Success
      * code : 200
-     * message : Whistlist list successful
-     * data : {"wishlist":[{"wishlist_id":"3","userid":"541","wishlist_product_id":"2","price":"50000","title":"Gear lever","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]},{"wishlist_id":"4","userid":"541","wishlist_product_id":"3","price":"10000","title":"Alloy Wheel ","images":[{"id":"341","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809f3ad051.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809f3cdaa7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809f3ed906.jpg","image_order":"1","storage":"local"},{"id":"342","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809ff4a6ec.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809ff73764.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809ff96854.jpg","image_order":"2","storage":"local"},{"id":"343","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_60880a0ae41dd.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_60880a0b2104a.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_60880a0b4c541.jpg","image_order":"3","storage":"local"}]}]}
+     * message : Wishlist Added successful
+     * data : {"wishlist":[{"wishlist_id":"4","userid":"541","wishlist_product_id":"3","price":"10000","title":"Alloy Wheel ","images":[{"id":"341","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809f3ad051.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809f3cdaa7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809f3ed906.jpg","image_order":"1","storage":"local"},{"id":"342","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809ff4a6ec.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809ff73764.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809ff96854.jpg","image_order":"2","storage":"local"},{"id":"343","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_60880a0ae41dd.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_60880a0b2104a.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_60880a0b4c541.jpg","image_order":"3","storage":"local"}]},{"wishlist_id":"9","userid":"541","wishlist_product_id":"4","price":"10000","title":"Engine Piston","images":[{"id":"344","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c0265723ce.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02659c654.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c0265d21ee.jpg","image_order":"1","storage":"local"},{"id":"345","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c026f2f630.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c026f4b440.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c026f67bf5.jpg","image_order":"2","storage":"local"},{"id":"346","product_id":"4","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608c02771cb3c.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608c02773d836.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608c02775e7d0.jpg","image_order":"3","storage":"local"}]}]}
      */
 
     private String status;
@@ -51,12 +51,12 @@ public class WishlistSuccessResponse {
 
     public static class DataBean {
         /**
-         * wishlist_id : 3
+         * wishlist_id : 4
          * userid : 541
-         * wishlist_product_id : 2
-         * price : 50000
-         * title : Gear lever
-         * images : [{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]
+         * wishlist_product_id : 3
+         * price : 10000
+         * title : Alloy Wheel
+         * images : [{"id":"341","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809f3ad051.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809f3cdaa7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809f3ed906.jpg","image_order":"1","storage":"local"},{"id":"342","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_608809ff4a6ec.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_608809ff73764.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_608809ff96854.jpg","image_order":"2","storage":"local"},{"id":"343","product_id":"3","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_60880a0ae41dd.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_60880a0b2104a.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_60880a0b4c541.jpg","image_order":"3","storage":"local"}]
          */
 
         private List<WishlistBean> wishlist;
@@ -76,11 +76,11 @@ public class WishlistSuccessResponse {
             private String price;
             private String title;
             /**
-             * id : 339
-             * product_id : 2
-             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg
-             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg
-             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg
+             * id : 341
+             * product_id : 3
+             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_608809f3ad051.jpg
+             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_608809f3cdaa7.jpg
+             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_608809f3ed906.jpg
              * image_order : 1
              * storage : local
              */

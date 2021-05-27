@@ -23,6 +23,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
@@ -34,10 +35,12 @@ import com.triton.bertsproject.requestpojo.FetchProductBasedOnMakeRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
+import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -104,6 +107,12 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
     AlertDialog alertDialog;
 
+    String user_id;
+
+//    private DD4YouNetReceiver dd4YouNetReceiver;
+
+    SessionManager sessionManager;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +154,21 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         //registerBroadcastReceiver();
 
+        sessionManager=new SessionManager(this);
+
+        if(sessionManager.isLoggedIn()){
+
+            HashMap<String, String> user = sessionManager.getProfileDetails();
+
+            user_id = user.get(SessionManager.KEY_ID);
+        }
+
+        else {
+
+            user_id  = "";
+
+        }
+
         if (dd4YouConfig.isInternetConnectivity()) {
 
             fetchallproductsListResponseCall();
@@ -156,7 +180,6 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
             callnointernet();
 
         }
-
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -267,16 +290,20 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
     @SuppressLint("LongLogTag")
     private FetchProductBasedOnMakeRequest fetchProductBasedOnMakeRequest() {
 
-        /**
+
+        /*
          * MAKE_ID : 1
          * MODEL_ID : 1
          * MODE : LIST
+         * USER_ID :
          */
+
 
         FetchProductBasedOnMakeRequest fetchProductBasedOnMakeRequest = new FetchProductBasedOnMakeRequest();
         fetchProductBasedOnMakeRequest.setMAKE_ID(make_id);
         fetchProductBasedOnMakeRequest.setMODEL_ID(model_id);
         fetchProductBasedOnMakeRequest.setMODE("LIST");
+        fetchProductBasedOnMakeRequest.setUSER_ID(user_id);
 
         Log.w(TAG,"FetchProductBasedOnMakeRequest "+ new Gson().toJson(fetchProductBasedOnMakeRequest));
         return fetchProductBasedOnMakeRequest;
@@ -413,11 +440,13 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
                 if (response.body() != null) {
 
-                    if(200==response.body().getCode()) {
+                    if(response.body().getStatus().equals("Success")) {
 
                         Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 
                         Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+
+                        fetchallproductsListResponseCall();
 
                     }
 
@@ -448,14 +477,14 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         /*
          * USER_ID : 541
-         * PRODUCT_ID : 33
-         * MODE : ADD
+         * PRODUCT_ID : 4
+         * MODE : ADD_DELETE
          */
 
         AddWishistRequest addWishistRequest = new AddWishistRequest();
         addWishistRequest.setPRODUCT_ID(productID);
-        addWishistRequest.setUSER_ID(productID);
-        addWishistRequest.setMODE("ADD");
+        addWishistRequest.setUSER_ID(user_id);
+        addWishistRequest.setMODE("ADD_DELETE");
 
         Log.w(TAG,"AddWishistRequest "+ new Gson().toJson(addWishistRequest));
         return addWishistRequest;
@@ -466,83 +495,42 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
     public void addproductListener(String id) {
 
 
-        if (dd4YouConfig.isInternetConnectivity()) {
+        if(sessionManager.isLoggedIn()){
 
-            wishlistaddResponseCall(id);
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                wishlistaddResponseCall(id);
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
 
         }
 
-        else
-        {
-            callnointernet();
+        else {
 
+            showAlert();
         }
 
 
     }
 
-    @SuppressLint("LongLogTag")
-    private void deletewishlistResponseCall(String productId) {
+    private void showAlert() {
 
-        spin_kit_loadingView.setVisibility(View.VISIBLE);
-        //Creating an object of our api interface
-        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<WishlistSuccessResponse> call = apiInterface.deletewishlistResponseCall(RestUtils.getContentType(), removeWishistRequest(productId));
-        Log.w(TAG,"WishlistSuccessResponse url  :%s"+ call.request().url().toString());
-
-        call.enqueue(new Callback<WishlistSuccessResponse>() {
-            @SuppressLint("LogNotTimber")
-            @Override
-            public void onResponse(@NonNull Call<WishlistSuccessResponse> call, @NonNull Response<WishlistSuccessResponse> response) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-
-                if (response.body() != null) {
-
-                    if(200==response.body().getCode()) {
-
-                        Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
-
-                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
-
-                    }
-
-                    else {
-
-                        showErrorLoading(response.body().getMessage());
-
-                    }
-
-                }
-
-
-
-            }
-
-
-            @Override
-            public void onFailure(@NonNull Call<WishlistSuccessResponse> call,@NonNull  Throwable t) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"WishlistSuccessResponse flr"+t.getMessage());
-            }
+        AlertDialog.Builder builder=new AlertDialog.Builder(RetailerProductListBasedOnMakeActivity.this);
+        builder.setTitle("Alert");
+        builder.setMessage("Please Login add Products in wishlist");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (dialogInterface, i) -> {
+            startActivity(new Intent(RetailerProductListBasedOnMakeActivity.this, LoginActivity.class));
+            finish();
         });
-
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
-    @SuppressLint("LongLogTag")
-    private RemoveWishistRequest removeWishistRequest(String productID) {
-
-        /*
-         * USER_ID : 541
-         * WISHLIST_ID : 3
-         * MODE : DELETE
-         */
-
-        RemoveWishistRequest removeWishistRequest = new RemoveWishistRequest();
-        removeWishistRequest.setUSER_ID(productID);
-        removeWishistRequest.setWISHLIST_ID(productID);
-        removeWishistRequest.setMODE("DELETE");
-
-        Log.w(TAG,"RemoveWishistRequest "+ new Gson().toJson(removeWishistRequest));
-        return removeWishistRequest;
-    }
 }

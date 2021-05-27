@@ -7,11 +7,13 @@ public class FetchProductBasedOnMakeRequest {
      * MAKE_ID : 1
      * MODEL_ID : 1
      * MODE : LIST
+     * USER_ID :
      */
 
     private String MAKE_ID;
     private String MODEL_ID;
     private String MODE;
+    private String USER_ID;
 
     public String getMAKE_ID() {
         return MAKE_ID;
@@ -35,5 +37,13 @@ public class FetchProductBasedOnMakeRequest {
 
     public void setMODE(String MODE) {
         this.MODE = MODE;
+    }
+
+    public String getUSER_ID() {
+        return USER_ID;
+    }
+
+    public void setUSER_ID(String USER_ID) {
+        this.USER_ID = USER_ID;
     }
 }

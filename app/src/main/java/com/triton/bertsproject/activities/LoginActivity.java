@@ -84,15 +84,13 @@ public class LoginActivity extends AppCompatActivity {
 
     Dialog alertDialog;
 
-    String cid ="0",sid="0",zipcode="0",revenue="0";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        txt_toolbar_title.setText(R.string.login);
+        txt_toolbar_title.setText(R.string.checkout_screen);
 
         spin_kit_loadingView.setVisibility(View.GONE);
 

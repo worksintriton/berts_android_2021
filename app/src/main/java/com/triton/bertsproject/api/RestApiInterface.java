@@ -4,7 +4,10 @@ package com.triton.bertsproject.api;
 import com.triton.bertsproject.model.DeleteCartListRequest;
 import com.triton.bertsproject.requestpojo.AddVehicleRequest;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
+import com.triton.bertsproject.requestpojo.CreateAddressListRequest;
+import com.triton.bertsproject.requestpojo.DeleteAddressListRequest;
 import com.triton.bertsproject.requestpojo.DeleteVehicleRequest;
+import com.triton.bertsproject.requestpojo.EditAddressListRequest;
 import com.triton.bertsproject.requestpojo.EditVehicleRequest;
 import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
 import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
@@ -15,16 +18,22 @@ import com.triton.bertsproject.requestpojo.FetchProductBasedOnMakeRequest;
 import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
 import com.triton.bertsproject.requestpojo.GetStateRequest;
 import com.triton.bertsproject.requestpojo.LoginRequest;
+import com.triton.bertsproject.requestpojo.OrderCreateRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
+import com.triton.bertsproject.requestpojo.ShowOrderlistRequest;
 import com.triton.bertsproject.requestpojo.ShowVehiclelistRequest;
 import com.triton.bertsproject.requestpojo.ShowWishistRequest;
 import com.triton.bertsproject.requestpojo.SignupRequest;
 import com.triton.bertsproject.requestpojo.SignupWholesalerRequest;
 import com.triton.bertsproject.requestpojo.UpdateProfileRequest;
+import com.triton.bertsproject.requestpojo.UserAddressListRequest;
 import com.triton.bertsproject.responsepojo.AddVehicleResponse;
+import com.triton.bertsproject.responsepojo.CreateAddressListResponse;
+import com.triton.bertsproject.responsepojo.DeleteAddressListResponse;
 import com.triton.bertsproject.responsepojo.DeleteVehicleResponse;
+import com.triton.bertsproject.responsepojo.EditAddressListResponse;
 import com.triton.bertsproject.responsepojo.EditVehicleResponse;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
@@ -36,12 +45,15 @@ import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
 import com.triton.bertsproject.responsepojo.GetCountryResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
+import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.SetDefaultVehicleResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
+import com.triton.bertsproject.responsepojo.ShowOrderlistResponse;
 import com.triton.bertsproject.responsepojo.ShowVehiclelistResponse;
 import com.triton.bertsproject.responsepojo.SignupResponse;
 import com.triton.bertsproject.responsepojo.UpdateProfileResponse;
+import com.triton.bertsproject.responsepojo.UserAddressListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 
 import retrofit2.Call;
@@ -155,5 +167,29 @@ public interface RestApiInterface {
     /*Edit Vehicle List*/
     @POST("addvehicle")
     Call<EditVehicleResponse> editvehicleListResponseCall(@Header("Content-Type") String type, @Body EditVehicleRequest editVehicleRequest);
+
+    /*Order Create*/
+    @POST("order")
+    Call<OrderCreateResponse> orderCreateListResponseCall(@Header("Content-Type") String type, @Body OrderCreateRequest orderCreateRequest);
+
+    /*Order List*/
+    @POST("order")
+    Call<ShowOrderlistResponse> orderListResponseCall(@Header("Content-Type") String type, @Body ShowOrderlistRequest showOrderlistRequest);
+
+    /*user address list*/
+    @POST("user/address")
+    Call<UserAddressListResponse> useraddressListResponseCall(@Header("Content-Type") String type, @Body UserAddressListRequest userAddressListRequest);
+
+    /*create address list*/
+    @POST("user/address")
+    Call<CreateAddressListResponse> createaddressResponseCall(@Header("Content-Type") String type, @Body CreateAddressListRequest createAddressListRequest);
+
+    /*edit address list*/
+    @POST("user/address")
+    Call<EditAddressListResponse> editaddressResponseCall(@Header("Content-Type") String type, @Body EditAddressListRequest editAddressListRequest);
+
+    /*delete address list*/
+    @POST("user/address")
+    Call<DeleteAddressListResponse> deleteaddressResponseCall(@Header("Content-Type") String type, @Body DeleteAddressListRequest deleteAddressListRequest);
 
 }

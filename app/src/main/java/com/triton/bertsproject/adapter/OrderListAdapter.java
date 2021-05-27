@@ -12,19 +12,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.model.OrderlistModel;
+import com.triton.bertsproject.responsepojo.ShowOrderlistResponse;
 
 import java.util.List;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderListHolder> {
     Context context;
-    List<OrderlistModel> orderlistModels;
+    List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList;
     View view;
 
-    public OrderListAdapter(Context context, List<OrderlistModel> orderlistModels) {
+    public OrderListAdapter(Context context, List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList) {
         this.context = context;
-        this.orderlistModels = orderlistModels ;
+        this.ordersBeanList = ordersBeanList ;
 
     }
 
@@ -41,72 +43,70 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     @Override
     public void onBindViewHolder(@NonNull OrderListHolder holder, final int position) {
 
-        final OrderlistModel orderlistModel = orderlistModels.get(position);
+        final ShowOrderlistResponse.DataBean.OrdersBean orderlistModel = ordersBeanList.get(position);
 
-        if (orderlistModel.getProduct_name()!= null) {
+        String imgUrl = orderlistModel.getProducts().get(0).getImages().get(0).getImage_default();
 
-                holder.txt_product_name.setText(orderlistModel.getProduct_name());
+        String title = orderlistModel.getProducts().get(0).getProduct_title();
 
-        }
+        if (title!=null&&!title.isEmpty()) {
 
-        if (orderlistModel.getProdut_image()!= 0) {
-
-                holder.img_product_image .setImageResource(orderlistModel.getProdut_image());
+                holder.txt_product_name.setText(title);
 
         }
 
-        if (orderlistModel.getParts_no()!= null) {
+        if (imgUrl!=null&&!imgUrl.isEmpty()) {
 
-            holder.txt_parts_name.setText(orderlistModel.getParts_no());
+            Glide.with(context)
+                    .load(imgUrl)
+                    .into(holder.img_product_image);
 
-        }
 
-        if (orderlistModel.getOrder_ID()!= null) {
-
-            holder.txt_order_ID.setText(orderlistModel.getOrder_ID());
 
         }
 
-        if (orderlistModel.getOrder_date()!= null) {
 
-            holder.txt_orders.setText(orderlistModel.getOrder_date());
+        if (orderlistModel.getOrder_number()!= null&&!orderlistModel.getOrder_number().isEmpty()) {
+
+            holder.txt_order_ID.setText(orderlistModel.getOrder_number());
 
         }
 
-        if (orderlistModel.getTotal_price()!= null) {
 
-            String price = "\u0024"+orderlistModel.getTotal_price();
+        if (orderlistModel.getPrice_total()!= null&&!orderlistModel.getPrice_total().isEmpty()) {
+
+            String price = "\u0024"+orderlistModel.getPrice_total();
 
             holder.txt_price.setText(price);
 
         }
 
-        if(orderlistModel.getOrder_status().equals("Completed")){
-
-            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_med_green_background));
-
-            holder.txt_order_status.setText("Completed");
-
-            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.white));
-        }
-
-        else if(orderlistModel.getOrder_status().equals("Cancelled")){
-
-            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_thick_red_background));
-
-            holder.txt_order_status.setText("Cancelled");
-
-            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.white));
-        }
-
-        else{
-
-            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_thickyellow_background));
-
-            holder.txt_order_status.setText("On Going. . ");
-
-            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.dark_grey));
-        }
+//        if(orderlistModel.getOrder_status().equals("Completed")){
+//
+//            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_med_green_background));
+//
+//            holder.txt_order_status.setText("Completed");
+//
+//            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.white));
+//        }
+//
+//        else if(orderlistModel.getOrder_status().equals("Cancelled")){
+//
+//            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_thick_red_background));
+//
+//            holder.txt_order_status.setText("Cancelled");
+//
+//            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.white));
+//        }
+//
+//        else{
+//
+//            holder.rl_order_status.setBackground(context.getResources().getDrawable(R.drawable.rectangle_corner_thickyellow_background));
+//
+//            holder.txt_order_status.setText("On Going. . ");
+//
+//            holder.txt_order_status.setTextColor(context.getResources().getColor(R.color.dark_grey));
+//        }
 
 
 
@@ -115,7 +115,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     @Override
     public int getItemCount() {
-        return orderlistModels.size();
+        return ordersBeanList.size();
     }
 
     public static class OrderListHolder extends RecyclerView.ViewHolder {

@@ -8,7 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,15 +20,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.CartProductListAdapter;
 import com.triton.bertsproject.adapter.OrderListAdapter;
+import com.triton.bertsproject.api.APIClient;
+import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.model.OrderlistModel;
+import com.triton.bertsproject.requestpojo.OrderCreateRequest;
+import com.triton.bertsproject.requestpojo.ShowOrderlistRequest;
+import com.triton.bertsproject.responsepojo.OrderCreateResponse;
+import com.triton.bertsproject.responsepojo.ShowOrderlistResponse;
+import com.triton.bertsproject.responsepojo.ShowOrderlistResponse;
+import com.triton.bertsproject.sessionmanager.SessionManager;
+import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OrderListActivity extends AppCompatActivity {
 
@@ -56,8 +74,8 @@ public class OrderListActivity extends AppCompatActivity {
     ImageView img_back;
 
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_productlist)
-    RecyclerView rv_productlist;
+    @BindView(R.id.rv_orderlist)
+    RecyclerView rv_orderlist;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -68,6 +86,18 @@ public class OrderListActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_no_records)
+    TextView txt_no_records;
+
+    AlertDialog alertDialog;
+
+    List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList ;
+
+    SessionManager sessionManager;
+
+    String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +116,14 @@ public class OrderListActivity extends AppCompatActivity {
         tag = getIntent().getStringExtra("tag");
         Log.w(TAG, " tag : " + this.tag);
 
-        setView();
+        sessionManager = new SessionManager(this);
+
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+//        user_id = user.get(SessionManager.KEY_ID);
+
+        user_id  = "1";
+
         img_back.setOnClickListener(v -> {
 
             startActivity(new Intent(OrderListActivity.this, RetailerCartActivity.class));
@@ -97,26 +134,132 @@ public class OrderListActivity extends AppCompatActivity {
 
     }
 
-    private void setView() {
-
-        List<OrderlistModel> orderlistModels = new ArrayList<>();
-
-        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "Completed", "Feb 28,2021 - 10.19", "139.20","FT1236784678", R.drawable.splist1));
-
-        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "Cancelled", "Feb 28,2021 - 10.19", "139.20","FT1236784678", R.drawable.splist1));
-
-        orderlistModels.add(new OrderlistModel("K-Metal", "Jeep CJ-Style Replacement Mirrors", "On Going", "Feb 28,2021 - 10.19", "139.20", "FT1236784678", R.drawable.splist1));
-
-        rv_productlist.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false));
-
-        rv_productlist.setMotionEventSplittingEnabled(false);
-
-        rv_productlist.setItemAnimator(new DefaultItemAnimator());
-
-        orderListAdapter = new OrderListAdapter(this, orderlistModels);
-
-        rv_productlist.setAdapter(orderListAdapter);
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(OrderListActivity.this);
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(OrderListActivity.this, OrderListActivity.class));
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
+
+    @SuppressLint("LongLogTag")
+    private void ShowOrderlistResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<ShowOrderlistResponse> call = apiInterface.orderListResponseCall(RestUtils.getContentType(), ShowOrderlistRequest());
+        Log.w(TAG,"ShowOrderlistResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<ShowOrderlistResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<ShowOrderlistResponse> call, @NonNull Response<ShowOrderlistResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "ShowOrderlistResponse" + new Gson().toJson(response.body()));
+
+                        ordersBeanList=response.body().getData().getOrders();
+
+                        if(ordersBeanList!=null&&ordersBeanList.size()>0){
+
+                            rv_orderlist.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setVisibility(View.GONE);
+
+                            setView(ordersBeanList);
+
+                        }
+
+                        else {
+
+                            rv_orderlist.setVisibility(View.GONE);
+
+                            txt_no_records.setText("No Orders Found");
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<ShowOrderlistResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"ShowOrderlistResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private ShowOrderlistRequest ShowOrderlistRequest() {
+
+
+        /*
+         * MODE : LIST
+         * USER_ID : 541
+         */
+
+        ShowOrderlistRequest ShowOrderlistRequest = new ShowOrderlistRequest();
+        ShowOrderlistRequest.setUSER_ID(user_id);
+        ShowOrderlistRequest.setMODE("LIST");
+
+        Log.w(TAG,"ShowOrderlistRequest "+ new Gson().toJson(ShowOrderlistRequest));
+        return ShowOrderlistRequest;
+    }
+
+    private void setView(List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList) {
+
+        rv_orderlist.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        rv_orderlist.setMotionEventSplittingEnabled(false);
+
+        rv_orderlist.setItemAnimator(new DefaultItemAnimator());
+
+        orderListAdapter = new OrderListAdapter(this, ordersBeanList);
+
+        rv_orderlist.setAdapter(orderListAdapter);
+
+    }
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(OrderListActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
+    }
+
+
 
 
     public void onStart() {
