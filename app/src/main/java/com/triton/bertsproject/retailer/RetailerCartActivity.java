@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -30,6 +31,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.adapter.CartProductListAdapter;
 import com.triton.bertsproject.adapter.MywishListAdapter;
 import com.triton.bertsproject.api.APIClient;
@@ -52,20 +54,17 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RetailerCartActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, CartRemoveProductListener {
+public class RetailerCartActivity extends AppCompatActivity implements CartRemoveProductListener {
 
     private static final String TAG = "RetailerCartActivity";
 
     public static String active_tag = "1";
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.bottomNavigation)
-    BottomNavigationView bottomNavigation;
 
     CartProductListAdapter cartProductListAdapter;
 
@@ -75,9 +74,6 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     @BindView(R.id.coordinator)
     CoordinatorLayout coordinatorLayout;
 
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.fab)
-    FloatingActionButton floatingActionButton;
 
     String fromactivity;
 
@@ -106,6 +102,14 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.ll_proceed)
      LinearLayout ll_proceed;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_shippingaddr)
+    CardView cv_shippingaddr;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_shippingcharg)
+    CardView cv_shippingcharg;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_deliveryaddrchange)
@@ -138,7 +142,6 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         ButterKnife.bind( this);
         Log.w("Oncreate", TAG);
         txt_toolbar_title.setText(R.string.cart);
-        floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
            fromactivity = extras.getString("fromactivity");
@@ -146,32 +149,13 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         spin_kit_loadingView.setVisibility(View.GONE);
         tag = getIntent().getStringExtra("tag");
         Log.w(TAG, " tag : " + this.tag);
-        bottomNavigation.setSelectedItemId(R.id.shop);
-        bottomNavigation.setOnNavigationItemSelectedListener(this);
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RetailerCartActivity.this, SearchProductListActivity.class));
-
-            Animatoo.animateSwipeRight(context);
+            onBackPressed();
 
         });
 
-        txt_deliveryaddrchange.setOnClickListener(v -> {
-
-            startActivity(new Intent(RetailerCartActivity.this, ShippingAddressActivity.class));
-
-            Animatoo.animateSwipeRight(context);
-        });
-
-        txt_shipaddrchange.setOnClickListener(v -> {
-
-            startActivity(new Intent(RetailerCartActivity.this, ShippingMethodActivity.class));
-
-            Animatoo.animateSwipeRight(context);
-        });
-
-        ll_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,CheckoutScreenActivity.class)));
 
         sessionManager = new SessionManager(this);
 
@@ -186,17 +170,31 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         //enableSwipeToDeleteAndUndo();
 
-        if (dd4YouConfig.isInternetConnectivity()) {
+        if(sessionManager.isLoggedIn()){
 
-            showcartlistResponseCall();
+            if (dd4YouConfig.isInternetConnectivity()) {
 
+                showcartlistResponseCall();
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
         }
 
-        else
-        {
-            callnointernet();
+        else {
 
+            showAlert();
         }
+
+        ll_proceed.setVisibility(View.GONE);
+
+        cv_shippingaddr.setVisibility(View.GONE);
+
+        cv_shippingcharg.setVisibility(View.GONE);
 
 
     }
@@ -217,29 +215,6 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         rv_productlist.setAdapter(cartProductListAdapter);
 
-    }
-
-    @SuppressLint("NonConstantResourceId")
-    public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.chat:
-                active_tag = "4";
-                return true;
-            case R.id.garage:
-                active_tag = "2";
-                return true;
-            case R.id.home:
-                active_tag = "1";
-                return true;
-            case R.id.profile:
-                active_tag = "5";
-                return true;
-            case R.id.shop:
-                active_tag = "3";
-                return true;
-            default:
-                return false;
-        }
     }
 
     public void onStart() {
@@ -263,8 +238,33 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(this, SearchProductListActivity.class));
-        Animatoo.animateSwipeRight(this.context);
+
+        if (fromactivity!=null&&!fromactivity.isEmpty()) {
+
+            if(fromactivity.equals("HomeFragment")){
+
+                callDirections("1");
+
+            }
+
+            else {
+
+                Intent intent = new Intent(RetailerCartActivity.this,RetailerDashboardActivity.class);
+                startActivity(intent);
+            }
+
+        }
+
+    }
+
+
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(RetailerCartActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
     }
 
 
@@ -295,7 +295,30 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             rv_productlist.setVisibility(View.VISIBLE);
 
+                            ll_proceed.setVisibility(View.VISIBLE);
+
+                            cv_shippingaddr.setVisibility(View.VISIBLE);
+
+                            cv_shippingcharg.setVisibility(View.VISIBLE);
+
                             txt_no_records.setVisibility(View.GONE);
+
+                            txt_deliveryaddrchange.setOnClickListener(v -> {
+
+                                startActivity(new Intent(RetailerCartActivity.this, ShippingAddressActivity.class));
+
+                                Animatoo.animateSwipeRight(context);
+                            });
+
+                            txt_shipaddrchange.setOnClickListener(v -> {
+
+                                startActivity(new Intent(RetailerCartActivity.this, ShippingMethodActivity.class));
+
+                                Animatoo.animateSwipeRight(context);
+                            });
+
+                            ll_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,CheckoutScreenActivity.class)));
+
 
                             setView(cartBeanList);
 
@@ -305,14 +328,19 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             rv_productlist.setVisibility(View.GONE);
 
+                            txt_no_records.setVisibility(View.VISIBLE);
+
                             txt_no_records.setText("No Products Found");
                         }
                     }
 
                     else {
 
-                        showErrorLoading(response.body().getMessage());
+//                        showErrorLoading(response.body().getMessage());
 
+                        txt_no_records.setVisibility(View.VISIBLE);
+
+                        txt_no_records.setText("No Products Found");
                     }
 
                 }
@@ -461,6 +489,33 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         }
 
+
+    }
+    private void showAlert() {
+
+        new SweetAlertDialog(RetailerCartActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Alert!!")
+                .setContentText("Please Login")
+                .setCancelText("No")
+                .setConfirmText("Yes")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.cancel();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+
+                        Intent intent = new Intent(RetailerCartActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        sDialog.dismiss();
+
+                    }
+                })
+                .show();
 
     }
 }

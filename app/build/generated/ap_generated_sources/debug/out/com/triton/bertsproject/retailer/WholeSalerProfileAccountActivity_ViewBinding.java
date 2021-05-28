@@ -3,6 +3,7 @@ package com.triton.bertsproject.retailer;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -28,6 +29,7 @@ public class WholeSalerProfileAccountActivity_ViewBinding implements Unbinder {
       View source) {
     this.target = target;
 
+    target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.edt_firstname = Utils.findRequiredViewAsType(source, R.id.edt_firstname, "field 'edt_firstname'", CustomEditText.class);
     target.edt_lastname = Utils.findRequiredViewAsType(source, R.id.edt_lastname, "field 'edt_lastname'", CustomEditText.class);
@@ -49,6 +51,7 @@ public class WholeSalerProfileAccountActivity_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
+    target.img_back = null;
     target.spin_kit_loadingView = null;
     target.edt_firstname = null;
     target.edt_lastname = null;

@@ -69,6 +69,8 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
 
             intent.putExtra("brand_id",brandsBean.getId());
 
+            intent.putExtra("brand_name",brandsBean.getName());
+
             intent.putExtra("fromactivity",TAG);
 
             Log.w(TAG,"brand_id : "+brandsBean.getId());

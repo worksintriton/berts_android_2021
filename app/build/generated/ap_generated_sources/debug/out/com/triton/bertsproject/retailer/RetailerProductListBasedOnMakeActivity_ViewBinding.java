@@ -4,6 +4,7 @@ package com.triton.bertsproject.retailer;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -36,6 +37,8 @@ public class RetailerProductListBasedOnMakeActivity_ViewBinding implements Unbin
     target.rlGrid = Utils.findRequiredViewAsType(source, R.id.rlGrid, "field 'rlGrid'", LinearLayout.class);
     target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
     target.rv_prodlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_prodlist'", RecyclerView.class);
+    target.rl_search = Utils.findRequiredViewAsType(source, R.id.rl_search, "field 'rl_search'", RelativeLayout.class);
+    target.rl_sort = Utils.findRequiredViewAsType(source, R.id.rl_sort, "field 'rl_sort'", LinearLayout.class);
   }
 
   @Override
@@ -52,5 +55,7 @@ public class RetailerProductListBasedOnMakeActivity_ViewBinding implements Unbin
     target.rlGrid = null;
     target.txt_no_records = null;
     target.rv_prodlist = null;
+    target.rl_search = null;
+    target.rl_sort = null;
   }
 }

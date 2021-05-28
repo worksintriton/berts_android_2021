@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -40,6 +41,7 @@ import com.triton.bertsproject.responsepojo.ShowVehiclelistResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -50,6 +52,8 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -283,6 +287,8 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener, 
 
                             rv_vehiclelist.setVisibility(View.GONE);
 
+                            txt_no_records.setVisibility(View.VISIBLE);
+
                             txt_no_records.setText("No Vehicles Found");
                         }
                     }
@@ -384,28 +390,36 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener, 
 
     private void showAlert(String av_idd) {
 
-        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-        builder.setTitle("Alert");
-        builder.setMessage("Are You Sure to set this vehicle as Default vehicle");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+        new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Alert!!")
+                .setContentText("Are You Sure to set this vehicle as Default vehicle")
+                .setCancelText("No")
+                .setConfirmText("Yes")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.cancel();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        if(dd4YouConfig.isInternetConnectivity()) {
 
-            if(dd4YouConfig.isInternetConnectivity()) {
+                            setdafultvehResponseCall(av_idd);
+                        }
 
-                setdafultvehResponseCall(av_idd);
-            }
+                        else {
 
-            else {
+                            callnointernet();
+                        }
 
-                callnointernet();
-            }
-        });
-        builder.setNegativeButton("No", (dialogInterface, i) -> {
-            startActivity(new Intent(getContext(),MyWishlistActivity.class));
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+                        sDialog.dismiss();
 
+                    }
+                })
+                .show();
 
     }
 
@@ -431,6 +445,7 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener, 
 
                         Log.w(TAG, "SetDefaultVehicleResponse" + new Gson().toJson(response.body()));
 
+                        Toasty.success(Objects.requireNonNull(getContext()),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         if(dd4YouConfig.isInternetConnectivity()) {
                             showvehlistResponseCall();

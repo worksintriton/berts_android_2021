@@ -39,6 +39,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
@@ -309,33 +310,63 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         try {
 
-            dialog = new Dialog(getContext());
+            new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Alert")
+                    .setContentText("Are you sure want to logout?")
+                    .setCancelText("No")
+                    .setConfirmText("Yes")
+                    .showCancelButton(true)
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.cancel();
+                        }
+                    })
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
 
-            dialog.setContentView(R.layout.alert_logout_layout);
+                            sessionManager.logoutUser();
 
-            Button btn_no = dialog.findViewById(R.id.btn_no);
+                            sessionManager.setIsLogin(false);
 
-            Button btn_yes = dialog.findViewById(R.id.btn_yes);
+                            startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
 
-            btn_yes.setOnClickListener(view -> {
+                            sDialog.dismiss();
 
-                dialog.dismiss();
+                        }
+                    })
+                    .show();
 
-                sessionManager.logoutUser();
-
-                sessionManager.setIsLogin(false);
-
-                startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
-
-            });
-
-            btn_no.setOnClickListener(view -> dialog.dismiss());
-
-            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-            dialog.show();
-
-        } catch (WindowManager.BadTokenException e) {
+//            dialog = new Dialog(getContext());
+//
+//            dialog.setContentView(R.layout.alert_logout_layout);
+//
+//            Button btn_no = dialog.findViewById(R.id.btn_no);
+//
+//            Button btn_yes = dialog.findViewById(R.id.btn_yes);
+//
+//            btn_yes.setOnClickListener(view -> {
+//
+//                dialog.dismiss();
+//
+//                sessionManager.logoutUser();
+//
+//                sessionManager.setIsLogin(false);
+//
+//                startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
+//
+//            });
+//
+//            btn_no.setOnClickListener(view -> dialog.dismiss());
+//
+//            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//
+//            dialog.show();
+//
+        }
+//
+        catch (WindowManager.BadTokenException e) {
             e.printStackTrace();
         }
     }

@@ -41,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -275,6 +276,8 @@ public class EditVehicleActivity extends AppCompatActivity {
                     if(200==response.body().getCode()) {
 
                         Log.w(TAG, "EditVehicleResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         callDirections("2");
 

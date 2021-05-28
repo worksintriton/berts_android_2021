@@ -53,6 +53,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -98,6 +99,14 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
     @BindView(R.id.rv_productlist)
     RecyclerView rv_prodlist;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_search)
+    RelativeLayout rl_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_sort)
+    LinearLayout rl_sort;
+
     private final static String TAG = "RetailerProductListActivity";
 
     String fromactivity;
@@ -106,7 +115,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
     List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
 
-    String brand_id;
+    String brand_id,brand_name;
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
@@ -139,6 +148,15 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
             fromactivity = extras.getString("fromactivity");
 
             brand_id = extras.getString("brand_id");
+
+            brand_name = extras.getString("brand_name");
+
+        }
+
+
+        if(brand_name!=null&&!brand_name.isEmpty()){
+
+            txt_toolbar_title.setText(brand_name);
 
         }
 
@@ -173,37 +191,34 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
         }
 
-        spin_kit_loadingView.setVisibility(View.GONE);
+        rl_search.setVisibility(View.GONE);
 
-        txt_toolbar_title.setText(R.string.side_view_mirrors);
+        rl_sort.setVisibility(View.GONE);
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RetailerProductListActivity.this, RetailerDashboardActivity.class));
-
-            Animatoo.animateSwipeLeft(context);
-        });
-
-        rlList.setOnClickListener(v -> {
-
-            rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-            rlGrid.setBackgroundResource(R.color.transparent);
-
-            setlistView(prdouctsBeanList);
+            onBackPressed();
         });
 
 
-        rlGrid.setOnClickListener(v -> {
 
-            rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+    }
 
-            rlList.setBackgroundResource(R.color.transparent);
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(RetailerProductListActivity.this, ShowAllBrandsActivity.class);
 
-            setGridView(prdouctsBeanList);
-        });
+        intent.putExtra("brand_id",brand_id);
 
+        intent.putExtra("brand_name",brand_name);
 
+        intent.putExtra("fromactivity",TAG);
+
+        context.startActivity(intent);
+
+        Animatoo.animateSwipeLeft(context);
+
+        finish();
     }
 
     @SuppressLint("LongLogTag")
@@ -231,10 +246,34 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
-
                             rv_prodlist.setVisibility(View.VISIBLE);
 
                             txt_no_records.setVisibility(View.GONE);
+
+                            rl_search.setVisibility(View.VISIBLE);
+
+                            rl_sort.setVisibility(View.VISIBLE);
+
+
+                            rlList.setOnClickListener(v -> {
+
+                                rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlGrid.setBackgroundResource(R.color.transparent);
+
+                                setlistView(prdouctsBeanList);
+                            });
+
+
+                            rlGrid.setOnClickListener(v -> {
+
+                                rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlList.setBackgroundResource(R.color.transparent);
+
+                                setGridView(prdouctsBeanList);
+                            });
+
 
                             setGridView(prdouctsBeanList);
                         }
@@ -267,6 +306,8 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
             public void onFailure(@NonNull Call<ProductListResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
                 Log.w(TAG,"ProductListResponse flr"+t.getMessage());
+
+                txt_no_records.setText(R.string.no_prod_found);
             }
         });
 
@@ -427,7 +468,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
                         Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         fetchallproductsListResponseCall();
 

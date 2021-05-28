@@ -44,6 +44,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -591,6 +592,7 @@ public class WholeSalerRegisterFragment extends Fragment {
                                 response.body().getData().getProfile().getRevenue()
                         );
 
+                        Toasty.success(Objects.requireNonNull(getContext()),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
 

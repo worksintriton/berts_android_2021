@@ -76,6 +76,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.cl_loginbefore)
     CardView cl_loginbefore;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_vehicle)
+    CardView cv_vehicle;
+
     List<ShopByNameModel> shopByNameModels;
 
     private static final String TAG = "HomeFragment";
@@ -119,12 +123,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             txt_user_type.setText(""+username);
 
+            cv_vehicle.setVisibility(View.VISIBLE);
 
         }
 
         else {
 
             cl_loginbefore.setVisibility(View.VISIBLE);
+
+            cv_vehicle.setVisibility(View.GONE);
 
             txt_user_login.setOnClickListener(v -> {
 

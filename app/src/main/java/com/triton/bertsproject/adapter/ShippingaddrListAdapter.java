@@ -24,14 +24,12 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
     List<UserAddressListResponse.DataBean.AddressBean> addressBeanList;
     View view;
     boolean check;
-    WishlistAddProductListener wishlistAddProductListener;
+    String pincode, district, state;
 
-    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList, boolean check, WishlistAddProductListener wishlistAddProductListener) {
+    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList)
+    {
         this.context = context;
         this.addressBeanList = addressBeanList ;
-        this.check = check;
-        this.wishlistAddProductListener=wishlistAddProductListener;
-
     }
 
     @NonNull
@@ -39,13 +37,66 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
     public ShoplistHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_prodlist_gridview, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_shipaddrlist, parent, false);
 
         return new ShoplistHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
+
+        final UserAddressListResponse.DataBean.AddressBean addressBean = addressBeanList.get(position);
+
+        if(addressBean.getName()!=null&&!addressBean.getName().isEmpty()){
+
+            holder.txt_username.setText(addressBean.getName());
+        }
+
+        if(addressBean.getPhone()!=null&&!addressBean.getPhone().isEmpty()){
+
+            holder.txt_phnum.setText(addressBean.getPhone());
+        }
+
+        if(addressBean.getCity()!=null&&!addressBean.getCity().isEmpty()){
+
+            holder.txt_user_city.setText(addressBean.getCity());
+        }
+
+        if(addressBean.getAddress1()!=null&&!addressBean.getAddress1().isEmpty()){
+
+            holder.txt_street.setText(addressBean.getAddress1());
+        }
+
+        if(addressBean.getState_name()!=null&&!addressBean.getState_name().isEmpty()){
+
+           state = addressBean.getState_name();
+        }
+
+        else{
+
+            state = "";
+
+        }
+
+        if(addressBean.getCountry_name()!=null&&!addressBean.getCountry_name().isEmpty()){
+
+            district = addressBean.getCountry_name();
+        }
+
+        else{
+            district = "";
+        }
+
+        if(addressBean.getZipcode()!=null&&!addressBean.getZipcode().isEmpty()){
+
+            pincode = addressBean.getZipcode();
+        }
+
+        else{
+            pincode = "";
+        }
+
+        holder.txt_dist_pincode_state.setText(state+" "+district+" "+pincode);
 
     }
 
@@ -55,31 +106,30 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
     }
 
     public static class ShoplistHolder extends RecyclerView.ViewHolder {
-        ImageView img_product_image,img_heart;
-        TextView txt_product_name, txt_parts_name,txt_total_reviews,txt_price,txt_stock_status;
+
+        TextView txt_username, txt_phnum,txt_user_city,txt_street,txt_dist_pincode_state;
   //      RatingBar ratingBar;
-        LinearLayout ll_product_status;
+        LinearLayout ll_edit,ll_delete;
 
         public ShoplistHolder(View itemView) {
             super(itemView);
 
-            img_product_image = itemView.findViewById(R.id.img_product_image);
+            txt_username = itemView.findViewById(R.id.txt_username);
 
-            txt_product_name = itemView.findViewById(R.id.txt_product_name);
+            txt_phnum = itemView.findViewById(R.id.txt_phnum);
 
-            txt_parts_name = itemView.findViewById(R.id.txt_parts_name);
+            txt_user_city = itemView.findViewById(R.id.txt_user_city);
 
 //            ratingBar = itemView.findViewById(R.id.ratingBar);
 
-            txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
+            txt_street = itemView.findViewById(R.id.txt_street);
 
-            txt_price = itemView.findViewById(R.id.txt_price);
+            txt_dist_pincode_state = itemView.findViewById(R.id.txt_dist_pincode_state);
 
-            ll_product_status = itemView.findViewById(R.id.ll_product_status);
+            ll_edit = itemView.findViewById(R.id.ll_edit);
 
-            txt_stock_status = itemView.findViewById(R.id.txt_stock_status);
+            ll_delete = itemView.findViewById(R.id.ll_delete);
 
-            img_heart = itemView.findViewById(R.id.img_heart);
         }
     }
 }

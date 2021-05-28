@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -13,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.ChildCategoriesListAdapter;
+import com.triton.bertsproject.adapter.ShippingaddrListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.requestpojo.DeleteAddressListRequest;
@@ -65,12 +68,12 @@ public class ShippingAddressActivity extends AppCompatActivity {
     ImageView img_back;
 
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.refresh_layout)
-    SwipeRefreshLayout refresh_layout;
+    @BindView(R.id.btn_addnewaddr)
+    Button btn_addnewaddr;
 
     AlertDialog alertDialog;
 
-    private static final String TAG = "ShowAllChildCategActivity";
+    private static final String TAG = "ShippingAddressActivity";
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
@@ -81,7 +84,6 @@ public class ShippingAddressActivity extends AppCompatActivity {
     SessionManager sessionManager;
 
     String userid;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,12 +104,38 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
             userid = user.get(SessionManager.KEY_ID);
 
+            Log.w(TAG,"user_id "+userid);
         }
 
         txt_toolbar_title.setText(R.string.ship_addr);
 
+        btn_addnewaddr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ShippingAddressActivity.this,ShippingAddressAddActivity.class));
+
+            }
+        });
+
+
+        img_back.setOnClickListener(v -> {
+
+            onBackPressed();
+
+        });
+
         spin_kit_loadingView.setVisibility(View.GONE);
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(ShippingAddressActivity.this,RetailerCartActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @SuppressLint("LongLogTag")
@@ -135,8 +163,6 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
                         if(addressBeanList != null && addressBeanList.size()>0){
 
-                            refresh_layout.setVisibility(View.VISIBLE);
-
                             rv_addrlist.setVisibility(View.VISIBLE);
 
                             txt_no_records.setVisibility(View.GONE);
@@ -146,13 +172,11 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
                         else {
 
-                            refresh_layout.setVisibility(View.GONE);
-
                             rv_addrlist.setVisibility(View.GONE);
 
                             txt_no_records.setVisibility(View.VISIBLE);
 
-                            txt_no_records.setText(R.string.cat_dis_msg);
+                            txt_no_records.setText(R.string.shipaddr_dzis_msg);
                         }
                     }
 
@@ -188,7 +212,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
          */
 
         UserAddressListRequest UserAddressListRequest = new UserAddressListRequest();
-        UserAddressListRequest.setUSER_ID("");
+        UserAddressListRequest.setUSER_ID(userid);
         UserAddressListRequest.setMODE("LIST");
 
         Log.w(TAG,"UserAddressListRequest "+ new Gson().toJson(UserAddressListRequest));
@@ -211,7 +235,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
     private void setView(List<UserAddressListResponse.DataBean.AddressBean> addressBeanList) {
 
 
-        rv_addrlist.setLayoutManager(new GridLayoutManager(ShippingAddressActivity.this, 2));
+        rv_addrlist.setLayoutManager(new LinearLayoutManager(ShippingAddressActivity.this));
 
         rv_addrlist.setMotionEventSplittingEnabled(false);
 
@@ -223,13 +247,11 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
         int spacing = 0; // 50px
 
-        rv_addrlist.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
-
         rv_addrlist.setItemAnimator(new DefaultItemAnimator());
-//
-//        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShippingAddressActivity.this, categoriesBeanList,size,parent_id);
-//
-//        rv_addrlist.setAdapter(childCategoriesListAdapter);
+
+        ShippingaddrListAdapter shippingaddrListAdapter = new ShippingaddrListAdapter(ShippingAddressActivity.this, addressBeanList);
+
+        rv_addrlist.setAdapter(shippingaddrListAdapter);
 
 
     }

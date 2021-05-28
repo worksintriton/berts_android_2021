@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,6 +46,10 @@ import retrofit2.Response;
 public class WholeSalerProfileAccountActivity extends AppCompatActivity {
 
     private static final String TAG = "RetailerProfileAccountActivity";
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_back)
+    ImageView img_back;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -112,6 +117,20 @@ public class WholeSalerProfileAccountActivity extends AppCompatActivity {
 
     HashMap<String, String> hashMap_Stateid = new HashMap<>();
 
+
+    @Override
+    public void onBackPressed() {
+
+        callDirections("5");
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(WholeSalerProfileAccountActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,7 +240,11 @@ public class WholeSalerProfileAccountActivity extends AppCompatActivity {
 
         });
 
+        img_back.setOnClickListener(v -> {
 
+            onBackPressed();
+
+        });
 
         spin_kit_loadingView.setVisibility(View.GONE);
     }

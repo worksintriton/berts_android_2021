@@ -33,6 +33,7 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
     target.txt_user_type = Utils.findRequiredViewAsType(source, R.id.txt_user_type, "field 'txt_user_type'", TextView.class);
     target.cl_loginbefore = Utils.findRequiredViewAsType(source, R.id.cl_loginbefore, "field 'cl_loginbefore'", CardView.class);
+    target.cv_vehicle = Utils.findRequiredViewAsType(source, R.id.cv_vehicle, "field 'cv_vehicle'", CardView.class);
   }
 
   @Override
@@ -51,5 +52,6 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.btn_addVeh = null;
     target.txt_user_type = null;
     target.cl_loginbefore = null;
+    target.cv_vehicle = null;
   }
 }

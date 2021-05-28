@@ -34,13 +34,13 @@
             android:layout_margin="@dimen/_20dp">
 
             <com.triton.bertsproject.customView.CustomEditText
-                android:id="@+id/edt_email"
+                android:id="@+id/edt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                app:inputType="email"
-                app:hint="@string/email"/>
+                app:inputType="text_normal"
+                app:hint="Name"/>
 
             <com.triton.bertsproject.customView.CustomEditText
                 android:id="@+id/edt_phoneno"
@@ -52,13 +52,15 @@
                 app:hint="Phone Number"/>
 
             <com.triton.bertsproject.customView.CustomEditText
-                android:id="@+id/edt_zipcode"
+                android:id="@+id/edt_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
                 android:orientation="vertical"
-                app:inputType="number"
-                app:hint="@string/zipcode"/>
+                app:hint="@string/city"
+                app:inputType="text_normal" />
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -103,23 +105,40 @@
                     android:layout_width="@dimen/_24dp"
                     android:layout_height="@dimen/_24dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_right_down"
                     tools:ignore="ContentDescription" />
 
-
             </RelativeLayout>
 
-            <com.triton.bertsproject.customView.CustomTextarea
-                android:id="@+id/edtAddress"
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edtAddress1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_common"
-                android:layout_marginBottom="@dimen/margin_common"
-                app:hinText="@string/detail_address" />
+                android:orientation="vertical"
+                app:inputType="text_normal"
+                app:hint="@string/addressline1"/>
 
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edtAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_common"
+                android:orientation="vertical"
+                app:inputType="text_normal"
+                app:hint="@string/addressline2"/>
+
+            <com.triton.bertsproject.customView.CustomEditText
+                android:id="@+id/edt_zipcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_common"
+                android:orientation="vertical"
+                app:inputType="number"
+                android:layout_marginBottom="@dimen/margin_common"
+                app:hint="@string/zipcode"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +20,7 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
+import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
 
 import java.util.List;
 
@@ -157,6 +159,14 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             }
         });
 
+        holder.cv_root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                context.startActivity(new Intent(context, ProductDetailDescriptionActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -170,6 +180,8 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
   //      RatingBar ratingBar;
         LinearLayout ll_product_status;
 
+        CardView cv_root;
+
         public ShoplistHolder(View itemView) {
             super(itemView);
 
@@ -178,6 +190,8 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
 
             txt_parts_name = itemView.findViewById(R.id.txt_parts_name);
+
+            cv_root = itemView.findViewById(R.id.cv_root);
 
 //            ratingBar = itemView.findViewById(R.id.ratingBar);
 

@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_20dp"
-    android:layout_marginEnd="@dimen/_20dp"
-    android:layout_marginRight="@dimen/_20dp"
     android:layout_marginBottom="@dimen/_10dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/_10dp">
@@ -15,10 +12,10 @@
         android:id="@+id/ll_address_list_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:visibility="visible"
-        android:layout_marginLeft="20dp">
+       >
 
         <RelativeLayout
             android:layout_width="match_parent"

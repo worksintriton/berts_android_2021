@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -90,6 +92,14 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_productlist)
     RecyclerView rv_prodlist;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_search)
+    RelativeLayout rl_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_sort)
+    LinearLayout rl_sort;
 
     private final static String TAG = "RetailerProductListActivity";
 
@@ -192,29 +202,12 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RetailerProductListBasedOnMakeActivity.this, RetailerDashboardActivity.class));
-
-            Animatoo.animateSwipeLeft(context);
+            onBackPressed();
         });
 
-        rlList.setOnClickListener(v -> {
+        rl_search.setVisibility(View.GONE);
 
-            rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-            rlGrid.setBackgroundResource(R.color.transparent);
-
-            setlistView(prdouctsBeanList);
-        });
-
-
-        rlGrid.setOnClickListener(v -> {
-
-            rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-            rlList.setBackgroundResource(R.color.transparent);
-
-            setGridView(prdouctsBeanList);
-        });
+        rl_sort.setVisibility(View.GONE);
 
 
     }
@@ -249,7 +242,33 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
                             txt_no_records.setVisibility(View.GONE);
 
+                            rl_search.setVisibility(View.VISIBLE);
+
+                            rl_sort.setVisibility(View.VISIBLE);
+
+
+                            rlList.setOnClickListener(v -> {
+
+                                rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlGrid.setBackgroundResource(R.color.transparent);
+
+                                setlistView(prdouctsBeanList);
+                            });
+
+
+                            rlGrid.setOnClickListener(v -> {
+
+                                rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlList.setBackgroundResource(R.color.transparent);
+
+                                setGridView(prdouctsBeanList);
+                            });
+
                             setGridView(prdouctsBeanList);
+
+
                         }
 
                         else {
@@ -280,6 +299,10 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
             public void onFailure(@NonNull Call<ProductListResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
                 Log.w(TAG,"ProductListResponse flr"+t.getMessage());
+
+                txt_no_records.setVisibility(View.VISIBLE);
+
+                txt_no_records.setText(R.string.no_prod_found);
             }
         });
 
@@ -444,7 +467,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
                         Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         fetchallproductsListResponseCall();
 
@@ -531,6 +554,26 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(RetailerProductListBasedOnMakeActivity.this, ShowAllChildMakesActivity.class);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("model_id",model_id);
+
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("fromactivity",TAG);
+
+        context.startActivity(intent);
+
+        Animatoo.animateSwipeLeft(context);
+
+        finish();
     }
 
 }

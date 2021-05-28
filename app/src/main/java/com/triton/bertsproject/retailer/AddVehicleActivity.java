@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,9 +37,11 @@ import com.triton.bertsproject.utils.RestUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -80,7 +83,9 @@ public class AddVehicleActivity extends AppCompatActivity {
     @BindView(R.id.rl_model)
     RelativeLayout rl_model;
 
-
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_back)
+    ImageView img_back;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.btn_addVeh)
@@ -158,9 +163,24 @@ public class AddVehicleActivity extends AppCompatActivity {
 
         });
 
+        img_back.setOnClickListener(v -> {
+
+            onBackPressed();
+
+        });
+
+
         txt_toolbar_title.setText(R.string.add_vehicle);
 
     }
+
+    @Override
+    public void onBackPressed() {
+
+        callDirections("5");
+    }
+
+
 
     private void checkValidation() {
 
@@ -242,6 +262,8 @@ public class AddVehicleActivity extends AppCompatActivity {
                     if(200==response.body().getCode()) {
 
                         Log.w(TAG, "AddVehicleResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         callDirections("2");
 

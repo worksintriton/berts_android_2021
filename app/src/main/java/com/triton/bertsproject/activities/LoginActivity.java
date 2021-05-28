@@ -37,6 +37,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -90,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        txt_toolbar_title.setText(R.string.checkout_screen);
+        txt_toolbar_title.setText(R.string.login);
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -208,40 +209,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         Log.w(TAG, "LoginResponse" + new Gson().toJson(response.body()));
 
-//                        if(response.body().getData().getProfile().getCountry_id()!=null){
-//
-//                            cid = response.body().getData().getProfile().getCountry_id().toString();
-//
-//                        }
-//
-//                        else {
-//
-//                            cid="";
-//                        }
-//
-//                        if(response.body().getData().getProfile().getState_id()!=null){
-//
-//                            sid = response.body().getData().getProfile().getState_id().toString();
-//
-//                        }
-//
-//                        else {
-//
-//                            sid="";
-//                        }
-//
-//                        if(response.body().getData().getProfile().getState_id()!=null){
-//
-//                            String cid = response.body().getData().getProfile().getState_id().toString();
-//
-//                        }
-//
-//                        if(response.body().getData().getProfile().getCountry_id()!=null){
-//
-//                            String cid = response.body().getData().getProfile().getCountry_id().toString();
-//
-//                        }
-
                         SessionManager sessionManager = new SessionManager(LoginActivity.this);
                         sessionManager.setIsLogin(true);
                         sessionManager.createLoginSession(
@@ -257,6 +224,10 @@ public class LoginActivity extends AppCompatActivity {
                                 response.body().getData().getProfile().getRevenue()
 
                         );
+
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
 
                         startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
 

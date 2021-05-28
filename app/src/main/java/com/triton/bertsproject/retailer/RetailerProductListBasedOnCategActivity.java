@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -89,6 +91,14 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_productlist)
     RecyclerView rv_prodlist;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_search)
+    RelativeLayout rl_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_sort)
+    LinearLayout rl_sort;
 
     private final static String TAG = "RetailerProductListBasedOnCategActivity";
 
@@ -175,8 +185,6 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         }
 
-        spin_kit_loadingView.setVisibility(View.GONE);
-
         if(subcategname!=null&&!subcategname.isEmpty()){
 
             txt_toolbar_title.setText(subcategname);
@@ -185,29 +193,12 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RetailerProductListBasedOnCategActivity.this, RetailerDashboardActivity.class));
-
-            Animatoo.animateSwipeLeft(context);
+            onBackPressed();
         });
 
-        rlList.setOnClickListener(v -> {
+        rl_search.setVisibility(View.GONE);
 
-            rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-            rlGrid.setBackgroundResource(R.color.transparent);
-
-            setlistView(prdouctsBeanList);
-        });
-
-
-        rlGrid.setOnClickListener(v -> {
-
-            rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-            rlList.setBackgroundResource(R.color.transparent);
-
-            setGridView(prdouctsBeanList);
-        });
+        rl_sort.setVisibility(View.GONE);
 
 
     }
@@ -242,6 +233,31 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                             txt_no_records.setVisibility(View.GONE);
 
+                            rl_search.setVisibility(View.VISIBLE);
+
+                            rl_sort.setVisibility(View.VISIBLE);
+
+
+                            rlList.setOnClickListener(v -> {
+
+                                rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlGrid.setBackgroundResource(R.color.transparent);
+
+                                setlistView(prdouctsBeanList);
+                            });
+
+
+                            rlGrid.setOnClickListener(v -> {
+
+                                rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+                                rlList.setBackgroundResource(R.color.transparent);
+
+                                setGridView(prdouctsBeanList);
+                            });
+
+
                             setGridView(prdouctsBeanList);
                         }
 
@@ -273,6 +289,10 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
             public void onFailure(@NonNull Call<ProductListResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
                 Log.w(TAG,"ProductListResponse flr"+t.getMessage());
+
+                txt_no_records.setVisibility(View.VISIBLE);
+
+                txt_no_records.setText(R.string.no_prod_found);
             }
         });
 
@@ -437,7 +457,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                         Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 
-                        Toast.makeText(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
                         fetchallproductsListResponseCall();
 
@@ -524,6 +544,26 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(RetailerProductListBasedOnCategActivity.this, ShowAllChildCategActivity.class);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("fromactivity",TAG);
+
+        context.startActivity(intent);
+
+        Animatoo.animateSwipeLeft(context);
+
+        finish();
     }
 
 }

@@ -266,6 +266,10 @@
     <string name="brnd_dis_msg">No Brands Found</string>
     <string name="no_prod_found">No Products Found</string>
     <string name="edit_vehicle">Edit Vehicle</string>
+    <string name="city">City</string>
+    <string name="addressline1">Address Line 1</string>
+    <string name="addressline2">Address Line 2</string>
+    <string name="shipaddr_dzis_msg">No Address Found</string>
 
 
     <string-array name="array_name">
