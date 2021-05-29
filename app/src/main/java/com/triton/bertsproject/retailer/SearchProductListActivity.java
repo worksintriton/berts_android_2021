@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,17 +23,28 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.adapter.SearchFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchProductListAdapter;
+import com.triton.bertsproject.api.APIClient;
+import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.model.SearchFilterListModel;
 import com.triton.bertsproject.model.SearchProductlistModel;
+import com.triton.bertsproject.requestpojo.SearchProductsRequest;
+import com.triton.bertsproject.responsepojo.SearchProductsResponse;
+import com.triton.bertsproject.utils.GridSpacingItemDecoration;
+import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SearchProductListActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -69,6 +83,14 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     RecyclerView rv_searchprodlist;
 
     @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_no_records)
+    TextView txt_no_records;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_sort)
+    LinearLayout ll_sort;
+
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_sort_filter)
     RelativeLayout rl_sort_filter;
 
@@ -83,6 +105,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     List<SearchFilterListModel> searchFilterListModels;
 
     List<SearchProductlistModel> searchProductlistModels;
+
+    AlertDialog alertDialog;
+
+    List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,58 +151,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         });
 
-        setView();
-
     }
-
-    private void setView() {
-
-        searchFilterListModels = new ArrayList<>();
-
-        searchFilterListModels.add(new SearchFilterListModel("Most Popular"));
-
-        searchFilterListModels.add(new SearchFilterListModel("2018 A3 Audi Premium"));
-
-        searchFilterListModels.add(new SearchFilterListModel("Brakes & Suspension"));
-
-        rv_filterlist.setLayoutManager(new LinearLayoutManager(SearchProductListActivity.this, LinearLayoutManager.HORIZONTAL, false));
-
-        rv_filterlist.setMotionEventSplittingEnabled(false);
-
-        //int size =3;
-
-        rv_filterlist.setItemAnimator(new DefaultItemAnimator());
-
-        SearchFilterlistAdapter searchFilterlistAdapter = new SearchFilterlistAdapter(SearchProductListActivity.this, searchFilterListModels);
-
-        rv_filterlist.setAdapter(searchFilterlistAdapter);
-
-        /* **************************************************/
-
-        searchProductlistModels = new ArrayList<>();
-
-        searchProductlistModels.add(new SearchProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1));
-
-        searchProductlistModels.add(new SearchProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1));
-
-        searchProductlistModels.add(new SearchProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1));
-
-        searchProductlistModels.add(new SearchProductlistModel("Power Stop K5975 Front and Rear Z23 Evolution...","Part No: K5975","5","120","139.20",R.drawable.splist1));
-
-        rv_searchprodlist.setLayoutManager(new LinearLayoutManager(SearchProductListActivity.this, LinearLayoutManager.VERTICAL, false));
-
-        rv_searchprodlist.setMotionEventSplittingEnabled(false);
-
-        //int size =3;
-
-        rv_searchprodlist.setItemAnimator(new DefaultItemAnimator());
-
-        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, searchProductlistModels);
-
-        rv_searchprodlist.setAdapter(searchProductListAdapter);
-
-    }
-
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -243,5 +218,143 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         startActivity(new Intent(SearchProductListActivity.this, SearchProductsActivity.class));
 
         Animatoo.animateSwipeRight(context);
+    }
+
+
+    @SuppressLint("LongLogTag")
+    private void fetchallproductsListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<SearchProductsResponse> call = apiInterface.searchprodResponseCall(RestUtils.getContentType(),SearchProductsRequest());
+        Log.w(TAG,"SearchProductsResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<SearchProductsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<SearchProductsResponse> call, @NonNull Response<SearchProductsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"SearchProductsResponse" + new Gson().toJson(response.body()));
+
+                        prdouctsBeanList = response.body().getData().getPrdoucts();
+
+                        if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
+
+                            rv_searchprodlist.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setVisibility(View.GONE);
+
+                            ll_sort.setVisibility(View.VISIBLE);
+
+                            setGridView(prdouctsBeanList);
+                        }
+
+                        else {
+
+
+                            rv_searchprodlist.setVisibility(View.GONE);
+
+                            txt_no_records.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setText(R.string.no_prod_found);
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<SearchProductsResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"SearchProductsResponse flr"+t.getMessage());
+
+                txt_no_records.setText(R.string.no_prod_found);
+            }
+        });
+
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private SearchProductsRequest SearchProductsRequest() {
+
+
+        /**
+         * SEARCH_STRING : wheel
+         * USER_ID :
+         */
+
+        SearchProductsRequest SearchProductsRequest = new SearchProductsRequest();
+        SearchProductsRequest.setSEARCH_STRING("wheel");
+        SearchProductsRequest.setUSER_ID("541");
+
+        Log.w(TAG,"SearchProductsRequest "+ new Gson().toJson(SearchProductsRequest));
+        return SearchProductsRequest;
+    }
+
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(SearchProductListActivity.this);
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(SearchProductListActivity.this,SearchProductListActivity.class));
+            finish();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void setGridView(List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+
+
+        rv_searchprodlist.setLayoutManager(new LinearLayoutManager(SearchProductListActivity.this, LinearLayoutManager.VERTICAL, false));
+
+        rv_searchprodlist.setMotionEventSplittingEnabled(false);
+
+        //int size =3;
+
+        rv_searchprodlist.setItemAnimator(new DefaultItemAnimator());
+
+        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, prdouctsBeanList);
+
+        rv_searchprodlist.setAdapter(searchProductListAdapter);
+    }
+
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(SearchProductListActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
     }
 }

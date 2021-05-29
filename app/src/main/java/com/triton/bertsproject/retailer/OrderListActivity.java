@@ -41,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -97,6 +98,8 @@ public class OrderListActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
+    DD4YouConfig dd4YouConfig;
+
     String user_id;
 
     @Override
@@ -112,7 +115,6 @@ public class OrderListActivity extends AppCompatActivity {
         if (extras != null) {
             fromactivity = extras.getString("fromactivity");
         }
-        spin_kit_loadingView.setVisibility(View.GONE);
         tag = getIntent().getStringExtra("tag");
         Log.w(TAG, " tag : " + this.tag);
 
@@ -120,9 +122,9 @@ public class OrderListActivity extends AppCompatActivity {
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
-//        user_id = user.get(SessionManager.KEY_ID);
+     //   user_id = user.get(SessionManager.KEY_ID);
 
-        user_id  = "1";
+        user_id  = "541";
 
         img_back.setOnClickListener(v -> {
 
@@ -131,6 +133,20 @@ public class OrderListActivity extends AppCompatActivity {
             Animatoo.animateSwipeRight(context);
 
         });
+
+        dd4YouConfig = new DD4YouConfig(this);
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            ShowOrderlistResponseCall();
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
 
     }
 

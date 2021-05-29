@@ -29,8 +29,11 @@ import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
+import java.util.HashMap;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,6 +63,11 @@ public class CheckoutScreenActivity extends AppCompatActivity {
     AlertDialog alertDialog;
 
 
+    SessionManager sessionManager;
+
+    String user_id;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,27 +75,22 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        txt_toolbar_title.setText(R.string.login);
-
-        spin_kit_loadingView.setVisibility(View.GONE);
+        txt_toolbar_title.setText(R.string.checkout_screen);
 
         Log.w("Oncreate", TAG);
 
         dd4YouConfig = new DD4YouConfig(this);
 
+        sessionManager = new SessionManager(this);
+
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        user_id = user.get(SessionManager.KEY_ID);
+
         ll_proceed.setOnClickListener(v -> {
 
-            if (dd4YouConfig.isInternetConnectivity()) {
+            startActivity(new Intent(CheckoutScreenActivity.this, OrderListActivity.class));
 
-                OrderCreateResponseCall();
-
-            }
-
-            else
-            {
-                callnointernet();
-
-            }
         });
 
     }
@@ -125,7 +128,10 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                         Log.w(TAG, "OrderCreateResponse" + new Gson().toJson(response.body()));
 
-                        startActivity(new Intent(CheckoutScreenActivity.this, RetailerDashboardActivity.class));
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                        startActivity(new Intent(CheckoutScreenActivity.this, OrderListActivity.class));
+
 
                     }
 
@@ -164,7 +170,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
         OrderCreateRequest OrderCreateRequest = new OrderCreateRequest();
         OrderCreateRequest.setMODE("SAVE");
-        OrderCreateRequest.setUSER_ID("541");
+        OrderCreateRequest.setUSER_ID(user_id);
         OrderCreateRequest.setADDRESS_ID("351");
         OrderCreateRequest.setPAYMENT_METHOD("Offline Payment");
 

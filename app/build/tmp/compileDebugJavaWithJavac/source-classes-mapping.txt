@@ -10,10 +10,8 @@ com/triton/bertsproject/requestpojo/GetStateRequest.java
  com.triton.bertsproject.requestpojo.GetStateRequest
 com/triton/bertsproject/retailer/RetailerSetttingsActivity.java
  com.triton.bertsproject.retailer.RetailerSetttingsActivity
-com/triton/bertsproject/retailerfragment/ProfileFragment.java
- com.triton.bertsproject.retailerfragment.ProfileFragment
- com.triton.bertsproject.retailerfragment.ProfileFragment$1
- com.triton.bertsproject.retailerfragment.ProfileFragment$2
+com/triton/bertsproject/retailer/RetailerCartActivity.java
+ com.triton.bertsproject.retailer.RetailerCartActivity
 com/triton/bertsproject/responsepojo/ProductListResponse.java
  com.triton.bertsproject.responsepojo.ProductListResponse
  com.triton.bertsproject.responsepojo.ProductListResponse$DataBean
@@ -69,6 +67,7 @@ com/triton/bertsproject/responsepojo/ShowOrderlistResponse.java
 com/triton/bertsproject/adapter/RetailerProductListAdapter.java
  com.triton.bertsproject.adapter.RetailerProductListAdapter
  com.triton.bertsproject.adapter.RetailerProductListAdapter$1
+ com.triton.bertsproject.adapter.RetailerProductListAdapter$2
  com.triton.bertsproject.adapter.RetailerProductListAdapter$ShoplistHolder
 com/triton/bertsproject/responsepojo/DeleteVehicleResponse.java
  com.triton.bertsproject.responsepojo.DeleteVehicleResponse
@@ -81,8 +80,9 @@ com/triton/bertsproject/responsepojo/SignupResponse.java
 com/triton/bertsproject/adapter/BrandListAdapter.java
  com.triton.bertsproject.adapter.BrandListAdapter
  com.triton.bertsproject.adapter.BrandListAdapter$ShoplistHolder
-com/triton/bertsproject/interfaces/WishlistAddProductListener.java
- com.triton.bertsproject.interfaces.WishlistAddProductListener
+com/triton/bertsproject/adapter/SearchProductListAdapter.java
+ com.triton.bertsproject.adapter.SearchProductListAdapter
+ com.triton.bertsproject.adapter.SearchProductListAdapter$ShoplistHolder
 com/triton/bertsproject/utils/GridSpacingItemDecoration.java
  com.triton.bertsproject.utils.GridSpacingItemDecoration
 com/triton/bertsproject/retailer/RetailerAllCategoriesActivity.java
@@ -125,8 +125,8 @@ com/triton/bertsproject/responsepojo/GetCountryResponse.java
  com.triton.bertsproject.responsepojo.GetCountryResponse
  com.triton.bertsproject.responsepojo.GetCountryResponse$DataBean
  com.triton.bertsproject.responsepojo.GetCountryResponse$DataBean$CountriesBean
-com/triton/bertsproject/sessionmanager/SessionManager.java
- com.triton.bertsproject.sessionmanager.SessionManager
+com/triton/bertsproject/interfaces/WishlistAddProductListener.java
+ com.triton.bertsproject.interfaces.WishlistAddProductListener
 com/triton/bertsproject/responsepojo/FetchAllBrandsResponse.java
  com.triton.bertsproject.responsepojo.FetchAllBrandsResponse
  com.triton.bertsproject.responsepojo.FetchAllBrandsResponse$DataBean
@@ -299,9 +299,9 @@ com/triton/bertsproject/retailerfragment/MyGarageFragment.java
 com/triton/bertsproject/adapter/ThreeLevelListAdapter.java
  com.triton.bertsproject.adapter.ThreeLevelListAdapter
  com.triton.bertsproject.adapter.ThreeLevelListAdapter$1
-com/triton/bertsproject/retailer/CheckoutScreenActivity.java
- com.triton.bertsproject.retailer.CheckoutScreenActivity
- com.triton.bertsproject.retailer.CheckoutScreenActivity$1
+com/triton/bertsproject/adapter/FilterColorlistAdapter.java
+ com.triton.bertsproject.adapter.FilterColorlistAdapter
+ com.triton.bertsproject.adapter.FilterColorlistAdapter$FilterlistHolder
 com/triton/bertsproject/requestpojo/FetchChildMakeslistRequest.java
  com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest
 com/triton/bertsproject/retailer/RetailerOrderTrackActivity.java
@@ -343,9 +343,8 @@ com/triton/bertsproject/retailer/RetailerProductListBasedOnMakeActivity.java
 com/triton/bertsproject/retailer/ShowAllChildCategActivity.java
  com.triton.bertsproject.retailer.ShowAllChildCategActivity
  com.triton.bertsproject.retailer.ShowAllChildCategActivity$1
-com/triton/bertsproject/adapter/FilterColorlistAdapter.java
- com.triton.bertsproject.adapter.FilterColorlistAdapter
- com.triton.bertsproject.adapter.FilterColorlistAdapter$FilterlistHolder
+com/triton/bertsproject/retailer/ProductDetailDescriptionActivity.java
+ com.triton.bertsproject.retailer.ProductDetailDescriptionActivity
 com/triton/bertsproject/requestpojo/ShowWishistRequest.java
  com.triton.bertsproject.requestpojo.ShowWishistRequest
 com/triton/bertsproject/responsepojo/UserAddressListResponse.java
@@ -354,8 +353,11 @@ com/triton/bertsproject/responsepojo/UserAddressListResponse.java
  com.triton.bertsproject.responsepojo.UserAddressListResponse$DataBean$AddressBean
 com/triton/bertsproject/retailer/ChangePasswordActivity.java
  com.triton.bertsproject.retailer.ChangePasswordActivity
-com/triton/bertsproject/requestpojo/EditVehicleRequest.java
- com.triton.bertsproject.requestpojo.EditVehicleRequest
+com/triton/bertsproject/retailer/ShippingAddressActivity.java
+ com.triton.bertsproject.retailer.ShippingAddressActivity
+ com.triton.bertsproject.retailer.ShippingAddressActivity$1
+ com.triton.bertsproject.retailer.ShippingAddressActivity$2
+ com.triton.bertsproject.retailer.ShippingAddressActivity$3
 com/triton/bertsproject/requestpojo/SetDefaultVehicleRequest.java
  com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest
 com/triton/bertsproject/responsepojo/UpdateProfileResponse.java
@@ -382,12 +384,11 @@ com/triton/bertsproject/retailer/AddVehicleActivity.java
  com.triton.bertsproject.retailer.AddVehicleActivity$7
 com/triton/bertsproject/adapter/CartProductListAdapter.java
  com.triton.bertsproject.adapter.CartProductListAdapter
- com.triton.bertsproject.adapter.CartProductListAdapter$1
  com.triton.bertsproject.adapter.CartProductListAdapter$ShoplistHolder
 com/triton/bertsproject/requestpojo/ForgotPasswordRequest.java
  com.triton.bertsproject.requestpojo.ForgotPasswordRequest
-com/triton/bertsproject/utils/RestUtils.java
- com.triton.bertsproject.utils.RestUtils
+com/triton/bertsproject/retailerfragment/HomeFragment.java
+ com.triton.bertsproject.retailerfragment.HomeFragment
 com/triton/bertsproject/retailer/ShowAllChildMakesActivity.java
  com.triton.bertsproject.retailer.ShowAllChildMakesActivity
  com.triton.bertsproject.retailer.ShowAllChildMakesActivity$1
@@ -405,24 +406,19 @@ com/triton/bertsproject/activities/ForgetPasswordActivity.java
  com.triton.bertsproject.activities.ForgetPasswordActivity$1
 com/triton/bertsproject/adapter/RegisterFragmentPagerAdapter.java
  com.triton.bertsproject.adapter.RegisterFragmentPagerAdapter
-com/triton/bertsproject/adapter/SearchProductListAdapter.java
- com.triton.bertsproject.adapter.SearchProductListAdapter
- com.triton.bertsproject.adapter.SearchProductListAdapter$ShoplistHolder
+com/triton/bertsproject/requestpojo/EditVehicleRequest.java
+ com.triton.bertsproject.requestpojo.EditVehicleRequest
+com/triton/bertsproject/sessionmanager/SessionManager.java
+ com.triton.bertsproject.sessionmanager.SessionManager
+com/triton/bertsproject/utils/RestUtils.java
+ com.triton.bertsproject.utils.RestUtils
 com/triton/bertsproject/retailer/OrderListActivity.java
  com.triton.bertsproject.retailer.OrderListActivity
  com.triton.bertsproject.retailer.OrderListActivity$1
-com/triton/bertsproject/retailer/ProductDetailDescriptionActivity.java
- com.triton.bertsproject.retailer.ProductDetailDescriptionActivity
-com/triton/bertsproject/retailerfragment/HomeFragment.java
- com.triton.bertsproject.retailerfragment.HomeFragment
-com/triton/bertsproject/retailer/RetailerCartActivity.java
- com.triton.bertsproject.retailer.RetailerCartActivity
- com.triton.bertsproject.retailer.RetailerCartActivity$1
- com.triton.bertsproject.retailer.RetailerCartActivity$2
- com.triton.bertsproject.retailer.RetailerCartActivity$3
- com.triton.bertsproject.retailer.RetailerCartActivity$4
-com/triton/bertsproject/retailer/ShippingAddressActivity.java
- com.triton.bertsproject.retailer.ShippingAddressActivity
- com.triton.bertsproject.retailer.ShippingAddressActivity$1
- com.triton.bertsproject.retailer.ShippingAddressActivity$2
- com.triton.bertsproject.retailer.ShippingAddressActivity$3
+com/triton/bertsproject/retailerfragment/ProfileFragment.java
+ com.triton.bertsproject.retailerfragment.ProfileFragment
+ com.triton.bertsproject.retailerfragment.ProfileFragment$1
+ com.triton.bertsproject.retailerfragment.ProfileFragment$2
+com/triton/bertsproject/retailer/CheckoutScreenActivity.java
+ com.triton.bertsproject.retailer.CheckoutScreenActivity
+ com.triton.bertsproject.retailer.CheckoutScreenActivity$1

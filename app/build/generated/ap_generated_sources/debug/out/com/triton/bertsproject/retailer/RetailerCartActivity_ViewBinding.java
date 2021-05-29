@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
-import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
@@ -35,11 +34,8 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
     target.ll_proceed = Utils.findRequiredViewAsType(source, R.id.ll_proceed, "field 'll_proceed'", LinearLayout.class);
-    target.cv_shippingaddr = Utils.findRequiredViewAsType(source, R.id.cv_shippingaddr, "field 'cv_shippingaddr'", CardView.class);
-    target.cv_shippingcharg = Utils.findRequiredViewAsType(source, R.id.cv_shippingcharg, "field 'cv_shippingcharg'", CardView.class);
     target.txt_deliveryaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddrchange, "field 'txt_deliveryaddrchange'", TextView.class);
     target.txt_shipaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_shipaddrchange, "field 'txt_shipaddrchange'", TextView.class);
-    target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
   }
 
   @Override
@@ -55,10 +51,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;
     target.ll_proceed = null;
-    target.cv_shippingaddr = null;
-    target.cv_shippingcharg = null;
     target.txt_deliveryaddrchange = null;
     target.txt_shipaddrchange = null;
-    target.txt_no_records = null;
   }
 }
