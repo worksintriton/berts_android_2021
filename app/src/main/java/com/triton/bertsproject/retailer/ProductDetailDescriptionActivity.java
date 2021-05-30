@@ -206,7 +206,12 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
+    String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
 
+
+
+
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -220,11 +225,33 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         if (extras != null) {
 
-            fromactivity = extras.getString("fromactivity");
+            fromactivity = extras.getString("fromActivity");
 
             prod_id = extras.getString("prod_id");
 
             prod_name = extras.getString("prod_name");
+
+            brand_id = extras.getString("brand_id");
+
+            brand_name = extras.getString("brand_name");
+
+            parent_id = extras.getString("parent_id");
+
+            subcategid = extras.getString("subcategid");
+
+            subcategname = extras.getString("subcategname");
+
+            make_id = extras.getString("make_id");
+
+            model_id = extras.getString("model_id");
+
+            model_name = extras.getString("model_name");
+
+            Log.w(TAG,"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+
+                    + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
+
+                    + "model_name : "+model_name);
 
         }
 
@@ -328,6 +355,68 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+        if(fromactivity.equals("RetailerProductListActivity")){
+
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListActivity.class);
+
+            intent.putExtra("brand_id",brand_id);
+
+            intent.putExtra("brand_name",brand_name);
+
+            intent.putExtra("prod_id",prod_id);
+
+            intent.putExtra("prod_name",prod_name);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+
+
+        }
+
+        else if(fromactivity.equals("RetailerProductListBasedOnCategActivity")){
+
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnCategActivity.class);
+
+            intent.putExtra("parent_id",parent_id);
+
+            intent.putExtra("subcategid",subcategid);
+
+            intent.putExtra("subcategname",subcategname);
+
+            intent.putExtra("prod_id",prod_id);
+
+            intent.putExtra("prod_name",prod_name);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+
+
+        }
+
+        else if(fromactivity.equals("RetailerProductListBasedOnMakeActivity")){
+
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnMakeActivity.class);
+
+            intent.putExtra("make_id",make_id);
+
+            intent.putExtra("model_id", model_id);
+
+            intent.putExtra("model_id",model_name);
+
+            intent.putExtra("prod_id",prod_id);
+
+            intent.putExtra("prod_name",prod_name);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+
+
+        }
+
 
         Intent intent = new Intent(ProductDetailDescriptionActivity.this, ShowAllBrandsActivity.class);
 

@@ -28,6 +28,7 @@ import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.ProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
@@ -53,7 +54,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 @SuppressLint("LongLogTag")
-public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity implements WishlistAddProductListener {
+public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity implements WishlistAddProductListener, ProductListener {
 
     Context context = RetailerProductListBasedOnMakeActivity.this;
 
@@ -101,7 +102,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
     @BindView(R.id.rl_sort)
     LinearLayout rl_sort;
 
-    private final static String TAG = "RetailerProductListActivity";
+    private final static String TAG = "RetailerProductListBasedOnMakeActivity";
 
     String fromactivity;
 
@@ -364,7 +365,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListBasedOnMakeActivity.this, prdouctsBeanList, false,this);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListBasedOnMakeActivity.this, prdouctsBeanList, false,this,this);
 
         rv_prodlist.setAdapter(retailerProductListAdapter);
 
@@ -438,7 +439,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListBasedOnMakeActivity.this, prdouctsBeanList,true,this);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListBasedOnMakeActivity.this, prdouctsBeanList,true,this,this);
 
         rv_prodlist.setAdapter(retailerProductListAdapter);
 
@@ -576,4 +577,24 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
         finish();
     }
 
+    @Override
+    public void productListener(String prod_id, String prod_name) {
+
+        Intent intent = new Intent(RetailerProductListBasedOnMakeActivity.this,ProductDetailDescriptionActivity.class);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_id",model_name);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
+    }
 }

@@ -1,7 +1,9 @@
 package com.triton.bertsproject.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.ProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
@@ -30,12 +33,17 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     View view;
     boolean check;
     WishlistAddProductListener wishlistAddProductListener;
+    ProductListener productListener;
 
-    public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener) {
+    private final static String TAG = "RetailerProductListAdapter";
+
+
+    public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener, ProductListener productListener) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
         this.check = check;
         this.wishlistAddProductListener=wishlistAddProductListener;
+        this.productListener = productListener;
 
     }
 
@@ -57,6 +65,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
         return new ShoplistHolder(view);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
@@ -163,9 +172,42 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             @Override
             public void onClick(View v) {
 
-                context.startActivity(new Intent(context, ProductDetailDescriptionActivity.class));
+                productListener.productListener(prdouctsBean.getId(),prdouctsBean.getTitle());
             }
         });
+
+        Log.w(TAG,"rating : "+ prdouctsBean.getRating());
+        if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("1")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("2")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("3")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("4")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("5")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_filled);
+        }
 
     }
 
@@ -179,7 +221,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
         TextView txt_product_name, txt_parts_name,txt_total_reviews,txt_price,txt_stock_status;
   //      RatingBar ratingBar;
         LinearLayout ll_product_status;
-
+        public ImageView hand_img1,hand_img2,hand_img3,hand_img4,hand_img5;
         CardView cv_root;
 
         public ShoplistHolder(View itemView) {
@@ -194,6 +236,13 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             cv_root = itemView.findViewById(R.id.cv_root);
 
 //            ratingBar = itemView.findViewById(R.id.ratingBar);
+
+            hand_img1 = itemView.findViewById(R.id.hand_img1);
+            hand_img2 = itemView.findViewById(R.id.hand_img2);
+            hand_img3 = itemView.findViewById(R.id.hand_img3);
+            hand_img4 = itemView.findViewById(R.id.hand_img4);
+            hand_img5 = itemView.findViewById(R.id.hand_img5);
+
 
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
 

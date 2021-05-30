@@ -31,6 +31,7 @@ import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.ProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
@@ -59,7 +60,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RetailerProductListActivity extends AppCompatActivity implements WishlistAddProductListener {
+public class RetailerProductListActivity extends AppCompatActivity implements WishlistAddProductListener, ProductListener {
 
     Context context = RetailerProductListActivity.this;
 
@@ -365,7 +366,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList, false,this);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList, false,this,this);
 
         rv_prodlist.setAdapter(retailerProductListAdapter);
 
@@ -439,7 +440,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
         rv_prodlist.setItemAnimator(new DefaultItemAnimator());
 
-        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList,true,this);
+        RetailerProductListAdapter retailerProductListAdapter = new RetailerProductListAdapter(RetailerProductListActivity.this, prdouctsBeanList,true,this,this);
 
         rv_prodlist.setAdapter(retailerProductListAdapter);
 
@@ -555,5 +556,24 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void productListener(String prod_id, String prod_name) {
+
+        Intent intent = new Intent(RetailerProductListActivity.this,ProductDetailDescriptionActivity.class);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
     }
 }
