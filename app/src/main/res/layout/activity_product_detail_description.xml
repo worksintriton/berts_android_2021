@@ -132,6 +132,7 @@
                         android:textSize="@dimen/_14sp" />
 
                     <RelativeLayout
+                        android:id="@+id/rl_star"
                         android:layout_width="@dimen/_0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
@@ -166,12 +167,42 @@
                     </RelativeLayout>
                 </LinearLayout>
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="9dp"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/pager"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_150dp" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabDots"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:tabBackground="@drawable/tab_selector"
+                            app:tabGravity="center"
+                            app:tabIndicatorHeight="0dp" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
                 <RelativeLayout
                     android:layout_width="@dimen/_200dp"
                     android:layout_height="@dimen/_150dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_10dp"
-                    android:background="@drawable/rectangle_corner_solid_white_background">
+                    android:background="@drawable/rectangle_corner_solid_white_background"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/img_product_image2"
@@ -188,7 +219,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/img_indi1"
@@ -252,6 +284,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/ll_add_minus"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
@@ -316,6 +349,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_text_fit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
@@ -347,6 +381,7 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_prod_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
@@ -413,6 +448,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_prod_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
@@ -606,9 +642,11 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_vehicle_fit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
+                    android:visibility="gone"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp">
 
@@ -820,15 +858,16 @@
                         </LinearLayout>
 
 
-
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_quest_ans"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
+                    android:visibility="gone"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_10dp">
 
@@ -840,10 +879,10 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10dp"
-                            android:orientation="horizontal"
                             android:layout_marginStart="@dimen/_10dp"
+                            android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
+                            android:orientation="horizontal"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1023,6 +1062,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_star_review"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
@@ -1073,6 +1113,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/ll_star_review"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10dp"
@@ -1129,6 +1170,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1180,6 +1222,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1230,6 +1273,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1282,6 +1326,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1315,13 +1360,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/_10dp"
+                                android:layout_marginEnd="@dimen/_10dp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/lato_bold"
                                 android:gravity="end"
                                 android:text="@string/_20"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
-                                android:layout_marginEnd="@dimen/_10dp" />
+                                android:textSize="@dimen/_16sp" />
 
 
                         </LinearLayout>
@@ -1333,6 +1378,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
+                            android:visibility="gone"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1380,29 +1426,43 @@
                             android:id="@+id/btn_sigin_with_facebook"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10dp"
                             android:background="@drawable/rectangle_corner_blue_background"
                             android:fontFamily="@font/lato_bold"
+                            android:gravity="center"
                             android:text="@string/write_a_review"
-                            android:textAllCaps="false"
-                            android:layout_margin="@dimen/_10dp"
                             android:textAlignment="center"
+                            android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_14sp"
-                            android:gravity="center" />
+                            android:visibility="gone" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_review_ratings"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <View
+                            android:id="@+id/view11"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="@dimen/_10dp"
+                            android:background="@color/stroke_color" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10dp"
                             android:background="@drawable/rectangle_corner_white_grey_background"
-                            android:padding="@dimen/margin_common">
+                            android:padding="@dimen/margin_common"
+                            android:visibility="gone">
 
                             <Spinner
                                 android:id="@+id/sp_filter"
-                                android:entries="@array/array_filter"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@android:color/transparent" />
+                                android:background="@android:color/transparent"
+                                android:entries="@array/array_filter" />
 
                             <ImageView
                                 android:layout_width="@dimen/_24dp"
@@ -1415,42 +1475,6 @@
 
                         </RelativeLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            tools:ignore="UseCompoundDrawables">
-
-
-
-                            <ImageView
-                                android:id="@+id/img_individual_star"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_10dp"
-                                android:layout_marginTop="@dimen/_10dp"
-                                android:contentDescription="@string/image_description"
-                                app:srcCompat="@drawable/star_rating" />
-
-                            <TextView
-                                android:id="@+id/txt_user_reviews"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_10dp"
-                                android:layout_marginTop="@dimen/_10dp"
-                                android:fontFamily="@font/lato_regular"
-                                android:text="@string/fits_great_stops_great_will_definitely_recommend_family_and_friends"
-                                android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
-                        </LinearLayout>
-
-                        <View
-                            android:id="@+id/view11"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="@dimen/_10dp"
-                            android:background="@color/stroke_color" />
-
 
                     </LinearLayout>
 
@@ -1461,18 +1485,20 @@
                     android:id="@+id/txt_relatedProd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_bold"
                     android:layout_marginTop="@dimen/_20dp"
-                    android:textAllCaps="true"
+                    android:fontFamily="@font/lato_bold"
                     android:text="@string/related_products"
+                    android:textAllCaps="true"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    android:textSize="@dimen/_16sp"
+                    android:visibility="gone" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
                     android:layout_marginBottom="@dimen/_20dp"
+                    android:visibility="gone"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_5dp"
                     app:cardElevation="@dimen/_10dp"

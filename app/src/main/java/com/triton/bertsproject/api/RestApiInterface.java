@@ -19,6 +19,7 @@ import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
 import com.triton.bertsproject.requestpojo.GetStateRequest;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.OrderCreateRequest;
+import com.triton.bertsproject.requestpojo.ProductDetailRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest;
@@ -47,6 +48,7 @@ import com.triton.bertsproject.responsepojo.GetCountryResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
+import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.responsepojo.SetDefaultVehicleResponse;
@@ -197,5 +199,10 @@ public interface RestApiInterface {
     /*delete address list*/
     @POST("product/search")
     Call<SearchProductsResponse> searchprodResponseCall(@Header("Content-Type") String type, @Body SearchProductsRequest searchProductsRequest);
+
+    /*Fetch Product based on Make*/
+    @POST("product")
+    Call<ProductDetailRespone> fetchproductdetailsResponseCall(@Header("Content-Type") String type, @Body ProductDetailRequest productDetailRequest);
+
 
 }
