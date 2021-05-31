@@ -115,8 +115,11 @@ public class WholeSalerRegisterFragment extends Fragment {
 
     HashMap<String, String> hashMap_Stateid = new HashMap<>();
 
-    public WholeSalerRegisterFragment() {
+    String fromActivity;
+
+    public WholeSalerRegisterFragment(String fromActivity) {
         // Required empty public constructor
+        this.fromActivity = fromActivity;
     }
 
     @Override

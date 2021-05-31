@@ -550,12 +550,32 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
         builder.setMessage("Please Login add Products in wishlist");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
-            startActivity(new Intent(RetailerProductListBasedOnMakeActivity.this, LoginActivity.class));
-            finish();
+
+            gotoLogin();
+            
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    private void gotoLogin() {
+
+        Intent intent = new Intent(RetailerProductListBasedOnMakeActivity.this,LoginActivity.class);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_id",model_name);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
+        finish();
+
+    }
+
 
     @Override
     public void onBackPressed() {

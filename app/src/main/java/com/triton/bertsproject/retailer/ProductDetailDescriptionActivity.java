@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
@@ -83,6 +85,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_parts_no)
     TextView txt_parts_no;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_star)
+    RelativeLayout rl_star;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_total_reviews)
@@ -181,7 +187,45 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 3000;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img1)
+    ImageView hand_img1;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img2)
+    ImageView hand_img2;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img3)
+    ImageView hand_img3;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img4)
+    ImageView hand_img4;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img5)
+    ImageView hand_img5;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img11)
+    ImageView hand_img11;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img21)
+    ImageView hand_img21;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img31)
+    ImageView hand_img31;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img41)
+    ImageView hand_img41;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.hand_img51)
+    ImageView hand_img51;
     String fromactivity;
 
     ProductDetailRespone.DataBean dataBeanList;
@@ -190,7 +234,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     List<ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean> reviewsDetailsBeanList ;
 
-    List<String> imageList;
+    List<String> imageList = new ArrayList();
 
     String prod_id,prod_name;
 
@@ -281,26 +325,11 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         }
 
-        if (dd4YouConfig.isInternetConnectivity()) {
-
-            fetchallproductsListResponseCall();
-
-        }
-
-        else
-        {
-            callnointernet();
-
-        }
-
-        img_back.setOnClickListener(v -> {
-
-            onBackPressed();
-        });
-
         txt_product_name.setVisibility(View.GONE);
 
         txt_parts_no.setVisibility(View.GONE);
+
+        rl_star.setVisibility(View.GONE);
 
         txt_total_reviews.setVisibility(View.GONE);
 
@@ -347,6 +376,23 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         viewPager.setVisibility(View.GONE);
 
         tabLayout.setVisibility(View.GONE);
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallproductsListResponseCall();
+
+        }
+
+        else
+        {
+            callnointernet();
+
+        }
+
+        img_back.setOnClickListener(v -> {
+
+            onBackPressed();
+        });
 
 
         btn_addcart.setOnClickListener(v -> startActivity(new Intent(ProductDetailDescriptionActivity.this,RetailerCartActivity.class)));
@@ -417,17 +463,6 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         }
 
-
-        Intent intent = new Intent(ProductDetailDescriptionActivity.this, ShowAllBrandsActivity.class);
-
-        intent.putExtra("fromactivity",TAG);
-
-        context.startActivity(intent);
-
-        Animatoo.animateSwipeLeft(context);
-
-        finish();
-
     }
 
 
@@ -453,6 +488,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                         Log.w(TAG,"ProductDetailRespone" + new Gson().toJson(response.body()));
 
                         prdouctsBeanList = response.body().getData().getPrdoucts();
+
+                        Log.w(TAG,"prdouctsBeanList" + new Gson().toJson(prdouctsBeanList));
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
@@ -519,11 +556,14 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @SuppressLint("LongLogTag")
     private void setView(List<ProductDetailRespone.DataBean.PrdouctsBean> prdouctsBeanList) {
 
         txt_product_name.setVisibility(VISIBLE);
 
         txt_parts_no.setVisibility(VISIBLE);
+
+        rl_star.setVisibility(VISIBLE);
 
         txt_total_reviews.setVisibility(VISIBLE);
 
@@ -543,19 +583,19 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         txt_prod_desc.setVisibility(VISIBLE);
 
-//        txt_manufacturer.setVisibility(VISIBLE);
-//
-//        txt_brand.setVisibility(VISIBLE);
-//
-//        txt_model.setVisibility(VISIBLE);
-//
-//        txt_weight.setVisibility(VISIBLE);
-//
-//        txt_dimen.setVisibility(VISIBLE);
-//
-//        cv_vehicle_fit.setVisibility(View.GONE);
-//
-//        cv_quest_ans.setVisibility(View.GONE);
+        txt_manufacturer.setVisibility(VISIBLE);
+
+        txt_brand.setVisibility(VISIBLE);
+
+        txt_model.setVisibility(VISIBLE);
+
+        txt_weight.setVisibility(VISIBLE);
+
+        txt_dimen.setVisibility(VISIBLE);
+
+        cv_vehicle_fit.setVisibility(View.GONE);
+
+        cv_quest_ans.setVisibility(View.GONE);
 
         cv_star_review.setVisibility(VISIBLE);
 
@@ -571,28 +611,74 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         tabLayout.setVisibility(VISIBLE);
 
-        if(dataBeanList.getPrdoucts().get(0).getTitle()!=null&&!dataBeanList.getPrdoucts().get(0).getTitle().isEmpty()) {
+        if(prdouctsBeanList.get(0).getTitle()!=null&&!prdouctsBeanList.get(0).getTitle().isEmpty()) {
 
-            txt_product_name.setText(dataBeanList.getPrdoucts().get(0).getTitle());
+            txt_product_name.setText(prdouctsBeanList.get(0).getTitle());
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getPart_number()!=null&&!dataBeanList.getPrdoucts().get(0).getPart_number().isEmpty()){
+        if(prdouctsBeanList.get(0).getPart_number()!=null&&!prdouctsBeanList.get(0).getPart_number().isEmpty()){
 
-            txt_parts_no.setText(dataBeanList.getPrdoucts().get(0).getPart_number());
+            txt_parts_no.setText("Part No: "+prdouctsBeanList.get(0).getPart_number());
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getReviews_ratings()!=0){
+        Log.w(TAG,"prdouctsBeanList getRating" + prdouctsBeanList.get(0).getRating());
 
-            txt_total_reviews.setText("( "+dataBeanList.getPrdoucts().get(0).getReviews_ratings()+ " Reviews)");
+        int starcount = Integer.parseInt(prdouctsBeanList.get(0).getRating());
+
+        if(starcount == 1){
+            hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(starcount == 2){
+            hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(starcount == 3){
+            hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(starcount == 4){
+            hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(starcount == 5){
+            hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_filled);
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getImages()!=null&&!dataBeanList.getPrdoucts().get(0).getImages().isEmpty()){
 
-            if(dataBeanList.getPrdoucts().get(0).getImages().size()>0){
+        Log.w(TAG,"prdouctsBeanList getReviews_ratings" + prdouctsBeanList.get(0).getReviews_ratings());
 
-                for(int i = 0; i<= dataBeanList.getPrdoucts().get(0).getImages().size();i++){
+        if(prdouctsBeanList.get(0).getReviews_ratings()!=0){
 
-                    imageList.add(dataBeanList.getPrdoucts().get(0).getImages().get(i).getImage_default());
+            txt_total_reviews.setText("( "+prdouctsBeanList.get(0).getReviews_ratings()+ " Reviews)");
+        }
+
+        else {
+
+            txt_total_reviews.setText("( "+0+ " Reviews)");
+        }
+
+        Log.w(TAG,"prdouctsBeanList getImages" + new Gson().toJson(prdouctsBeanList.get(0).getImages()));
+
+        if(prdouctsBeanList.get(0).getImages()!=null&&!prdouctsBeanList.get(0).getImages().isEmpty()){
+
+            if(prdouctsBeanList.get(0).getImages().size()>0){
+
+                for(int i = 0; i<prdouctsBeanList.get(0).getImages().size();i++){
+
+                    imageList.add(prdouctsBeanList.get(0).getImages().get(i).getImage_default());
                 }
             }
         }
@@ -602,37 +688,90 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             viewpageData(imageList);
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getPrice()!=null&&!dataBeanList.getPrdoucts().get(0).getPrice().isEmpty()){
+        if(prdouctsBeanList.get(0).getPrice()!=null&&!prdouctsBeanList.get(0).getPrice().isEmpty()){
 
-            txt_price.setText(dataBeanList.getPrdoucts().get(0).getPart_number());
+            txt_price.setText("$ "+prdouctsBeanList.get(0).getPrice());
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getDescription()!=null&&!dataBeanList.getPrdoucts().get(0).getDescription().isEmpty()){
+        if(prdouctsBeanList.get(0).getDescription()!=null&&!prdouctsBeanList.get(0).getDescription().isEmpty()){
 
-            txt_prod_desc.setText(dataBeanList.getPrdoucts().get(0).getDescription());
+            txt_prod_desc.setText(prdouctsBeanList.get(0).getDescription());
         }
 
-//        if(dataBeanList.getPrdoucts().get(0).getBrand_id()!=null&&!dataBeanList.getPrdoucts().get(0).getDescription().isEmpty()){
+//        if(prdouctsBeanList.get(0).getBrand_id()!=null&&!prdouctsBeanList.get(0).getDescription().isEmpty()){
 //
-//            txt_brand.setText(dataBeanList.getPrdoucts().get(0).getDescription());
+//            txt_brand.setText(prdouctsBeanList.get(0).getDescription());
 //        }
 
-        if(dataBeanList.getPrdoucts().get(0).getWeight()!=null&&!dataBeanList.getPrdoucts().get(0).getWeight().isEmpty()){
+        Log.w(TAG,"prdouctsBeanList getWeight" + prdouctsBeanList.get(0).getWeight());
 
-            txt_weight.setText("( "+dataBeanList.getPrdoucts().get(0).getWeight() + " ) pounds");
+        if(prdouctsBeanList.get(0).getWeight()!=null&&!prdouctsBeanList.get(0).getWeight().isEmpty()){
+
+            txt_weight.setText("( "+prdouctsBeanList.get(0).getWeight() + " ) pounds");
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getRating()!=null&&!dataBeanList.getPrdoucts().get(0).getRating().isEmpty()){
+        Log.w(TAG,"prdouctsBeanList getReviews ratings" + prdouctsBeanList.get(0).getReviews_ratings());
 
-            txt_total_rating_calc.setText(" "+dataBeanList.getPrdoucts().get(0).getRating() + " Out of 5");
+        if(prdouctsBeanList.get(0).getReviews_ratings()!=0){
+
+            txt_total_rating_calc.setText(" "+prdouctsBeanList.get(0).getReviews_ratings() + " Out of 5");
         }
 
-        if(dataBeanList.getPrdoucts().get(0).getReviews_comments()!=0){
+        else {
 
-            txt_review_countings.setText("( "+dataBeanList.getPrdoucts().get(0).getReviews_comments() + " ) Reviews");
+            txt_total_rating_calc.setText(" "+0+ " Out of 5");
         }
 
-        reviewsDetailsBeanList = dataBeanList.getPrdoucts().get(0).getReviews_details();
+        int starcountReview = prdouctsBeanList.get(0).getReviews_ratings();
+
+        if(starcountReview == 1){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(starcountReview == 2){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(starcountReview == 3){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(starcountReview == 4){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(starcountReview == 5){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_filled);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_filled);
+        }
+
+        Log.w(TAG,"prdouctsBeanList getReviews_comments" + prdouctsBeanList.get(0).getReviews_comments());
+
+        if(prdouctsBeanList.get(0).getReviews_comments()!=0){
+
+            txt_review_countings.setText("( "+prdouctsBeanList.get(0).getReviews_comments() + " ) Reviews");
+        }
+        else {
+
+            txt_review_countings.setText("( "+0+ " ) Reviews");
+        }
+
+        Log.w(TAG,"prdouctsBeanList getReviews_details" + new Gson().toJson(prdouctsBeanList.get(0).getReviews_details()));
+
+        reviewsDetailsBeanList = prdouctsBeanList.get(0).getReviews_details();
+
+//        Log.w(TAG,"reviewsDetailsBeanList size" + reviewsDetailsBeanList.size());
 
         if(reviewsDetailsBeanList!=null&&reviewsDetailsBeanList.size()>0){
 

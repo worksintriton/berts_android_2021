@@ -81,8 +81,11 @@ public class RetailerRegisterFragment extends Fragment {
 
     String cid ="0",sid="0",zipcode="0",revenue="0";
 
-    public RetailerRegisterFragment() {
+    String fromActivity;
+
+    public RetailerRegisterFragment(String fromActivity) {
         // Required empty public constructor
+        this.fromActivity=fromActivity;
     }
 
     @Override
@@ -98,6 +101,8 @@ public class RetailerRegisterFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_retailer_register, container, false);
 
         ButterKnife.bind(this, view);
+
+        Log.w("Oncreate ", TAG + "fromActivity " +fromActivity);
 
         btn_sigin.setOnClickListener(v -> checkValidation());
 

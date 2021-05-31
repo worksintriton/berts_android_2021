@@ -551,11 +551,28 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         builder.setMessage("Please Login to add Products in wishlist");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
-            startActivity(new Intent(RetailerProductListActivity.this, LoginActivity.class));
-            finish();
+
+            gotoLogin();
+
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void gotoLogin() {
+
+        Intent intent = new Intent(RetailerProductListActivity.this,ProductDetailDescriptionActivity.class);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
+        finish();
+
     }
 
     @Override

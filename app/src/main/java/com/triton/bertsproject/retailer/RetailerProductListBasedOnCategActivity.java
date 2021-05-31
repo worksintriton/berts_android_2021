@@ -540,11 +540,29 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
         builder.setMessage("Please Login add Products in wishlist");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (dialogInterface, i) -> {
-            startActivity(new Intent(RetailerProductListBasedOnCategActivity.this, LoginActivity.class));
-            finish();
+
+            gotoLogin();
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void gotoLogin() {
+
+        Intent intent = new Intent(RetailerProductListBasedOnCategActivity.this,LoginActivity.class);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
+        finish();
+
     }
 
     @Override

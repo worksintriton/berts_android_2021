@@ -1,6 +1,7 @@
 package com.triton.bertsproject.activities;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +30,13 @@ import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.SignupRequest;
 import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.SignupResponse;
+import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
+import com.triton.bertsproject.retailer.RetailerCartActivity;
 import com.triton.bertsproject.retailer.RetailerDashboardActivity;
+import com.triton.bertsproject.retailer.RetailerProductListActivity;
+import com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity;
+import com.triton.bertsproject.retailer.RetailerProductListBasedOnMakeActivity;
+import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -85,6 +92,10 @@ public class LoginActivity extends AppCompatActivity {
 
     Dialog alertDialog;
 
+    String fromActivty;
+
+    String brand_id,brand_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +106,20 @@ public class LoginActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        Log.w("Oncreate", TAG);
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            fromActivty = extras.getString("fromActivty");
+
+            brand_id = extras.getString("brand_id");
+
+            brand_name = extras.getString("brand_name");
+
+            Log.w(TAG,"fromActivty : "+fromActivty);
+        }
+
+        Log.w("Oncreate ", TAG + "fromActivity " +fromActivty);
 
         dd4YouConfig = new DD4YouConfig(this);
 
@@ -103,16 +127,14 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
 
-            intent.putExtra("fromactivity",TAG);
+            intent.putExtra("fromActivity",TAG);
 
             startActivity(intent);
         });
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
-
-            Animatoo.animateSwipeRight(context);
+            onBackPressed();
 
         });
 
@@ -228,8 +250,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
-
-                        startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
+                        onBackPressed();
 
                     }
 
@@ -320,13 +341,80 @@ public class LoginActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    public void callDirections(String tag){
+        Intent intent = new Intent(LoginActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
+    }
+
     @Override
     public void onBackPressed() {
 
         // super.onBackPressed(); commented this line in order to disable back press
         //Write your code here
-        startActivity(new Intent(LoginActivity.this, RetailerDashboardActivity.class));
+       if(fromActivty.equals("HomeFragment")){
 
-        Animatoo.animateSwipeRight(context);
+           callDirections("1");
+
+       }
+       else if(fromActivty.equals("MyGarageFragment")){
+
+           callDirections("2");
+
+       }
+       else if(fromActivty.equals("ShopFragment")){
+
+           callDirections("3");
+
+        }
+
+       else if(fromActivty.equals("ProfileFragment")){
+
+           callDirections("5");
+       }
+
+       else if(fromActivty.equals("RetailerProductListActivity")){
+
+           Intent intent = new Intent(LoginActivity.this, RetailerProductListActivity.class);
+
+           intent.putExtra("brand_id",brand_id);
+
+           intent.putExtra("brand_name",brand_name);
+
+           intent.putExtra("fromActivity",TAG);
+
+           startActivity(intent);
+
+       }
+
+       else if(fromActivty.equals("RetailerProductListBasedOnCategActivity")){
+
+           Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnCategActivity.class);
+
+           startActivity(intent);
+       }
+
+       else if(fromActivty.equals("RetailerProductListBasedOnMakeActivity")){
+
+           Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnMakeActivity.class);
+
+           startActivity(intent);
+       }
+
+       else if(fromActivty.equals("ProductDetailDescriptionActivity")){
+
+           Intent intent = new Intent(LoginActivity.this, ProductDetailDescriptionActivity.class);
+
+           startActivity(intent);
+       }
+
+       else if(fromActivty.equals("RetailerCartActivity")){
+
+           Intent intent = new Intent(LoginActivity.this, RetailerCartActivity.class);
+
+           startActivity(intent);
+       }
     }
 }

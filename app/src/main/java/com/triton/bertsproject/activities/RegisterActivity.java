@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (extras != null) {
 
-            fromactivity = extras.getString("fromactivity");
+            fromactivity = extras.getString("fromActivity");
 
         }
 
@@ -98,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         // Create an adapter that knows which fragment should be shown on each page
-        RegisterFragmentPagerAdapter adapter = new RegisterFragmentPagerAdapter(this, getSupportFragmentManager());
+        RegisterFragmentPagerAdapter adapter = new RegisterFragmentPagerAdapter(this, getSupportFragmentManager(),fromactivity);
 
         // Set the adapter onto the view pager
         viewpager.setAdapter(adapter);

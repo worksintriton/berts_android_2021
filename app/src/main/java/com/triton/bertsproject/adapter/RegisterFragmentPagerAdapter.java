@@ -14,10 +14,12 @@ import com.triton.bertsproject.fragment.WholeSalerRegisterFragment;
 public class RegisterFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private final Context mContext;
+    String fromActivity;
 
-    public RegisterFragmentPagerAdapter(Context context, FragmentManager fm) {
+    public RegisterFragmentPagerAdapter(Context context, FragmentManager fm, String fromactivity) {
         super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mContext = context;
+        this.fromActivity = fromactivity;
     }
 
     // This determines the fragment for each tab
@@ -25,9 +27,9 @@ public class RegisterFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new RetailerRegisterFragment();
+            return new RetailerRegisterFragment(fromActivity);
         } else {
-            return new WholeSalerRegisterFragment();
+            return new WholeSalerRegisterFragment(fromActivity);
         }
 
     }
