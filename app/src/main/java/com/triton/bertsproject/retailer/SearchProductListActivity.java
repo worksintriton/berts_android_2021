@@ -34,14 +34,17 @@ import com.triton.bertsproject.model.SearchFilterListModel;
 import com.triton.bertsproject.model.SearchProductlistModel;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
+import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,6 +90,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     TextView txt_no_records;
 
     @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_total_results)
+    TextView txt_total_results;
+
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.ll_sort)
     LinearLayout ll_sort;
 
@@ -100,7 +107,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
     String tag;
 
-    String fromactivity;
+    String fromactivity,search_text;
 
     List<SearchFilterListModel> searchFilterListModels;
 
@@ -109,6 +116,14 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     AlertDialog alertDialog;
 
     List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+
+    String user_id;
+
+//    private DD4YouNetReceiver dd4YouNetReceiver;
+
+    private DD4YouConfig dd4YouConfig;
+
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +142,19 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
             fromactivity = extras.getString("fromactivity");
 
+            search_text = extras.getString("search_text");
+
         }
+
+        sessionManager=new SessionManager(this);
+
+        dd4YouConfig=new DD4YouConfig(this);
+
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        //user_id = user.get(SessionManager.KEY_ID);
+
+        user_id  = "541";
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -151,6 +178,17 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         });
 
+        ll_sort.setVisibility(View.GONE);
+
+        if(dd4YouConfig.isInternetConnectivity()){
+
+            fetchallproductsListResponseCall();
+        }
+
+        else {
+
+            callnointernet();
+        }
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -244,6 +282,11 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                         prdouctsBeanList = response.body().getData().getPrdoucts();
 
+                        if(response.body().getData().getTotal_count()!=0){
+
+                            txt_total_results.setText(" "+response.body().getData().getTotal_count()+ " Results");
+                        }
+
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
                             rv_searchprodlist.setVisibility(View.VISIBLE);
@@ -261,6 +304,8 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
                             rv_searchprodlist.setVisibility(View.GONE);
 
                             txt_no_records.setVisibility(View.VISIBLE);
+
+                            ll_sort.setVisibility(View.GONE);
 
                             txt_no_records.setText(R.string.no_prod_found);
                         }
@@ -296,14 +341,14 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     private SearchProductsRequest SearchProductsRequest() {
 
 
-        /**
+        /*
          * SEARCH_STRING : wheel
          * USER_ID :
          */
 
         SearchProductsRequest SearchProductsRequest = new SearchProductsRequest();
-        SearchProductsRequest.setSEARCH_STRING("wheel");
-        SearchProductsRequest.setUSER_ID("541");
+        SearchProductsRequest.setSEARCH_STRING(search_text);
+        SearchProductsRequest.setUSER_ID(user_id);
 
         Log.w(TAG,"SearchProductsRequest "+ new Gson().toJson(SearchProductsRequest));
         return SearchProductsRequest;

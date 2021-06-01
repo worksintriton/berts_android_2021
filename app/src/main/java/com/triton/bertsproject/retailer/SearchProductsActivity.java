@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
@@ -19,9 +20,11 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.dd4you.appsconfig.DD4YouConfig;
 
 public class SearchProductsActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
@@ -51,6 +54,10 @@ public class SearchProductsActivity extends AppCompatActivity implements BottomN
     @BindView(R.id.edt_search)
     EditText edt_search;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_search)
+    ImageView img_search;
+
     private final static String TAG = "SearchProductsActivity";
 
     public static String active_tag = "1";
@@ -58,6 +65,8 @@ public class SearchProductsActivity extends AppCompatActivity implements BottomN
     String tag;
 
     String fromactivity;
+
+    DD4YouConfig dd4YouConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +87,8 @@ public class SearchProductsActivity extends AppCompatActivity implements BottomN
 
         }
 
+        dd4YouConfig = new DD4YouConfig(this);
+
         spin_kit_loadingView.setVisibility(View.GONE);
 
         txt_toolbar_title.setVisibility(View.GONE);
@@ -89,15 +100,10 @@ public class SearchProductsActivity extends AppCompatActivity implements BottomN
             Animatoo.animateSwipeLeft(context);
         });
 
-        edt_search.setOnClickListener(v -> {
+        img_search.setOnClickListener(v -> {
 
-            Intent intent = new Intent(SearchProductsActivity.this, SearchProductListActivity.class);
+            checkValidation();
 
-            intent.putExtra("fromactivity",TAG);
-
-            startActivity(intent);
-
-            Animatoo.animateSwipeLeft(context);
 
         });
 
@@ -111,6 +117,59 @@ public class SearchProductsActivity extends AppCompatActivity implements BottomN
         bottomNavigation.setOnNavigationItemSelectedListener(this);
 
     }
+
+    private void checkValidation() {
+
+        boolean isvalid = true;
+
+        String search_text = edt_search.getText().toString();
+
+        if(edt_search.getText().toString().equals("")){
+
+            isvalid = false;
+
+            edt_search.setError("Please Enter Valid Text");
+
+        }
+
+        if(isvalid){
+
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                Intent intent = new Intent(SearchProductsActivity.this, SearchProductListActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("search_text",search_text);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeLeft(context);
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
+
+
+        }
+    }
+
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(SearchProductsActivity.this);
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(SearchProductsActivity.this, SearchProductsActivity.class));
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 
     @SuppressLint("NonConstantResourceId")

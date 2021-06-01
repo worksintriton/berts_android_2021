@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     android:background="@color/background_color">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/_30dp"
+        android:contentDescription="@string/image_description"
+        android:visibility="visible"
+        app:backgroundTint="@color/dark_blue"
+        app:tint="@null" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        style="@style/MyBottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@android:color/transparent"
+        app:elevation="0dp"
+        app:itemIconSize="@dimen/_18dp"
+        app:itemIconTint="@color/selector"
+        app:itemRippleColor="@android:color/white"
+        app:itemTextColor="@color/selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/buttom_navigation_items" />
+
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit_loadingView"
         style="@style/SpinKitView.Large.Circle"
@@ -55,9 +81,8 @@
                         android:background="@drawable/rectangle_corner_solid_white_background"
                         android:fontFamily="@font/lato_regular"
                         android:hint="@string/search"
-                        android:inputType="none"
+                        android:inputType="text"
                         android:padding="@dimen/_15dp"
-                        android:focusable="false"
                         android:textColorHint="@color/light_grey"
                         android:textSize="@dimen/_14sp"
                         tools:ignore="Autofill,LabelFor" />
@@ -215,40 +240,6 @@
             android:orientation="vertical" />
 
     </LinearLayout>
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:backgroundTint="@color/white"
-        app:contentInsetEnd="0dp"
-        app:contentInsetStart="0dp"
-        app:fabAlignmentMode="center"
-        app:fabCradleVerticalOffset="@dimen/_0dp">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:backgroundTint="@android:color/transparent"
-            app:elevation="0dp"
-            app:itemIconTint="@color/selector"
-            app:itemRippleColor="@android:color/white"
-            app:itemTextColor="@color/selector"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/buttom_navigation_items" />
-
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_description"
-        app:backgroundTint="@color/dark_blue"
-        app:layout_anchor="@id/bottomBar"
-        app:tint="@null" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

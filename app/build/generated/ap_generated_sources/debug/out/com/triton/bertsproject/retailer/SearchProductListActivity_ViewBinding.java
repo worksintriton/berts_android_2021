@@ -36,6 +36,7 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.rv_filterlist = Utils.findRequiredViewAsType(source, R.id.rv_filterlist, "field 'rv_filterlist'", RecyclerView.class);
     target.rv_searchprodlist = Utils.findRequiredViewAsType(source, R.id.rv_searchprodlist, "field 'rv_searchprodlist'", RecyclerView.class);
     target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
+    target.txt_total_results = Utils.findRequiredViewAsType(source, R.id.txt_total_results, "field 'txt_total_results'", TextView.class);
     target.ll_sort = Utils.findRequiredViewAsType(source, R.id.ll_sort, "field 'll_sort'", LinearLayout.class);
     target.rl_sort_filter = Utils.findRequiredViewAsType(source, R.id.rl_sort_filter, "field 'rl_sort_filter'", RelativeLayout.class);
   }
@@ -54,6 +55,7 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.rv_filterlist = null;
     target.rv_searchprodlist = null;
     target.txt_no_records = null;
+    target.txt_total_results = null;
     target.ll_sort = null;
     target.rl_sort_filter = null;
   }

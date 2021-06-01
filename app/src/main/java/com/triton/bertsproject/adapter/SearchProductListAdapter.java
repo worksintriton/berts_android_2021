@@ -21,6 +21,7 @@ import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
+import com.triton.bertsproject.retailer.RetailerProductListActivity;
 
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     Context context;
     List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
     View view;
+
+    private final static String TAG = "SearchProductListAdapter";
 
     public SearchProductListAdapter(Context context,List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
         this.context = context;
@@ -98,7 +101,16 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             @Override
             public void onClick(View v) {
 
-                context.startActivity(new Intent(context, ProductDetailDescriptionActivity.class));
+                Intent intent = new Intent(context,ProductDetailDescriptionActivity.class);
+
+                intent.putExtra("prod_id",prdouctsBean.getId());
+
+                intent.putExtra("prod_name",prdouctsBean.getTitle());
+
+                intent.putExtra("fromActivity",TAG);
+
+                context.startActivity(intent);
+
             }
         });
 
@@ -124,7 +136,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
             txt_product_name = itemView.findViewById(R.id.txt_product_name);
 
-            txt_parts_name = itemView.findViewById(R.id.txt_parts_name);
+            txt_parts_name = itemView.findViewById(R.id.txt_parts_no);
 
             cv_root = itemView.findViewById(R.id.cv_root);
 

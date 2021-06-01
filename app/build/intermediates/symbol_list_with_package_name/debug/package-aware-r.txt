@@ -2257,10 +2257,8 @@ id btn_addVeh1
 id btn_addcart
 id btn_addcart1
 id btn_addnewaddr
-id btn_apply
 id btn_no
 id btn_proceed
-id btn_reset
 id btn_reset_link
 id btn_saveaddr
 id btn_selveh
@@ -2791,9 +2789,7 @@ id rv_color
 id rv_filterlist
 id rv_makes
 id rv_orderlist
-id rv_pr_range
 id rv_productlist
-id rv_rate
 id rv_review_ratings
 id rv_searchprodlist
 id rv_shippingmethodlist

@@ -34,6 +34,7 @@ public class SearchProductsActivity_ViewBinding implements Unbinder {
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
     target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
+    target.img_search = Utils.findRequiredViewAsType(source, R.id.img_search, "field 'img_search'", ImageView.class);
   }
 
   @Override
@@ -49,5 +50,6 @@ public class SearchProductsActivity_ViewBinding implements Unbinder {
     target.img_back = null;
     target.txt_toolbar_title = null;
     target.edt_search = null;
+    target.img_search = null;
   }
 }
