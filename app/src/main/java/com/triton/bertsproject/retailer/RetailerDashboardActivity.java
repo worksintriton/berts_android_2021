@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -61,6 +62,16 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
         Log.w("Oncreate", TAG);
 
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                active = ShopFragment;
+                bottomNavigation.setSelectedItemId(R.id.shop);
+                loadFragment(new ShopFragment());
+            }
+        });
 
         Bundle extras = getIntent().getExtras();
 

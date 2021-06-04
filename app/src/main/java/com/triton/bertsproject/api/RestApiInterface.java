@@ -2,6 +2,7 @@ package com.triton.bertsproject.api;
 
 
 import com.triton.bertsproject.model.DeleteCartListRequest;
+import com.triton.bertsproject.requestpojo.AddToCartRequest;
 import com.triton.bertsproject.requestpojo.AddVehicleRequest;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
 import com.triton.bertsproject.requestpojo.CreateAddressListRequest;
@@ -17,10 +18,13 @@ import com.triton.bertsproject.requestpojo.FetchProductBasedOnCatRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnMakeRequest;
 import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
 import com.triton.bertsproject.requestpojo.GetStateRequest;
+import com.triton.bertsproject.requestpojo.HomepageDashboardRequest;
+import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.OrderCreateRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
+import com.triton.bertsproject.requestpojo.RemovefromCartRequest;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
@@ -31,6 +35,7 @@ import com.triton.bertsproject.requestpojo.SignupRequest;
 import com.triton.bertsproject.requestpojo.SignupWholesalerRequest;
 import com.triton.bertsproject.requestpojo.UpdateProfileRequest;
 import com.triton.bertsproject.requestpojo.UserAddressListRequest;
+import com.triton.bertsproject.responsepojo.AddToCartResponse;
 import com.triton.bertsproject.responsepojo.AddVehicleResponse;
 import com.triton.bertsproject.responsepojo.CreateAddressListResponse;
 import com.triton.bertsproject.responsepojo.DeleteAddressListResponse;
@@ -50,6 +55,7 @@ import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
+import com.triton.bertsproject.responsepojo.RemovefromCartResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.responsepojo.SetDefaultVehicleResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
@@ -79,6 +85,10 @@ public interface RestApiInterface {
     /*Signup create*/
     @POST("register-customer")
     Call<SignupResponse> signupWholesalerResponseCall(@Header("Content-Type") String type, @Body SignupWholesalerRequest signupWholesalerRequest);
+
+    /*Home Page*/
+    @POST("usercommon")
+    Call<HomepageDashboardResponse> usercommonResponseCall(@Header("Content-Type") String type, @Body HomepageDashboardRequest homepageDashboardRequest);
 
     /*forgot-password*/
     @POST("forgot-password")
@@ -139,6 +149,14 @@ public interface RestApiInterface {
     /*delete wishlist*/
     @POST("wishlist")
     Call<WishlistSuccessResponse> deletewishlistResponseCall(@Header("Content-Type") String type, @Body RemoveWishistRequest removeWishistRequest);
+
+    /*Add to cart*/
+    @POST("cart")
+    Call<AddToCartResponse> addcartlistResponseCall(@Header("Content-Type") String type, @Body AddToCartRequest addToCartRequest);
+
+    /*Remove From cart*/
+    @POST("cart")
+    Call<RemovefromCartResponse> removefromcartlistResponseCall(@Header("Content-Type") String type, @Body RemovefromCartRequest removefromCartRequest);
 
     /*show cart*/
     @POST("cart")

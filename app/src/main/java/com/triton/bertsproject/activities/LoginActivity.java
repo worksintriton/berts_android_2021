@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
     String fromActivty;
 
-    String brand_id,brand_name;
+    String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name, prod_id,prod_name;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +110,41 @@ public class LoginActivity extends AppCompatActivity {
 
         if (extras != null) {
 
-            fromActivty = extras.getString("fromActivty");
+            fromActivty = extras.getString("fromActivity");
+
+            prod_id = extras.getString("prod_id");
+
+            //prod_id = "2";
+
+            prod_name = extras.getString("prod_name");
 
             brand_id = extras.getString("brand_id");
 
             brand_name = extras.getString("brand_name");
 
-            Log.w(TAG,"fromActivty : "+fromActivty);
+            parent_id = extras.getString("parent_id");
+
+            subcategid = extras.getString("subcategid");
+
+            subcategname = extras.getString("subcategname");
+
+            make_id = extras.getString("make_id");
+
+            model_id = extras.getString("model_id");
+
+            model_name = extras.getString("model_name");
+
+            Log.w(TAG,"brand_id "+brand_id+"brand_name "+ brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+
+                    + "subcategname : "+subcategname +
+
+                   "make_id : "+make_id + "model_id :" +model_id
+
+                    + "model_name : "+model_name+
+
+                    "fromactivity :" +fromActivty);
+
+
         }
 
         Log.w("Oncreate ", TAG + "fromActivity " +fromActivty);
@@ -354,65 +382,120 @@ public class LoginActivity extends AppCompatActivity {
 
         // super.onBackPressed(); commented this line in order to disable back press
         //Write your code here
-       if(fromActivty.equals("HomeFragment")){
+       if(fromActivty!=null){
+           if(fromActivty.equals("HomeFragment")){
 
-           callDirections("1");
+               callDirections("1");
 
+           }
+           else if(fromActivty.equals("MyGarageFragment")){
+
+               callDirections("2");
+
+           }
+           else if(fromActivty.equals("ShopFragment")){
+
+               callDirections("3");
+
+           }
+
+           else if(fromActivty.equals("ProfileFragment")){
+
+               callDirections("5");
+           }
+
+           else if(fromActivty.equals("RetailerProductListActivity")){
+
+               Intent intent = new Intent(LoginActivity.this, RetailerProductListActivity.class);
+
+               intent.putExtra("brand_id",brand_id);
+
+               intent.putExtra("brand_name",brand_name);
+
+               intent.putExtra("fromActivity",TAG);
+
+               startActivity(intent);
+
+           }
+
+           else if(fromActivty.equals("RetailerProductListBasedOnCategActivity")){
+
+               Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnCategActivity.class);
+
+               intent.putExtra("parent_id",parent_id);
+
+               intent.putExtra("subcategid",subcategid);
+
+               intent.putExtra("subcategname",subcategname);
+
+               intent.putExtra("fromActivity",TAG);
+
+               startActivity(intent);
+           }
+
+           else if(fromActivty.equals("RetailerProductListBasedOnMakeActivity")){
+
+               Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnMakeActivity.class);
+
+               intent.putExtra("make_id",make_id);
+
+               intent.putExtra("model_id", model_id);
+
+               intent.putExtra("model_id",model_name);
+
+               intent.putExtra("fromActivity",TAG);
+
+               startActivity(intent);
+           }
+
+           else if(fromActivty.equals("ProductDetailDescriptionActivity")){
+
+               Intent intent = new Intent(LoginActivity.this, ProductDetailDescriptionActivity.class);
+
+               intent.putExtra("prod_id",prod_id);
+
+               intent.putExtra("prod_name",prod_name);
+
+               intent.putExtra("brand_id",brand_id);
+
+               intent.putExtra("brand_name",brand_name);
+
+               intent.putExtra("parent_id",parent_id);
+
+               intent.putExtra("subcategid",subcategid);
+
+               intent.putExtra("subcategname",subcategname);
+
+               intent.putExtra("make_id",make_id);
+
+               intent.putExtra("model_id", model_id);
+
+               intent.putExtra("model_id",model_name);
+
+               intent.putExtra("fromActivity",TAG);
+
+
+               startActivity(intent);
+           }
+
+           else if(fromActivty.equals("RetailerCartActivity")){
+
+               Intent intent = new Intent(LoginActivity.this, RetailerCartActivity.class);
+
+               startActivity(intent);
+           }
+
+           else {
+
+               Intent intent = new Intent(LoginActivity.this, RetailerDashboardActivity.class);
+
+               startActivity(intent);
+           }
        }
-       else if(fromActivty.equals("MyGarageFragment")){
 
-           callDirections("2");
+       else {
 
-       }
-       else if(fromActivty.equals("ShopFragment")){
-
-           callDirections("3");
-
-        }
-
-       else if(fromActivty.equals("ProfileFragment")){
-
-           callDirections("5");
-       }
-
-       else if(fromActivty.equals("RetailerProductListActivity")){
-
-           Intent intent = new Intent(LoginActivity.this, RetailerProductListActivity.class);
-
-           intent.putExtra("brand_id",brand_id);
-
-           intent.putExtra("brand_name",brand_name);
-
-           intent.putExtra("fromActivity",TAG);
-
-           startActivity(intent);
-
-       }
-
-       else if(fromActivty.equals("RetailerProductListBasedOnCategActivity")){
-
-           Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnCategActivity.class);
-
-           startActivity(intent);
-       }
-
-       else if(fromActivty.equals("RetailerProductListBasedOnMakeActivity")){
-
-           Intent intent = new Intent(LoginActivity.this, RetailerProductListBasedOnMakeActivity.class);
-
-           startActivity(intent);
-       }
-
-       else if(fromActivty.equals("ProductDetailDescriptionActivity")){
-
-           Intent intent = new Intent(LoginActivity.this, ProductDetailDescriptionActivity.class);
-
-           startActivity(intent);
-       }
-
-       else if(fromActivty.equals("RetailerCartActivity")){
-
-           Intent intent = new Intent(LoginActivity.this, RetailerCartActivity.class);
+           Intent intent = new Intent(LoginActivity.this, RetailerDashboardActivity.class);
 
            startActivity(intent);
        }

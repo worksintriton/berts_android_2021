@@ -2046,6 +2046,7 @@ drawable mtrl_popupmenu_background
 drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable noimage
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -2242,6 +2243,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id badge_layout1
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2257,8 +2259,10 @@ id btn_addVeh1
 id btn_addcart
 id btn_addcart1
 id btn_addnewaddr
+id btn_apply
 id btn_no
 id btn_proceed
+id btn_reset
 id btn_reset_link
 id btn_saveaddr
 id btn_selveh
@@ -2270,6 +2274,7 @@ id btn_update
 id btn_website
 id btn_yes
 id butt
+id button1
 id buttonPanel
 id buttons_container
 id cache_measures
@@ -2294,6 +2299,7 @@ id chip_group
 id chronometer
 id circle_center
 id cl_loginbefore
+id cl_shipping
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -2316,16 +2322,18 @@ id cut
 id cv_aboutus
 id cv_addvehicle
 id cv_before_login
+id cv_default_veh
 id cv_fllist
 id cv_loginafter
 id cv_logout
+id cv_price
 id cv_prod_desc
 id cv_prod_info
 id cv_quest_ans
 id cv_register_with_facebook
 id cv_root
-id cv_shippingaddr
-id cv_shippingcharg
+id cv_shipcharge
+id cv_shipping
 id cv_shopby
 id cv_shoplist
 id cv_star_review
@@ -2416,7 +2424,7 @@ id fill_vertical
 id filled
 id fitToContents
 id fixed
-id fl_cart
+id fl_image
 id flip
 id floating
 id footerView
@@ -2752,6 +2760,7 @@ id rlEmail
 id rlGrid
 id rlList
 id rl_aboutus
+id rl_addVehfromdefault
 id rl_amke
 id rl_currncy
 id rl_date
@@ -2759,6 +2768,7 @@ id rl_downloadquotation
 id rl_lang
 id rl_login_after
 id rl_logout
+id rl_manageveh
 id rl_measurment_unit
 id rl_model
 id rl_orderstatus
@@ -2776,6 +2786,7 @@ id rl_star
 id rl_vehicle
 id rl_wishlist
 id rl_year
+id rlcart
 id round
 id rounded
 id rowParentText
@@ -2971,6 +2982,7 @@ id txt_brand
 id txt_brand_selected_value
 id txt_brands
 id txt_carddetails
+id txt_cart_count
 id txt_categ
 id txt_categ_selected_value
 id txt_checkout
@@ -3023,6 +3035,7 @@ id txt_logout
 id txt_make
 id txt_make_selected_value
 id txt_makes
+id txt_manage
 id txt_manufacturer
 id txt_measurment_unit
 id txt_merch_subtotal_label
@@ -3094,6 +3107,7 @@ id txt_select_vehc2
 id txt_select_vehc21
 id txt_select_vehc3
 id txt_select_vehc31
+id txt_selected_vehc
 id txt_settings
 id txt_ship_subtotal_value
 id txt_shipaddrchange
@@ -3142,6 +3156,7 @@ id txt_user_type
 id txt_username
 id txt_veh_fit_label
 id txt_vehc_desc
+id txt_vehicle
 id txt_viewall_brands
 id txt_viewall_catg
 id txt_viewall_makes
@@ -3628,6 +3643,7 @@ string login
 string login_with_facebook
 string make
 string makes
+string manage_vehicle
 string manufacturer
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -3829,6 +3845,7 @@ style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
 style AppTheme
+style ApplnTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog

@@ -29,7 +29,7 @@ import java.util.List;
 
 public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerProductListAdapter.ShoplistHolder> {
     Context context;
-    List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+    List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList ;
     View view;
     boolean check;
     WishlistAddProductListener wishlistAddProductListener;
@@ -38,7 +38,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     private final static String TAG = "RetailerProductListAdapter";
 
 
-    public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener, ProductListener productListener) {
+    public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener, ProductListener productListener) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
         this.check = check;
@@ -69,7 +69,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final ProductListResponse.DataBean.PrdouctsBean prdouctsBean = prdouctsBeanList.get(position);
+        final ProductListResponse.DataBean.ProductsBean prdouctsBean = prdouctsBeanList.get(position);
 
         if (prdouctsBean.getTitle()!= null&&!prdouctsBean.getTitle().isEmpty()) {
 
@@ -77,15 +77,15 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
         }
 
-        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
-
-                String imgurl = prdouctsBean.getImages().get(0).getImage_default();
-
-                    Glide.with(context)
-                    .load(imgurl)
-                    .into(holder.img_product_image);
-
-        }
+//        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
+//
+//                String imgurl = prdouctsBean.getImages().get(0).getImage_default();
+//
+//                    Glide.with(context)
+//                    .load(imgurl)
+//                    .into(holder.img_product_image);
+//
+//        }
 
         if (prdouctsBean.getPart_number()!= null&&!prdouctsBean.getPart_number().isEmpty()) {
 

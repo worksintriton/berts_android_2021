@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -27,15 +28,19 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
+import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
+import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.adapter.BrandListAdapter;
 import com.triton.bertsproject.adapter.ReviewCommentsistAdapter;
 import com.triton.bertsproject.adapter.ViewPagerProductDetailsAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.model.RetailerProductlistModel;
+import com.triton.bertsproject.requestpojo.AddToCartRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
+import com.triton.bertsproject.responsepojo.AddToCartResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
@@ -49,6 +54,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -226,13 +232,58 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.hand_img51)
     ImageView hand_img51;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.progress_bar_5star)
+    RoundedHorizontalProgressBar progress_bar_5star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_5star_perc)
+    TextView txt_5star_perc;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.progress_bar_4star)
+    RoundedHorizontalProgressBar progress_bar_4star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_4star_perc)
+    TextView txt_4star_perc;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.progress_bar_3star)
+    RoundedHorizontalProgressBar progress_bar_3star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_3star_perc)
+    TextView txt_3star_perc;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.progress_bar_2star)
+    RoundedHorizontalProgressBar progress_bar_2star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_2star_perc)
+    TextView txt_2star_perc;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.progress_bar_1star)
+    RoundedHorizontalProgressBar progress_bar_1star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_1star_perc)
+    TextView txt_1star_perc;
+
+
+
     String fromactivity;
 
     ProductDetailRespone.DataBean dataBeanList;
 
-    List<ProductDetailRespone.DataBean.PrdouctsBean> prdouctsBeanList ;
+    ProductDetailRespone.DataBean.ProductsBean prdouctsBean ;
 
-    List<ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean> reviewsDetailsBeanList ;
+    ProductDetailRespone.DataBean.ProductsBean.ReviewsRatingsPercentageBean reviewsRatingsPercentageBean;
+
+    List<ProductDetailRespone.DataBean.ProductsBean.ReviewsDetailsBean> reviewsDetailsBeanList ;
 
     List<String> imageList = new ArrayList();
 
@@ -244,7 +295,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     AlertDialog alertDialog;
 
-    String user_id;
+    String user_id,product_id,price;
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
@@ -252,6 +303,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
 
+    int minteger = 0;
 
 
 
@@ -272,6 +324,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             fromactivity = extras.getString("fromActivity");
 
             prod_id = extras.getString("prod_id");
+
+            //prod_id = "2";
 
             prod_name = extras.getString("prod_name");
 
@@ -395,7 +449,6 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         });
 
 
-        btn_addcart.setOnClickListener(v -> startActivity(new Intent(ProductDetailDescriptionActivity.this,RetailerCartActivity.class)));
 
     }
 
@@ -487,18 +540,18 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                         Log.w(TAG,"ProductDetailRespone" + new Gson().toJson(response.body()));
 
-                        prdouctsBeanList = response.body().getData().getPrdoucts();
+                        prdouctsBean = response.body().getData().getProducts();
 
-                        Log.w(TAG,"prdouctsBeanList" + new Gson().toJson(prdouctsBeanList));
+                        Log.w(TAG,"prdouctsBeanList" + new Gson().toJson(prdouctsBean));
 
-                        if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
+                        if(prdouctsBean != null){
 
-                            setView(prdouctsBeanList);
+                            setView(prdouctsBean);
                         }
 
                         else {
 
-
+                            showErrorLoading(response.body().getMessage());
                         }
                     }
 
@@ -557,7 +610,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     }
 
     @SuppressLint("LongLogTag")
-    private void setView(List<ProductDetailRespone.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setView(ProductDetailRespone.DataBean.ProductsBean prdouctsBeanList) {
 
         txt_product_name.setVisibility(VISIBLE);
 
@@ -611,19 +664,19 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         tabLayout.setVisibility(VISIBLE);
 
-        if(prdouctsBeanList.get(0).getTitle()!=null&&!prdouctsBeanList.get(0).getTitle().isEmpty()) {
+        if(prdouctsBean.getTitle()!=null&&!prdouctsBean.getTitle().isEmpty()) {
 
-            txt_product_name.setText(prdouctsBeanList.get(0).getTitle());
+            txt_product_name.setText(prdouctsBean.getTitle());
         }
 
-        if(prdouctsBeanList.get(0).getPart_number()!=null&&!prdouctsBeanList.get(0).getPart_number().isEmpty()){
+        if(prdouctsBean.getPart_number()!=null&&!prdouctsBean.getPart_number().isEmpty()){
 
-            txt_parts_no.setText("Part No: "+prdouctsBeanList.get(0).getPart_number());
+            txt_parts_no.setText("Part No: "+prdouctsBean.getPart_number());
         }
 
-        Log.w(TAG,"prdouctsBeanList getRating" + prdouctsBeanList.get(0).getRating());
+        Log.w(TAG,"prdouctsBeanList getRating" + prdouctsBean.getRating());
 
-        int starcount = Integer.parseInt(prdouctsBeanList.get(0).getRating());
+        int starcount = Integer.parseInt(prdouctsBean.getRating());
 
         if(starcount == 1){
             hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
@@ -658,11 +711,11 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         }
 
 
-        Log.w(TAG,"prdouctsBeanList getReviews_ratings" + prdouctsBeanList.get(0).getReviews_ratings());
+        Log.w(TAG,"prdouctsBeanList getReviews_ratings" + prdouctsBean.getReviews_ratings());
 
-        if(prdouctsBeanList.get(0).getReviews_ratings()!=0){
+        if(prdouctsBean.getReviews_ratings()!=0){
 
-            txt_total_reviews.setText("( "+prdouctsBeanList.get(0).getReviews_ratings()+ " Reviews)");
+            txt_total_reviews.setText("( "+prdouctsBean.getReviews_ratings()+ " Reviews)");
         }
 
         else {
@@ -670,15 +723,15 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             txt_total_reviews.setText("( "+0+ " Reviews)");
         }
 
-        Log.w(TAG,"prdouctsBeanList getImages" + new Gson().toJson(prdouctsBeanList.get(0).getImages()));
+        Log.w(TAG,"prdouctsBeanList getImages" + new Gson().toJson(prdouctsBean.getImages()));
 
-        if(prdouctsBeanList.get(0).getImages()!=null&&!prdouctsBeanList.get(0).getImages().isEmpty()){
+        if(prdouctsBean.getImages()!=null&&!prdouctsBean.getImages().isEmpty()){
 
-            if(prdouctsBeanList.get(0).getImages().size()>0){
+            if(prdouctsBean.getImages().size()>0){
 
-                for(int i = 0; i<prdouctsBeanList.get(0).getImages().size();i++){
+                for(int i = 0; i<prdouctsBean.getImages().size();i++){
 
-                    imageList.add(prdouctsBeanList.get(0).getImages().get(i).getImage_default());
+                    imageList.add(prdouctsBean.getImages().get(i).getImage_default());
                 }
             }
         }
@@ -688,33 +741,35 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             viewpageData(imageList);
         }
 
-        if(prdouctsBeanList.get(0).getPrice()!=null&&!prdouctsBeanList.get(0).getPrice().isEmpty()){
+        if(prdouctsBean.getPrice()!=null&&!prdouctsBean.getPrice().isEmpty()){
 
-            txt_price.setText("$ "+prdouctsBeanList.get(0).getPrice());
+            txt_price.setText("$ "+prdouctsBean.getPrice());
+
+            price = prdouctsBean.getPrice();
         }
 
-        if(prdouctsBeanList.get(0).getDescription()!=null&&!prdouctsBeanList.get(0).getDescription().isEmpty()){
+        if(prdouctsBean.getDescription()!=null&&!prdouctsBean.getDescription().isEmpty()){
 
-            txt_prod_desc.setText(prdouctsBeanList.get(0).getDescription());
+            txt_prod_desc.setText(prdouctsBean.getDescription());
         }
 
-//        if(prdouctsBeanList.get(0).getBrand_id()!=null&&!prdouctsBeanList.get(0).getDescription().isEmpty()){
+//        if(prdouctsBean.getBrand_id()!=null&&!prdouctsBean.getDescription().isEmpty()){
 //
-//            txt_brand.setText(prdouctsBeanList.get(0).getDescription());
+//            txt_brand.setText(prdouctsBean.getDescription());
 //        }
 
-        Log.w(TAG,"prdouctsBeanList getWeight" + prdouctsBeanList.get(0).getWeight());
+        Log.w(TAG,"prdouctsBeanList getWeight" + prdouctsBean.getWeight());
 
-        if(prdouctsBeanList.get(0).getWeight()!=null&&!prdouctsBeanList.get(0).getWeight().isEmpty()){
+        if(prdouctsBean.getWeight()!=null&&!prdouctsBean.getWeight().isEmpty()){
 
-            txt_weight.setText("( "+prdouctsBeanList.get(0).getWeight() + " ) pounds");
+            txt_weight.setText("( "+prdouctsBean.getWeight() + " ) pounds");
         }
 
-        Log.w(TAG,"prdouctsBeanList getReviews ratings" + prdouctsBeanList.get(0).getReviews_ratings());
+        Log.w(TAG,"prdouctsBeanList getReviews ratings" + prdouctsBean.getReviews_ratings());
 
-        if(prdouctsBeanList.get(0).getReviews_ratings()!=0){
+        if(prdouctsBean.getReviews_ratings()!=0){
 
-            txt_total_rating_calc.setText(" "+prdouctsBeanList.get(0).getReviews_ratings() + " Out of 5");
+            txt_total_rating_calc.setText(" "+prdouctsBean.getReviews_ratings() + " Out of 5");
         }
 
         else {
@@ -722,7 +777,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             txt_total_rating_calc.setText(" "+0+ " Out of 5");
         }
 
-        int starcountReview = prdouctsBeanList.get(0).getReviews_ratings();
+        int starcountReview = prdouctsBean.getReviews_ratings();
 
         if(starcountReview == 1){
             hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
@@ -756,20 +811,20 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             hand_img51.setBackgroundResource(R.drawable.ic_star_filled);
         }
 
-        Log.w(TAG,"prdouctsBeanList getReviews_comments" + prdouctsBeanList.get(0).getReviews_comments());
+        Log.w(TAG,"prdouctsBeanList getReviews_comments" + prdouctsBean.getReviews_comments());
 
-        if(prdouctsBeanList.get(0).getReviews_comments()!=0){
+        if(prdouctsBean.getReviews_comments()!=0){
 
-            txt_review_countings.setText("( "+prdouctsBeanList.get(0).getReviews_comments() + " ) Reviews");
+            txt_review_countings.setText("( "+prdouctsBean.getReviews_comments() + " ) Reviews");
         }
         else {
 
             txt_review_countings.setText("( "+0+ " ) Reviews");
         }
 
-        Log.w(TAG,"prdouctsBeanList getReviews_details" + new Gson().toJson(prdouctsBeanList.get(0).getReviews_details()));
+        Log.w(TAG,"prdouctsBeanList getReviews_details" + new Gson().toJson(prdouctsBean.getReviews_details()));
 
-        reviewsDetailsBeanList = prdouctsBeanList.get(0).getReviews_details();
+        reviewsDetailsBeanList = prdouctsBean.getReviews_details();
 
 //        Log.w(TAG,"reviewsDetailsBeanList size" + reviewsDetailsBeanList.size());
 
@@ -778,10 +833,247 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             setReviewComments(reviewsDetailsBeanList);
         }
 
+        img_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!txt_count.getText().equals("1")){
+
+                    decreaseInteger();
+
+                }
+            }
+        });
+
+        img_plus.setOnClickListener(v -> {
+
+            int threshold = Integer.parseInt(prdouctsBean.getQuantity());
+
+            int value = Integer.parseInt(txt_count.getText().toString());
+
+            if(value>threshold) {
+
+               Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
+
+            }
+            else {
+
+                increaseInteger();
+            }
+        });
+
+        btn_addcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(sessionManager.isLoggedIn()){
+
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+                        addcartlistResponseCall();
+                    }
+
+                    else {
+
+                        callnointernet();
+                    }
+                }
+
+                else {
+
+                    showAlert();
+                }
+            }
+        });
+
+        Log.w(TAG,"prdouctsBeanList getReviews_ratings_percentage" + new Gson().toJson(prdouctsBean.getReviews_ratings_percentage()));
+
+        reviewsRatingsPercentageBean = prdouctsBean.getReviews_ratings_percentage();
+
+        if(reviewsRatingsPercentageBean!=null){
+
+            if(reviewsRatingsPercentageBean.getRating_5()!=0){
+
+                progress_bar_5star.animateProgress(1000, 0, reviewsRatingsPercentageBean.getRating_5());
+
+                txt_5star_perc.setText(""+reviewsRatingsPercentageBean.getRating_5()+" %");
+            }
+
+            else {
+
+                progress_bar_5star.animateProgress(1000, 0, 0);
+
+                txt_5star_perc.setText("0"+" %");
+            }
+
+            if(reviewsRatingsPercentageBean.getRating_4()!=0){
+
+                progress_bar_4star.animateProgress(1000, 0, reviewsRatingsPercentageBean.getRating_4());
+
+                txt_4star_perc.setText(""+reviewsRatingsPercentageBean.getRating_4()+" %");
+            }
+            else {
+
+                progress_bar_4star.animateProgress(1000, 0, 0);
+
+                txt_4star_perc.setText("0"+" %");
+            }
+
+            if(reviewsRatingsPercentageBean.getRating_3()!=0){
+
+                progress_bar_3star.animateProgress(1000, 0, reviewsRatingsPercentageBean.getRating_3());
+
+                txt_3star_perc.setText(""+reviewsRatingsPercentageBean.getRating_3()+" %");
+            }
+
+            else {
+
+                progress_bar_3star.animateProgress(1000, 0, 0);
+
+                txt_3star_perc.setText("0"+" %");
+            }
+
+            if(reviewsRatingsPercentageBean.getRating_2()!=0){
+
+                progress_bar_2star.animateProgress(1000, 0, reviewsRatingsPercentageBean.getRating_2());
+
+                txt_2star_perc.setText(""+reviewsRatingsPercentageBean.getRating_2() + " %");
+            }
+            else {
+
+                progress_bar_2star.animateProgress(1000, 0, 0);
+
+                txt_2star_perc.setText("0"+" %");
+            }
+
+            if(reviewsRatingsPercentageBean.getRating_1()!=0){
+
+                progress_bar_1star.animateProgress(1000, 0, reviewsRatingsPercentageBean.getRating_1());
+
+                txt_1star_perc.setText(""+reviewsRatingsPercentageBean.getRating_1() +" %");
+            }
+
+            else {
+
+                progress_bar_1star.animateProgress(1000, 0, 0);
+
+                txt_1star_perc.setText("0"+" %");
+            }
+        }
 
     }
 
-    private void setReviewComments(List<ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean> reviewsDetailsBeanList) {
+    @SuppressLint("LongLogTag")
+    private void addcartlistResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<AddToCartResponse> call = apiInterface.addcartlistResponseCall(RestUtils.getContentType(),AddToCartRequest());
+        Log.w(TAG,"AddToCartResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<AddToCartResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<AddToCartResponse> call, @NonNull Response<AddToCartResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "AddToCartResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                        Intent intent = new Intent(ProductDetailDescriptionActivity.this, RetailerCartActivity.class);
+
+                        intent.putExtra("prod_id",prod_id);
+
+                        intent.putExtra("prod_name",prod_name);
+
+                        intent.putExtra("brand_id",brand_id);
+
+                        intent.putExtra("brand_name",brand_name);
+
+                        intent.putExtra("parent_id",parent_id);
+
+                        intent.putExtra("subcategid",subcategid);
+
+                        intent.putExtra("subcategname",subcategname);
+
+                        intent.putExtra("make_id",make_id);
+
+                        intent.putExtra("model_id", model_id);
+
+                        intent.putExtra("model_id",model_name);
+
+                        intent.putExtra("fromActivity",TAG);
+
+                        startActivity(intent);
+
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<AddToCartResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"AddToCartResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private AddToCartRequest AddToCartRequest() {
+
+
+        /*
+         * USER_ID : 541
+         * PRODUCT_ID : 2
+         * QUANTITY : 1
+         * UNIT_PRICE : 50000
+         * MODE : ADDTOCART
+         */
+        String QUANTITY = txt_count.getText().toString();
+
+        AddToCartRequest AddToCartRequest = new AddToCartRequest();
+        AddToCartRequest.setUNIT_PRICE(price);
+        AddToCartRequest.setQUANTITY(QUANTITY);
+        AddToCartRequest.setPRODUCT_ID(prod_id);
+        AddToCartRequest.setUSER_ID(user_id);
+        AddToCartRequest.setMODE("ADDTOCART");
+
+        Log.w(TAG,"AddToCartRequest "+ new Gson().toJson(AddToCartRequest));
+        return AddToCartRequest;
+    }
+
+
+    public void increaseInteger() {
+        minteger = minteger + 1;
+        display(minteger);
+
+    }public void decreaseInteger() {
+        minteger = minteger - 1;
+        display(minteger);
+    }
+
+    private void display(int number) {
+
+        txt_count.setText("" + number);
+    }
+
+    private void setReviewComments(List<ProductDetailRespone.DataBean.ProductsBean.ReviewsDetailsBean> reviewsDetailsBeanList) {
 
         rv_review_ratings.setLayoutManager(new LinearLayoutManager(ProductDetailDescriptionActivity.this));
 
@@ -882,11 +1174,65 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder=new AlertDialog.Builder(ProductDetailDescriptionActivity.this);
         builder.setTitle("Alert");
-        builder.setMessage("Please Login to add Products in wishlist");
+        builder.setMessage("Please Login to add Products");
         builder.setCancelable(false);
-        builder.setPositiveButton("OK", (dialogInterface, i) -> {
-            startActivity(new Intent(ProductDetailDescriptionActivity.this, LoginActivity.class));
-            finish();
+        builder.setPositiveButton("Login", (dialogInterface, i) -> {
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this, LoginActivity.class);
+
+            intent.putExtra("prod_id",prod_id);
+
+            intent.putExtra("prod_name",prod_name);
+
+            intent.putExtra("brand_id",brand_id);
+
+            intent.putExtra("brand_name",brand_name);
+
+            intent.putExtra("parent_id",parent_id);
+
+            intent.putExtra("subcategid",subcategid);
+
+            intent.putExtra("subcategname",subcategname);
+
+            intent.putExtra("make_id",make_id);
+
+            intent.putExtra("model_id", model_id);
+
+            intent.putExtra("model_id",model_name);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Sign In", (dialogInterface, i) -> {
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this, RegisterActivity.class);
+
+            intent.putExtra("prod_id",prod_id);
+
+            intent.putExtra("prod_name",prod_name);
+
+            intent.putExtra("brand_id",brand_id);
+
+            intent.putExtra("brand_name",brand_name);
+
+            intent.putExtra("parent_id",parent_id);
+
+            intent.putExtra("subcategid",subcategid);
+
+            intent.putExtra("subcategname",subcategname);
+
+            intent.putExtra("make_id",make_id);
+
+            intent.putExtra("model_id", model_id);
+
+            intent.putExtra("model_id",model_name);
+
+            intent.putExtra("fromActivity",TAG);
+
+            startActivity(intent);
+        });
+        builder.setNeutralButton("Cancel", (dialogInterface, i) -> {
+
+
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

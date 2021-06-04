@@ -24,12 +24,12 @@ import java.util.List;
 
 public class ReviewCommentsistAdapter extends RecyclerView.Adapter<ReviewCommentsistAdapter.ShoplistHolder> {
     Context context;
-    List<ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean> reviewsDetailsBeanList ;
+    List<ProductDetailRespone.DataBean.ProductsBean.ReviewsDetailsBean> reviewsDetailsBeanList ;
     View view;
     int size;
     private static final String TAG = "ReviewCommentsistAdapter";
 
-    public ReviewCommentsistAdapter(Context context,   List<ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean> reviewsDetailsBeanList , int size) {
+    public ReviewCommentsistAdapter(Context context,   List<ProductDetailRespone.DataBean.ProductsBean.ReviewsDetailsBean> reviewsDetailsBeanList , int size) {
         this.context = context;
         this.reviewsDetailsBeanList = reviewsDetailsBeanList;
         this.size=size;
@@ -46,7 +46,7 @@ public class ReviewCommentsistAdapter extends RecyclerView.Adapter<ReviewComment
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final ProductDetailRespone.DataBean.PrdouctsBean.ReviewsDetailsBean reviewsDetailsBean = reviewsDetailsBeanList.get(position);
+        final ProductDetailRespone.DataBean.ProductsBean.ReviewsDetailsBean reviewsDetailsBean = reviewsDetailsBeanList.get(position);
 
         if (reviewsDetailsBean.getReview()!= null && !reviewsDetailsBean.getReview().isEmpty()) {
 

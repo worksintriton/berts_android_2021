@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +24,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
-import com.triton.bertsproject.activities.ForgetPasswordActivity;
 import com.triton.bertsproject.activities.LoginActivity;
-import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.adapter.RetailerProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
@@ -35,13 +32,7 @@ import com.triton.bertsproject.interfaces.ProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
-import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnBrandRequest;
-import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
-import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
-import com.triton.bertsproject.requestpojo.ShowWishistRequest;
-import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
-import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
@@ -114,7 +105,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
     List<RetailerProductlistModel> retailerProductlistModels;
 
-    List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+    List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList ;
 
     String brand_id,brand_name;
 
@@ -243,7 +234,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
                         Log.w(TAG,"ProductListResponse" + new Gson().toJson(response.body()));
 
-                        prdouctsBeanList = response.body().getData().getPrdoucts();
+                        prdouctsBeanList = response.body().getData().getProducts();
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
@@ -347,7 +338,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         alertDialog.show();
     }
 
-    private void setGridView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setGridView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList) {
 
 
         rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListActivity.this, 2));
@@ -430,7 +421,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         }
     }
 
-    private void setlistView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setlistView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList) {
 
         rv_prodlist.setLayoutManager(new LinearLayoutManager(RetailerProductListActivity.this,LinearLayoutManager.VERTICAL,false));
 
@@ -561,7 +552,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
     private void gotoLogin() {
 
-        Intent intent = new Intent(RetailerProductListActivity.this,ProductDetailDescriptionActivity.class);
+        Intent intent = new Intent(RetailerProductListActivity.this,LoginActivity.class);
 
         intent.putExtra("brand_id",brand_id);
 

@@ -9,6 +9,7 @@ import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import java.lang.IllegalStateException;
 import java.lang.Override;
@@ -52,6 +53,7 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.rv_brand = Utils.findRequiredViewAsType(source, R.id.rv_brand, "field 'rv_brand'", RecyclerView.class);
     target.rv_categ = Utils.findRequiredViewAsType(source, R.id.rv_categ, "field 'rv_categ'", RecyclerView.class);
     target.rv_color = Utils.findRequiredViewAsType(source, R.id.rv_color, "field 'rv_color'", RecyclerView.class);
+    target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
   }
 
   @Override
@@ -87,5 +89,6 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.rv_brand = null;
     target.rv_categ = null;
     target.rv_color = null;
+    target.spin_kit_loadingView = null;
   }
 }

@@ -115,7 +115,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
     AlertDialog alertDialog;
 
-    List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+    List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList ;
 
     String user_id;
 
@@ -152,9 +152,9 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
-        //user_id = user.get(SessionManager.KEY_ID);
+        user_id = user.get(SessionManager.KEY_ID);
 
-        user_id  = "541";
+       // user_id  = "541";
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -280,7 +280,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                         Log.w(TAG,"SearchProductsResponse" + new Gson().toJson(response.body()));
 
-                        prdouctsBeanList = response.body().getData().getPrdoucts();
+                        prdouctsBeanList = response.body().getData().getProducts();
 
                         if(response.body().getData().getTotal_count()!=0){
 
@@ -367,7 +367,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         alertDialog.show();
     }
 
-    private void setGridView(List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setGridView(List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList) {
 
 
         rv_searchprodlist.setLayoutManager(new LinearLayoutManager(SearchProductListActivity.this, LinearLayoutManager.VERTICAL, false));

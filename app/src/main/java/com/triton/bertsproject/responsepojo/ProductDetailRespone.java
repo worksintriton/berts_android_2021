@@ -5,16 +5,21 @@ import java.util.List;
 public class ProductDetailRespone {
 
 
+
     /**
      * status : Success
      * code : 200
      * message : Product Detail successful
-     * data : {"prdoucts":[{"id":"2","title":"Gear lever","slug":"gear-lever-2","category_id":"1","subcategory_id":"30","third_category_id":null,"price":"50000","currency":"USD","description":"<p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.<\/p>\n","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":"2021-04-27 12:53:00","promote_end_date":"2021-04-27 12:53:00","promote_plan":"none","promote_day":"0","visibility":"1","rating":"0","hit":"24","external_link":null,"quantity":"497","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-04-27 12:53:00","part_number":"ABCD1234","brand_id":"1","colors":"red","weight":"10","height":"10","length":"10","tag_hot":"0","tag_new":"0","unit":"100","discount":"0","video":null,"vin":"6D9RTP0QWER357246","subcategory_name":"Interior Car Accessories","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":2,"reviews_ratings":5,"reviews_details":[{"review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}]}]}
+     * data : {"products":{"id":"2","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-2","category_id":"6","subcategory_id":"21","third_category_id":null,"price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:05:21","part_number":"21460-8H303","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":3,"reviews_ratings":4,"reviews_details":[{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}],"reviews_ratings_total_count":3,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}}}
      */
 
     private String status;
     private int code;
     private String message;
+    /**
+     * products : {"id":"2","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-2","category_id":"6","subcategory_id":"21","third_category_id":null,"price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:05:21","part_number":"21460-8H303","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":3,"reviews_ratings":4,"reviews_details":[{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}],"reviews_ratings_total_count":3,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}}
+     */
+
     private DataBean data;
 
     public String getStatus() {
@@ -52,14 +57,14 @@ public class ProductDetailRespone {
     public static class DataBean {
         /**
          * id : 2
-         * title : Gear lever
-         * slug : gear-lever-2
-         * category_id : 1
-         * subcategory_id : 30
+         * title : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
+         * slug : radiator-atm-nisxtrail-t30-qr20de-2000-03-2
+         * category_id : 6
+         * subcategory_id : 21
          * third_category_id : null
-         * price : 50000
+         * price : 1000
          * currency : USD
-         * description : <p>Master Cylinder, clutch for all models of cars. Buy genuine spare parts on this website.</p>
+         * description : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
          * product_condition : null
          * country_id : null
          * state_id : null
@@ -68,52 +73,54 @@ public class ProductDetailRespone {
          * user_id : 1
          * status : 1
          * is_promoted : 0
-         * promote_start_date : 2021-04-27 12:53:00
-         * promote_end_date : 2021-04-27 12:53:00
-         * promote_plan : none
-         * promote_day : 0
+         * promote_start_date : null
+         * promote_end_date : null
+         * promote_plan : null
+         * promote_day : null
          * visibility : 1
          * rating : 0
-         * hit : 24
+         * hit : 0
          * external_link : null
-         * quantity : 497
+         * quantity : 10
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-04-27 12:53:00
-         * part_number : ABCD1234
-         * brand_id : 1
-         * colors : red
-         * weight : 10
-         * height : 10
-         * length : 10
+         * created_at : 2021-06-03 13:05:21
+         * part_number : 21460-8H303
+         * brand_id : 24
+         * colors : null
+         * weight : 0
+         * height : 0
+         * length : 0
          * tag_hot : 0
          * tag_new : 0
-         * unit : 100
+         * unit : null
          * discount : 0
          * video : null
-         * vin : 6D9RTP0QWER357246
-         * subcategory_name : Interior Car Accessories
+         * vin : null
+         * subcategory_name : Engine Cooling
          * category_name : Performance & Tuning
          * images : [{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]
-         * reviews_comments : 2
-         * reviews_ratings : 5
-         * reviews_details : [{"review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}]
+         * reviews_comments : 3
+         * reviews_ratings : 4
+         * reviews_details : [{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}]
+         * reviews_ratings_total_count : 3
+         * reviews_ratings_percentage : {"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}
          */
 
-        private List<PrdouctsBean> prdoucts;
+        private ProductsBean products;
 
-        public List<PrdouctsBean> getPrdoucts() {
-            return prdoucts;
+        public ProductsBean getProducts() {
+            return products;
         }
 
-        public void setPrdoucts(List<PrdouctsBean> prdoucts) {
-            this.prdoucts = prdoucts;
+        public void setProducts(ProductsBean products) {
+            this.products = products;
         }
 
-        public static class PrdouctsBean {
+        public static class ProductsBean {
             private String id;
             private String title;
             private String slug;
@@ -131,10 +138,10 @@ public class ProductDetailRespone {
             private String user_id;
             private String status;
             private String is_promoted;
-            private String promote_start_date;
-            private String promote_end_date;
-            private String promote_plan;
-            private String promote_day;
+            private Object promote_start_date;
+            private Object promote_end_date;
+            private Object promote_plan;
+            private Object promote_day;
             private String visibility;
             private String rating;
             private String hit;
@@ -148,20 +155,30 @@ public class ProductDetailRespone {
             private String created_at;
             private String part_number;
             private String brand_id;
-            private String colors;
+            private Object colors;
             private String weight;
             private String height;
             private String length;
             private String tag_hot;
             private String tag_new;
-            private String unit;
+            private Object unit;
             private String discount;
             private Object video;
-            private String vin;
+            private Object vin;
             private String subcategory_name;
             private String category_name;
             private int reviews_comments;
             private int reviews_ratings;
+            private int reviews_ratings_total_count;
+            /**
+             * rating_1 : 0
+             * rating_2 : 0
+             * rating_3 : 0
+             * rating_4 : 67
+             * rating_5 : 33
+             */
+
+            private ReviewsRatingsPercentageBean reviews_ratings_percentage;
             /**
              * id : 339
              * product_id : 2
@@ -174,9 +191,10 @@ public class ProductDetailRespone {
 
             private List<ImagesBean> images;
             /**
-             * review : Good .
-             * date : 12/28/2020
-             * added_by : testc testc
+             * rating : 4
+             * review : Good Product
+             * date : 05/26/2021
+             * added_by : testf test
              */
 
             private List<ReviewsDetailsBean> reviews_details;
@@ -317,35 +335,35 @@ public class ProductDetailRespone {
                 this.is_promoted = is_promoted;
             }
 
-            public String getPromote_start_date() {
+            public Object getPromote_start_date() {
                 return promote_start_date;
             }
 
-            public void setPromote_start_date(String promote_start_date) {
+            public void setPromote_start_date(Object promote_start_date) {
                 this.promote_start_date = promote_start_date;
             }
 
-            public String getPromote_end_date() {
+            public Object getPromote_end_date() {
                 return promote_end_date;
             }
 
-            public void setPromote_end_date(String promote_end_date) {
+            public void setPromote_end_date(Object promote_end_date) {
                 this.promote_end_date = promote_end_date;
             }
 
-            public String getPromote_plan() {
+            public Object getPromote_plan() {
                 return promote_plan;
             }
 
-            public void setPromote_plan(String promote_plan) {
+            public void setPromote_plan(Object promote_plan) {
                 this.promote_plan = promote_plan;
             }
 
-            public String getPromote_day() {
+            public Object getPromote_day() {
                 return promote_day;
             }
 
-            public void setPromote_day(String promote_day) {
+            public void setPromote_day(Object promote_day) {
                 this.promote_day = promote_day;
             }
 
@@ -453,11 +471,11 @@ public class ProductDetailRespone {
                 this.brand_id = brand_id;
             }
 
-            public String getColors() {
+            public Object getColors() {
                 return colors;
             }
 
-            public void setColors(String colors) {
+            public void setColors(Object colors) {
                 this.colors = colors;
             }
 
@@ -501,11 +519,11 @@ public class ProductDetailRespone {
                 this.tag_new = tag_new;
             }
 
-            public String getUnit() {
+            public Object getUnit() {
                 return unit;
             }
 
-            public void setUnit(String unit) {
+            public void setUnit(Object unit) {
                 this.unit = unit;
             }
 
@@ -525,11 +543,11 @@ public class ProductDetailRespone {
                 this.video = video;
             }
 
-            public String getVin() {
+            public Object getVin() {
                 return vin;
             }
 
-            public void setVin(String vin) {
+            public void setVin(Object vin) {
                 this.vin = vin;
             }
 
@@ -565,6 +583,22 @@ public class ProductDetailRespone {
                 this.reviews_ratings = reviews_ratings;
             }
 
+            public int getReviews_ratings_total_count() {
+                return reviews_ratings_total_count;
+            }
+
+            public void setReviews_ratings_total_count(int reviews_ratings_total_count) {
+                this.reviews_ratings_total_count = reviews_ratings_total_count;
+            }
+
+            public ReviewsRatingsPercentageBean getReviews_ratings_percentage() {
+                return reviews_ratings_percentage;
+            }
+
+            public void setReviews_ratings_percentage(ReviewsRatingsPercentageBean reviews_ratings_percentage) {
+                this.reviews_ratings_percentage = reviews_ratings_percentage;
+            }
+
             public List<ImagesBean> getImages() {
                 return images;
             }
@@ -579,6 +613,54 @@ public class ProductDetailRespone {
 
             public void setReviews_details(List<ReviewsDetailsBean> reviews_details) {
                 this.reviews_details = reviews_details;
+            }
+
+            public static class ReviewsRatingsPercentageBean {
+                private int rating_1;
+                private int rating_2;
+                private int rating_3;
+                private int rating_4;
+                private int rating_5;
+
+                public int getRating_1() {
+                    return rating_1;
+                }
+
+                public void setRating_1(int rating_1) {
+                    this.rating_1 = rating_1;
+                }
+
+                public int getRating_2() {
+                    return rating_2;
+                }
+
+                public void setRating_2(int rating_2) {
+                    this.rating_2 = rating_2;
+                }
+
+                public int getRating_3() {
+                    return rating_3;
+                }
+
+                public void setRating_3(int rating_3) {
+                    this.rating_3 = rating_3;
+                }
+
+                public int getRating_4() {
+                    return rating_4;
+                }
+
+                public void setRating_4(int rating_4) {
+                    this.rating_4 = rating_4;
+                }
+
+                public int getRating_5() {
+                    return rating_5;
+                }
+
+                public void setRating_5(int rating_5) {
+                    this.rating_5 = rating_5;
+                }
             }
 
             public static class ImagesBean {
@@ -648,9 +730,18 @@ public class ProductDetailRespone {
             }
 
             public static class ReviewsDetailsBean {
+                private String rating;
                 private String review;
                 private String date;
                 private String added_by;
+
+                public String getRating() {
+                    return rating;
+                }
+
+                public void setRating(String rating) {
+                    this.rating = rating;
+                }
 
                 public String getReview() {
                     return review;

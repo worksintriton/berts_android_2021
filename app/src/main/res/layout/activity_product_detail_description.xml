@@ -54,6 +54,8 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/lato_black"
                     android:padding="@dimen/_5dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="@string/product_detail"
                     android:textColor="@color/dark_blue"
                     android:textSize="@dimen/_16sp" />
@@ -689,7 +691,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp">
 
@@ -1262,7 +1264,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1314,7 +1316,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1365,7 +1367,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1418,7 +1420,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             tools:ignore="UselessParent">
 
                             <TextView
@@ -1470,7 +1472,7 @@
                             android:layout_marginTop="@dimen/_10dp"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:orientation="horizontal"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             tools:ignore="UselessParent">
 
                             <TextView

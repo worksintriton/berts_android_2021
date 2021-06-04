@@ -16,6 +16,7 @@ import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.tabs.TabLayout;
+import com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar;
 import com.triton.bertsproject.R;
 import java.lang.IllegalStateException;
 import java.lang.Override;
@@ -73,6 +74,16 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.hand_img31 = Utils.findRequiredViewAsType(source, R.id.hand_img31, "field 'hand_img31'", ImageView.class);
     target.hand_img41 = Utils.findRequiredViewAsType(source, R.id.hand_img41, "field 'hand_img41'", ImageView.class);
     target.hand_img51 = Utils.findRequiredViewAsType(source, R.id.hand_img51, "field 'hand_img51'", ImageView.class);
+    target.progress_bar_5star = Utils.findRequiredViewAsType(source, R.id.progress_bar_5star, "field 'progress_bar_5star'", RoundedHorizontalProgressBar.class);
+    target.txt_5star_perc = Utils.findRequiredViewAsType(source, R.id.txt_5star_perc, "field 'txt_5star_perc'", TextView.class);
+    target.progress_bar_4star = Utils.findRequiredViewAsType(source, R.id.progress_bar_4star, "field 'progress_bar_4star'", RoundedHorizontalProgressBar.class);
+    target.txt_4star_perc = Utils.findRequiredViewAsType(source, R.id.txt_4star_perc, "field 'txt_4star_perc'", TextView.class);
+    target.progress_bar_3star = Utils.findRequiredViewAsType(source, R.id.progress_bar_3star, "field 'progress_bar_3star'", RoundedHorizontalProgressBar.class);
+    target.txt_3star_perc = Utils.findRequiredViewAsType(source, R.id.txt_3star_perc, "field 'txt_3star_perc'", TextView.class);
+    target.progress_bar_2star = Utils.findRequiredViewAsType(source, R.id.progress_bar_2star, "field 'progress_bar_2star'", RoundedHorizontalProgressBar.class);
+    target.txt_2star_perc = Utils.findRequiredViewAsType(source, R.id.txt_2star_perc, "field 'txt_2star_perc'", TextView.class);
+    target.progress_bar_1star = Utils.findRequiredViewAsType(source, R.id.progress_bar_1star, "field 'progress_bar_1star'", RoundedHorizontalProgressBar.class);
+    target.txt_1star_perc = Utils.findRequiredViewAsType(source, R.id.txt_1star_perc, "field 'txt_1star_perc'", TextView.class);
   }
 
   @Override
@@ -122,5 +133,15 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.hand_img31 = null;
     target.hand_img41 = null;
     target.hand_img51 = null;
+    target.progress_bar_5star = null;
+    target.txt_5star_perc = null;
+    target.progress_bar_4star = null;
+    target.txt_4star_perc = null;
+    target.progress_bar_3star = null;
+    target.txt_3star_perc = null;
+    target.progress_bar_2star = null;
+    target.txt_2star_perc = null;
+    target.progress_bar_1star = null;
+    target.txt_1star_perc = null;
   }
 }

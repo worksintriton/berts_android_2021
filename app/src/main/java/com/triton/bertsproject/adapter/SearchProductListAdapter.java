@@ -27,12 +27,12 @@ import java.util.List;
 
 public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProductListAdapter.ShoplistHolder> {
     Context context;
-    List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+    List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList ;
     View view;
 
     private final static String TAG = "SearchProductListAdapter";
 
-    public SearchProductListAdapter(Context context,List<SearchProductsResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
 
@@ -50,7 +50,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final SearchProductsResponse.DataBean.PrdouctsBean prdouctsBean = prdouctsBeanList.get(position);
+        final SearchProductsResponse.DataBean.ProductsBean prdouctsBean = prdouctsBeanList.get(position);
 
         if (prdouctsBean.getTitle()!= null&&!prdouctsBean.getTitle().isEmpty()) {
 
@@ -58,15 +58,15 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
         }
 
-        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
-
-            String imgurl = prdouctsBean.getImages().get(0).getImage_default();
-
-            Glide.with(context)
-                    .load(imgurl)
-                    .into(holder.img_product_image);
-
-        }
+//        if (prdouctsBean.g().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
+//
+//            String imgurl = prdouctsBean.getImages().get(0).getImage_default();
+//
+//            Glide.with(context)
+//                    .load(imgurl)
+//                    .into(holder.img_product_image);
+//
+//        }
 
         if (prdouctsBean.getPart_number()!= null&&!prdouctsBean.getPart_number().isEmpty()) {
 

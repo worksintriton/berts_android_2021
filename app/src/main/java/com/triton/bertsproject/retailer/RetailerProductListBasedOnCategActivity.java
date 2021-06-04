@@ -32,9 +32,7 @@ import com.triton.bertsproject.interfaces.ProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
-import com.triton.bertsproject.requestpojo.FetchProductBasedOnBrandRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnCatRequest;
-import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
@@ -105,7 +103,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     List<RetailerProductlistModel> retailerProductlistModels;
 
-    List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList ;
+    List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList ;
 
     String brand_id,parent_id,subcategid,subcategname,fromactivity;
 
@@ -225,7 +223,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                         Log.w(TAG,"ProductListResponse" + new Gson().toJson(response.body()));
 
-                        prdouctsBeanList = response.body().getData().getPrdoucts();
+                        prdouctsBeanList = response.body().getData().getProducts();
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
 
@@ -335,7 +333,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
         alertDialog.show();
     }
 
-    private void setGridView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setGridView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList) {
 
 
         rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListBasedOnCategActivity.this, 2));
@@ -418,7 +416,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
         }
     }
 
-    private void setlistView(List<ProductListResponse.DataBean.PrdouctsBean> prdouctsBeanList) {
+    private void setlistView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList) {
 
         rv_prodlist.setLayoutManager(new LinearLayoutManager(RetailerProductListBasedOnCategActivity.this,LinearLayoutManager.VERTICAL,false));
 

@@ -10,25 +10,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.adapter.ShopbyAdapter;
+import com.triton.bertsproject.adapter.VehicletListAdapter;
+import com.triton.bertsproject.api.APIClient;
+import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.model.ShopByNameModel;
+import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
+import com.triton.bertsproject.requestpojo.HomepageDashboardRequest;
+import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
+import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
+import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +50,10 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.dd4you.appsconfig.DD4YouConfig;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
@@ -57,8 +74,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     EditText edt_search;
 
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.fl_cart)
-    FrameLayout fl_cart;
+    @BindView(R.id.rlcart)
+    RelativeLayout rlcart;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_shopby)
@@ -80,7 +97,53 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.cv_vehicle)
     CardView cv_vehicle;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_default_veh)
+    CardView cv_default_veh;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_selected_vehc)
+    TextView txt_selected_vehc;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_manageveh)
+    RelativeLayout rl_manageveh;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_addVehfromdefault)
+    RelativeLayout rl_addVehfromdefault;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_root)
+    RelativeLayout rl_root;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_search)
+    RelativeLayout rl_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_shop_txt)
+    TextView txt_shop_txt;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.fl_image)
+    FrameLayout fl_image;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cl_shipping)
+    CardView cl_shipping;
+
     List<ShopByNameModel> shopByNameModels;
+
+    AlertDialog alertDialog;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_cart_count)
+    TextView txt_cart_count;
+
+    HomepageDashboardResponse.DataBean.DefaultVehicleBean defaultVehicleBeanList ;
+
+    HashMap<String, String> user;
 
     private static final String TAG = "HomeFragment";
 
@@ -89,6 +152,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     String username;
 
     SessionManager sessionManager;
+
+    DD4YouConfig dd4YouConfig;
+
+    String make_name,model_name,year,user_id;
+
+    int cart_count =0;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -111,27 +180,77 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         Log.w("Oncreate ", TAG);
 
+        rl_root.setVisibility(View.GONE);
+
+        cv_vehicle.setVisibility(View.GONE);
+
+        cv_default_veh.setVisibility(View.GONE);
+
+        rl_search.setVisibility(View.GONE);
+
+        cl_loginbefore.setVisibility(View.GONE);
+
+        txt_shop_txt.setVisibility(View.GONE);
+
+        rv_shopby.setVisibility(View.GONE);
+
+        fl_image.setVisibility(View.GONE);
+
+        cl_shipping.setVisibility(View.GONE);
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+
         sessionManager = new SessionManager(getContext());
 
-        HashMap<String, String> user = sessionManager.getProfileDetails();
+        dd4YouConfig = new DD4YouConfig(getContext());
+
+        user = sessionManager.getProfileDetails();
+
+        initialSetUp();
+
+        return view;
+    }
+
+    private void initialSetUp() {
 
         if(sessionManager.isLoggedIn())
         {
-            cl_loginbefore.setVisibility(View.GONE);
+
+            user_id = user.get(SessionManager.KEY_ID);
 
             username = user.get(SessionManager.KEY_FIRST_NAME) + " " + user.get(SessionManager.KEY_LAST_NAME);
 
-            txt_user_type.setText(""+username);
+            if(dd4YouConfig.isInternetConnectivity()){
 
-            cv_vehicle.setVisibility(View.VISIBLE);
+                usercommonResponseCall();
+            }
+
+            else {
+
+                callnointernet();
+            }
 
         }
 
         else {
 
-            cl_loginbefore.setVisibility(View.VISIBLE);
+            rl_root.setVisibility(View.VISIBLE);
+
+            txt_cart_count.setVisibility(View.GONE);
 
             cv_vehicle.setVisibility(View.GONE);
+
+            cv_default_veh.setVisibility(View.GONE);
+
+            rl_search.setVisibility(View.VISIBLE);
+
+            cl_loginbefore.setVisibility(View.VISIBLE);
+
+            txt_shop_txt.setVisibility(View.VISIBLE);
+
+            rv_shopby.setVisibility(View.VISIBLE);
+
+            setView();
 
             txt_user_login.setOnClickListener(v -> {
 
@@ -156,6 +275,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             });
 
+            fl_image.setVisibility(View.VISIBLE);
+
+            cl_shipping.setVisibility(View.VISIBLE);
+
+            spin_kit_loadingView.setVisibility(View.GONE);
+
         }
 
         edt_search.setOnClickListener(v -> {
@@ -170,18 +295,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         });
 
-        btn_addVeh.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getContext(), AddVehicleActivity.class);
-
-            intent.putExtra("fromactivity",TAG);
-
-            startActivity(intent);
-
-            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
-        });
-
-        fl_cart.setOnClickListener(v -> {
+        rlcart.setOnClickListener(v -> {
 
             Intent intent = new Intent(getContext(), RetailerCartActivity.class);
 
@@ -193,12 +308,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
 
 
-        spin_kit_loadingView.setVisibility(View.GONE);
 
-        setView();
-
-        return view;
     }
+
+
 
     private void setView() {
 
@@ -253,5 +366,267 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+    }
+
+    @SuppressLint("LongLogTag")
+    private void usercommonResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<HomepageDashboardResponse> call = apiInterface.usercommonResponseCall(RestUtils.getContentType(),HomepageDashboardRequest());
+        Log.w(TAG,"HomepageDashboardResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<HomepageDashboardResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<HomepageDashboardResponse> call, @NonNull Response<HomepageDashboardResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(response.body().getData()!=null){
+
+                        if(200==response.body().getCode()) {
+
+                            Log.w(TAG, "HomepageDashboardResponse" + new Gson().toJson(response.body()));
+
+                            cart_count = response.body().getData().getCart_count();
+
+                            defaultVehicleBeanList =response.body().getData().getDefault_vehicle();
+
+                            Log.w(TAG, "defaultVehicleBeanList" + new Gson().toJson(defaultVehicleBeanList));
+
+                            Log.w(TAG, "defaultVehicleBeanList" + defaultVehicleBeanList.toString());
+
+                            if(defaultVehicleBeanList!=null&&defaultVehicleBeanList.getAv_default()!=null){
+
+                                Log.w(TAG, "defaultVehicleBeanList true-->");
+
+                                setDefaultView(defaultVehicleBeanList);
+
+                            }
+
+                            else {
+
+                                Log.w(TAG, "defaultVehicleBeanList false-->");
+
+                                rl_root.setVisibility(View.VISIBLE);
+
+                                if (cart_count!=0)  {
+
+                                    txt_cart_count.setText(""+cart_count);
+                                }
+
+                                else {
+
+                                    txt_cart_count.setVisibility(View.GONE);
+                                }
+
+                                cv_vehicle.setVisibility(View.VISIBLE);
+
+                                cv_default_veh.setVisibility(View.GONE);
+
+                                rl_search.setVisibility(View.VISIBLE);
+
+                                cl_loginbefore.setVisibility(View.GONE);
+
+                                txt_shop_txt.setVisibility(View.VISIBLE);
+
+                                rv_shopby.setVisibility(View.VISIBLE);
+
+                                setView();
+
+                                fl_image.setVisibility(View.VISIBLE);
+
+                                cl_shipping.setVisibility(View.VISIBLE);
+
+                                user_id = user.get(SessionManager.KEY_ID);
+
+                                username = user.get(SessionManager.KEY_FIRST_NAME) + " " + user.get(SessionManager.KEY_LAST_NAME);
+
+                                txt_user_type.setText(""+username);
+
+                                btn_addVeh.setOnClickListener(v -> {
+
+                                    Intent intent = new Intent(getContext(), AddVehicleActivity.class);
+
+                                    intent.putExtra("fromactivity",TAG);
+
+                                    startActivity(intent);
+
+                                    Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+                                });
+
+                            }
+                        }
+
+                        else {
+
+                            showErrorLoading(response.body().getMessage());
+
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<HomepageDashboardResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"HomepageDashboardResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private void setDefaultView(HomepageDashboardResponse.DataBean.DefaultVehicleBean defaultVehicleBeanList) {
+
+        Log.w(TAG, "defaultVehicleBeanList defaultVehicleBeanList.getAv_default() ");
+
+        if (defaultVehicleBeanList.getAv_default() != null&&!defaultVehicleBeanList.getAv_default().isEmpty()&&defaultVehicleBeanList.getAv_default().equals("1"))  {
+
+            if (defaultVehicleBeanList.getAv_year() != null&&!defaultVehicleBeanList.getAv_year().isEmpty())  {
+
+                year = defaultVehicleBeanList.getAv_year();
+
+            }
+
+            else {
+
+                year="";
+            }
+
+            if (defaultVehicleBeanList.getMake_name() != null&&!defaultVehicleBeanList.getMake_name().isEmpty())  {
+
+                make_name = defaultVehicleBeanList.getMake_name();
+            }
+
+            else {
+
+                make_name="";
+            }
+
+            if (defaultVehicleBeanList.getModel_name() != null&&!defaultVehicleBeanList.getModel_name().isEmpty())  {
+
+                model_name = defaultVehicleBeanList.getModel_name();
+            }
+
+            else {
+
+                model_name = "";
+            }
+
+        }
+
+        rl_root.setVisibility(View.VISIBLE);
+
+        if (cart_count!=0)  {
+
+            txt_cart_count.setText(""+cart_count);
+        }
+
+        else {
+
+            txt_cart_count.setVisibility(View.GONE);
+        }
+
+        cv_vehicle.setVisibility(View.GONE);
+
+        cv_default_veh.setVisibility(View.VISIBLE);
+
+        rl_search.setVisibility(View.VISIBLE);
+
+        cl_loginbefore.setVisibility(View.GONE);
+
+        txt_shop_txt.setVisibility(View.VISIBLE);
+
+        rv_shopby.setVisibility(View.VISIBLE);
+
+        setView();
+
+        fl_image.setVisibility(View.VISIBLE);
+
+        cl_shipping.setVisibility(View.VISIBLE);
+
+        txt_user_type.setText(""+username);
+
+        txt_selected_vehc.setText(year + " " + " " +make_name+ " "+ model_name);
+
+        rl_addVehfromdefault.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), AddVehicleActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+        });
+
+        rl_manageveh.setOnClickListener(v -> {
+
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragment_container,new MyGarageFragment());
+
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private HomepageDashboardRequest HomepageDashboardRequest() {
+
+        /*
+         * USER_ID : 541
+         */
+
+
+        HomepageDashboardRequest HomepageDashboardRequest = new HomepageDashboardRequest();
+        HomepageDashboardRequest.setUSER_ID(user_id);
+
+        Log.w(TAG,"HomepageDashboardRequest "+ new Gson().toJson(HomepageDashboardRequest));
+        return HomepageDashboardRequest;
+    }
+
+    private void callnointernet() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        builder.setTitle("No Internet Conncetion");
+        builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
+        builder.setCancelable(false);
+        builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
+            startActivity(new Intent(getContext(), MyWishlistActivity.class));
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
     }
 }
