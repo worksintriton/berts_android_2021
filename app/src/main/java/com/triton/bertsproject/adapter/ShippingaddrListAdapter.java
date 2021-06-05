@@ -6,13 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.SetDefaultAddressListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.UserAddressListResponse;
@@ -25,11 +28,13 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
     View view;
     boolean check;
     String pincode, district, state;
+    SetDefaultAddressListener setDefaultAddressListener;
 
-    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList)
+    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList, SetDefaultAddressListener setDefaultAddressListener)
     {
         this.context = context;
         this.addressBeanList = addressBeanList ;
+        this.setDefaultAddressListener=setDefaultAddressListener;
     }
 
     @NonNull
@@ -98,6 +103,24 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
 
         holder.txt_dist_pincode_state.setText(state+" "+district+" "+pincode);
 
+        if(addressBean.getIs_default()!=null&&!addressBean.getIs_default().isEmpty()&&addressBean.getIs_default().equals("1")){
+
+            holder.rv_default.setVisibility(View.VISIBLE);
+        }
+
+        else {
+
+            holder.rv_default.setVisibility(View.GONE);
+        }
+
+        holder.cv_root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setDefaultAddressListener.setshipListener(addressBean.getId());
+            }
+        });
+
     }
 
     @Override
@@ -110,6 +133,10 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
         TextView txt_username, txt_phnum,txt_user_city,txt_street,txt_dist_pincode_state;
   //      RatingBar ratingBar;
         LinearLayout ll_edit,ll_delete;
+
+        RelativeLayout rv_default;
+
+        CardView cv_root;
 
         public ShoplistHolder(View itemView) {
             super(itemView);
@@ -130,6 +157,9 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
 
             ll_delete = itemView.findViewById(R.id.ll_delete);
 
+            rv_default = itemView.findViewById(R.id.rv_default);
+
+            cv_root = itemView.findViewById(R.id.cv_root);
         }
     }
 }

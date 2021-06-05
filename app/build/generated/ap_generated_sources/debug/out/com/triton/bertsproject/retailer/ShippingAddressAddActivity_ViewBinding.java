@@ -4,6 +4,7 @@ package com.triton.bertsproject.retailer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -41,6 +42,7 @@ public class ShippingAddressAddActivity_ViewBinding implements Unbinder {
     target.sp_state = Utils.findRequiredViewAsType(source, R.id.sp_state, "field 'sp_state'", Spinner.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.ll_default = Utils.findRequiredViewAsType(source, R.id.ll_default, "field 'll_default'", LinearLayout.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
   }
 
@@ -63,6 +65,7 @@ public class ShippingAddressAddActivity_ViewBinding implements Unbinder {
     target.sp_state = null;
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;
+    target.ll_default = null;
     target.img_back = null;
   }
 }

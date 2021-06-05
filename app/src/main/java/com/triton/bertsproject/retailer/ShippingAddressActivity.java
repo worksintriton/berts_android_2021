@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
@@ -26,8 +27,11 @@ import com.triton.bertsproject.adapter.ChildCategoriesListAdapter;
 import com.triton.bertsproject.adapter.ShippingaddrListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.SetDefaultAddressListener;
 import com.triton.bertsproject.requestpojo.DeleteAddressListRequest;
+import com.triton.bertsproject.requestpojo.SetDefaultAddrRequest;
 import com.triton.bertsproject.requestpojo.UserAddressListRequest;
+import com.triton.bertsproject.responsepojo.SetDefaultAddrResponse;
 import com.triton.bertsproject.responsepojo.UserAddressListResponse;
 import com.triton.bertsproject.responsepojo.UserAddressListResponse;
 import com.triton.bertsproject.responsepojo.DeleteAddressListResponse;
@@ -37,15 +41,18 @@ import com.triton.bertsproject.utils.RestUtils;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ShippingAddressActivity extends AppCompatActivity {
+public class ShippingAddressActivity extends AppCompatActivity implements SetDefaultAddressListener {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -85,6 +92,8 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
     String userid;
 
+    String isdefault = "0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +122,13 @@ public class ShippingAddressActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ShippingAddressActivity.this,ShippingAddressAddActivity.class));
+                Intent intent = new Intent(ShippingAddressActivity.this,ShippingAddressAddActivity.class);
+
+                intent.putExtra("isdefault",isdefault);
+
+                intent.putExtra("fromActivity",TAG);
+
+                startActivity(intent);
 
             }
         });
@@ -171,6 +186,8 @@ public class ShippingAddressActivity extends AppCompatActivity {
                         }
 
                         else {
+
+                            isdefault="1";
 
                             rv_addrlist.setVisibility(View.GONE);
 
@@ -249,7 +266,7 @@ public class ShippingAddressActivity extends AppCompatActivity {
 
         rv_addrlist.setItemAnimator(new DefaultItemAnimator());
 
-        ShippingaddrListAdapter shippingaddrListAdapter = new ShippingaddrListAdapter(ShippingAddressActivity.this, addressBeanList);
+        ShippingaddrListAdapter shippingaddrListAdapter = new ShippingaddrListAdapter(ShippingAddressActivity.this, addressBeanList,this);
 
         rv_addrlist.setAdapter(shippingaddrListAdapter);
 
@@ -385,5 +402,109 @@ public class ShippingAddressActivity extends AppCompatActivity {
         return DeleteAddressListRequest;
     }
 
+
+    @Override
+    public void setshipListener(String id) {
+
+        showAlert(id);
+    }
+
+
+    private void showAlert(String id) {
+
+        new SweetAlertDialog(ShippingAddressActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Alert!!")
+                .setContentText("Are You Sure to set this vehicle as Default vehicle")
+                .setCancelText("No")
+                .setConfirmText("Yes")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.cancel();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        if(dd4YouConfig.isInternetConnectivity()) {
+
+                            setdafultaddrResponseCall(id);
+                        }
+
+                        else {
+
+                            callnointernet();
+                        }
+
+                        sDialog.dismiss();
+
+                    }
+                })
+                .show();
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private void setdafultaddrResponseCall(String id) {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<SetDefaultAddrResponse> call = apiInterface.setdefaultaddrResponseCall(RestUtils.getContentType(),SetDefaultAddrRequest(id));
+        Log.w(TAG,"SetDefaultAddrResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<SetDefaultAddrResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<SetDefaultAddrResponse> call, @NonNull Response<SetDefaultAddrResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "SetDefaultAddrResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                       startActivity(new Intent(ShippingAddressActivity.this,RetailerCartActivity.class));
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+                }
+
+
+            }
+
+
+
+
+            @Override
+            public void onFailure(@NonNull Call<SetDefaultAddrResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"SetDefaultAddrResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+    @SuppressLint("LongLogTag")
+    private SetDefaultAddrRequest SetDefaultAddrRequest(String av_id) {
+
+        /**
+         * ADDRESS_ID : 348
+         * MODE : SETDEFAULT
+         */
+
+        SetDefaultAddrRequest SetDefaultAddrRequest = new SetDefaultAddrRequest();
+        SetDefaultAddrRequest.setADDRESS_ID(av_id);
+        SetDefaultAddrRequest.setMODE("SETDEFAULT");
+
+        Log.w(TAG,"SETDEFAULT "+ new Gson().toJson(SetDefaultAddrRequest));
+        return SetDefaultAddrRequest;
+    }
 
 }

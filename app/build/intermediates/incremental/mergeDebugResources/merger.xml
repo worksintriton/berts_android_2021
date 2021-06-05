@@ -6617,7 +6617,7 @@
         <item>Audi</item>
     </string-array><string-array name="make">
         <item>A8</item>
-    </string-array></file><file path="D:\Workspace\BertsProject\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.BertsProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    </string-array><string name="isdefault">Default</string></file><file path="D:\Workspace\BertsProject\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.BertsProject" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">@color/yellow</item>
         <item name="colorPrimaryVariant">@color/yellow</item>

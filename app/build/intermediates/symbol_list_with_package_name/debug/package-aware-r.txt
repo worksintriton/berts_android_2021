@@ -2613,6 +2613,7 @@ id ll_address_list_show
 id ll_brand
 id ll_categ
 id ll_color
+id ll_default
 id ll_delete
 id ll_edit
 id ll_image
@@ -2797,6 +2798,7 @@ id rv_addrlist
 id rv_brand
 id rv_categ
 id rv_color
+id rv_default
 id rv_filterlist
 id rv_makes
 id rv_orderlist
@@ -2970,7 +2972,6 @@ id txt_5star_perc
 id txt_5stars
 id txt_aboutus
 id txt_addreview
-id txt_addrs_type
 id txt_addrtxt1
 id txt_addrtxt2
 id txt_addrtxt3
@@ -2999,6 +3000,7 @@ id txt_cycl2
 id txt_cycl3
 id txt_date
 id txt_decrease
+id txt_default
 id txt_delete
 id txt_deliverdate
 id txt_deliveredaddr
@@ -3629,6 +3631,7 @@ string hifein
 string home
 string icon_content_description
 string image_description
+string isdefault
 string item_view_role_description
 string jeep_cj_style_replacement_mirrors
 string jhon_nelson

@@ -145,7 +145,17 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     @BindView(R.id.txt_order_total)
     TextView txt_order_total;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_deliveryaddrtype)
+    TextView txt_deliveryaddrtype;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_deliveryaddr)
+    TextView txt_deliveryaddr;
+
     List<ShowCartListResponse.DataBean.CartBean> cartBeanList ;
+
+    ShowCartListResponse.DataBean.DefaultAddressBean defaultAddressBean;
 
     String user_id;
 
@@ -160,6 +170,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
 
     String prod_id,prod_name;
+
+    String addr_name,address1,state_name,country_name;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -417,6 +429,55 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                             }
 
                             txt_no_records.setVisibility(View.GONE);
+
+                            defaultAddressBean = response.body().getData().getDefault_address();
+
+                            if(defaultAddressBean!=null&&defaultAddressBean.getId()!=null){
+
+                                if(defaultAddressBean.getAddress1()!=null&&!defaultAddressBean.getAddress1().isEmpty()){
+
+                                    address1 = defaultAddressBean.getAddress1();
+                                }
+                                else {
+
+                                    address1="";
+                                }
+
+                                if(defaultAddressBean.getAddress1()!=null&&!defaultAddressBean.getAddress1().isEmpty()){
+
+                                    state_name = defaultAddressBean.getState_name();
+                                }
+                                else {
+
+                                    state_name="";
+                                }
+
+                                if(defaultAddressBean.getAddress1()!=null&&!defaultAddressBean.getAddress1().isEmpty()){
+
+                                    country_name = defaultAddressBean.getCountry_name();
+                                }
+
+                                else {
+
+                                    country_name="";
+                                }
+
+                                txt_deliveryaddr.setText(address1 + " "+state_name+ " "+country_name);
+
+                                if(defaultAddressBean.getName()!=null&&!defaultAddressBean.getName().isEmpty()){
+
+                                    addr_name = defaultAddressBean.getName();
+                                }
+
+                                else {
+
+                                    addr_name="";
+                                }
+
+
+                                txt_deliveryaddrtype.setText(addr_name);
+
+                            }
 
                             txt_deliveryaddrchange.setOnClickListener(v -> {
 

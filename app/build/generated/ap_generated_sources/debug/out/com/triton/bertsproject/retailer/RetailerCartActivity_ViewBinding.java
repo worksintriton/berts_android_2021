@@ -46,6 +46,8 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.cv_shipcharge = Utils.findRequiredViewAsType(source, R.id.cv_shipcharge, "field 'cv_shipcharge'", CardView.class);
     target.cv_price = Utils.findRequiredViewAsType(source, R.id.cv_price, "field 'cv_price'", CardView.class);
     target.txt_order_total = Utils.findRequiredViewAsType(source, R.id.txt_order_total, "field 'txt_order_total'", TextView.class);
+    target.txt_deliveryaddrtype = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddrtype, "field 'txt_deliveryaddrtype'", TextView.class);
+    target.txt_deliveryaddr = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddr, "field 'txt_deliveryaddr'", TextView.class);
   }
 
   @Override
@@ -70,5 +72,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.cv_shipcharge = null;
     target.cv_price = null;
     target.txt_order_total = null;
+    target.txt_deliveryaddrtype = null;
+    target.txt_deliveryaddr = null;
   }
 }

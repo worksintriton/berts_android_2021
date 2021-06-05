@@ -140,7 +140,7 @@
         <activity
             android:name="com.triton.bertsproject.retailer.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
+            android:theme="@style/Theme.BertsProject"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.triton.bertsproject.retailer.ShippingAddressActivity"

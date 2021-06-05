@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -95,6 +96,10 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_default)
+    LinearLayout ll_default;
+
     private static final String TAG = "ShippingAddressAddActivity";
 
     DD4YouConfig dd4YouConfig;
@@ -103,7 +108,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
     String userid, name, phoneno, countryid, stateid,city,
 
-    statename,countryname,zipcode,addrln1,addrln2,zip,is_default="0";
+    statename,countryname,zipcode,addrln1,addrln2,zip,set_default="1";
 
     List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList ;
 
@@ -118,6 +123,8 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.img_back)
     ImageView img_back;
+
+    String fromActivity,isdefault;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -139,6 +146,16 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
         userid = user.get(SessionManager.KEY_ID);
 
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            fromActivity = extras.getString("fromActivity");
+
+            isdefault = extras.getString("isdefault");
+
+
+        }
 
         img_back.setOnClickListener(v -> {
 
@@ -174,23 +191,40 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
         });
 
-        sw_saveasdefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
+        ll_default.setVisibility(View.GONE);
 
-                if (isChecked) {
-                    //if 'isChecked' is true do whatever you need...
-
-                    is_default ="1";
-                }
-                else {
-
-                    is_default ="0";
-                }
-            }
-    });
+//        if(isdefault.equals("1")){
+//
+//            ll_default.setVisibility(View.GONE);
+//
+//            set_default="1";
+//        }
+//        else {
+//
+//            ll_default.setVisibility(View.VISIBLE);
+//
+//            set_default="0";
+//
+//
+//            sw_saveasdefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+//            {
+//                @Override
+//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+//                {
+//
+//                    if (isChecked) {
+//                        //if 'isChecked' is true do whatever you need...
+//
+//                        set_default ="1";
+//                    }
+//                    else {
+//
+//                        set_default ="0";
+//                    }
+//                }
+//            });
+//
+//        }
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -545,7 +579,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
             if (dd4YouConfig.isInternetConnectivity()) {
 
-                createaddrResponseCall(name,phoneno,city,statename,countryname,addrln1,addrln2,zipcode,is_default);
+                createaddrResponseCall(name,phoneno,city,statename,countryname,addrln1,addrln2,zipcode,set_default);
 
             }
 
@@ -592,7 +626,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
                         Log.w(TAG, "CreateAddressListResponse" + new Gson().toJson(response.body()));
 
-                        startActivity(new Intent(ShippingAddressAddActivity.this, RetailerDashboardActivity.class));
+                        startActivity(new Intent(ShippingAddressAddActivity.this, RetailerCartActivity.class));
 
                     }
 

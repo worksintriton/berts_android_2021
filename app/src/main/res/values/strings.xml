@@ -271,6 +271,7 @@
     <string name="addressline2">Address Line 2</string>
     <string name="shipaddr_dzis_msg">No Address Found</string>
     <string name="manage_vehicle">Manage Vehicle</string>
+    <string name="isdefault">Default</string>
 
 
     <string-array name="array_name">

@@ -407,7 +407,7 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:149:9-154:
 	tools:ignore
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:154:13-53
 	android:theme
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:152:13-47
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:152:13-54
 	android:name
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:150:13-64
 activity#com.triton.bertsproject.retailer.ShippingAddressActivity

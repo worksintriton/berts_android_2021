@@ -26,6 +26,7 @@ import com.triton.bertsproject.requestpojo.ProductDetailRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.requestpojo.RemovefromCartRequest;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
+import com.triton.bertsproject.requestpojo.SetDefaultAddrRequest;
 import com.triton.bertsproject.requestpojo.SetDefaultVehicleRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
 import com.triton.bertsproject.requestpojo.ShowOrderlistRequest;
@@ -57,6 +58,7 @@ import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.RemovefromCartResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
+import com.triton.bertsproject.responsepojo.SetDefaultAddrResponse;
 import com.triton.bertsproject.responsepojo.SetDefaultVehicleResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
 import com.triton.bertsproject.responsepojo.ShowOrderlistResponse;
@@ -214,7 +216,11 @@ public interface RestApiInterface {
     @POST("user/address")
     Call<DeleteAddressListResponse> deleteaddressResponseCall(@Header("Content-Type") String type, @Body DeleteAddressListRequest deleteAddressListRequest);
 
-    /*delete address list*/
+    /*set default address list*/
+    @POST("user/address")
+    Call<SetDefaultAddrResponse> setdefaultaddrResponseCall(@Header("Content-Type") String type, @Body SetDefaultAddrRequest setDefaultAddrRequest);
+
+    /*search product list*/
     @POST("product/search")
     Call<SearchProductsResponse> searchprodResponseCall(@Header("Content-Type") String type, @Body SearchProductsRequest searchProductsRequest);
 

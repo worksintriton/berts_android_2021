@@ -271,8 +271,8 @@
 141-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:150:13-64
 142            android:screenOrientation="portrait"
 142-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:151:13-49
-143            android:theme="@style/Customtheme"
-143-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:152:13-47
+143            android:theme="@style/Theme.BertsProject"
+143-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:152:13-54
 144            android:windowSoftInputMode="adjustPan" />
 144-->D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:153:13-52
 145        <activity

@@ -88,7 +88,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(ForgetPasswordActivity.this,ForgetPasswordActivity.class));
+            startActivity(new Intent(ForgetPasswordActivity.this,LoginActivity.class));
 
             Animatoo.animateSwipeLeft(context);
         });

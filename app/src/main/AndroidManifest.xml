@@ -149,7 +149,7 @@
         <activity
             android:name=".retailer.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
+            android:theme="@style/Theme.BertsProject"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity

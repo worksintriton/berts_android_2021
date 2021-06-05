@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.AddProductListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
@@ -29,12 +31,14 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     Context context;
     List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList ;
     View view;
+    AddProductListener addProductListener;
 
     private final static String TAG = "SearchProductListAdapter";
 
-    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList) {
+    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList,AddProductListener addProductListener) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
+        this.addProductListener = addProductListener;
 
     }
 
@@ -96,6 +100,15 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
         }
 
+        holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice());
+
+            }
+        });
+
 
         holder.cv_root.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +142,8 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
         CardView cv_root;
 
+        Button btn_addcart;
+
         public ShoplistHolder(View itemView) {
             super(itemView);
 
@@ -145,6 +160,8 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             txt_total_reviews = itemView.findViewById(R.id.txt_total_reviews);
 
             txt_price = itemView.findViewById(R.id.txt_price);
+
+            btn_addcart = itemView.findViewById(R.id.btn_addcart);
 
         }
     }
