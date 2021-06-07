@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Bert\'s Auto</string>
+    <string name="facebook_app_id">778009312869231</string>
+    <string name="fb_login_protocol_scheme">fb778009312869231</string>
+
+
     <string name="image_description">Image Description</string>
     <string name="toolbar_title">Toolbar Title</string>
     <string name="email">Email</string>
@@ -272,6 +276,8 @@
     <string name="shipaddr_dzis_msg">No Address Found</string>
     <string name="manage_vehicle">Manage Vehicle</string>
     <string name="isdefault">Default</string>
+    <string name="shippping_subtotal">Shipping Cost</string>
+    <string name="edit_addr">Edit Address</string>
 
 
     <string-array name="array_name">

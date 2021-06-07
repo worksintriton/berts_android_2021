@@ -169,7 +169,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
     String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
 
-    String prod_id,prod_name;
+    String prod_id,prod_name,shipid;
 
     String addr_name,address1,state_name,country_name;
 
@@ -179,7 +179,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         ButterKnife.bind( this);
         Log.w("Oncreate", TAG);
         txt_toolbar_title.setText(R.string.cart);
-        floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
+      //  floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 
         Log.w("Oncreate", TAG);
 
@@ -346,6 +346,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             else if(fromactivity.equals("ProductDetailDescriptionActivity")){
 
                 Intent intent = new Intent(RetailerCartActivity.this, ProductDetailDescriptionActivity.class);
+
                 intent.putExtra("prod_id",prod_id);
 
                 intent.putExtra("prod_name",prod_name);
@@ -425,7 +426,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             if(response.body().getData().getCart_total()!=0){
 
-                                txt_order_total.setText(""+response.body().getData().getCart_total());
+                                txt_order_total.setText("$ "+response.body().getData().getCart_total());
                             }
 
                             txt_no_records.setVisibility(View.GONE);
@@ -433,6 +434,16 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                             defaultAddressBean = response.body().getData().getDefault_address();
 
                             if(defaultAddressBean!=null&&defaultAddressBean.getId()!=null){
+
+                                if(defaultAddressBean.getId()!=null&&!defaultAddressBean.getId().isEmpty()){
+
+                                    shipid = defaultAddressBean.getId();
+                                }
+                                else {
+
+                                    shipid="";
+                                }
+
 
                                 if(defaultAddressBean.getAddress1()!=null&&!defaultAddressBean.getAddress1().isEmpty()){
 
@@ -477,6 +488,21 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                                 txt_deliveryaddrtype.setText(addr_name);
 
+                                txt_deliveryaddrchange.setText("Choose Address");
+
+
+
+                            }
+
+                            else
+                            {
+
+                                txt_deliveryaddrtype.setText("No Address Found");
+
+                                txt_deliveryaddr.setText("Please add some Address");
+
+                                txt_deliveryaddrchange.setText("Add Address");
+
                             }
 
                             txt_deliveryaddrchange.setOnClickListener(v -> {
@@ -493,7 +519,23 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                                 Animatoo.animateSwipeRight(context);
                             });
 
-                            ll_proceed.setOnClickListener(v -> startActivity(new Intent(RetailerCartActivity.this,CheckoutScreenActivity.class)));
+                            ll_proceed.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    if(shipid!=null&&!shipid.isEmpty()){
+
+                                        gotoCheckout();
+                                    }
+
+                                    else {
+
+                                        Toasty.warning(getApplicationContext(),"Please Add Shipping Address",Toasty.LENGTH_LONG).show();
+                                    }
+
+
+                                }
+                            });
 
 
                             setView(cartBeanList);
@@ -538,6 +580,35 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             }
         });
 
+    }
+
+    private void gotoCheckout() {
+
+        Intent intent = new Intent(RetailerCartActivity.this, CheckoutScreenActivity.class);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_id",model_name);
+
+        startActivity(intent);
+
+        finish();
     }
 
     @SuppressLint("LongLogTag")

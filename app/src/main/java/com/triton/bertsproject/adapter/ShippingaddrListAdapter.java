@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.interfaces.DeleteAddressListener;
+import com.triton.bertsproject.interfaces.EditAddressListener;
 import com.triton.bertsproject.interfaces.SetDefaultAddressListener;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
@@ -29,12 +31,16 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
     boolean check;
     String pincode, district, state;
     SetDefaultAddressListener setDefaultAddressListener;
+    DeleteAddressListener deleteAddressListener;
+    EditAddressListener editAddressListener;
 
-    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList, SetDefaultAddressListener setDefaultAddressListener)
+    public ShippingaddrListAdapter(Context context, List<UserAddressListResponse.DataBean.AddressBean> addressBeanList, SetDefaultAddressListener setDefaultAddressListener,DeleteAddressListener deleteAddressListener,EditAddressListener editAddressListener)
     {
         this.context = context;
         this.addressBeanList = addressBeanList ;
         this.setDefaultAddressListener=setDefaultAddressListener;
+        this.deleteAddressListener=deleteAddressListener;
+        this.editAddressListener=editAddressListener;
     }
 
     @NonNull
@@ -113,11 +119,21 @@ public class ShippingaddrListAdapter extends RecyclerView.Adapter<ShippingaddrLi
             holder.rv_default.setVisibility(View.GONE);
         }
 
-        holder.cv_root.setOnClickListener(new View.OnClickListener() {
+        holder.cv_root.setOnClickListener(v -> setDefaultAddressListener.setshipListener(addressBean.getId()));
+
+        holder.ll_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                setDefaultAddressListener.setshipListener(addressBean.getId());
+                editAddressListener.editshipinfoListener(addressBean.getId(),addressBean.getName(),addressBean.getPhone(),addressBean.getAddress1(),addressBean.getAddress2(),addressBean.getCity(),addressBean.getCountry_id(),addressBean.getCountry_name(),addressBean.getState(),addressBean.getState_name(),addressBean.getZipcode(),addressBean.getIs_default());
+            }
+        });
+
+        holder.ll_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                deleteAddressListener.setshipidListener(addressBean.getId(),addressBean.getIs_default());
             }
         });
 

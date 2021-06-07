@@ -2,16 +2,22 @@ package com.triton.bertsproject.responsepojo;
 
 public class EditAddressListResponse {
 
+
     /**
      * status : Success
      * code : 200
-     * message : Address Insert Successful
+     * message : Address Edit Successful
      * data : {"address":{}}
      */
 
     private String status;
     private int code;
     private String message;
+    /**
+     * address : {}
+     */
+
+    private DataBean data;
 
     public String getStatus() {
         return status;
@@ -35,5 +41,28 @@ public class EditAddressListResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public DataBean getData() {
+        return data;
+    }
+
+    public void setData(DataBean data) {
+        this.data = data;
+    }
+
+    public static class DataBean {
+        private AddressBean address;
+
+        public AddressBean getAddress() {
+            return address;
+        }
+
+        public void setAddress(AddressBean address) {
+            this.address = address;
+        }
+
+        public static class AddressBean {
+        }
     }
 }

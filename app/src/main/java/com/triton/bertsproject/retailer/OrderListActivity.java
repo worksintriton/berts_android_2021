@@ -122,15 +122,13 @@ public class OrderListActivity extends AppCompatActivity {
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
-     //   user_id = user.get(SessionManager.KEY_ID);
+      user_id = user.get(SessionManager.KEY_ID);
 
-        user_id  = "541";
+       // user_id  = "541";
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(OrderListActivity.this, RetailerCartActivity.class));
-
-            Animatoo.animateSwipeRight(context);
+            onBackPressed();
 
         });
 
@@ -298,8 +296,17 @@ public class OrderListActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, RetailerCartActivity.class));
-        Animatoo.animateSwipeRight(this.context);
+
+        callDirections("5");
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(OrderListActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
     }
 }

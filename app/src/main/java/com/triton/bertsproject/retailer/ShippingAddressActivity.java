@@ -12,6 +12,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.os.IResultReceiver;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,8 @@ import com.triton.bertsproject.adapter.ChildCategoriesListAdapter;
 import com.triton.bertsproject.adapter.ShippingaddrListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.DeleteAddressListener;
+import com.triton.bertsproject.interfaces.EditAddressListener;
 import com.triton.bertsproject.interfaces.SetDefaultAddressListener;
 import com.triton.bertsproject.requestpojo.DeleteAddressListRequest;
 import com.triton.bertsproject.requestpojo.SetDefaultAddrRequest;
@@ -52,7 +55,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ShippingAddressActivity extends AppCompatActivity implements SetDefaultAddressListener {
+public class ShippingAddressActivity extends AppCompatActivity implements SetDefaultAddressListener, DeleteAddressListener, EditAddressListener {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -266,7 +269,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
         rv_addrlist.setItemAnimator(new DefaultItemAnimator());
 
-        ShippingaddrListAdapter shippingaddrListAdapter = new ShippingaddrListAdapter(ShippingAddressActivity.this, addressBeanList,this);
+        ShippingaddrListAdapter shippingaddrListAdapter = new ShippingaddrListAdapter(ShippingAddressActivity.this, addressBeanList,this,this,this);
 
         rv_addrlist.setAdapter(shippingaddrListAdapter);
 
@@ -337,12 +340,12 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
     }
 
     @SuppressLint("LongLogTag")
-    private void deleteaddrListResponseCall() {
+    private void deleteaddrListResponseCall(String shipid) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<DeleteAddressListResponse> call = apiInterface.deleteaddressResponseCall(RestUtils.getContentType(), DeleteAddressListRequest());
+        Call<DeleteAddressListResponse> call = apiInterface.deleteaddressResponseCall(RestUtils.getContentType(), DeleteAddressListRequest(shipid));
         Log.w(TAG,"DeleteAddressListResponse url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<DeleteAddressListResponse>() {
@@ -357,7 +360,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
                         Log.w(TAG, "DeleteAddressListResponse" + new Gson().toJson(response.body()));
 
-
+                        fetchalladdressListResponseCall();
 
                         }
 
@@ -385,7 +388,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
     }
 
     @SuppressLint("LongLogTag")
-    private DeleteAddressListRequest DeleteAddressListRequest() {
+    private DeleteAddressListRequest DeleteAddressListRequest(String shipid) {
 
         /*
          * ADDRESS_ID : 352
@@ -395,7 +398,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
 
         DeleteAddressListRequest DeleteAddressListRequest = new DeleteAddressListRequest();
-        DeleteAddressListRequest.setADDRESS_ID("352");
+        DeleteAddressListRequest.setADDRESS_ID(shipid);
         DeleteAddressListRequest.setMODE("DELETE");
 
         Log.w(TAG,"DeleteAddressListRequest "+ new Gson().toJson(DeleteAddressListRequest));
@@ -507,4 +510,114 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
         return SetDefaultAddrRequest;
     }
 
+    @Override
+    public void setshipidListener(String shipid,String isdefault) {
+
+        if(isdefault!=null&&!isdefault.isEmpty()){
+
+            if(isdefault.equals("0")){
+
+                DefaultDeleteWar(shipid);
+
+            }
+            else {
+
+                showWarning();
+            }
+        }
+
+
+
+
+    }
+
+    private void DefaultDeleteWar(String shipingd) {
+
+        new SweetAlertDialog(ShippingAddressActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Quick Alert!!")
+                .setContentText("Are you sure want to delete")
+                .setConfirmText("Yes")
+                .setCancelText("No")
+                .showCancelButton(true)
+                .setConfirmClickListener(sDialog -> {
+
+                    if(dd4YouConfig.isInternetConnectivity()) {
+
+                        deleteaddrListResponseCall(shipingd);
+                    }
+
+                    else {
+
+                        callnointernet();
+                    }
+
+                    sDialog.dismiss();
+
+                })
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+
+                        sDialog.dismiss();
+
+                    }
+                })
+                .show();
+    }
+
+    private void showWarning() {
+
+
+        new SweetAlertDialog(ShippingAddressActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Sorry!!")
+                .setContentText("You Cannnot delete default address")
+                .setConfirmText("OK")
+                .showCancelButton(true)
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+
+                        sDialog.dismiss();
+
+                    }
+                })
+                .show();
+
+    }
+
+
+    @Override
+    public void editshipinfoListener(String ADDRESS_ID, String NAME, String PHONE, String ADDRESS1, String ADDRESS2, String CITY, String COUNTRY_ID, String COUNTRY_NAME, String STATE_ID, String STATE_NAME, String ZP_CODE, String isdefault) {
+
+        Intent intent = new Intent(ShippingAddressActivity.this,ShippingAddressEditActivity.class);
+
+        intent.putExtra("fromActiviity",TAG);
+
+        intent.putExtra("ADDRESS_ID",ADDRESS_ID);
+
+        intent.putExtra("NAME",NAME);
+
+        intent.putExtra("PHONE",PHONE);
+
+        intent.putExtra("ADDRESS1",ADDRESS1);
+
+        intent.putExtra("ADDRESS2",ADDRESS2);
+
+        intent.putExtra("CITY",CITY);
+
+        intent.putExtra("COUNTRY_ID",COUNTRY_ID);
+
+        intent.putExtra("COUNTRY_NAME",COUNTRY_NAME);
+
+        intent.putExtra("STATE_ID",STATE_ID);
+
+        intent.putExtra("STATE_NAME",STATE_NAME);
+
+        intent.putExtra("ZIP_CODE",ZP_CODE);
+
+        intent.putExtra("isdefault",isdefault);
+
+        startActivity(intent);
+
+    }
 }

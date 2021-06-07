@@ -2,21 +2,22 @@ package com.triton.bertsproject.requestpojo;
 
 public class EditAddressListRequest {
 
+
     /**
-     * USER_ID : 541
+     * ADDRESS_ID : 362
      * NAME : tstaddr1a
      * PHONE : 1234567890
-     * ADDRESS1 : tstaddr1
-     * ADDRESS2 : tstaddr2
-     * CITY : tstcity1
+     * ADDRESS1 : tstaddr1a
+     * ADDRESS2 : tstaddr2a
+     * CITY : tstcity1a
      * COUNTRY_ID : 101
-     * STATE : 19
-     * ZIP_CODE : 123456
-     * DEFAULT : 1
-     * MODE : INSERT
+     * STATE : 20
+     * ZIP_CODE : 123455
+     * DEFAULT : 0
+     * MODE : EDIT
      */
 
-    private String USER_ID;
+    private String ADDRESS_ID;
     private String NAME;
     private String PHONE;
     private String ADDRESS1;
@@ -28,12 +29,12 @@ public class EditAddressListRequest {
     private String DEFAULT;
     private String MODE;
 
-    public String getUSER_ID() {
-        return USER_ID;
+    public String getADDRESS_ID() {
+        return ADDRESS_ID;
     }
 
-    public void setUSER_ID(String USER_ID) {
-        this.USER_ID = USER_ID;
+    public void setADDRESS_ID(String ADDRESS_ID) {
+        this.ADDRESS_ID = ADDRESS_ID;
     }
 
     public String getNAME() {
