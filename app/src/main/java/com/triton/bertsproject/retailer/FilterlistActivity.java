@@ -21,17 +21,21 @@ import android.widget.TextView;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.adapter.BrandListAdapter;
 import com.triton.bertsproject.adapter.FilterColorlistAdapter;
 import com.triton.bertsproject.adapter.FilterlistAdapter;
+import com.triton.bertsproject.adapter.SearchBrandFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchMakeFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchYearFilterlistAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.GetBrandIDListener;
 import com.triton.bertsproject.interfaces.GetMakeIDListener;
 import com.triton.bertsproject.interfaces.GetYearNameListener;
 import com.triton.bertsproject.model.FilterColorlistModel;
 import com.triton.bertsproject.model.FilterlistModel;
 import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
+import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
@@ -51,7 +55,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener {
+public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener, GetBrandIDListener {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.expandable_layout_yr)
@@ -161,6 +165,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @BindView(R.id.spin_kit_loadingView)
     SpinKitView spin_kit_loadingView;
 
+    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList ;
 
     List<FilterlistModel> filterlistModel;
 
@@ -189,6 +194,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         ButterKnife.bind(this);
 
+        dd4YouConfig=new DD4YouConfig(this);
+
         ll_year.setOnClickListener(v -> yearlist());
 
         ll_makes.setOnClickListener(v -> makelist());
@@ -213,8 +220,15 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             callnointernet();
         }
 
-        setBrand();
+        if(dd4YouConfig.isInternetConnectivity()){
 
+            fetchallbrandsListResponseCall();
+        }
+
+        else {
+
+            callnointernet();
+        }
         setCateg();
 
         setColor();
@@ -450,41 +464,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
 
 
-    private void setBrand() {
-
-        filterlistModel = new ArrayList<>();
-
-        filterlistModel.add(new FilterlistModel("BMW",false));
-
-        filterlistModel.add(new FilterlistModel("Honda",false));
-
-        filterlistModel.add(new FilterlistModel("Genuiene SLB",false));
-
-        filterlistModel.add(new FilterlistModel("Jeep",false));
-
-        rv_brand.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_brand.setMotionEventSplittingEnabled(false);
-
-        rv_brand.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_brand.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_brand.setItemAnimator(new DefaultItemAnimator());
-
-        FilterlistAdapter filterlistAdapter = new FilterlistAdapter(FilterlistActivity.this, filterlistModel);
-
-        rv_brand.setAdapter(filterlistAdapter);
-
-    }
 
     private void brandlist() {
 
@@ -681,5 +660,99 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         Log.w(TAG,"Selected  Make ID" + id);
 
         Log.w(TAG,"Selected  Make Name" + make_name);
+    }
+
+
+
+    @SuppressLint("LongLogTag")
+    private void fetchallbrandsListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllBrandsResponse> call = apiInterface.fetchallbrandsListResponseCall(RestUtils.getContentType());
+        Log.w(TAG,"FetchAllBrandsResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllBrandsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllBrandsResponse> call, @NonNull Response<FetchAllBrandsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"FetchAllBrandsResponse" + new Gson().toJson(response.body()));
+
+                        brandsBeanList = response.body().getData().getBrand();
+
+                        if(brandsBeanList != null && brandsBeanList.size()>0){
+
+                            setBrandView(brandsBeanList);
+                        }
+
+                        else {
+
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllBrandsResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FetchAllParentCategoriesResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+
+    private void setBrandView(List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList) {
+
+        rv_brand.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
+
+        rv_brand.setMotionEventSplittingEnabled(false);
+
+        rv_brand.setNestedScrollingEnabled(false);
+
+        //int size =3;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        boolean includeEdge = true;
+
+        rv_brand.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+
+        rv_brand.setItemAnimator(new DefaultItemAnimator());
+
+        SearchBrandFilterlistAdapter searchBrandFilterlistAdapter = new SearchBrandFilterlistAdapter(FilterlistActivity.this, brandsBeanList,this);
+
+        rv_brand.setAdapter(searchBrandFilterlistAdapter);
+
+
+    }
+
+    @Override
+    public void getBrandIDListener(String id, String brand_name) {
+
+        Log.w(TAG,"Selected  Brand ID" + id);
+
+        Log.w(TAG,"Selected  Brand Name" + brand_name);
     }
 }

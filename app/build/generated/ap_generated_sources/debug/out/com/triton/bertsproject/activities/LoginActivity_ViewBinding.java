@@ -9,6 +9,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.facebook.login.widget.LoginButton;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.customView.CustomEditText;
@@ -31,10 +32,11 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.edt_password = Utils.findRequiredViewAsType(source, R.id.edt_password, "field 'edt_password'", CustomEditText.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
-    target.btn_sigin_with_facebook = Utils.findRequiredViewAsType(source, R.id.btn_sigin_with_facebook, "field 'btn_sigin_with_facebook'", Button.class);
     target.txt_forget_password = Utils.findRequiredViewAsType(source, R.id.txt_forget_password, "field 'txt_forget_password'", TextView.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.btnLogin = Utils.findRequiredViewAsType(source, R.id.login_button, "field 'btnLogin'", LoginButton.class);
+    target.txt_or = Utils.findRequiredViewAsType(source, R.id.txt_or, "field 'txt_or'", TextView.class);
   }
 
   @Override
@@ -48,9 +50,10 @@ public class LoginActivity_ViewBinding implements Unbinder {
     target.edt_password = null;
     target.spin_kit_loadingView = null;
     target.btn_sigin = null;
-    target.btn_sigin_with_facebook = null;
     target.txt_forget_password = null;
     target.img_back = null;
     target.txt_toolbar_title = null;
+    target.btnLogin = null;
+    target.txt_or = null;
   }
 }

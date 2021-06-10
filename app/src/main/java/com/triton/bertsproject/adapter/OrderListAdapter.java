@@ -45,7 +45,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         final ShowOrderlistResponse.DataBean.OrdersBean orderlistModel = ordersBeanList.get(position);
 
-        String imgUrl = orderlistModel.getProducts().get(0).getImages().get(0).getImage_default();
+//        String imgUrl = orderlistModel.getProducts().get(0).getImages().get(0).getImage_default();
 
         String title = orderlistModel.getProducts().get(0).getProduct_title();
 
@@ -55,15 +55,15 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         }
 
-        if (imgUrl!=null&&!imgUrl.isEmpty()) {
-
-            Glide.with(context)
-                    .load(imgUrl)
-                    .into(holder.img_product_image);
-
-
-
-        }
+//        if (imgUrl!=null&&!imgUrl.isEmpty()) {
+//
+//            Glide.with(context)
+//                    .load(imgUrl)
+//                    .into(holder.img_product_image);
+//
+//
+//
+//        }
 
 
         if (orderlistModel.getOrder_number()!= null&&!orderlistModel.getOrder_number().isEmpty()) {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bert\'s Auto</string>
+    <string name="app_name">Berts Auto Parts</string>
     <string name="facebook_app_id">778009312869231</string>
     <string name="fb_login_protocol_scheme">fb778009312869231</string>
 
@@ -278,6 +278,16 @@
     <string name="isdefault">Default</string>
     <string name="shippping_subtotal">Shipping Cost</string>
     <string name="edit_addr">Edit Address</string>
+    <string name="empty_cart">Empty Cart</string>
+    <string name="low_to_high">Low to High</string>
+    <string name="sort_by">Sort By</string>
+    <string name="hot">Hot</string>
+    <string name="price_low_to_high">Price Low to High</string>
+    <string name="top_rated_products">Top Rated Products</string>
+    <string name="new_arrival">New Arrival</string>
+    <string name="price_high_to_low">Price High to low</string>
+    <string name="manageaddress">Manage Address</string>
+    <string name="select_sort">Select an Option</string>
 
 
     <string-array name="array_name">

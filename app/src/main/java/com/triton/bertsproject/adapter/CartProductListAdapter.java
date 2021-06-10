@@ -51,15 +51,15 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         if (cartBean.getTitle() != null&&!cartBean.getTitle().isEmpty())  {
             holder.txt_product_name.setText(cartBean.getTitle());
         }
-        if (cartBean.getImages().get(0).getImage_default()!= null&&!cartBean.getImages().get(0).getImage_default().isEmpty()) {
-
-            String imgUrl = cartBean.getImages().get(0).getImage_default();
-
-            Glide.with(context)
-                    .load(imgUrl)
-                    .into(holder.img_product_image);
-
-        }
+//        if (cartBean.getImages().get(0).getImage_default()!= null&&!cartBean.getImages().get(0).getImage_default().isEmpty()) {
+//
+//            String imgUrl = cartBean.getImages().get(0).getImage_default();
+//
+//            Glide.with(context)
+//                    .load(imgUrl)
+//                    .into(holder.img_product_image);
+//
+//        }
         if (cartBean.getPart_number() != null&&!cartBean.getPart_number().isEmpty()) {
 
             holder.txt_parts_no.setText(cartBean.getPart_number());

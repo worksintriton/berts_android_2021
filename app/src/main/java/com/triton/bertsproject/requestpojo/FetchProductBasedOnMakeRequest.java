@@ -4,16 +4,20 @@ public class FetchProductBasedOnMakeRequest {
 
 
     /**
-     * MAKE_ID : 1
-     * MODEL_ID : 1
+     * MAKE_ID : 2
+     * MODEL_ID : 30
+     * SEARCH_STRING : t
      * MODE : LIST
-     * USER_ID :
+     * USER_ID : 541
+     * SORTING :
      */
 
     private String MAKE_ID;
     private String MODEL_ID;
+    private String SEARCH_STRING;
     private String MODE;
     private String USER_ID;
+    private String SORTING;
 
     public String getMAKE_ID() {
         return MAKE_ID;
@@ -31,6 +35,14 @@ public class FetchProductBasedOnMakeRequest {
         this.MODEL_ID = MODEL_ID;
     }
 
+    public String getSEARCH_STRING() {
+        return SEARCH_STRING;
+    }
+
+    public void setSEARCH_STRING(String SEARCH_STRING) {
+        this.SEARCH_STRING = SEARCH_STRING;
+    }
+
     public String getMODE() {
         return MODE;
     }
@@ -45,5 +57,13 @@ public class FetchProductBasedOnMakeRequest {
 
     public void setUSER_ID(String USER_ID) {
         this.USER_ID = USER_ID;
+    }
+
+    public String getSORTING() {
+        return SORTING;
+    }
+
+    public void setSORTING(String SORTING) {
+        this.SORTING = SORTING;
     }
 }

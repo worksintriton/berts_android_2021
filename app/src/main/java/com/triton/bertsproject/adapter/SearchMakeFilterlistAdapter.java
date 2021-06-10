@@ -14,6 +14,7 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.interfaces.GetMakeIDListener;
 import com.triton.bertsproject.interfaces.GetYearNameListener;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
+import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 
 import java.util.List;
@@ -23,9 +24,9 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
     List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
     View view;
     GetMakeIDListener getMakeIDListener;
-    private static final String TAG = "SearchMakeFilterlistAdapter";
+    private static final String TAG = "SearchYearFilterlistAdapter";
 
-    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList,     GetMakeIDListener getMakeIDListener) {
+    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList, GetMakeIDListener getMakeIDListener) {
         this.context = context;
         this.makesBeanList = makesBeanList;
         this.getMakeIDListener=getMakeIDListener;

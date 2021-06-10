@@ -7,14 +7,14 @@ public class UpdateProfileResponse {
      * status : Success
      * code : 200
      * message : User Update Successful
-     * data : {"user":{"id":"582","username":"Sam Samm","slug":"sam-samm-582","email":"santhoshnrv@gmail.com","email_status":"1","token":"60ae46287f1d35-12583201-98347395","password":"$2a$08$cd.SPy9mv7qWWzt5A/NjPu5ZCt4QnvdJlQnF39jVHolhyvGsLDBtu","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":"0","state_id":"0","address":null,"zip_code":"0","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-26 12:59:20","first_name":"Sam","last_name":"Samm","request_wholesale":"0","revenue":"0"}}
+     * data : {"user":{"id":"550","username":"testc testc","slug":"testc-testc-550","email":"santhoshnrv94@gmail.com","email_status":"1","token":"60a1129ce51846-99617687-44387230","password":"$2a$08$Z3m6H3cYOF547MtoRL8znOleadmH7oQsBgaZtVfdEy1qJWhdYNKXG","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":"13","state_id":"245","address":null,"zip_code":"","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-16 12:39:56","first_name":"testc","last_name":"testc","request_wholesale":"0","revenue":"0","fb_id":""}}
      */
 
     private String status;
     private int code;
     private String message;
     /**
-     * user : {"id":"582","username":"Sam Samm","slug":"sam-samm-582","email":"santhoshnrv@gmail.com","email_status":"1","token":"60ae46287f1d35-12583201-98347395","password":"$2a$08$cd.SPy9mv7qWWzt5A/NjPu5ZCt4QnvdJlQnF39jVHolhyvGsLDBtu","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":"0","state_id":"0","address":null,"zip_code":"0","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-26 12:59:20","first_name":"Sam","last_name":"Samm","request_wholesale":"0","revenue":"0"}
+     * user : {"id":"550","username":"testc testc","slug":"testc-testc-550","email":"santhoshnrv94@gmail.com","email_status":"1","token":"60a1129ce51846-99617687-44387230","password":"$2a$08$Z3m6H3cYOF547MtoRL8znOleadmH7oQsBgaZtVfdEy1qJWhdYNKXG","role":"retail","balance":"0","number_of_sales":"0","user_type":"registered","twitter_id":null,"facebook_id":null,"avatar":"http://dciinternal.in/dev01/assets/img/user.png","banned":"0","about_me":"testc_abt","phone_number":null,"country_id":"13","state_id":"245","address":null,"zip_code":"","show_email":"1","show_phone":"1","show_location":"1","facebook_url":null,"twitter_url":null,"instagram_url":null,"pinterest_url":null,"linkedin_url":null,"vk_url":null,"youtube_url":null,"last_seen":null,"show_rss_feeds":"1","send_email_new_message":"0","shipping_first_name":null,"shipping_last_name":null,"shipping_email":null,"shipping_phone_number":null,"shipping_address_1":null,"shipping_address_2":null,"shipping_country_id":null,"shipping_state":null,"shipping_city":null,"shipping_zip_code":null,"created_at":"2021-05-16 12:39:56","first_name":"testc","last_name":"testc","request_wholesale":"0","revenue":"0","fb_id":""}
      */
 
     private DataBean data;
@@ -53,13 +53,13 @@ public class UpdateProfileResponse {
 
     public static class DataBean {
         /**
-         * id : 582
-         * username : Sam Samm
-         * slug : sam-samm-582
-         * email : santhoshnrv@gmail.com
+         * id : 550
+         * username : testc testc
+         * slug : testc-testc-550
+         * email : santhoshnrv94@gmail.com
          * email_status : 1
-         * token : 60ae46287f1d35-12583201-98347395
-         * password : $2a$08$cd.SPy9mv7qWWzt5A/NjPu5ZCt4QnvdJlQnF39jVHolhyvGsLDBtu
+         * token : 60a1129ce51846-99617687-44387230
+         * password : $2a$08$Z3m6H3cYOF547MtoRL8znOleadmH7oQsBgaZtVfdEy1qJWhdYNKXG
          * role : retail
          * balance : 0
          * number_of_sales : 0
@@ -70,10 +70,10 @@ public class UpdateProfileResponse {
          * banned : 0
          * about_me : testc_abt
          * phone_number : null
-         * country_id : 0
-         * state_id : 0
+         * country_id : 13
+         * state_id : 245
          * address : null
-         * zip_code : 0
+         * zip_code :
          * show_email : 1
          * show_phone : 1
          * show_location : 1
@@ -97,11 +97,12 @@ public class UpdateProfileResponse {
          * shipping_state : null
          * shipping_city : null
          * shipping_zip_code : null
-         * created_at : 2021-05-26 12:59:20
-         * first_name : Sam
-         * last_name : Samm
+         * created_at : 2021-05-16 12:39:56
+         * first_name : testc
+         * last_name : testc
          * request_wholesale : 0
          * revenue : 0
+         * fb_id :
          */
 
         private UserBean user;
@@ -164,6 +165,7 @@ public class UpdateProfileResponse {
             private String last_name;
             private String request_wholesale;
             private String revenue;
+            private String fb_id;
 
             public String getId() {
                 return id;
@@ -555,6 +557,14 @@ public class UpdateProfileResponse {
 
             public void setRevenue(String revenue) {
                 this.revenue = revenue;
+            }
+
+            public String getFb_id() {
+                return fb_id;
+            }
+
+            public void setFb_id(String fb_id) {
+                this.fb_id = fb_id;
             }
         }
     }

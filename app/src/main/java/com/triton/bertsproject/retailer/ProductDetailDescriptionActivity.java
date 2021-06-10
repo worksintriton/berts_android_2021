@@ -303,7 +303,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
 
-    int minteger = 0;
+    int minteger = 1;
 
 
 
@@ -709,6 +709,14 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
             hand_img5.setBackgroundResource(R.drawable.ic_star_filled);
         }
+        else {
+            hand_img1.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+
+        }
 
 
         Log.w(TAG,"prdouctsBeanList getReviews_ratings" + prdouctsBean.getReviews_ratings());
@@ -758,6 +766,14 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 //            txt_brand.setText(prdouctsBean.getDescription());
 //        }
 
+        txt_manufacturer.setText("");
+
+        txt_brand.setText("");
+
+        txt_model.setText("");
+
+        txt_dimen.setText("");
+
         Log.w(TAG,"prdouctsBeanList getWeight" + prdouctsBean.getWeight());
 
         if(prdouctsBean.getWeight()!=null&&!prdouctsBean.getWeight().isEmpty()){
@@ -778,6 +794,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         }
 
         int starcountReview = prdouctsBean.getReviews_ratings();
+
+        Log.w(TAG,"starcountReview" + starcountReview);
 
         if(starcountReview == 1){
             hand_img11.setBackgroundResource(R.drawable.ic_star_filled);
@@ -809,6 +827,14 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             hand_img31.setBackgroundResource(R.drawable.ic_star_filled);
             hand_img41.setBackgroundResource(R.drawable.ic_star_filled);
             hand_img51.setBackgroundResource(R.drawable.ic_star_filled);
+        }
+        else if(starcountReview==0){
+            hand_img11.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img21.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img31.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img41.setBackgroundResource(R.drawable.ic_star_empty);
+            hand_img51.setBackgroundResource(R.drawable.ic_star_empty);
+
         }
 
         Log.w(TAG,"prdouctsBeanList getReviews_comments" + prdouctsBean.getReviews_comments());

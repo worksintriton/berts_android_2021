@@ -152,6 +152,15 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="FacebookLoginButton">
+        <item name="android:textSize">@dimen/_14dp</item>
+        <item name="android:background">@drawable/rectangle_corner_blue_background</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/_15dp</item>
+    </style>
+
 
 
 </resources>

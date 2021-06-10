@@ -4,10 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
@@ -79,9 +85,9 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 //    @BindView(R.id.switch1)
 //    Switch Switch;
 //
-//    @SuppressLint("NonConstantResourceId")
-//    @BindView(R.id.edt_search)
-//    EditText edt_search;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.edt_search)
+    EditText edt_search;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_no_records)
@@ -98,6 +104,16 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_sort)
     LinearLayout rl_sort;
+
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_spinner)
+    LinearLayout rl_spinner;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_spinnertext)
+    TextView txt_spinnertext;
+
 
     private final static String TAG = "RetailerProductListBasedOnCategActivity";
 
@@ -118,6 +134,8 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
     SessionManager sessionManager;
+
+    String searchString = "",sorting="";
 
     @SuppressLint("LongLogTag")
     @Override
@@ -174,7 +192,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
-            fetchallproductsListResponseCall();
+            fetchallproductsListResponseCall(searchString);
 
         }
 
@@ -202,13 +220,111 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     }
 
+    private void showBottomSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog);
+
+        bottomSheetDialog.setCancelable(false);
+
+        RadioGroup radioGroup = bottomSheetDialog.findViewById(R.id.radioGroup);
+
+
+        RadioButton radioButtonhot = bottomSheetDialog.findViewById(R.id.radioButtonhot);
+
+        RadioButton radioButtonlowtohigh = bottomSheetDialog.findViewById(R.id.radioButtonlowtohigh);
+
+        RadioButton radioButtonhightolow = bottomSheetDialog.findViewById(R.id.radioButtonhightolow);
+
+        // RadioButton radioButtontopreleated = bottomSheetDialog.findViewById(R.id.radioButtontopreleated);
+
+        RadioButton radioButtonnewarr = bottomSheetDialog.findViewById(R.id.radioButtonnewarr);
+
+        if(sorting.equals("PRICELOWTOHIGH")){
+
+            radioButtonlowtohigh.setChecked(true);
+
+        }
+
+        else  if(sorting.equals("PRICEHIGHTOLOW")) {
+
+            radioButtonhightolow.setChecked(true);
+        }
+
+
+        else  if(sorting.equals("Hot")){
+
+            radioButtonhot.setChecked(true);
+
+        }
+
+
+        else  if(sorting.equals("NEW")){
+
+            radioButtonnewarr.setChecked(true);
+
+        }
+
+        assert radioGroup != null;
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // checkedId is the RadioButton selected
+                RadioButton rb=(RadioButton)bottomSheetDialog.findViewById(checkedId);
+                assert rb != null;
+                rb.setChecked(true);
+                txt_spinnertext.setText(""+rb.getText());
+
+                if(rb.getText().toString().equals("Price Low to High")){
+
+                    radioButtonlowtohigh.setChecked(true);
+
+                    sorting = "PRICELOWTOHIGH";
+                }
+
+                else  if(rb.getText().toString().equals("Price High to low")){
+
+                    radioButtonhightolow.setChecked(true);
+
+                    sorting="PRICEHIGHTOLOW";
+                }
+                else  if(rb.getText().toString().equals("Hot")){
+
+                    radioButtonhot.setChecked(true);
+
+                    sorting="HOT";
+                }
+                else  if(rb.getText().toString().equals("New Arrival")){
+
+                    radioButtonnewarr.setChecked(true);
+
+                    sorting="NEW";
+                }
+
+                if(dd4YouConfig.isInternetConnectivity()){
+
+                    fetchallproductsListResponseCall(searchString);
+                }
+                else {
+
+                    callnointernet();
+                }
+                //Toast.makeText(getApplicationContext(), rb.getText(), Toast.LENGTH_SHORT).show();\
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+        bottomSheetDialog.show();
+    }
+
     @SuppressLint("LongLogTag")
-    private void fetchallproductsListResponseCall() {
+    private void fetchallproductsListResponseCall(String searchString) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<ProductListResponse> call = apiInterface.fetchallprodbasedonCatlistResponseCall(RestUtils.getContentType(),fetchProductBasedOnCatRequest());
+        Call<ProductListResponse> call = apiInterface.fetchallprodbasedonCatlistResponseCall(RestUtils.getContentType(),fetchProductBasedOnCatRequest(searchString));
         Log.w(TAG,"ProductListResponse url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<ProductListResponse>() {
@@ -226,35 +342,6 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
                         prdouctsBeanList = response.body().getData().getProducts();
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
-
-
-                            rv_prodlist.setVisibility(View.VISIBLE);
-
-                            txt_no_records.setVisibility(View.GONE);
-
-                            rl_search.setVisibility(View.VISIBLE);
-
-                            rl_sort.setVisibility(View.VISIBLE);
-
-
-                            rlList.setOnClickListener(v -> {
-
-                                rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-                                rlGrid.setBackgroundResource(R.color.transparent);
-
-                                setlistView(prdouctsBeanList);
-                            });
-
-
-                            rlGrid.setOnClickListener(v -> {
-
-                                rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
-
-                                rlList.setBackgroundResource(R.color.transparent);
-
-                                setGridView(prdouctsBeanList);
-                            });
 
 
                             setGridView(prdouctsBeanList);
@@ -299,21 +386,75 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     }
 
+    private void searchText() {
+
+        edt_search.addTextChangedListener(new TextWatcher() {
+            @SuppressLint({"LogNotTimber", "LongLogTag"})
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                Log.w(TAG,"beforeTextChanged-->"+s.toString());
+            }
+
+            @SuppressLint({"LogNotTimber", "LongLogTag"})
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.w(TAG,"onTextChanged-->"+s.toString());
+                searchString = s.toString();
+
+
+            }
+
+            @SuppressLint({"LogNotTimber", "LongLogTag"})
+            @Override
+            public void afterTextChanged(Editable s) {
+                Log.w(TAG,"afterTextChanged-->"+s.toString());
+                searchString = s.toString();
+                if(!searchString.isEmpty()){
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+                        fetchallproductsListResponseCall(searchString);
+                    }
+
+                    else {
+
+                        callnointernet();
+                    }
+
+
+
+
+                }else{
+                    searchString ="";
+
+                }
+
+            }
+        });
+
+
+    }
+
     @SuppressLint("LongLogTag")
-    private FetchProductBasedOnCatRequest fetchProductBasedOnCatRequest() {
+    private FetchProductBasedOnCatRequest fetchProductBasedOnCatRequest(String searchString) {
 
 
-        /*
-         * CATEGORY_ID : 1
+
+        /**
+         * CATEGORY_ID : 2
          * SUBCATEGORY_ID : 30
+         * SEARCH_STRING : t
          * MODE : LIST
-         * USER_ID :
+         * USER_ID : 541
+         * SORTING :
          */
+
         FetchProductBasedOnCatRequest fetchProductBasedOnCatRequest = new FetchProductBasedOnCatRequest();
         fetchProductBasedOnCatRequest.setCATEGORY_ID(parent_id);
         fetchProductBasedOnCatRequest.setSUBCATEGORY_ID(subcategid);
         fetchProductBasedOnCatRequest.setMODE("LIST");
         fetchProductBasedOnCatRequest.setUSER_ID(user_id);
+        fetchProductBasedOnCatRequest.setSEARCH_STRING(searchString);
+        fetchProductBasedOnCatRequest.setSORTING(sorting);
 
 
         Log.w(TAG,"FetchProductBasedOnCatRequest "+ new Gson().toJson(fetchProductBasedOnCatRequest));
@@ -334,6 +475,47 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
     }
 
     private void setGridView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList) {
+
+
+
+        rv_prodlist.setVisibility(View.VISIBLE);
+
+        txt_no_records.setVisibility(View.GONE);
+
+        rl_search.setVisibility(View.VISIBLE);
+
+        searchText();
+
+        rl_sort.setVisibility(View.VISIBLE);
+
+       rl_spinner.setVisibility(View.VISIBLE);
+
+        txt_spinnertext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showBottomSheetDialog();
+            }
+        });
+
+        rlList.setOnClickListener(v -> {
+
+            rlList.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+            rlGrid.setBackgroundResource(R.color.transparent);
+
+            setlistView(prdouctsBeanList);
+        });
+
+
+        rlGrid.setOnClickListener(v -> {
+
+            rlGrid.setBackgroundResource(R.drawable.bg_cycler_blue);
+
+            rlList.setBackgroundResource(R.color.transparent);
+
+            setGridView(prdouctsBeanList);
+        });
 
 
         rv_prodlist.setLayoutManager(new GridLayoutManager(RetailerProductListBasedOnCategActivity.this, 2));
@@ -458,7 +640,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                         Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
 
-                        fetchallproductsListResponseCall();
+                        fetchallproductsListResponseCall(searchString);
 
                     }
 

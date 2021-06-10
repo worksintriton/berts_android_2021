@@ -35,6 +35,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.coordinatorLayout = Utils.findRequiredViewAsType(source, R.id.coordinator, "field 'coordinatorLayout'", CoordinatorLayout.class);
     target.floatingActionButton = Utils.findRequiredViewAsType(source, R.id.fab, "field 'floatingActionButton'", FloatingActionButton.class);
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
+    target.txt_empty_cart = Utils.findRequiredViewAsType(source, R.id.txt_empty_cart, "field 'txt_empty_cart'", TextView.class);
     target.rv_productlist = Utils.findRequiredViewAsType(source, R.id.rv_productlist, "field 'rv_productlist'", RecyclerView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
@@ -61,6 +62,7 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.coordinatorLayout = null;
     target.floatingActionButton = null;
     target.img_back = null;
+    target.txt_empty_cart = null;
     target.rv_productlist = null;
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;

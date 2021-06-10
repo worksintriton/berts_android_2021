@@ -107,12 +107,22 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
         }
 
+        else {
+
+            holder.txt_total_reviews.setText("( 0 )");
+        }
+
         if (prdouctsBean.getPrice()!= null) {
 
             String price = "$ "+prdouctsBean.getPrice();
 
             holder.txt_price.setText(price);
 
+        }
+
+        else {
+
+            holder.txt_price.setText("$ 0");
         }
 
         if(prdouctsBean.getQuantity()!=null&&!prdouctsBean.getQuantity().isEmpty()){
@@ -207,6 +217,14 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
             holder.hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
             holder.hand_img5.setBackgroundResource(R.drawable.ic_star_filled);
+        }
+        else {
+
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
         }
 
     }

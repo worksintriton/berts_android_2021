@@ -31,6 +31,7 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     target.rlEdit = Utils.findRequiredViewAsType(source, R.id.rlEdit, "field 'rlEdit'", RelativeLayout.class);
     target.rl_settings = Utils.findRequiredViewAsType(source, R.id.rl_settings, "field 'rl_settings'", RelativeLayout.class);
     target.rl_login_after = Utils.findRequiredViewAsType(source, R.id.rl_login_after, "field 'rl_login_after'", RelativeLayout.class);
+    target.rl_manageaddress = Utils.findRequiredViewAsType(source, R.id.rl_manageaddress, "field 'rl_manageaddress'", RelativeLayout.class);
     target.ll_login_after = Utils.findRequiredViewAsType(source, R.id.ll_login_after, "field 'll_login_after'", LinearLayout.class);
     target.cv_logout = Utils.findRequiredViewAsType(source, R.id.cv_logout, "field 'cv_logout'", CardView.class);
     target.cv_before_login = Utils.findRequiredViewAsType(source, R.id.cv_before_login, "field 'cv_before_login'", CardView.class);
@@ -54,6 +55,7 @@ public class ProfileFragment_ViewBinding implements Unbinder {
     target.rlEdit = null;
     target.rl_settings = null;
     target.rl_login_after = null;
+    target.rl_manageaddress = null;
     target.ll_login_after = null;
     target.cv_logout = null;
     target.cv_before_login = null;

@@ -95,7 +95,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
     String userid;
 
-    String isdefault = "0";
+    String isdefault = "0",fromActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +111,14 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
         sessionManager = new SessionManager(this);
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            fromActivity = extras.getString("fromactivity");
+
+            Log.w(TAG,"fromActivity : "+fromActivity);
+        }
 
         if(sessionManager.isLoggedIn()) {
 
@@ -129,7 +137,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
                 intent.putExtra("isdefault",isdefault);
 
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromActivity",fromActivity);
 
                 startActivity(intent);
 
@@ -151,9 +159,45 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
     @Override
     public void onBackPressed() {
 
-        Intent intent = new Intent(ShippingAddressActivity.this,RetailerCartActivity.class);
+        if(fromActivity!=null){
+
+            if(fromActivity.equals("ProfileFragment")){
+
+                callDirections("5");
+            }
+
+            else if(fromActivity.equals("RetailerCartActivity")){
+
+                Intent intent = new Intent(ShippingAddressActivity.this,RetailerCartActivity.class);
+                intent.putExtra("fromActivity",fromActivity);
+                startActivity(intent);
+                finish();
+            }
+            else {
+
+                Intent intent = new Intent(ShippingAddressActivity.this,RetailerDashboardActivity.class);
+                intent.putExtra("fromActivity",fromActivity);
+                startActivity(intent);
+                finish();
+            }
+        }
+        else {
+
+            Intent intent = new Intent(ShippingAddressActivity.this,RetailerDashboardActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
+
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(ShippingAddressActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
         startActivity(intent);
         finish();
+
     }
 
     @SuppressLint("LongLogTag")
@@ -591,7 +635,7 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
         Intent intent = new Intent(ShippingAddressActivity.this,ShippingAddressEditActivity.class);
 
-        intent.putExtra("fromActiviity",TAG);
+        intent.putExtra("fromactivity",fromActivity);
 
         intent.putExtra("ADDRESS_ID",ADDRESS_ID);
 

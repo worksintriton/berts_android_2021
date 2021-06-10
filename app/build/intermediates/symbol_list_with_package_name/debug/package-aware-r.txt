@@ -2096,6 +2096,7 @@ drawable iconic_car
 drawable image_banner
 drawable isuzulogo
 drawable like
+drawable linear_background
 drawable location
 drawable logo
 drawable logo_bg
@@ -2615,6 +2616,7 @@ id img_arrowwrit2
 id img_arrowwrit3
 id img_arrowwrit4
 id img_arrowwrit5
+id img_arrowwrit56
 id img_arrowwrit6
 id img_arrowwrit7
 id img_arrowwrit8
@@ -2650,6 +2652,7 @@ id img_like
 id img_local_returns
 id img_logo
 id img_logout
+id img_manageaddress
 id img_minus
 id img_order_confirmed
 id img_order_deliverynProgress
@@ -2742,6 +2745,7 @@ id ll_star_review
 id ll_text_fit
 id ll_year
 id loading
+id login_button
 id mask_left
 id mask_right
 id masked
@@ -2847,6 +2851,11 @@ id progress_circular
 id progress_dialog
 id progress_horizontal
 id radio
+id radioButtonhightolow
+id radioButtonhot
+id radioButtonlowtohigh
+id radioButtonnewarr
+id radioGroup
 id rangeSeekbar
 id rate_us_bg
 id rate_us_message
@@ -2884,6 +2893,7 @@ id rl_downloadquotation
 id rl_lang
 id rl_login_after
 id rl_logout
+id rl_manageaddress
 id rl_manageveh
 id rl_measurment_unit
 id rl_model
@@ -2898,6 +2908,7 @@ id rl_search
 id rl_settings
 id rl_sort
 id rl_sort_filter
+id rl_spinner
 id rl_star
 id rl_vehicle
 id rl_wishlist
@@ -3134,6 +3145,7 @@ id txt_download_invoice
 id txt_downloadquotation
 id txt_edit_address
 id txt_email_coupons
+id txt_empty_cart
 id txt_end_price
 id txt_fast_shipping
 id txt_fit_desc
@@ -3154,6 +3166,7 @@ id txt_make
 id txt_make_selected_value
 id txt_makes
 id txt_manage
+id txt_manageaddress
 id txt_manufacturer
 id txt_measurment_unit
 id txt_model
@@ -3249,6 +3262,7 @@ id txt_shopbyname
 id txt_shoplistname
 id txt_sort
 id txt_sort_filter
+id txt_spinnertext
 id txt_status_prod
 id txt_stock_status
 id txt_street
@@ -3310,6 +3324,7 @@ id view2
 id view20
 id view21
 id view22
+id view23
 id view3
 id view4
 id view5
@@ -3452,6 +3467,7 @@ layout adapter_vehlist
 layout alert_dialog
 layout alert_logout_layout
 layout app_update
+layout bottom_sheet_dialog
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout com_facebook_activity_layout
@@ -3757,6 +3773,7 @@ string edit_profile
 string edit_vehicle
 string email
 string email_coupons
+string empty_cart
 string engine
 string error_icon_content_description
 string estimated_delivery_date_mar_17
@@ -3786,6 +3803,7 @@ string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string hifein
 string home
+string hot
 string icon_content_description
 string image_description
 string isdefault
@@ -3801,9 +3819,11 @@ string local_returns
 string log_out
 string login
 string login_with_facebook
+string low_to_high
 string make
 string makes
 string manage_vehicle
+string manageaddress
 string manufacturer
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -3866,6 +3886,7 @@ string my_garage
 string my_wishlist
 string my_wishlistt
 string new_addr
+string new_arrival
 string no_data_found
 string no_prod_found
 string now_available_n_stock_izuzu_and_mazda_parts
@@ -3898,6 +3919,8 @@ string power_stop
 string premium
 string price
 string price1
+string price_high_to_low
+string price_low_to_high
 string price_range
 string proceed
 string proceed_to_buy
@@ -3941,6 +3964,7 @@ string select_code
 string select_color
 string select_coupons
 string select_payment_method
+string select_sort
 string select_vehicle
 string selected_vehicle1
 string set_as_default
@@ -3961,6 +3985,7 @@ string side_view_mirrors
 string sigin
 string sigin_with_facebook
 string sort
+string sort_by
 string sort_filter
 string state
 string status_bar_notification_info_overflow
@@ -3972,6 +3997,7 @@ string time
 string toast_message
 string toolbar_title
 string top_categories
+string top_rated_products
 string total_amount
 string total_results
 string total_reviews
@@ -4231,6 +4257,7 @@ style CardView_Dark
 style CardView_Light
 style Customtheme
 style EmptyTheme
+style FacebookLoginButton
 style Fragment
 style MaterialAlertDialog_MaterialComponents
 style MaterialAlertDialog_MaterialComponents_Body_Text

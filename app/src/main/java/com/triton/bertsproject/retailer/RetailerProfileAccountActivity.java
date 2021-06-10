@@ -44,6 +44,7 @@ import com.triton.bertsproject.utils.RestUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -400,7 +401,7 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
                                 response.body().getData().getUser().getCountry_id(),
                                 response.body().getData().getUser().getState_id(),
                                 response.body().getData().getUser().getZip_code(),
-                                response.body().getData().getUser().getRevenue()
+                                response.body().getData().getUser().getRevenue().toString()
                         );
                         startActivity(new Intent(RetailerProfileAccountActivity.this, RetailerDashboardActivity.class));
 
@@ -562,15 +563,28 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         if (countryid!= null&&!countryid.isEmpty()&&!countryid.equals("0")) {
 
-//            String value = hashMap_Countryid.get(countryid);
-//
-//            Log.w(TAG,"country_name "+value);
+            Log.w(TAG,"Hash Countryid "+hashMap_Countryid);
 
-            int pos = spinnerArrayAdapter.getPosition(countryid);
+            String value = "";
 
-            Log.w(TAG,"position "+pos);
+            for (Map.Entry<String, String> entry : hashMap_Countryid.entrySet()) {
+                if (entry.getValue().equals(countryid)) {
 
-            sp_country.setSelection(pos);
+                    value = entry.getKey();
+                }
+            }
+
+            Log.w(TAG,"country_name "+value);
+
+            int pos = spinnerArrayAdapter.getPosition(value);
+
+            if(pos>1){
+
+                Log.w(TAG,"country_position "+pos);
+
+                sp_country.setSelection(pos);
+            }
+
         }
 
 
@@ -706,15 +720,29 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
         if (stateid != null&&!stateid.isEmpty()&&!stateid.equals("0")) {
 
-//            String value = hashMap_Stateid.get(stateid);
-//
-//            Log.w(TAG,"state_name "+value);
+            Log.w(TAG,"Hash Stateid "+hashMap_Stateid);
 
-            int pos = spinnerArrayAdapter1.getPosition(stateid);
+            String value = "";
 
-            Log.w(TAG,"position "+pos);
+            for (Map.Entry<String, String> entry : hashMap_Stateid.entrySet()) {
+                if (entry.getValue().equals(stateid)) {
 
-            sp_state.setSelection(pos);
+                    value = entry.getKey();
+                }
+            }
+
+            Log.w(TAG,"state_name "+value);
+
+            int pos = spinnerArrayAdapter1.getPosition(value);
+
+            if(pos>1){
+
+                Log.w(TAG,"position "+pos);
+
+                sp_state.setSelection(pos);
+            }
+
+
         }
 
         sp_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

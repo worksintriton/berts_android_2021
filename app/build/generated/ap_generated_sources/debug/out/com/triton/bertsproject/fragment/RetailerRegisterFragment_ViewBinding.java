@@ -3,10 +3,12 @@ package com.triton.bertsproject.fragment;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
+import com.facebook.login.widget.LoginButton;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.customView.CustomEditText;
@@ -27,6 +29,8 @@ public class RetailerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_password = Utils.findRequiredViewAsType(source, R.id.edt_password, "field 'edt_password'", CustomEditText.class);
     target.edt_cnfmpassword = Utils.findRequiredViewAsType(source, R.id.edt_cnfmpassword, "field 'edt_cnfmpassword'", CustomEditText.class);
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
+    target.btnLogin = Utils.findRequiredViewAsType(source, R.id.login_button, "field 'btnLogin'", LoginButton.class);
+    target.txt_or = Utils.findRequiredViewAsType(source, R.id.txt_or, "field 'txt_or'", TextView.class);
   }
 
   @Override
@@ -43,5 +47,7 @@ public class RetailerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_password = null;
     target.edt_cnfmpassword = null;
     target.btn_sigin = null;
+    target.btnLogin = null;
+    target.txt_or = null;
   }
 }

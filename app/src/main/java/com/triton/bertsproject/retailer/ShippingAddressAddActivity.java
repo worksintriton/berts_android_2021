@@ -41,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -234,8 +235,10 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         Intent intent = new Intent(ShippingAddressAddActivity.this,ShippingAddressActivity.class);
+
+        intent.putExtra("fromActivity",fromActivity);
+
         startActivity(intent);
-        finish();
     }
 
     /* Get Country */
@@ -626,7 +629,9 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
                         Log.w(TAG, "CreateAddressListResponse" + new Gson().toJson(response.body()));
 
-                        startActivity(new Intent(ShippingAddressAddActivity.this, RetailerCartActivity.class));
+                        Toasty.success(getApplicationContext(),""+response.body().getMessage(),Toasty.LENGTH_LONG).show();
+
+                        onBackPressed();
 
                     }
 

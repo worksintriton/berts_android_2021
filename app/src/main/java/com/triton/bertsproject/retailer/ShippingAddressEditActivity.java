@@ -152,7 +152,7 @@ public class ShippingAddressEditActivity extends AppCompatActivity {
 
         if (extras != null) {
 
-            fromActivity = extras.getString("fromActivity");
+            fromActivity = extras.getString("fromactivity");
 
             isdefault = extras.getString("isdefault");
 
@@ -748,7 +748,11 @@ public class ShippingAddressEditActivity extends AppCompatActivity {
 
                         Toasty.success(getApplicationContext(),""+response.body().getMessage(),Toasty.LENGTH_LONG).show();
 
-                        startActivity(new Intent(ShippingAddressEditActivity.this, ShippingAddressActivity.class));
+                        Intent intent = new Intent(ShippingAddressEditActivity.this,ShippingAddressActivity.class);
+
+                        intent.putExtra("fromactivity",fromActivity);
+
+                        startActivity(intent);
 
                         finish();
 

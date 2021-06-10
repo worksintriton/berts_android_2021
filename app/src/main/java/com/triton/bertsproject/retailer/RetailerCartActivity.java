@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,11 +44,13 @@ import com.triton.bertsproject.interfaces.RemoveProductListener;
 import com.triton.bertsproject.model.DeleteCartListRequest;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddToCartRequest;
+import com.triton.bertsproject.requestpojo.RemoveOverallProductsRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.requestpojo.RemovefromCartRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
 import com.triton.bertsproject.requestpojo.ShowWishistRequest;
 import com.triton.bertsproject.responsepojo.AddToCartResponse;
+import com.triton.bertsproject.responsepojo.RemoveOverallProductsResponse;
 import com.triton.bertsproject.responsepojo.RemovefromCartResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
@@ -61,6 +64,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
@@ -94,6 +98,10 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.img_back)
     ImageView img_back;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_empty_cart)
+    TextView txt_empty_cart;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_productlist)
@@ -240,6 +248,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         dd4YouConfig = new DD4YouConfig(this);
 
         //enableSwipeToDeleteAndUndo();
+
+        txt_empty_cart.setVisibility(View.GONE);
 
         cv_shipping.setVisibility(View.GONE);
 
@@ -414,6 +424,27 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                         if(cartBeanList!=null&&cartBeanList.size()>0){
 
+                            txt_empty_cart.setVisibility(View.VISIBLE);
+
+                            txt_empty_cart.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        showOverallDeleteAlert();
+
+                                    }
+
+                                    else
+                                    {
+                                        callnointernet();
+
+                                    }
+
+                                }
+                            });
+
                             cv_shipping.setVisibility(View.VISIBLE);
 
                             cv_shipcharge.setVisibility(View.VISIBLE);
@@ -428,6 +459,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                                 txt_order_total.setText("$ "+response.body().getData().getCart_total());
                             }
+
 
                             txt_no_records.setVisibility(View.GONE);
 
@@ -507,7 +539,11 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             txt_deliveryaddrchange.setOnClickListener(v -> {
 
-                                startActivity(new Intent(RetailerCartActivity.this, ShippingAddressActivity.class));
+                                Intent intent = new Intent(RetailerCartActivity.this,ShippingAddressActivity.class);
+
+                                intent.putExtra("fromactivity",fromactivity);
+
+                                startActivity(intent);
 
                                 Animatoo.animateSwipeRight(context);
                             });
@@ -544,6 +580,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                         else {
 
+                            txt_empty_cart.setVisibility(View.GONE);
+
                             cv_shipping.setVisibility(View.GONE);
 
                             cv_shipcharge.setVisibility(View.GONE);
@@ -579,6 +617,49 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                 Log.w(TAG,"ShowCartListResponse flr"+t.getMessage());
             }
         });
+
+    }
+
+    private void showOverallDeleteAlert() {
+
+
+        try {
+
+            new SweetAlertDialog(RetailerCartActivity.this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Alert")
+                    .setContentText("Are you sure want to Empty Cart?")
+                    .setCancelText("No")
+                    .setConfirmText("Yes")
+                    .showCancelButton(true)
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.cancel();
+                        }
+                    })
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+
+                            if(dd4YouConfig.isInternetConnectivity()){
+
+                                emptycartlistResponseCall();
+                            }
+                            else {
+
+                                callnointernet();
+                            }
+                            sDialog.dismiss();
+
+                        }
+                    })
+                    .show();
+
+        }
+
+        catch (WindowManager.BadTokenException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -951,6 +1032,70 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    @SuppressLint("LongLogTag")
+    private void emptycartlistResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<RemoveOverallProductsResponse> call = apiInterface.deleteoverallcartlistResponseCall(RestUtils.getContentType(), removeOverallProductsRequest());
+        Log.w(TAG,"ShowCartListResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<RemoveOverallProductsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<RemoveOverallProductsResponse> call, @NonNull Response<RemoveOverallProductsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "RemoveOverallProductsResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
+
+                        startActivity(new Intent(RetailerCartActivity.this,RetailerDashboardActivity.class));
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<RemoveOverallProductsResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"RemoveOverallProductsResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private RemoveOverallProductsRequest removeOverallProductsRequest() {
+
+        /*
+         * USER_ID : 541
+         * MODE : EMPTYCART
+         */
+
+        RemoveOverallProductsRequest removeOverallProductsRequest = new RemoveOverallProductsRequest();
+        removeOverallProductsRequest.setUSER_ID(user_id);
+        removeOverallProductsRequest.setMODE("EMPTYCART");
+
+        Log.w(TAG,"RemoveOverallProductsRequest "+ new Gson().toJson(removeOverallProductsRequest));
+        return removeOverallProductsRequest;
     }
 
 }

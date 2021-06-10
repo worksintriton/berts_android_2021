@@ -385,7 +385,6 @@ public class AddVehicleActivity extends AppCompatActivity {
                         if(yearBeanList != null && yearBeanList.size()>0){
 
 
-
                             setViewYearList(yearBeanList);
                         }
 
@@ -509,7 +508,6 @@ public class AddVehicleActivity extends AppCompatActivity {
 
                             rl_make.setVisibility(View.VISIBLE);
 
-
                             setViewMakesList(makesBeanList);
                         }
 
@@ -577,17 +575,29 @@ public class AddVehicleActivity extends AppCompatActivity {
 
                 Log.w(TAG,"make_id "+maked + "make_name " +make_name);
 
-                if (dd4YouConfig.isInternetConnectivity()) {
+                if (maked!=null) {
 
-                    fetchallmodelListResponseCall(maked);
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+                        fetchallmodelListResponseCall(maked);
+                    }
+
+                    else
+                    {
+                        callnointernet();
+
+                    }
 
                 }
 
-                else
-                {
-                    callnointernet();
+                else {
 
+                    rl_model.setVisibility(View.GONE);
+
+                    btn_addVeh.setVisibility(View.GONE);
                 }
+
+
 
 
 

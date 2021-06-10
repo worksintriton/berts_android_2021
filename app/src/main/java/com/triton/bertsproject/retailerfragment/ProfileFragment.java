@@ -32,6 +32,7 @@ import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.retailer.RetailerOrderTrackActivity;
 import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 import com.triton.bertsproject.retailer.RetailerSetttingsActivity;
+import com.triton.bertsproject.retailer.ShippingAddressActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 
 import java.util.HashMap;
@@ -70,6 +71,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_login_after)
     RelativeLayout rl_login_after;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_manageaddress)
+    RelativeLayout rl_manageaddress;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.ll_login_after)
@@ -218,6 +223,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             txt_username.setOnClickListener(v -> {
 
             Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+
+            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+        });
+
+            rl_manageaddress.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getContext(), ShippingAddressActivity.class);
 
             intent.putExtra("fromactivity",TAG);
 

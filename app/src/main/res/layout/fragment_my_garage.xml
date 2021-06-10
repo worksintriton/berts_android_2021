@@ -12,8 +12,67 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="@color/white"
-        android:orientation="horizontal"
-        android:baselineAligned="false"/>
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="@dimen/_35dp"
+            android:layout_height="@dimen/_35dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:background="@drawable/rectangle_corner_yellow_background"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/search" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/lato_black"
+                android:padding="@dimen/_5dp"
+                android:text="@string/my_garage"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/_35dp"
+            android:layout_height="@dimen/_35dp"
+            android:layout_margin="@dimen/_10dp"
+            android:background="@drawable/rectangle_corner_yellow_background">
+
+            <ImageView
+                android:id="@+id/img_cart"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/cart" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollablContent"

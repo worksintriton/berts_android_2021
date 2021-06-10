@@ -10,6 +10,7 @@ import com.triton.bertsproject.requestpojo.DeleteAddressListRequest;
 import com.triton.bertsproject.requestpojo.DeleteVehicleRequest;
 import com.triton.bertsproject.requestpojo.EditAddressListRequest;
 import com.triton.bertsproject.requestpojo.EditVehicleRequest;
+import com.triton.bertsproject.requestpojo.FacebookLoginRequest;
 import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
 import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
 import com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest;
@@ -23,6 +24,7 @@ import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.OrderCreateRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
+import com.triton.bertsproject.requestpojo.RemoveOverallProductsRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
 import com.triton.bertsproject.requestpojo.RemovefromCartRequest;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
@@ -56,6 +58,7 @@ import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
+import com.triton.bertsproject.responsepojo.RemoveOverallProductsResponse;
 import com.triton.bertsproject.responsepojo.RemovefromCartResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.responsepojo.SetDefaultAddrResponse;
@@ -79,6 +82,10 @@ public interface RestApiInterface {
     /*User Login*/
     @POST("login-customer")
     Call<LoginResponse> loginResponseCall(@Header("Content-Type") String type, @Body LoginRequest loginRequest);
+
+    /*User Login*/
+    @POST("login-customer")
+    Call<LoginResponse> fbloginResponseCall(@Header("Content-Type") String type, @Body FacebookLoginRequest facebookLoginRequest);
 
     /*Signup create*/
     @POST("register-customer")
@@ -167,6 +174,10 @@ public interface RestApiInterface {
     /*delete cart*/
     @POST("cart")
     Call<ShowCartListResponse> deletecartlistResponseCall(@Header("Content-Type") String type, @Body DeleteCartListRequest deleteCartListRequest);
+
+    /*delete overall product from cart*/
+    @POST("cart")
+    Call<RemoveOverallProductsResponse> deleteoverallcartlistResponseCall(@Header("Content-Type") String type, @Body RemoveOverallProductsRequest removeOverallProductsRequest);
 
     /*addvehicle*/
     @POST("addvehicle")

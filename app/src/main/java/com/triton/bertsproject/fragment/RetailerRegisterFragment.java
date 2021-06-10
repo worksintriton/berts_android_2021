@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -36,6 +37,9 @@ import com.facebook.HttpMethod;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+
+import com.facebook.login.widget.LoginButton;
+import com.facebook.login.widget.ProfilePictureView;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
@@ -60,6 +64,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -101,6 +106,14 @@ public class RetailerRegisterFragment extends Fragment {
     @BindView(R.id.btn_sigin)
     Button btn_sigin;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.login_button)
+    LoginButton btnLogin;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_or)
+    TextView txt_or;
+
     View view;
 
     Dialog alertDialog;
@@ -114,7 +127,12 @@ public class RetailerRegisterFragment extends Fragment {
     CallbackManager callbackManager;
 
     private String SMedia;
+
     String strName,strCurrentemail,strSMedia;
+
+    String register_mode = "Manual";
+
+    String firstname,lastname,email,password,cnfm_password,facebook_id;
 
     public RetailerRegisterFragment(String fromActivity) {
         // Required empty public constructor
@@ -130,34 +148,168 @@ public class RetailerRegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        FacebookSdk.sdkInitialize(getActivity());
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_retailer_register, container, false);
 
-        FacebookSdk.sdkInitialize(getContext());
+        ButterKnife.bind(this, view);
 
-        // AppEventsLogger.activateApp(this);
+        dd4YouConfig = new DD4YouConfig(getContext());
+
+        Log.w("Oncreate ", TAG + "fromActivity " +fromActivity);
+
+        btnLogin=view.findViewById(R.id.login_button);
+
+        btnLogin.setFragment(this);
+
+        getKeyHash();
+
         callbackManager = CallbackManager.Factory.create();
+
+        btnLogin.setPermissions(Arrays.asList("user_photos", "email", "public_profile", "user_posts"));
+
+        // Callback registration
+        btnLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(
+                        loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+
+                            @SuppressLint("LongLogTag")
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+
+                                Log.w(TAG, "Facebook" + object);
+
+                                Log.v("Main", response.toString());
+                                setProfileToView(object);
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,link,email,gender,last_name,first_name,locale,timezone,updated_time,verified");
+                request.setParameters(parameters);
+                request.executeAsync();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Toast.makeText(getContext(), "error to Login Facebook", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         if (!App.appUtils.isNetAvailable()) {
             alertUserP(getContext(), "Connection Error", "No Internet connection available", "OK");
         } else {
             disconnectFromFacebook();
-            facebookClickAction();
         }
-
-        getKeyHash();
-
-        ButterKnife.bind(this, view);
-
-        Log.w("Oncreate ", TAG + "fromActivity " +fromActivity);
 
         btn_sigin.setOnClickListener(v -> checkValidation());
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        dd4YouConfig = new DD4YouConfig(getContext());
-
         return view;
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @SuppressLint("LongLogTag")
+    private void setProfileToView(JSONObject jsonObject) {
+
+        register_mode="Facebook";
+
+        password = cnfm_password = getAlphaNumericString(10);
+
+        edt_password.setVisibility(View.GONE);
+
+        edt_cnfmpassword.setVisibility(View.GONE);
+
+        txt_or.setVisibility(View.GONE);
+
+        btnLogin.setVisibility(View.GONE);
+
+        try {
+//
+            if(jsonObject.has("email")){
+
+                email = jsonObject.getString("email");
+
+                edt_email.edtContent.setText(email);
+
+                Log.w(TAG,"email "+jsonObject.getString("email"));
+            }
+
+            else {
+
+                email="";
+
+                edt_email.edtContent.setText("");
+            }
+
+            if(jsonObject.has("first_name")){
+
+                firstname = jsonObject.getString("first_name");
+
+                edt_firstname.edtContent.setText(firstname);
+
+                Log.w(TAG,"first_name "+jsonObject.getString("first_name"));
+
+            }
+
+            else {
+
+                firstname="";
+
+                edt_firstname.edtContent.setText("");
+            }
+
+            if(jsonObject.has("last_name")){
+
+                lastname = jsonObject.getString("last_name");
+
+                edt_lastname.edtContent.setText(lastname);
+
+                Log.w(TAG,"last_name "+jsonObject.getString("last_name"));
+
+            }
+
+            else {
+
+                lastname="";
+
+                edt_lastname.edtContent.setText("");
+            }
+
+            if(jsonObject.has("id")){
+
+                facebook_id = jsonObject.getString("id");
+
+                Log.w(TAG,"fb_id "+jsonObject.getString("id"));
+
+            }
+
+            else {
+
+                facebook_id="";
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -310,14 +462,14 @@ public class RetailerRegisterFragment extends Fragment {
                 md.update(signature.toByteArray());
                 String something = new String(Base64.encode(md.digest(), 0));
                 //String something = new String(Base64.encodeBytes(md.digest()));
-                Log.e("hash key", something);
+                Log.w("hash key", something);
             }
         } catch (PackageManager.NameNotFoundException e1) {
-            Log.e("name not found", e1.toString());
+            Log.w("name not found", e1.toString());
         } catch (NoSuchAlgorithmException e) {
-            Log.e("no such an algorithm", e.toString());
+            Log.w("no such an algorithm", e.toString());
         } catch (Exception e) {
-            Log.e("exception", e.toString());
+            Log.w("exception", e.toString());
         }
     }
 
@@ -328,15 +480,18 @@ public class RetailerRegisterFragment extends Fragment {
 
         String emailPattern = "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,4})$";
 
-        String firstname = edt_firstname.edtContent.getText().toString();
+        if(register_mode.equals("Manual")){
 
-        String lastname = edt_lastname.edtContent.getText().toString();
+            password = edt_password.edtContent.getText().toString();
 
-        String email = edt_email.edtContent.getText().toString();
+            cnfm_password = edt_cnfmpassword.edtContent.getText().toString();
+        }
 
-        String password = edt_password.edtContent.getText().toString();
+            firstname = edt_firstname.edtContent.getText().toString();
 
-        String cnfm_password = edt_cnfmpassword.edtContent.getText().toString();
+            lastname = edt_lastname.edtContent.getText().toString();
+
+            email = edt_email.edtContent.getText().toString();
 
         if(firstname.equals("")){
 
@@ -347,14 +502,14 @@ public class RetailerRegisterFragment extends Fragment {
             edt_firstname.requestFocus();
         }
 
-        else if(lastname.equals("")){
-
-            isvalid =false;
-
-            edt_lastname.setError("Please Fill Last Name");
-
-            edt_lastname.requestFocus();
-        }
+//        else if(lastname.equals("")){
+//
+//            isvalid =false;
+//
+//            edt_lastname.setError("Please Fill Last Name");
+//
+//            edt_lastname.requestFocus();
+//        }
 
         else if(email.equals("")){
 
@@ -394,20 +549,17 @@ public class RetailerRegisterFragment extends Fragment {
 
             isvalid =false;
 
-            edt_password.setError("Password and Confirm Password Doesn't Match");
+            edt_email.setError("Please Enter Valid Email ID");
 
-            edt_password.requestFocus();
+            edt_email.requestFocus();
 
-            edt_cnfmpassword.setError("Password and Confirm Password Doesn't Match");
-
-            edt_cnfmpassword.requestFocus();
         }
 
         if(isvalid){
 
             if (dd4YouConfig.isInternetConnectivity()) {
 
-                registerResponseCall(firstname,lastname,email,password,cnfm_password);
+                registerResponseCall(firstname,lastname,email,password,cnfm_password,facebook_id);
 
             }
 
@@ -434,12 +586,12 @@ public class RetailerRegisterFragment extends Fragment {
     }
 
     @SuppressLint("LongLogTag")
-    private void registerResponseCall(String firstname, String lastname, String email, String password, String cnfm_password) {
+    private void registerResponseCall(String firstname, String lastname, String email, String password, String cnfm_password, String facebook_id) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<SignupResponse> call = apiInterface.signupResponseCall(RestUtils.getContentType(),signupRequest(firstname,lastname,email,password,cnfm_password));
+        Call<SignupResponse> call = apiInterface.signupResponseCall(RestUtils.getContentType(),signupRequest(firstname,lastname,email,password,cnfm_password,facebook_id));
         Log.w(TAG,"SignupResponse url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<SignupResponse>() {
@@ -499,22 +651,34 @@ public class RetailerRegisterFragment extends Fragment {
     }
 
     @SuppressLint("LongLogTag")
-    private SignupRequest signupRequest(String firstname, String lastname, String email, String password, String cnfm_password) {
+    private SignupRequest signupRequest(String firstname, String lastname, String email, String password, String cnfm_password, String facebook_id) {
 
-        /*
+        /**
          * first_name : testab
          * last_name : testab
-         * email : prabhu.ims2c@gmail.com
+         * email : prabhu.imsfc@gmail.com
          * password : test1234
+         * country_id : 0
+         * state_id : 0
+         * zip_code : 0
+         * revenue : 0
+         * special_offer_email : 1
          * role : retail
+         * fb_id : FBID_123
          */
-
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setFirst_name(firstname);
         signupRequest.setLast_name(lastname);
         signupRequest.setEmail(email);
         signupRequest.setPassword(password);
+        signupRequest.setCountry_id("0");
+        signupRequest.setState_id("0");
+        signupRequest.setZip_code("0");
+        signupRequest.setRevenue("0");
+        signupRequest.setSpecial_offer_email("1");
+        signupRequest.setFb_id(facebook_id);
         signupRequest.setRole("retail");
+
 
         Log.w(TAG,"SignupRequest "+ new Gson().toJson(signupRequest));
         return signupRequest;
@@ -563,6 +727,34 @@ public class RetailerRegisterFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    // function to generate a random string of length n
+    static String getAlphaNumericString(int n)
+    {
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int)(AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
     }
 
 

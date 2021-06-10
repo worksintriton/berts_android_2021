@@ -251,6 +251,16 @@
                 android:textColor="@color/dark_grey"
                 android:textSize="@dimen/_14sp" />
 
+            <com.facebook.login.widget.LoginButton
+                xmlns:fb="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/login_button"
+                android:layout_marginBottom="@dimen/_60dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/FacebookLoginButton"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_register_with_facebook"
                 android:layout_width="match_parent"
@@ -258,6 +268,7 @@
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_20dp"
                 app:cardPreventCornerOverlap="true"
+                android:visibility="gone"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
