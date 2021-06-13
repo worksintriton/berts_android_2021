@@ -11,6 +11,7 @@ import com.triton.bertsproject.requestpojo.DeleteVehicleRequest;
 import com.triton.bertsproject.requestpojo.EditAddressListRequest;
 import com.triton.bertsproject.requestpojo.EditVehicleRequest;
 import com.triton.bertsproject.requestpojo.FacebookLoginRequest;
+import com.triton.bertsproject.requestpojo.FetchAllColorsRequest;
 import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
 import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
 import com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest;
@@ -23,6 +24,7 @@ import com.triton.bertsproject.requestpojo.HomepageDashboardRequest;
 import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.requestpojo.OrderCreateRequest;
+import com.triton.bertsproject.requestpojo.OrderDetailListRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
 import com.triton.bertsproject.requestpojo.RemoveOverallProductsRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
@@ -46,6 +48,7 @@ import com.triton.bertsproject.responsepojo.DeleteVehicleResponse;
 import com.triton.bertsproject.responsepojo.EditAddressListResponse;
 import com.triton.bertsproject.responsepojo.EditVehicleResponse;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.responsepojo.FetchAllColorsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
@@ -56,6 +59,7 @@ import com.triton.bertsproject.responsepojo.GetCountryResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
+import com.triton.bertsproject.responsepojo.OrderDetailListResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.RemoveOverallProductsResponse;
@@ -199,6 +203,10 @@ public interface RestApiInterface {
     @POST("common")
     Call<FetchAllYearResponse> fetchallyearListResponseCall(@Header("Content-Type") String type, @Body FetchAllYearRequest fetchAllYearRequest);
 
+    /*Get All Colors*/
+    @POST("common")
+    Call<FetchAllColorsResponse> fetchallcolorListResponseCall(@Header("Content-Type") String type, @Body FetchAllColorsRequest fetchAllColorsRequest);
+
     /*Edit Vehicle List*/
     @POST("addvehicle")
     Call<EditVehicleResponse> editvehicleListResponseCall(@Header("Content-Type") String type, @Body EditVehicleRequest editVehicleRequest);
@@ -210,6 +218,10 @@ public interface RestApiInterface {
     /*Order List*/
     @POST("order")
     Call<ShowOrderlistResponse> orderListResponseCall(@Header("Content-Type") String type, @Body ShowOrderlistRequest showOrderlistRequest);
+
+    /*Order Detail List*/
+    @POST("order")
+    Call<OrderDetailListResponse> orderDetailListResponseCall(@Header("Content-Type") String type, @Body OrderDetailListRequest orderDetailListRequest);
 
     /*user address list*/
     @POST("user/address")

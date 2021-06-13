@@ -175,16 +175,6 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         bottomNavigation.setOnNavigationItemSelectedListener(this);
 
-//        rl_sort_filter.setOnClickListener(v -> {
-//
-//            Intent intent = new Intent(SearchProductListActivity.this, FilterlistActivity.class);
-//
-//            intent.putExtra("fromactivity",TAG);
-//
-//            startActivity(intent);
-//
-//        });
-
         ll_sort.setVisibility(View.GONE);
 
         if(dd4YouConfig.isInternetConnectivity()){
@@ -301,6 +291,18 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
                             txt_no_records.setVisibility(View.GONE);
 
                             ll_sort.setVisibility(View.VISIBLE);
+
+                            rl_sort_filter.setOnClickListener(v -> {
+
+                                Intent intent = new Intent(SearchProductListActivity.this, FilterlistActivity.class);
+
+                                intent.putExtra("fromactivity",TAG);
+
+                                intent.putExtra("search_text",search_text);
+
+                                startActivity(intent);
+
+                            });
 
                             setGridView(prdouctsBeanList);
                         }

@@ -24,18 +24,26 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.BrandListAdapter;
 import com.triton.bertsproject.adapter.FilterColorlistAdapter;
 import com.triton.bertsproject.adapter.FilterlistAdapter;
+import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.adapter.SearchBrandFilterlistAdapter;
+import com.triton.bertsproject.adapter.SearchCategFilterlistAdapter;
+import com.triton.bertsproject.adapter.SearchColorFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchMakeFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchYearFilterlistAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.interfaces.GetBrandIDListener;
+import com.triton.bertsproject.interfaces.GetCategIDListener;
+import com.triton.bertsproject.interfaces.GetColorIDListener;
 import com.triton.bertsproject.interfaces.GetMakeIDListener;
 import com.triton.bertsproject.interfaces.GetYearNameListener;
 import com.triton.bertsproject.model.FilterColorlistModel;
 import com.triton.bertsproject.model.FilterlistModel;
+import com.triton.bertsproject.requestpojo.FetchAllColorsRequest;
 import com.triton.bertsproject.requestpojo.FetchAllYearRequest;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.responsepojo.FetchAllColorsResponse;
+import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
@@ -55,7 +63,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener, GetBrandIDListener {
+public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener, GetBrandIDListener, GetCategIDListener, GetColorIDListener {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.expandable_layout_yr)
@@ -142,6 +150,10 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     ImageView img_arrow_color;
 
     @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_back)
+    ImageView img_back;
+
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_year)
     RecyclerView rv_year;
 
@@ -165,7 +177,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @BindView(R.id.spin_kit_loadingView)
     SpinKitView spin_kit_loadingView;
 
-    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList ;
+    List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList;
 
     List<FilterlistModel> filterlistModel;
 
@@ -179,13 +191,19 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     SessionManager sessionManager;
 
-    String userid,ywar="", maked="", modelid="",make_name,model_name;
+    String userid, ywar = "", maked = "", modelid = "", make_name, model_name;
 
-    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList ;
+    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> modelBeanList ;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> modelBeanList;
 
-    List<FetchAllYearResponse.DataBean.YearBean> yearBeanList ;
+    List<FetchAllYearResponse.DataBean.YearBean> yearBeanList;
+
+    List<FetchAllColorsResponse.DataBean.ColorsBean> colorsBeanList;
+
+    List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList;
+
+    String search_text,fromactivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,7 +212,17 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         ButterKnife.bind(this);
 
-        dd4YouConfig=new DD4YouConfig(this);
+        dd4YouConfig = new DD4YouConfig(this);
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            fromactivity = extras.getString("fromactivity");
+
+            search_text = extras.getString("search_text");
+
+        }
 
         ll_year.setOnClickListener(v -> yearlist());
 
@@ -210,25 +238,31 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         ll_color.setOnClickListener(v -> colorlist());
 
-        if(dd4YouConfig.isInternetConnectivity()){
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+
+            }
+        });
+
+        if (dd4YouConfig.isInternetConnectivity()) {
 
             fetchallyearListResponseCall();
-        }
-
-        else {
+        } else {
 
             callnointernet();
         }
 
-        if(dd4YouConfig.isInternetConnectivity()){
+        if (dd4YouConfig.isInternetConnectivity()) {
 
             fetchallbrandsListResponseCall();
-        }
-
-        else {
+        } else {
 
             callnointernet();
         }
+
         setCateg();
 
         setColor();
@@ -244,8 +278,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<FetchAllYearResponse> call = apiInterface.fetchallyearListResponseCall(RestUtils.getContentType(),fetchAllYearRequest());
-        Log.w(TAG,"FetchAllYearResponse url  :%s"+ call.request().url().toString());
+        Call<FetchAllYearResponse> call = apiInterface.fetchallyearListResponseCall(RestUtils.getContentType(), fetchAllYearRequest());
+        Log.w(TAG, "FetchAllYearResponse url  :%s" + call.request().url().toString());
 
         call.enqueue(new Callback<FetchAllYearResponse>() {
             @SuppressLint("LogNotTimber")
@@ -255,38 +289,31 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                 if (response.body() != null) {
 
-                    if(200==response.body().getCode()){
+                    if (200 == response.body().getCode()) {
 
-                        Log.w(TAG,"FetchAllYearResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG, "FetchAllYearResponse" + new Gson().toJson(response.body()));
 
                         yearBeanList = response.body().getData().getYear();
 
-                        if(yearBeanList != null && yearBeanList.size()>0){
+                        if (yearBeanList != null && yearBeanList.size() > 0) {
 
-                            if(dd4YouConfig.isInternetConnectivity()){
+                            if (dd4YouConfig.isInternetConnectivity()) {
 
                                 fetchallmakesListResponseCall();
-                            }
-
-                            else {
+                            } else {
 
                                 callnointernet();
                             }
 
                             setViewYearList(yearBeanList);
-                        }
-
-                        else {
+                        } else {
 
 
                         }
-                    }
-
-                    else {
+                    } else {
 
                         showErrorLoading(response.body().getMessage());
                     }
-
 
 
                 }
@@ -295,12 +322,11 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
 
             @Override
-            public void onFailure(@NonNull Call<FetchAllYearResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<FetchAllYearResponse> call, @NonNull Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FetchAllYearResponse flr"+t.getMessage());
+                Log.w(TAG, "FetchAllYearResponse flr" + t.getMessage());
             }
         });
-
 
 
     }
@@ -317,7 +343,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         fetchAllYearRequest.setATTRIBUTE("YEAR");
 
 
-        Log.w(TAG,"FetchAllYearRequest "+ new Gson().toJson(fetchAllYearRequest));
+        Log.w(TAG, "FetchAllYearRequest " + new Gson().toJson(fetchAllYearRequest));
         return fetchAllYearRequest;
     }
 
@@ -341,7 +367,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         rv_year.setItemAnimator(new DefaultItemAnimator());
 
-        SearchYearFilterlistAdapter searchYearFilterlistAdapter = new SearchYearFilterlistAdapter(FilterlistActivity.this, yearBeanList,this);
+        SearchYearFilterlistAdapter searchYearFilterlistAdapter = new SearchYearFilterlistAdapter(FilterlistActivity.this, yearBeanList, this);
 
         rv_year.setAdapter(searchYearFilterlistAdapter);
 
@@ -371,7 +397,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
         Call<FetchAllParentMakesResponse> call = apiInterface.fetchallmakesListResponseCall(RestUtils.getContentType());
-        Log.w(TAG,"FetchAllParentMakesResponse url  :%s"+ call.request().url().toString());
+        Log.w(TAG, "FetchAllParentMakesResponse url  :%s" + call.request().url().toString());
 
         call.enqueue(new Callback<FetchAllParentMakesResponse>() {
             @SuppressLint("LogNotTimber")
@@ -381,29 +407,24 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                 if (response.body() != null) {
 
-                    if(200==response.body().getCode()){
+                    if (200 == response.body().getCode()) {
 
-                        Log.w(TAG,"FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG, "FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
 
                         makesBeanList = response.body().getData().getMake();
 
-                        if(makesBeanList != null && makesBeanList.size()>0){
+                        if (makesBeanList != null && makesBeanList.size() > 0) {
 
 
                             setViewMakesList(makesBeanList);
-                        }
-
-                        else {
+                        } else {
 
 
                         }
-                    }
-
-                    else {
+                    } else {
 
                         showErrorLoading(response.body().getMessage());
                     }
-
 
 
                 }
@@ -412,12 +433,11 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
 
             @Override
-            public void onFailure(@NonNull Call<FetchAllParentMakesResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<FetchAllParentMakesResponse> call, @NonNull Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FetchAllParentMakesResponse flr"+t.getMessage());
+                Log.w(TAG, "FetchAllParentMakesResponse flr" + t.getMessage());
             }
         });
-
 
 
     }
@@ -442,7 +462,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         rv_makes.setItemAnimator(new DefaultItemAnimator());
 
-        SearchMakeFilterlistAdapter searchMakeFilterlistAdapter = new SearchMakeFilterlistAdapter(FilterlistActivity.this, makesBeanList,this);
+        SearchMakeFilterlistAdapter searchMakeFilterlistAdapter = new SearchMakeFilterlistAdapter(FilterlistActivity.this, makesBeanList, this);
 
         rv_makes.setAdapter(searchMakeFilterlistAdapter);
 
@@ -463,8 +483,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     }
 
 
-
-
     private void brandlist() {
 
         if (expandable_layout_brand.isExpanded()) {
@@ -480,18 +498,17 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     }
 
 
-
     private void setCateg() {
 
         filterlistModel = new ArrayList<>();
 
-        filterlistModel.add(new FilterlistModel("Interior",false));
+        filterlistModel.add(new FilterlistModel("Interior", false));
 
-        filterlistModel.add(new FilterlistModel("Honda",false));
+        filterlistModel.add(new FilterlistModel("Honda", false));
 
-        filterlistModel.add(new FilterlistModel("Extorior",false));
+        filterlistModel.add(new FilterlistModel("Extorior", false));
 
-        filterlistModel.add(new FilterlistModel("Jeep",false));
+        filterlistModel.add(new FilterlistModel("Jeep", false));
 
         rv_categ.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
 
@@ -566,13 +583,13 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         filterColorlistModels = new ArrayList<>();
 
-        filterColorlistModels.add(new FilterColorlistModel("Red",false,1));
+        filterColorlistModels.add(new FilterColorlistModel("Red", false, 1));
 
-        filterColorlistModels.add(new FilterColorlistModel("Black",false,2));
+        filterColorlistModels.add(new FilterColorlistModel("Black", false, 2));
 
-        filterColorlistModels.add(new FilterColorlistModel("Green",false,3));
+        filterColorlistModels.add(new FilterColorlistModel("Green", false, 3));
 
-        filterColorlistModels.add(new FilterColorlistModel("Blue",false,4));
+        filterColorlistModels.add(new FilterColorlistModel("Blue", false, 4));
 
         rv_color.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
 
@@ -612,7 +629,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
-    public void showErrorLoading(String errormesage){
+    public void showErrorLoading(String errormesage) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FilterlistActivity.this);
         alertDialogBuilder.setMessage(errormesage);
         alertDialogBuilder.setPositiveButton("ok",
@@ -623,17 +640,17 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         alertDialog.show();
     }
 
-    public void hideLoading(){
+    public void hideLoading() {
         try {
             alertDialog.dismiss();
-        }catch (Exception ignored){
+        } catch (Exception ignored) {
 
         }
     }
 
 
     private void callnointernet() {
-        AlertDialog.Builder builder=new AlertDialog.Builder(FilterlistActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(FilterlistActivity.this);
         builder.setTitle("No Internet Conncetion");
         builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
         builder.setCancelable(false);
@@ -648,20 +665,19 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @Override
     public void getYearNameListener(String id, String year_name) {
 
-        Log.w(TAG,"Selected  Year ID" + id);
+        Log.w(TAG, "Selected  Year ID" + id);
 
-        Log.w(TAG,"Selected  Year Name" + year_name);
+        Log.w(TAG, "Selected  Year Name" + year_name);
 
     }
 
     @Override
     public void getMakeIDListener(String id, String make_name) {
 
-        Log.w(TAG,"Selected  Make ID" + id);
+        Log.w(TAG, "Selected  Make ID" + id);
 
-        Log.w(TAG,"Selected  Make Name" + make_name);
+        Log.w(TAG, "Selected  Make Name" + make_name);
     }
-
 
 
     @SuppressLint("LongLogTag")
@@ -671,7 +687,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
         Call<FetchAllBrandsResponse> call = apiInterface.fetchallbrandsListResponseCall(RestUtils.getContentType());
-        Log.w(TAG,"FetchAllBrandsResponse url  :%s"+ call.request().url().toString());
+        Log.w(TAG, "FetchAllBrandsResponse url  :%s" + call.request().url().toString());
 
         call.enqueue(new Callback<FetchAllBrandsResponse>() {
             @SuppressLint("LogNotTimber")
@@ -681,27 +697,22 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                 if (response.body() != null) {
 
-                    if(200==response.body().getCode()){
+                    if (200 == response.body().getCode()) {
 
-                        Log.w(TAG,"FetchAllBrandsResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG, "FetchAllBrandsResponse" + new Gson().toJson(response.body()));
 
                         brandsBeanList = response.body().getData().getBrand();
 
-                        if(brandsBeanList != null && brandsBeanList.size()>0){
+                        if (brandsBeanList != null && brandsBeanList.size() > 0) {
 
                             setBrandView(brandsBeanList);
-                        }
-
-                        else {
+                        } else {
 
                         }
-                    }
-
-                    else {
+                    } else {
 
                         showErrorLoading(response.body().getMessage());
                     }
-
 
 
                 }
@@ -710,12 +721,11 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
 
             @Override
-            public void onFailure(@NonNull Call<FetchAllBrandsResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<FetchAllBrandsResponse> call, @NonNull Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FetchAllParentCategoriesResponse flr"+t.getMessage());
+                Log.w(TAG, "FetchAllParentCategoriesResponse flr" + t.getMessage());
             }
         });
-
 
 
     }
@@ -741,7 +751,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         rv_brand.setItemAnimator(new DefaultItemAnimator());
 
-        SearchBrandFilterlistAdapter searchBrandFilterlistAdapter = new SearchBrandFilterlistAdapter(FilterlistActivity.this, brandsBeanList,this);
+        SearchBrandFilterlistAdapter searchBrandFilterlistAdapter = new SearchBrandFilterlistAdapter(FilterlistActivity.this, brandsBeanList, this);
 
         rv_brand.setAdapter(searchBrandFilterlistAdapter);
 
@@ -751,8 +761,210 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @Override
     public void getBrandIDListener(String id, String brand_name) {
 
-        Log.w(TAG,"Selected  Brand ID" + id);
+        Log.w(TAG, "Selected  Brand ID" + id);
 
-        Log.w(TAG,"Selected  Brand Name" + brand_name);
+        Log.w(TAG, "Selected  Brand Name" + brand_name);
+    }
+
+    @SuppressLint("LongLogTag")
+    private void fetchallcategoriesListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllParentCategoriesResponse> call = apiInterface.fetchallcategoriesListResponseCall(RestUtils.getContentType());
+        Log.w(TAG, "url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllParentCategoriesResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Response<FetchAllParentCategoriesResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
+
+                        categoriesBeanList = response.body().getData().getCategories();
+
+                        if (categoriesBeanList != null && categoriesBeanList.size() > 0) {
+
+                            setView(categoriesBeanList);
+                        } else {
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllParentCategoriesResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
+
+    private void setView(List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList) {
+
+
+        rv_categ.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
+
+        rv_categ.setMotionEventSplittingEnabled(false);
+
+        rv_categ.setNestedScrollingEnabled(true);
+
+        int size = categoriesBeanList.size();
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        rv_categ.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, true));
+
+        rv_categ.setItemAnimator(new DefaultItemAnimator());
+
+        SearchCategFilterlistAdapter searchCategFilterlistAdapter = new SearchCategFilterlistAdapter(FilterlistActivity.this, categoriesBeanList, this);
+
+        rv_categ.setAdapter(searchCategFilterlistAdapter);
+
+
+    }
+
+    @Override
+    public void getCategIDListener(String id, String categ_name) {
+
+        Log.w(TAG,"Selected  Categ ID"+id);
+
+        Log.w(TAG,"Selected  Categ Name"+categ_name);
+    }
+
+    /* Get Colors */
+
+    @SuppressLint("LongLogTag")
+    private void fetchallcolorListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllColorsResponse> call = apiInterface.fetchallcolorListResponseCall(RestUtils.getContentType(), fetchAllColorsRequest());
+        Log.w(TAG, "FetchAllColorsResponse url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllColorsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllColorsResponse> call, @NonNull Response<FetchAllColorsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllColorsResponse" + new Gson().toJson(response.body()));
+
+                        colorsBeanList = response.body().getData().getColors();
+
+                        if (colorsBeanList != null && colorsBeanList.size() > 0) {
+
+
+                            setViewColorList(colorsBeanList);
+                        } else {
+
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllColorsResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllColorsResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private FetchAllColorsRequest fetchAllColorsRequest() {
+
+
+        /**
+         * ATTRIBUTE : COLORS
+         */
+
+
+        FetchAllColorsRequest fetchAllColorsRequest = new FetchAllColorsRequest();
+        fetchAllColorsRequest.setATTRIBUTE("COLORS");
+
+
+        Log.w(TAG, "FetchAllYearRequest " + new Gson().toJson(fetchAllColorsRequest));
+        return fetchAllColorsRequest;
+    }
+
+    private void setViewColorList(List<FetchAllColorsResponse.DataBean.ColorsBean> colorsBeanList) {
+
+        rv_color.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
+
+        rv_color.setMotionEventSplittingEnabled(false);
+
+        rv_color.setNestedScrollingEnabled(false);
+
+        //int size =3;
+
+        int spanCount = 2; // 3 columns
+
+        int spacing = 0; // 50px
+
+        boolean includeEdge = true;
+
+        rv_color.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
+
+        rv_color.setItemAnimator(new DefaultItemAnimator());
+
+        SearchColorFilterlistAdapter searchColorFilterlistAdapter = new SearchColorFilterlistAdapter( FilterlistActivity.this, colorsBeanList, this);
+
+        rv_color.setAdapter(searchColorFilterlistAdapter);
+
+
+    }
+
+    @Override
+    public void getColorIDListener(String id, String color_name) {
+
+        Log.w(TAG,"Selected  Color ID"+id);
+
+        Log.w(TAG,"Selected Color Name"+color_name);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
+        intent.putExtra("search_text",search_text);
+        intent.putExtra("fromactivity",fromactivity);
+        startActivity(intent);
+        finish();
+
     }
 }

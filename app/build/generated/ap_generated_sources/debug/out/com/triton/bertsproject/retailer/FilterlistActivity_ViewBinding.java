@@ -48,6 +48,7 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.img_arrow_pr_range = Utils.findRequiredViewAsType(source, R.id.img_arrow_pr_range, "field 'img_arrow_pr_range'", ImageView.class);
     target.img_arrow_rate = Utils.findRequiredViewAsType(source, R.id.img_arrow_rate, "field 'img_arrow_rate'", ImageView.class);
     target.img_arrow_color = Utils.findRequiredViewAsType(source, R.id.img_arrow_color, "field 'img_arrow_color'", ImageView.class);
+    target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.rv_year = Utils.findRequiredViewAsType(source, R.id.rv_year, "field 'rv_year'", RecyclerView.class);
     target.rv_makes = Utils.findRequiredViewAsType(source, R.id.rv_makes, "field 'rv_makes'", RecyclerView.class);
     target.rv_brand = Utils.findRequiredViewAsType(source, R.id.rv_brand, "field 'rv_brand'", RecyclerView.class);
@@ -84,6 +85,7 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.img_arrow_pr_range = null;
     target.img_arrow_rate = null;
     target.img_arrow_color = null;
+    target.img_back = null;
     target.rv_year = null;
     target.rv_makes = null;
     target.rv_brand = null;

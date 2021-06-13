@@ -430,16 +430,6 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:146:9-159:
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:149:13-47
 	android:name
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:147:13-56
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:153:13-157:29
-action#android.intent.action.MAIN
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:154:17-69
-	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:154:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:156:17-77
-	android:name
-		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:156:27-74
 activity#com.triton.bertsproject.retailer.ShippingAddressAddActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:160:9-165:56
 	android:screenOrientation
@@ -620,6 +610,16 @@ ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:244:9-255:
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:247:13-47
 	android:name
 		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:245:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:250:13-254:29
+action#android.intent.action.MAIN
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:251:17-69
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:251:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:253:17-77
+	android:name
+		ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:253:27-74
 activity#com.triton.bertsproject.activities.LoginActivity
 ADDED from D:\Workspace\BertsProject\app\src\main\AndroidManifest.xml:256:9-261:56
 	android:screenOrientation
