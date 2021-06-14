@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
+import com.triton.bertsproject.retailer.SearchProductListActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
@@ -68,10 +70,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_user_login)
     TextView txt_user_login;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.edt_search)
-    EditText edt_search;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rlcart)
@@ -140,6 +138,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_cart_count)
     TextView txt_cart_count;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.edt_search)
+    EditText edt_search;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_search)
+    ImageView img_search;
+
 
     HomepageDashboardResponse.DataBean.DefaultVehicleBean defaultVehicleBeanList ;
 
@@ -283,15 +290,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         }
 
-        edt_search.setOnClickListener(v -> {
+        img_search.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getContext(), SearchProductsActivity.class);
+            checkValidation();
 
-            intent.putExtra("fromactivity",TAG);
-
-            startActivity(intent);
-
-            Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
 
         });
 
@@ -309,6 +311,46 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
 
+    }
+
+    private void checkValidation() {
+
+        boolean isvalid = true;
+
+        String search_text = edt_search.getText().toString();
+
+        if(edt_search.getText().toString().equals("")){
+
+            isvalid = false;
+
+            edt_search.setError("Please Enter Valid Text");
+
+        }
+
+        if(isvalid){
+
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                Intent intent = new Intent(getContext(), SearchProductListActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("search_text",search_text);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeLeft(Objects.requireNonNull(getContext()));
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
+
+
+        }
     }
 
 

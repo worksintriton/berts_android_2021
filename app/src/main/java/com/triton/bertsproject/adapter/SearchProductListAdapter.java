@@ -1,7 +1,9 @@
 package com.triton.bertsproject.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
         return new ShoplistHolder(view);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
@@ -83,6 +86,47 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 //            holder.ratingBar.setNumStars(Integer.parseInt(retailerProductlistModel.getRating()));
 //
 //        }
+
+        Log.w(TAG,"rating : "+ prdouctsBean.getRating());
+        if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("1")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("2")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("3")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("4")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        } else if(prdouctsBean.getRating()!=null&&!prdouctsBean.getRating().isEmpty()&&prdouctsBean.getRating().equals("5")){
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_filled);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_filled);
+        }
+        else {
+
+            holder.hand_img1.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img2.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img3.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img4.setBackgroundResource(R.drawable.ic_star_empty);
+            holder.hand_img5.setBackgroundResource(R.drawable.ic_star_empty);
+        }
 
         if (prdouctsBean.getReviews_comments()!= 0) {
 
@@ -140,6 +184,8 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
         //      RatingBar ratingBar;
         LinearLayout ll_product_status;
 
+        public ImageView hand_img1,hand_img2,hand_img3,hand_img4,hand_img5;
+
         CardView cv_root;
 
         Button btn_addcart;
@@ -162,6 +208,13 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             txt_price = itemView.findViewById(R.id.txt_price);
 
             btn_addcart = itemView.findViewById(R.id.btn_addcart);
+
+            hand_img1 = itemView.findViewById(R.id.hand_img1);
+            hand_img2 = itemView.findViewById(R.id.hand_img2);
+            hand_img3 = itemView.findViewById(R.id.hand_img3);
+            hand_img4 = itemView.findViewById(R.id.hand_img4);
+            hand_img5 = itemView.findViewById(R.id.hand_img5);
+
 
         }
     }

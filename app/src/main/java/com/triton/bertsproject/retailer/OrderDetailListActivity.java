@@ -50,9 +50,6 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
     @BindView(R.id.txt_no_records)
     TextView txt_no_records;
 
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.txt_order_status)
-    TextView txt_order_status;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_order_date)
@@ -148,6 +145,17 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
     BottomNavigationView bottom_navigation_view;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.view1)
+    View view1;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.view2)
+    View view2;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_toolbar_title)
+    TextView txt_toolbar_title;
 
     private String _id;
     private String fromactivity;
@@ -193,12 +201,23 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
         dd4YouConfig = new DD4YouConfig(this);
 
-
         sessionManager = new SessionManager(this);
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
         user_id = user.get(SessionManager.KEY_ID);
+
+        txt_toolbar_title.setText("Order Details");
+
+        ll_orderdetails.setVisibility(View.GONE);
+
+        view1.setVisibility(View.GONE);
+
+        view2.setVisibility(View.GONE);
+
+        ll_shippingaddress.setVisibility(View.GONE);
+
+        ll_productdetails.setVisibility(View.GONE);
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
@@ -212,10 +231,6 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
 
         }
-
-        ll_orderdetails.setVisibility(View.GONE);
-        ll_shippingaddress.setVisibility(View.GONE);
-
 
         img_expand_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -325,6 +340,16 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                         scrollablContent.setVisibility(View.VISIBLE);
 
                         if(response.body().getData()!=null){
+
+                            ll_orderdetails.setVisibility(View.VISIBLE);
+
+                            ll_shippingaddress.setVisibility(View.VISIBLE);
+
+                            view1.setVisibility(View.VISIBLE);
+
+                            view2.setVisibility(View.VISIBLE);
+
+                            ll_productdetails.setVisibility(View.VISIBLE);
 
                             ordersBeanList = response.body().getData().getOrders();
 
@@ -520,7 +545,7 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
         OrderDetailListRequest orderDetailListRequest = new OrderDetailListRequest();
         orderDetailListRequest.setORDER_ID(orderid);
-        orderDetailListRequest.setUSER_ID("");
+        orderDetailListRequest.setUSER_ID(user_id);
         orderDetailListRequest.setMODE("LIST");
 
         Log.w(TAG,"vendorOrderDetailsRequest"+ "--->" + new Gson().toJson(orderDetailListRequest));

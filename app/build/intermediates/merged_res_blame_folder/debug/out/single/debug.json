@@ -436,6 +436,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_ordrhist.png"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_horizontal_dotted_line.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\horizontal_dotted_line.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_show_all_parent_categories.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_show_all_parent_categories.xml"
     },
@@ -640,6 +644,10 @@
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\ic_free_ship.png"
     },
     {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_order_detail_list.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\activity_order_detail_list.xml"
+    },
+    {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_header_layout.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\header_layout.xml"
     },
@@ -650,6 +658,10 @@
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_corner_blue_background.xml.flat",
         "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\drawable\\rectangle_corner_blue_background.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_product_details.xml.flat",
+        "source": "D:\\Workspace\\BertsProject\\app\\src\\main\\res\\layout\\adapter_product_details.xml"
     },
     {
         "merged": "D:\\Workspace\\BertsProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_image_banner.png.flat",

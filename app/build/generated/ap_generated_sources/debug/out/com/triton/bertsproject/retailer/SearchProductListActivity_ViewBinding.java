@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailer;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.floatingActionButton = Utils.findRequiredViewAsType(source, R.id.fab, "field 'floatingActionButton'", FloatingActionButton.class);
     target.bottomNavigation = Utils.findRequiredViewAsType(source, R.id.bottomNavigation, "field 'bottomNavigation'", BottomNavigationView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
+    target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
     target.rv_filterlist = Utils.findRequiredViewAsType(source, R.id.rv_filterlist, "field 'rv_filterlist'", RecyclerView.class);
     target.rv_searchprodlist = Utils.findRequiredViewAsType(source, R.id.rv_searchprodlist, "field 'rv_searchprodlist'", RecyclerView.class);
@@ -51,6 +53,7 @@ public class SearchProductListActivity_ViewBinding implements Unbinder {
     target.floatingActionButton = null;
     target.bottomNavigation = null;
     target.spin_kit_loadingView = null;
+    target.img_back = null;
     target.txt_toolbar_title = null;
     target.rv_filterlist = null;
     target.rv_searchprodlist = null;

@@ -744,6 +744,11 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             }
         }
 
+        else {
+
+            imageList.add(APIClient.BASE_IMAGE_URL);
+        }
+
         if(imageList.size()>0){
 
             viewpageData(imageList);

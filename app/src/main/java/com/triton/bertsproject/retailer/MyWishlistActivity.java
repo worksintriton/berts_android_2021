@@ -28,9 +28,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.adapter.MywishListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
+import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.requestpojo.AddWishistRequest;
 import com.triton.bertsproject.requestpojo.RemoveWishistRequest;
@@ -47,12 +49,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MyWishlistActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MyWishlistActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, WishlistAddProductListener {
 
     private static final String TAG = "MyWishlistActivity";
 
@@ -176,7 +179,7 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
         rv_productlist.setItemAnimator(new DefaultItemAnimator());
 
-        mywishListAdapter = new MywishListAdapter(this, wishlistBeanList);
+        mywishListAdapter = new MywishListAdapter(this, wishlistBeanList,this);
 
         rv_productlist.setAdapter(mywishListAdapter);
 
@@ -344,6 +347,131 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
         }
     }
 
+
+    @Override
+    public void addproductListener(String id) {
+
+
+
+        if(sessionManager.isLoggedIn()){
+
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                wishlistaddResponseCall(id);
+
+            }
+
+            else
+            {
+                callnointernet();
+
+            }
+
+        }
+
+        else {
+
+            showAlert();
+        }
+
+
+    }
+
+    private void showAlert() {
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(MyWishlistActivity.this);
+        builder.setTitle("Alert");
+        builder.setMessage("Please Login to add Products in wishlist");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (dialogInterface, i) -> {
+
+            gotoLogin();
+
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void gotoLogin() {
+
+        Intent intent = new Intent(MyWishlistActivity.this, LoginActivity.class);
+
+        intent.putExtra("fromActivity",TAG);
+
+        startActivity(intent);
+
+        finish();
+
+    }
+
+
+
+    @SuppressLint("LongLogTag")
+    private void wishlistaddResponseCall(String productId) {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<WishlistSuccessResponse> call = apiInterface.wishlistaddResponseCall(RestUtils.getContentType(),addWishistRequest(productId));
+        Log.w(TAG,"WishlistSuccessResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<WishlistSuccessResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<WishlistSuccessResponse> call, @NonNull Response<WishlistSuccessResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(response.body().getStatus().equals("Success")) {
+
+                        Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                        showwishlistResponseCall();
+
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<WishlistSuccessResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"WishlistSuccessResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private AddWishistRequest addWishistRequest(String productID) {
+
+        /*
+         * USER_ID : 541
+         * PRODUCT_ID : 4
+         * MODE : ADD_DELETE
+         */
+
+        AddWishistRequest addWishistRequest = new AddWishistRequest();
+        addWishistRequest.setPRODUCT_ID(productID);
+        addWishistRequest.setUSER_ID(user_id);
+        addWishistRequest.setMODE("ADD_DELETE");
+
+        Log.w(TAG,"AddWishistRequest "+ new Gson().toJson(addWishistRequest));
+        return addWishistRequest;
+    }
 
 
 }

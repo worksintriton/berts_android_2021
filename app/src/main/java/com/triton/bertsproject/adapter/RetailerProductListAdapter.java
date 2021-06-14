@@ -76,16 +76,18 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
                 holder.txt_product_name.setText(prdouctsBean.getTitle());
 
         }
+/*
 
-//        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
-//
-//                String imgurl = prdouctsBean.getImages().get(0).getImage_default();
-//
-//                    Glide.with(context)
-//                    .load(imgurl)
-//                    .into(holder.img_product_image);
-//
-//        }
+        if (prdouctsBean.getImages().get(0).getImage_default()!= null&&!prdouctsBean.getImages().get(0).getImage_default().isEmpty()) {
+
+                String imgurl = prdouctsBean.getImages().get(0).getImage_default();
+
+                    Glide.with(context)
+                    .load(imgurl)
+                    .into(holder.img_product_image);
+
+        }
+*/
 
         if (prdouctsBean.getPart_number()!= null&&!prdouctsBean.getPart_number().isEmpty()) {
 

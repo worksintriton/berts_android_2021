@@ -16,6 +16,9 @@ public class APIClient {
      /*dev*/
     public static String BASE_URL = "http://dciinternal.in/dev01/api/";
 
+    /*dev*/
+    public static String BASE_IMAGE_URL = "http://dciinternal.in/dev01/assets/img/no-image.jpg";
+
     public static Retrofit getClient() {
         client = new OkHttpClient();
         client = new OkHttpClient.Builder()

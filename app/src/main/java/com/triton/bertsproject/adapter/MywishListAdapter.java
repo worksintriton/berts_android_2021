@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.api.APIClient;
+import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
 
@@ -23,10 +25,12 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
     Context context;
     List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList;
     View view;
+    WishlistAddProductListener wishlistAddProductListener;
 
-    public MywishListAdapter(Context context2,  List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList) {
+    public MywishListAdapter(Context context2, List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList, WishlistAddProductListener wishlistAddProductListener) {
         this.context = context2;
         this.wishlistBeanList = wishlistBeanList;
+        this.wishlistAddProductListener = wishlistAddProductListener;
     }
 
     @NonNull
@@ -42,15 +46,27 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
         if (wishlistBean.getTitle() != null&&!wishlistBean.getTitle().isEmpty())  {
             holder.txt_product_name.setText(wishlistBean.getTitle());
         }
-        if (wishlistBean.getImages().get(0).getImage_default()!= null&&!wishlistBean.getImages().get(0).getImage_default().isEmpty()) {
 
-            String imgUrl = wishlistBean.getImages().get(0).getImage_default();
+        if(wishlistBean.getImages()!=null&&wishlistBean.getImages().size()>0){
 
-            Glide.with(context)
-                    .load(imgUrl)
-                    .into(holder.img_product_image);
+            if (wishlistBean.getImages().get(0).getImage_default()!= null&&!wishlistBean.getImages().get(0).getImage_default().isEmpty()) {
 
+                String imgUrl = wishlistBean.getImages().get(0).getImage_default();
+
+                Glide.with(context)
+                        .load(imgUrl)
+                        .into(holder.img_product_image);
+
+            }
+
+            else {
+
+                Glide.with(context)
+                        .load(APIClient.BASE_IMAGE_URL)
+                        .into(holder.img_product_image);
+            }
         }
+
 //        if (retailerProductlistModel.getParts_no() != null) {
 //            holder.txt_parts_no.setText(retailerProductlistModel.getParts_no());
 //        }
@@ -76,7 +92,16 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
 
         holder.ll_multipleadd.setVisibility(View.GONE);
 
-        holder.img_delete.setVisibility(View.GONE);
+        holder.img_delete.setImageResource(R.drawable.heart_outline);
+
+        holder.img_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                wishlistAddProductListener.addproductListener(wishlistBean.getWishlist_product_id());
+            }
+        });
+
     }
 
     public int getItemCount() {

@@ -73,14 +73,14 @@ public class ProductDetailsAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 //
 //        }
 
-        if (currentItem.getImages().get(0).getImage_default()!= null && !currentItem.getImages().get(0).getImage_default().isEmpty()) {
-            Glide.with(context)
-                    .load(currentItem.getImages().get(0).getImage_default())
-                    .into(holder.img_products_image);
-
-        }
-
-
+//        if (currentItem.getImages().get(0).getImage_default()!= null && !currentItem.getImages().get(0).getImage_default().isEmpty()) {
+//            Glide.with(context)
+//                    .load(currentItem.getImages().get(0).getImage_default())
+//                    .into(holder.img_products_image);
+//
+//        }
+//
+//
 
         }
 

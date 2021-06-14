@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -72,9 +73,9 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     @BindView(R.id.spin_kit_loadingView)
     SpinKitView spin_kit_loadingView;
 
-//    @SuppressLint("NonConstantResourceId")
-//    @BindView(R.id.img_back)
-//    ImageView img_back;
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_back)
+    ImageView img_back;
 //
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_toolbar_title)
@@ -186,6 +187,14 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
             callnointernet();
         }
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -250,7 +259,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         // super.onBackPressed(); commented this line in order to disable back press
         //Write your code here
-        startActivity(new Intent(SearchProductListActivity.this, SearchProductsActivity.class));
+        startActivity(new Intent(SearchProductListActivity.this, RetailerDashboardActivity.class));
 
         Animatoo.animateSwipeRight(context);
     }

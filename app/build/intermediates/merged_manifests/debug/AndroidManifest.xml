@@ -37,6 +37,11 @@
         android:testOnly="true"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.triton.bertsproject.retailer.OrderDetailListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.BertsProject.SearchProduct"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"

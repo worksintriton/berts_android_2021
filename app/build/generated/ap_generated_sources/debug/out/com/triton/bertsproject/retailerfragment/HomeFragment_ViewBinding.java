@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
@@ -28,7 +29,6 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_signin, "field 'btn_sigin'", Button.class);
     target.txt_user_login = Utils.findRequiredViewAsType(source, R.id.txt_user_login, "field 'txt_user_login'", TextView.class);
-    target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
     target.rlcart = Utils.findRequiredViewAsType(source, R.id.rlcart, "field 'rlcart'", RelativeLayout.class);
     target.rv_shopby = Utils.findRequiredViewAsType(source, R.id.rv_shopby, "field 'rv_shopby'", RecyclerView.class);
     target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
@@ -45,6 +45,8 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.fl_image = Utils.findRequiredViewAsType(source, R.id.fl_image, "field 'fl_image'", FrameLayout.class);
     target.cl_shipping = Utils.findRequiredViewAsType(source, R.id.cl_shipping, "field 'cl_shipping'", CardView.class);
     target.txt_cart_count = Utils.findRequiredViewAsType(source, R.id.txt_cart_count, "field 'txt_cart_count'", TextView.class);
+    target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
+    target.img_search = Utils.findRequiredViewAsType(source, R.id.img_search, "field 'img_search'", ImageView.class);
   }
 
   @Override
@@ -57,7 +59,6 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.spin_kit_loadingView = null;
     target.btn_sigin = null;
     target.txt_user_login = null;
-    target.edt_search = null;
     target.rlcart = null;
     target.rv_shopby = null;
     target.btn_addVeh = null;
@@ -74,5 +75,7 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.fl_image = null;
     target.cl_shipping = null;
     target.txt_cart_count = null;
+    target.edt_search = null;
+    target.img_search = null;
   }
 }
