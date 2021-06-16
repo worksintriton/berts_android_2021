@@ -246,7 +246,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         RadioButton radioButtonhightolow = bottomSheetDialog.findViewById(R.id.radioButtonhightolow);
 
-        // RadioButton radioButtontopreleated = bottomSheetDialog.findViewById(R.id.radioButtontopreleated);
+        RadioButton radioButtontopreleated = bottomSheetDialog.findViewById(R.id.radioButtonnTopRat);
 
         RadioButton radioButtonnewarr = bottomSheetDialog.findViewById(R.id.radioButtonnewarr);
 
@@ -272,6 +272,12 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
         else  if(sorting.equals("NEW")){
 
             radioButtonnewarr.setChecked(true);
+
+        }
+
+        else  if(sorting.equals("TOPRATING")){
+
+            radioButtontopreleated.setChecked(true);
 
         }
 
@@ -310,6 +316,14 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
                     sorting="NEW";
                 }
+
+                else  if(rb.getText().toString().equals("Top Rating")){
+
+                    radioButtontopreleated.setChecked(true);
+
+                    sorting="TOPRATING";
+                }
+
 
                 if(dd4YouConfig.isInternetConnectivity()){
 

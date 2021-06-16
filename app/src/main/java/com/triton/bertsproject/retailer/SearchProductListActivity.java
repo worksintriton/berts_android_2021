@@ -38,8 +38,10 @@ import com.triton.bertsproject.interfaces.AddProductListener;
 import com.triton.bertsproject.model.SearchFilterListModel;
 import com.triton.bertsproject.model.SearchProductlistModel;
 import com.triton.bertsproject.requestpojo.AddToCartRequest;
+import com.triton.bertsproject.requestpojo.FilterRequest;
 import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.responsepojo.AddToCartResponse;
+import com.triton.bertsproject.responsepojo.FilterResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
@@ -56,6 +58,8 @@ import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.view.View.VISIBLE;
 
 public class SearchProductListActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, AddProductListener {
 
@@ -132,6 +136,8 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     private DD4YouConfig dd4YouConfig;
 
     SessionManager sessionManager;
+
+    String years,makesid,modelsid,categid,brandid,colors,min_pri,max_pri,rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -554,4 +560,106 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         Log.w(TAG,"AddToCartRequest "+ new Gson().toJson(AddToCartRequest));
         return AddToCartRequest;
     }
+
+
+    @SuppressLint("LongLogTag")
+    private void fetchallfiltersproductsListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FilterResponse> call = apiInterface.fetchallfilterprodResponseCall(RestUtils.getContentType(), FilterRequest());
+        Log.w(TAG,"FilterResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FilterResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FilterResponse> call, @NonNull Response<FilterResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"FilterResponse" + new Gson().toJson(response.body()));
+
+//                        prdouctsBean = response.body().getData().getProducts();
+//
+//                        Log.w(TAG,"prdouctsBeanList" + new Gson().toJson(prdouctsBean));
+//
+//                        if(prdouctsBean != null){
+//
+//                            setView(prdouctsBean);
+//                        }
+
+//                        else {
+//
+//                            showErrorLoading(response.body().getMessage());
+//                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FilterResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FilterResponse flr"+t.getMessage());
+
+            }
+        });
+
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private FilterRequest FilterRequest() {
+
+
+        /*
+         * CATEGORY_ID : 1
+         * BRAND_ID : 1
+         * MAKE_ID : 5,1,2
+         * MODEL_ID : 174,226
+         * YEAR : 2015,2017,2013
+         * MODE : LIST
+         * RATING : 3
+         * COLOR : red,white
+         * MIN_PRICE : 5000
+         * MAX_PRICE : 15000
+         * USER_ID : 541
+         */
+
+        FilterRequest FilterRequest = new FilterRequest();
+        FilterRequest.setCATEGORY_ID(categid);
+        FilterRequest.setBRAND_ID(brandid);
+        FilterRequest.setMAKE_ID(makesid);
+        FilterRequest.setMODEL_ID(modelsid);
+        FilterRequest.setCATEGORY_ID(categid);
+        FilterRequest.setYEAR(years);
+        FilterRequest.setMODE("LIST");
+        FilterRequest.setRATING(rating);
+        FilterRequest.setCOLOR(colors);
+        FilterRequest.setMIN_PRICE(min_pri);
+        FilterRequest.setMAX_PRICE(max_pri);
+        FilterRequest.setUSER_ID(user_id);
+
+
+
+        Log.w(TAG,"FilterRequest "+ new Gson().toJson(FilterRequest));
+        return FilterRequest;
+    }
+
+
 }

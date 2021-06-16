@@ -27,6 +27,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     Context context;
     List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList;
     View view;
+    String address1,city,state,country,pincode;
 
     public OrderListAdapter(Context context, List<ShowOrderlistResponse.DataBean.OrdersBean> ordersBeanList) {
         this.context = context;
@@ -139,10 +140,71 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             }
         });
 
+        if (orderlistModel.getShipping_address_1()!= null&&!orderlistModel.getShipping_address_1().isEmpty()) {
 
+            address1 = orderlistModel.getShipping_address_1();
 
+        }
 
+        else {
 
+            address1 = "";
+        }
+
+        if (orderlistModel.getShipping_city()!= null&&!orderlistModel.getShipping_city().isEmpty()) {
+
+            city = orderlistModel.getShipping_city();
+
+        }
+
+        else {
+
+            city = "";
+        }
+        if (orderlistModel.getShipping_state_name()!= null&&!orderlistModel.getShipping_state_name().isEmpty()) {
+
+            state = orderlistModel.getShipping_state_name();
+
+        }
+
+        else {
+
+            state = "";
+        }
+
+        if (orderlistModel.getShipping_country_name()!= null&&!orderlistModel.getShipping_country_name().isEmpty()) {
+
+            country = orderlistModel.getShipping_country_name();
+
+        }
+
+        else {
+
+            country = "";
+        }
+
+        if (orderlistModel.getShipping_zip_code()!= null&&!orderlistModel.getShipping_zip_code().isEmpty()) {
+
+            pincode = orderlistModel.getShipping_zip_code();
+
+        }
+
+        else {
+
+            pincode = "";
+        }
+
+        if (orderlistModel.getShipping_zip_code()!= null&&!orderlistModel.getShipping_zip_code().isEmpty()) {
+
+            pincode = orderlistModel.getShipping_zip_code();
+
+        }
+
+        else {
+
+            pincode = "";
+        }
+        holder.txt_orders_address.setText(address1+" "+city+" "+state+ " "+country+" "+pincode);
     }
 
     @Override
@@ -152,7 +214,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
     public static class OrderListHolder extends RecyclerView.ViewHolder {
         ImageView img_product_image;
-        TextView txt_product_name, txt_parts_name,txt_price,txt_orders,txt_order_ID,txt_order_status;
+        TextView txt_product_name, txt_parts_name,txt_price,txt_orders,txt_order_ID,txt_order_status,txt_orders_address;
         RelativeLayout rl_order_status;
         CardView cv_root;
 
@@ -170,6 +232,8 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             rl_order_status = itemView.findViewById(R.id.rl_orderstatus);
 
             cv_root = itemView.findViewById(R.id.cv_root);
+
+            txt_orders_address = itemView.findViewById(R.id.txt_orders_address);
         }
     }
 }

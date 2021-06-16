@@ -2153,6 +2153,7 @@ drawable profile
 drawable progress_bar_horizontal
 drawable push_notifcation
 drawable rate_up_bg
+drawable rect_line
 drawable rectangle_corner_blue_background
 drawable rectangle_corner_blue_outline
 drawable rectangle_corner_green_corner
@@ -2375,6 +2376,7 @@ id cache_measures
 id cancel_action
 id cancel_btn
 id cancel_button
+id cancel_overall_order
 id cb_flist
 id cb_terms
 id center
@@ -2522,6 +2524,7 @@ id expandable_layout_brand
 id expandable_layout_categ
 id expandable_layout_color
 id expandable_layout_make
+id expandable_layout_model
 id expandable_layout_price_range
 id expandable_layout_rating
 id expandable_layout_yr
@@ -2610,6 +2613,7 @@ id img_arrow_brand
 id img_arrow_categ
 id img_arrow_color
 id img_arrow_make
+id img_arrow_model
 id img_arrow_pr_range
 id img_arrow_rate
 id img_arrow_year
@@ -2741,6 +2745,7 @@ id ll_image
 id ll_image1
 id ll_login_after
 id ll_makes
+id ll_models
 id ll_multipleadd
 id ll_new
 id ll_orderdetails
@@ -2864,11 +2869,21 @@ id progress_circular
 id progress_dialog
 id progress_horizontal
 id radio
+id radioButton25h
+id radioButtonampm
+id radioButtoncm
+id radioButtondmy
 id radioButtonhightolow
 id radioButtonhot
 id radioButtonlowtohigh
+id radioButtonmdy
+id radioButtonnTopRat
 id radioButtonnewarr
+id radioButtonymd
 id radioGroup
+id radioGrouplen
+id radioGrouptime
+id radioGroupweight
 id rangeSeekbar
 id rate_us_bg
 id rate_us_message
@@ -2924,6 +2939,7 @@ id rl_sort
 id rl_sort_filter
 id rl_spinner
 id rl_star
+id rl_time
 id rl_vehicle
 id rl_wishlist
 id rl_year
@@ -2938,9 +2954,12 @@ id rv_addrlist
 id rv_brand
 id rv_categ
 id rv_color
+id rv_currency_list
 id rv_default
 id rv_filterlist
+id rv_language_list
 id rv_makes
+id rv_models
 id rv_orderlist
 id rv_productdetails
 id rv_productlist
@@ -3136,6 +3155,7 @@ id txt_color_selected_value
 id txt_count
 id txt_count_number
 id txt_coupon_apply_label
+id txt_currency
 id txt_currncy
 id txt_cust_revw_label
 id txt_cycl
@@ -3175,6 +3195,8 @@ id txt_gurantee_fit
 id txt_hifen
 id txt_increase
 id txt_lang
+id txt_language
+id txt_length
 id txt_like_count
 id txt_list_of_vehicles
 id txt_local_returns
@@ -3187,6 +3209,7 @@ id txt_manageaddress
 id txt_manufacturer
 id txt_measurment_unit
 id txt_model
+id txt_model_selected_value
 id txt_no_products
 id txt_no_records
 id txt_no_recordsbrands
@@ -3208,6 +3231,7 @@ id txt_order_total_label
 id txt_order_waiting
 id txt_order_youraddr
 id txt_orders
+id txt_orders_address
 id txt_orders_label
 id txt_ordrhist
 id txt_ordrtrack
@@ -3357,6 +3381,7 @@ id view20
 id view21
 id view22
 id view23
+id view24
 id view3
 id view4
 id view5
@@ -3502,6 +3527,11 @@ layout alert_dialog
 layout alert_logout_layout
 layout app_update
 layout bottom_sheet_dialog
+layout bottom_sheet_dialog_currency
+layout bottom_sheet_dialog_date
+layout bottom_sheet_dialog_lang
+layout bottom_sheet_dialog_measurement_unit
+layout bottom_sheet_dialog_time
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout com_facebook_activity_layout
@@ -3656,6 +3686,7 @@ string _2016
 string _2016_bmw_a228i
 string _225_1_sample_abcd_nagar_main_road
 string _24_hours
+string _25h
 string _2_0l_xxxxcs_fl_turbo
 string _2_0l_xxxxcs_fl_turbo_vin_xasd
 string _2_star
@@ -3719,6 +3750,7 @@ string addressline1
 string addressline2
 string afasdfasf
 string all_categories
+string am_pm
 string app_info_btn
 string app_name
 string appbar_scrolling_view_behavior
@@ -3741,6 +3773,7 @@ string business_location
 string by_ken_royer_on_october_25_2020
 string by_kevin_peter_on_november_25_2020
 string cancel
+string cancel_order
 string cancelledon
 string cart
 string cat_dis_msg
@@ -3759,6 +3792,7 @@ string choose
 string city
 string city_name
 string clear_text_end_icon_content_description
+string cm
 string cod
 string color
 string com_facebook_device_auth_instructions
@@ -3799,6 +3833,7 @@ string currency
 string customer_reviews
 string date
 string date_format
+string dd_mm_yyyy
 string deal_status
 string default_progressbar
 string default_val
@@ -3863,8 +3898,11 @@ string item_view_role_description
 string jeep_cj_style_replacement_mirrors
 string jhon_nelson
 string k_metal
+string kg
+string language
 string languages
 string lastname
+string length
 string list_of_vehicles
 string live_chat
 string local_returns
@@ -3894,9 +3932,11 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string measurement_unit
 string merchandise_subtotal
 string messenger_send_button_text
 string minus
+string mm_dd_yyyy
 string model
 string model_name
 string model_valu
@@ -3980,6 +4020,7 @@ string pet_breed
 string pick_a_name_for_this_location
 string pincode
 string plus
+string pound
 string power_stop
 string premium
 string price
@@ -4035,6 +4076,7 @@ string select_category
 string select_code
 string select_color
 string select_coupons
+string select_model
 string select_payment_method
 string select_sort
 string select_vehicle
@@ -4069,10 +4111,12 @@ string terms_conditions
 string terms_conditions1
 string threshold
 string time
+string time_format
 string toast_message
 string toolbar_title
 string top_categories
 string top_rated_products
+string top_rating
 string total_amount
 string total_results
 string total_reviews
@@ -4094,11 +4138,13 @@ string visit_website_btn
 string waiting
 string web_info_btn
 string weight
+string weights
 string wholesaler
 string write_a_review
 string x_1
 string year
 string your_address
+string yyyy_mm_dd
 string zipcode
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

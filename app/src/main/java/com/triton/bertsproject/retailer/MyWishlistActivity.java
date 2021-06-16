@@ -277,8 +277,9 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
                     else {
 
-                        showErrorLoading(response.body().getMessage());
+                        rv_productlist.setVisibility(View.GONE);
 
+                        txt_no_records.setText("No Products Found");
                     }
 
                 }
@@ -423,7 +424,7 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
                 if (response.body() != null) {
 
-                    if(response.body().getStatus().equals("Success")) {
+                    if(200==response.body().getCode()) {
 
                         Log.w(TAG, "WishlistSuccessResponse" + new Gson().toJson(response.body()));
 

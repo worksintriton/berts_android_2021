@@ -18,11 +18,13 @@ import com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnBrandRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnCatRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnMakeRequest;
+import com.triton.bertsproject.requestpojo.FilterRequest;
 import com.triton.bertsproject.requestpojo.ForgotPasswordRequest;
 import com.triton.bertsproject.requestpojo.GetStateRequest;
 import com.triton.bertsproject.requestpojo.HomepageDashboardRequest;
 import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.requestpojo.LoginRequest;
+import com.triton.bertsproject.requestpojo.OrderCancelOverallRequest;
 import com.triton.bertsproject.requestpojo.OrderCreateRequest;
 import com.triton.bertsproject.requestpojo.OrderDetailListRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
@@ -54,10 +56,12 @@ import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 import com.triton.bertsproject.responsepojo.FetchChildCateglistResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
+import com.triton.bertsproject.responsepojo.FilterResponse;
 import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
 import com.triton.bertsproject.responsepojo.GetCountryResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
+import com.triton.bertsproject.responsepojo.OrderCancelOverallResponse;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.responsepojo.OrderDetailListResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
@@ -223,6 +227,10 @@ public interface RestApiInterface {
     @POST("order")
     Call<OrderDetailListResponse> orderDetailListResponseCall(@Header("Content-Type") String type, @Body OrderDetailListRequest orderDetailListRequest);
 
+    /*Cancel Orders*/
+    @POST("order")
+    Call<OrderCancelOverallResponse> canceloverallOrderResponseCall(@Header("Content-Type") String type, @Body OrderCancelOverallRequest orderCancelOverallRequest);
+
     /*user address list*/
     @POST("user/address")
     Call<UserAddressListResponse> useraddressListResponseCall(@Header("Content-Type") String type, @Body UserAddressListRequest userAddressListRequest);
@@ -251,5 +259,8 @@ public interface RestApiInterface {
     @POST("product")
     Call<ProductDetailRespone> fetchproductdetailsResponseCall(@Header("Content-Type") String type, @Body ProductDetailRequest productDetailRequest);
 
+    /*Filter Product*/
+    @POST("product")
+    Call<FilterResponse> fetchallfilterprodResponseCall(@Header("Content-Type") String type, @Body FilterRequest filterRequest);
 
 }

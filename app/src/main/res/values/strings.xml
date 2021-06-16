@@ -221,8 +221,6 @@
     <string name="jeep_cj_style_replacement_mirrors">Jeep CJ-Style Replacement Mirrors</string>
     <string name="jhon_nelson">Jhon Nelson</string>
     <string name="languages">Languages</string>
-    <string name="currency">Currency</string>
-    <string name="date_format">Date format</string>
     <string name="time">Time</string>
     <string name="push_notification">Push notification</string>
     <string name="all_categories">All categories</string>
@@ -352,7 +350,7 @@
     <string name="best_sellers">Best sellers</string>
 
     <string name="quantity">Quantity</string>
-    <string name="date">Date</string>
+
     <string name="confirm_all">Confirm All</string>
     <string name="payment_successful">Payment successful</string>
     <string name="back_to_shop">Back to shop</string>
@@ -367,6 +365,25 @@
 
     <string name="pet_1620638904266">PET-1620638904266</string>
     <string name="product_details">Product Details</string>
+    <string name="select_model">Select Model</string>
+    <string name="top_rating">Top Rating</string>
+    <string name="currency">Currency</string>
+    <string name="language">Language</string>
+    <string name="measurement_unit">Measurement Unit</string>
+    <string name="weights">Weight</string>
+    <string name="kg">Kg</string>
+    <string name="pound">Pound</string>
+    <string name="length">Length</string>
+    <string name="cm">Cm</string>
+    <string name="yyyy_mm_dd">yyyy/mm/dd</string>
+    <string name="mm_dd_yyyy">mm/dd/yyyy</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
+    <string name="time_format">Time format</string>
 
+    <string name="date">Date</string>
 
+    <string name="date_format">Date Format</string>
+    <string name="am_pm">AM/PM</string>
+    <string name="_25h">25h</string>
+    <string name="cancel_order">Cancel Order</string>
 </resources>

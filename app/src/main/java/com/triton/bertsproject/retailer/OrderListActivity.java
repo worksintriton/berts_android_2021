@@ -203,8 +203,9 @@ public class OrderListActivity extends AppCompatActivity {
 
                     else {
 
-                        showErrorLoading(response.body().getMessage());
+                        rv_orderlist.setVisibility(View.GONE);
 
+                        txt_no_records.setText("No Orders Found");
                     }
 
                 }

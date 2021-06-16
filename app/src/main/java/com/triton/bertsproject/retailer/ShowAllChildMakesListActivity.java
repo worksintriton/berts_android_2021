@@ -247,9 +247,9 @@ public class ShowAllChildMakesListActivity extends AppCompatActivity {
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ChildMakesListAdapter childMakesListAdapter = new ChildMakesListAdapter(ShowAllChildMakesListActivity.this, makesBeanList, size);
-
-        rv_top_makes.setAdapter(childMakesListAdapter);
+//        ChildMakesListAdapter childMakesListAdapter = new ChildMakesListAdapter(ShowAllChildMakesListActivity.this, makesBeanList, size);
+//
+//        rv_top_makes.setAdapter(childMakesListAdapter);
 
 
 

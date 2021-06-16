@@ -55,7 +55,12 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
 
             if(isChecked){
 
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName());
+                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
+            }
+
+            else {
+
+                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
     }

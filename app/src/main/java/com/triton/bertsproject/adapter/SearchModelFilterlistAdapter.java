@@ -1,32 +1,39 @@
 package com.triton.bertsproject.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.interfaces.GetBrandIDListener;
+import com.triton.bertsproject.interfaces.GetModelIDListener;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
 
 import java.util.List;
 
 public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchModelFilterlistAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchAllBrandsResponse.DataBean.BrandBean> BrandBeanList;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> modelBeanList;
     View view;
-    GetBrandIDListener getBrandIDListener;
-    private static final String TAG = "SearchYearFilterlistAdapter";
+    GetModelIDListener getModelIDListener;
+    private static final String TAG = "SearchModelFilterlistAdapter";
 
-    public SearchModelFilterlistAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> BrandBeanList, GetBrandIDListener getBrandIDListener) {
+    public SearchModelFilterlistAdapter(Context context,  List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> modelBeanList, GetModelIDListener getModelIDListener) {
         this.context = context;
-        this.BrandBeanList = BrandBeanList;
-        this.getBrandIDListener=getBrandIDListener;
+        this.modelBeanList = modelBeanList;
+        this.getModelIDListener=getModelIDListener;
 
     }
 
@@ -37,14 +44,17 @@ public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchMod
         return new ShopFilterlistHolder(view);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchAllBrandsResponse.DataBean.BrandBean BrandBean = BrandBeanList.get(position);
+        final FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean makeBean= modelBeanList.get(position);
 
-        if (BrandBean.getName()!= null&&!BrandBean.getName().isEmpty()) {
+        Log.w(TAG,"GetName "+ makeBean.getName());
 
-            holder.txt_flistname.setText(BrandBean.getName());
+        if (makeBean.getName()!= null&&!makeBean.getName().isEmpty()) {
+
+            holder.txt_flistname.setText(makeBean.getName());
 
         }
 
@@ -52,14 +62,14 @@ public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchMod
 
             if(isChecked){
 
-                getBrandIDListener.getBrandIDListener(BrandBean.getId(), BrandBean.getName());
+                getModelIDListener.getModelIDListener(makeBean.getId(), makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return BrandBeanList.size();
+        return modelBeanList.size();
     }
 
     public static class ShopFilterlistHolder extends RecyclerView.ViewHolder {
@@ -67,11 +77,14 @@ public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchMod
         TextView txt_flistname;
 
         CheckBox cb_flist;
+
+        ImageView img_colorlist;
+
         public ShopFilterlistHolder(View itemView) {
             super(itemView);
             cb_flist = itemView.findViewById(R.id.cb_flist);
             txt_flistname = itemView.findViewById(R.id.txt_fllistname);
-
+            img_colorlist = itemView.findViewById(R.id.img_colorlist);
         }
     }
 }

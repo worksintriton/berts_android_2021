@@ -699,9 +699,9 @@ public class AddVehicleActivity extends AppCompatActivity {
 
         for(int i=0;i<makesBeanList.size();i++){
 
-            arrayList.add(makesBeanList.get(i).getName());
+            arrayList.add(makesBeanList.get(0).getModels().get(i).getName());
 
-            hashMap_modelid.put(makesBeanList.get(i).getName(),makesBeanList.get(i).getId());
+            hashMap_modelid.put(makesBeanList.get(0).getModels().get(i).getName(),makesBeanList.get(0).getModels().get(i).getId());
 
         }
 

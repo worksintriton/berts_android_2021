@@ -13,10 +13,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.github.ybq.android.spinkit.SpinKitView;
@@ -27,7 +29,9 @@ import com.triton.bertsproject.adapter.ProductDetailsAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.requestpojo.OrderDetailListRequest;
+import com.triton.bertsproject.requestpojo.OrderCancelOverallRequest;
 import com.triton.bertsproject.responsepojo.OrderDetailListResponse;
+import com.triton.bertsproject.responsepojo.OrderCancelOverallResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -37,6 +41,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -156,6 +162,13 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cancel_overall_order)
+    TextView cancel_overall_order;
+
+
+    AlertDialog alertDialog;
 
     private String _id;
     private String fromactivity;
@@ -292,7 +305,131 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
             }
         });
+
+        cancel_overall_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(dd4YouConfig.isInternetConnectivity()){
+
+                    String msg = "Are you sure want to Cancel Order?";
+
+                    showAlert(msg);
+                }
+            }
+        });
     }
+
+    private void showAlert(String msg) {
+
+
+        try {
+
+            new SweetAlertDialog(OrderDetailListActivity.this, SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Alert")
+                    .setContentText(msg)
+                    .setCancelText("No")
+                    .setConfirmText("Yes")
+                    .showCancelButton(true)
+                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+                            sDialog.cancel();
+                        }
+                    })
+                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sDialog) {
+
+                            if(dd4YouConfig.isInternetConnectivity()){
+
+                                emptycartlistResponseCall();
+                            }
+                            else {
+
+                                callnointernet();
+                            }
+                            sDialog.dismiss();
+
+                        }
+                    })
+                    .show();
+
+        }
+
+        catch (WindowManager.BadTokenException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    @SuppressLint("LongLogTag")
+    private void emptycartlistResponseCall() {
+
+        spinKitView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<OrderCancelOverallResponse> call = apiInterface.canceloverallOrderResponseCall(RestUtils.getContentType(), OrderCancelOverallRequest());
+        Log.w(TAG,"ShowCartListResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<OrderCancelOverallResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<OrderCancelOverallResponse> call, @NonNull Response<OrderCancelOverallResponse> response) {
+                spinKitView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()) {
+
+                        Log.w(TAG, "OrderCancelOverallResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),""+response.body().getMessage(), Toast.LENGTH_LONG).show();
+
+                        startActivity(new Intent(OrderDetailListActivity.this,OrderListActivity.class));
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+                }
+
+
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<OrderCancelOverallResponse> call,@NonNull  Throwable t) {
+                spinKitView.setVisibility(View.GONE);
+                Log.w(TAG,"OrderCancelOverallResponse flr"+t.getMessage());
+            }
+        });
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private OrderCancelOverallRequest OrderCancelOverallRequest() {
+
+        /*
+         * MODE : CANCEL
+         * USER_ID : 541
+         * ORDER_ID : 303
+         */
+        OrderCancelOverallRequest OrderCancelOverallRequest = new OrderCancelOverallRequest();
+        OrderCancelOverallRequest.setUSER_ID(user_id);
+        OrderCancelOverallRequest.setMODE("CANCEL");
+        OrderCancelOverallRequest.setORDER_ID(orderid);
+
+        Log.w(TAG,"OrderCancelOverallRequest "+ new Gson().toJson(OrderCancelOverallRequest));
+        return OrderCancelOverallRequest;
+    }
+
     private void callnointernet() {
         AlertDialog.Builder builder=new AlertDialog.Builder(OrderDetailListActivity.this);
         builder.setTitle("No Internet Conncetion");
@@ -536,7 +673,7 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
     @SuppressLint({"LongLogTag", "LogNotTimber"})
     private OrderDetailListRequest orderDetailListRequest() {
 
-        /**
+        /*
          * MODE : LIST
          * USER_ID : 541
          * ORDER_ID : 306
@@ -558,5 +695,24 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
         ProductDetailsAdapter productDetailsAdapter = new ProductDetailsAdapter(getApplicationContext(),productdetailslist);
         rv_productdetails.setAdapter(productDetailsAdapter);
 
+    }
+
+    public void showErrorLoading(String errormesage){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(OrderDetailListActivity.this);
+        alertDialogBuilder.setMessage(errormesage);
+        alertDialogBuilder.setPositiveButton("ok",
+                (arg0, arg1) -> hideLoading());
+
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void hideLoading(){
+        try {
+            alertDialog.dismiss();
+        }catch (Exception ignored){
+
+        }
     }
 }

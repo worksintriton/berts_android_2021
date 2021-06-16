@@ -381,7 +381,7 @@
                             android:background="@color/background_color" />
 
                         <RelativeLayout
-                            android:id="@+id/rl_receipt"
+                            android:id="@+id/rl_time"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5dp"
@@ -437,7 +437,7 @@
                                 android:layout_centerVertical="true"
                                 android:layout_marginStart="@dimen/_10dp"
                                 android:fontFamily="@font/lato_bold"
-                                android:text="@string/download_quotation"
+                                android:text="@string/measurement_unit"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:ignore="RelativeOverlap" />
@@ -675,31 +675,45 @@
 
     </LinearLayout>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/_30dp"
+        android:contentDescription="@string/image_description"
         android:visibility="visible"
-        app:backgroundTint="@color/white"
-        app:contentInsetEnd="0dp"
-        app:contentInsetStart="0dp"
-        app:fabAlignmentMode="center"
-        app:fabCradleVerticalOffset="@dimen/_0dp">
+        app:backgroundTint="@color/dark_blue"
+        app:tint="@null" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:backgroundTint="@android:color/transparent"
-            app:elevation="0dp"
-            app:itemIconTint="@color/selector"
-            app:itemRippleColor="@android:color/white"
-            app:itemTextColor="@color/selector"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/buttom_navigation_items" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        style="@style/MyBottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_gravity="bottom"
+        app:backgroundTint="@android:color/transparent"
+        app:elevation="0dp"
+        app:itemIconSize="@dimen/_18dp"
+        app:itemIconTint="@color/selector"
+        app:itemRippleColor="@android:color/white"
+        app:itemTextColor="@color/selector"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/buttom_navigation_items" />
 
-    </com.google.android.material.bottomappbar.BottomAppBar>
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--        android:id="@+id/bottomBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        app:backgroundTint="@color/white"-->
+<!--        app:contentInsetEnd="0dp"-->
+<!--        app:contentInsetStart="0dp"-->
+<!--        app:fabCradleVerticalOffset="@dimen/_0dp"-->
+<!--        app:fabAlignmentMode="center">-->
+
+    <!--    </com.google.android.material.bottomappbar.BottomAppBar>-->
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit_loadingView"
@@ -710,14 +724,14 @@
         android:visibility="gone"
         app:SpinKit_Color="@color/dark_blue" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_description"
-        android:visibility="visible"
-        app:backgroundTint="@color/dark_blue"
-        app:layout_anchor="@+id/bottomBar"
-        app:tint="@null" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:contentDescription="@string/image_description"-->
+<!--        android:visibility="visible"-->
+<!--        app:backgroundTint="@color/dark_blue"-->
+<!--        app:layout_anchor="@+id/bottomBar"-->
+<!--        app:tint="@null" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

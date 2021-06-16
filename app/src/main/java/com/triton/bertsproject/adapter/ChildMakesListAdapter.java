@@ -26,12 +26,12 @@ import java.util.List;
 
 public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAdapter.ShoplistHolder> {
     Context context;
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList;
+    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> makesBeanList;
     View view;
     int size;
     private static final String TAG = "ChildMakesListAdapter";
 
-    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanLists, int size) {
+    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> makesBeanLists, int size) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
         this.size = size;
@@ -48,7 +48,7 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
     @Override
     public void onBindViewHolder(@NonNull ShoplistHolder holder, final int position) {
 
-        final FetchChildMakeslistRequestResponse.DataBean.MakeBean makesBean = makesBeanList.get(position);
+        final FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean makesBean = makesBeanList.get(position);
 
         if (makesBean.getName()!= null && !makesBean.getName().isEmpty()) {
 

@@ -1,4 +1,4 @@
-#Mon Jun 14 18:50:11 IST 2021
+#Wed Jun 16 18:53:28 IST 2021
 base.0=D\:\\Workspace\\BertsProject\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

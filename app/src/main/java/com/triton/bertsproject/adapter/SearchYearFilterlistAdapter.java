@@ -54,7 +54,12 @@ public class SearchYearFilterlistAdapter extends RecyclerView.Adapter<SearchYear
 
             if(isChecked){
 
-                getYearNameListener.getYearNameListener(yearBean.getId(),yearBean.getP_year());
+                getYearNameListener.getYearNameListener(yearBean.getId(),yearBean.getP_year(),holder.cb_flist,isChecked);
+            }
+
+            else {
+
+                getYearNameListener.getYearNameListener(yearBean.getId(),yearBean.getP_year(),holder.cb_flist,isChecked);
             }
         });
     }

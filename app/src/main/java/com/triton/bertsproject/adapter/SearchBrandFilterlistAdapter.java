@@ -23,6 +23,7 @@ public class SearchBrandFilterlistAdapter extends RecyclerView.Adapter<SearchBra
     View view;
     GetBrandIDListener getBrandIDListener;
     private static final String TAG = "SearchYearFilterlistAdapter";
+    private int selectedPosition = -1;// no selection by default
 
     public SearchBrandFilterlistAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> BrandBeanList,  GetBrandIDListener getBrandIDListener) {
         this.context = context;
@@ -49,13 +50,38 @@ public class SearchBrandFilterlistAdapter extends RecyclerView.Adapter<SearchBra
 
         }
 
+
+//        In above example i write setChecked(selectedPosition == position). For more readable i can write:
+
+//        if(selectedPosition == position){
+//            holder.checkBox.setChecked(true);
+//        }
+//        else{
+//            holder.checkBox.setChecked(false);
+//        }
+
+        holder.cb_flist.setOnClickListener(view -> {
+            selectedPosition = holder.getAdapterPosition();
+            notifyDataSetChanged();
+        });
+
+        if (selectedPosition==position){
+            holder.cb_flist.setChecked(true);
+        }
+        else {
+            holder.cb_flist.setChecked(false);
+
+        }
+
         holder.cb_flist.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
             if(isChecked){
 
-                getBrandIDListener.getBrandIDListener(BrandBean.getId(), BrandBean.getName());
+                getBrandIDListener.getBrandIDListener(BrandBean.getId(), BrandBean.getName(),isChecked);
             }
+
         });
+
     }
 
     @Override

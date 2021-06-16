@@ -23,6 +23,7 @@ public class SearchCategFilterlistAdapter extends RecyclerView.Adapter<SearchCat
     View view;
     GetCategIDListener getCategIDListener;
     private static final String TAG = "SearchCategFilterlistAdapter";
+    private int selectedPosition = -1;// no selection by default
 
     public SearchCategFilterlistAdapter(Context context, List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList, GetCategIDListener getCategIDListener) {
         this.context = context;

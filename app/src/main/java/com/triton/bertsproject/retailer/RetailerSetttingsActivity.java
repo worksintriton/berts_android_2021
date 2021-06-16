@@ -8,13 +8,18 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.triton.bertsproject.R;
 
@@ -57,6 +62,27 @@ public class RetailerSetttingsActivity extends AppCompatActivity implements Bott
     @BindView(R.id.txt_toolbar_title)
     TextView txt_toolbar_title;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_lang)
+    RelativeLayout rl_lang;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_currncy)
+    RelativeLayout rl_currncy;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_date)
+    RelativeLayout rl_date;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_time)
+    RelativeLayout rl_time;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_measurment_unit)
+    RelativeLayout rl_measurment_unit;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,11 +104,106 @@ public class RetailerSetttingsActivity extends AppCompatActivity implements Bott
 
         img_back.setOnClickListener(v -> {
 
-            startActivity(new Intent(RetailerSetttingsActivity.this, RetailerDashboardActivity.class));
-
-            Animatoo.animateSwipeRight(context);
+            onBackPressed();
 
         });
+
+        rl_lang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showLangBottomSheetDialog();
+            }
+        });
+
+        rl_currncy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showCurrBottomSheetDialog();
+            }
+        });
+
+        rl_measurment_unit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showMeasurementUnitSheetDialog();
+            }
+        });
+
+        rl_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showDateSheetDialog();
+            }
+        });
+
+        rl_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showTimeSheetDialog();
+            }
+        });
+    }
+
+    public void showLangBottomSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_lang);
+
+        RecyclerView rv_language_list = bottomSheetDialog.findViewById(R.id.rv_language_list);
+
+        bottomSheetDialog.show();
+    }
+
+    public void showCurrBottomSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_currency);
+
+        RecyclerView rv_currency_list = bottomSheetDialog.findViewById(R.id.rv_currency_list);
+
+        bottomSheetDialog.show();
+    }
+
+    public void showMeasurementUnitSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_measurement_unit);
+
+        bottomSheetDialog.show();
+    }
+
+    public void showDateSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_date);
+
+        bottomSheetDialog.show();
+    }
+
+    public void showTimeSheetDialog() {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_time);
+
+        bottomSheetDialog.show();
+
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(RetailerSetttingsActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
 
     }
 
@@ -130,7 +251,9 @@ public class RetailerSetttingsActivity extends AppCompatActivity implements Bott
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(this, RetailerDashboardActivity.class));
-        Animatoo.animateSwipeRight(this.context);
+
+        callDirections("1");
     }
+
+
 }

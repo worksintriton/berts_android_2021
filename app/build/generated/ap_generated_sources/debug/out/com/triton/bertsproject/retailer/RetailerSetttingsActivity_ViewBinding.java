@@ -3,6 +3,7 @@ package com.triton.bertsproject.retailer;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -32,6 +33,11 @@ public class RetailerSetttingsActivity_ViewBinding implements Unbinder {
     target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.txt_toolbar_title = Utils.findRequiredViewAsType(source, R.id.txt_toolbar_title, "field 'txt_toolbar_title'", TextView.class);
+    target.rl_lang = Utils.findRequiredViewAsType(source, R.id.rl_lang, "field 'rl_lang'", RelativeLayout.class);
+    target.rl_currncy = Utils.findRequiredViewAsType(source, R.id.rl_currncy, "field 'rl_currncy'", RelativeLayout.class);
+    target.rl_date = Utils.findRequiredViewAsType(source, R.id.rl_date, "field 'rl_date'", RelativeLayout.class);
+    target.rl_time = Utils.findRequiredViewAsType(source, R.id.rl_time, "field 'rl_time'", RelativeLayout.class);
+    target.rl_measurment_unit = Utils.findRequiredViewAsType(source, R.id.rl_measurment_unit, "field 'rl_measurment_unit'", RelativeLayout.class);
   }
 
   @Override
@@ -46,5 +52,10 @@ public class RetailerSetttingsActivity_ViewBinding implements Unbinder {
     target.img_back = null;
     target.spin_kit_loadingView = null;
     target.txt_toolbar_title = null;
+    target.rl_lang = null;
+    target.rl_currncy = null;
+    target.rl_date = null;
+    target.rl_time = null;
+    target.rl_measurment_unit = null;
   }
 }

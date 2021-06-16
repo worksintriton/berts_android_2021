@@ -1,0 +1,36 @@
+Berts Project:
+
+Completed API's :
+
+1.Login (Social Networks Integrated)
+2.Signup as Retailer and Wholesaler (Social Networks Integrated)
+3. Home Page
+4. Category and Subcategory list
+5. Brand List
+6. Make nd Model List
+7. Product List (Search Included for all above 3)
+8. Product Detail Page
+9. Add to cart
+10. Add to wishlist
+11. Cart Page List  (Empty Cart Added)
+12. Vehicle Management
+13. Address Management (Edit and delete Included)
+14. Order Create and list
+15. Search through Home Page
+16. Checkout Page Completed
+17. Sort (Search Included for all above 3(4,5,6))
+18. Filters (Included Functionality)
+
+*Process & API workings Pending* :
+
+1. Filters (API Connectivity)
+ --- *>min and max price* range from overall products requires
+--- *>Color codes* (HEX) *along with color names requires
+2. Home Page --> *Home* *Image* require
+3. *Add Rating and review* in cart and wishlist API response
+4. Language Setup, Currency Seup, Measurement Unit Setup, Date and Time Setup
+5. Product Detail Page --> *Product Info's* required
+6. Order list --> Status required
+7. Order Detail list --> Product Order status + Individual Poduct Cancel Order
+8. Track Order List --
+9. Receipt
