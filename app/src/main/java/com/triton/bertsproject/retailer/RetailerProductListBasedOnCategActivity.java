@@ -121,7 +121,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList ;
 
-    String brand_id,parent_id,subcategid,subcategname,fromactivity;
+    String brand_id,parent_id,subcategid,categ_name,subcategname,fromactivity;
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
@@ -158,6 +158,8 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
             brand_id = extras.getString("brand_id");
 
             parent_id = extras.getString("parent_id");
+
+            categ_name = extras.getString("categ_name");
 
             subcategid = extras.getString("subcategid");
 
@@ -759,12 +761,15 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBackPressed() {
 
         Intent intent = new Intent(RetailerProductListBasedOnCategActivity.this, ShowAllChildCategActivity.class);
 
-        intent.putExtra("parent_id",parent_id);
+        intent.putExtra("cate_id",parent_id);
+
+        intent.putExtra("cate_name",categ_name);
 
         intent.putExtra("subcategid",subcategid);
 
@@ -772,11 +777,17 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         intent.putExtra("fromactivity",TAG);
 
-        context.startActivity(intent);
+        startActivity(intent);
 
-        Animatoo.animateSwipeLeft(context);
+        Log.w(TAG,"parent_id : "+parent_id+ "subcategid :" +subcategid
 
-        finish();
+                + "subcategname : "+subcategname +
+
+                "fromactivity :" +fromactivity);
+
+
+        Animatoo.animateSwipeLeft(RetailerProductListBasedOnCategActivity.this);
+
     }
 
     @Override
@@ -786,6 +797,8 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         intent.putExtra("parent_id",parent_id);
 
+        intent.putExtra("categ_name",categ_name);
+
         intent.putExtra("subcategid",subcategid);
 
         intent.putExtra("subcategname",subcategname);
@@ -794,7 +807,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         intent.putExtra("prod_name",prod_name);
 
-        intent.putExtra("fromActivity",TAG);
+        intent.putExtra("fromactivity",TAG);
 
         startActivity(intent);
     }

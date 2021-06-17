@@ -81,7 +81,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
     List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanList ;
 
-    String parent_id, categ_name;
+    String parent_id, categ_name,fromactivity;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -99,10 +99,17 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
 
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
+
+
+            fromactivity = extras.getString("fromactivity");
+
             parent_id = extras.getString("cate_id");
+
             categ_name = extras.getString("cate_name");
-            Log.w(TAG,"parent_id : "+parent_id +"categ_name : "+categ_name);
+
+            Log.w(TAG," fromactivity "+fromactivity+"parent_id : "+parent_id +"categ_name : "+categ_name);
         }
 
 
@@ -119,7 +126,14 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        img_back.setOnClickListener(v -> startActivity(new Intent(ShowAllChildCategActivity.this,RetailerDashboardActivity.class)));
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+
+            }
+        });
 
         refresh_layout.setOnRefreshListener(
                 () -> {
@@ -267,7 +281,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size,parent_id);
+        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size,parent_id,categ_name);
 
         rv_top_categories.setAdapter(childCategoriesListAdapter);
 
@@ -338,6 +352,50 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+        if(fromactivity!=null&&!fromactivity.isEmpty()){
+
+            if(fromactivity.equals("ParentCategoriesListAdapter")){
 
 
+                Intent intent = new Intent(ShowAllChildCategActivity.this,ShowAllParentCategoriesActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+            else if(fromactivity.equals("RetailerProductListBasedOnCategActivity")){
+
+
+                Intent intent = new Intent(ShowAllChildCategActivity.this,ShowAllParentCategoriesActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+            else {
+
+                Intent intent = new Intent(ShowAllChildCategActivity.this,RetailerDashboardActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+
+        }
+
+        else {
+
+            Intent intent = new Intent(ShowAllChildCategActivity.this,RetailerDashboardActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+        }
+    }
 }

@@ -803,7 +803,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         intent.putExtra("prod_name",prod_name);
 
-        intent.putExtra("fromActivity",TAG);
+        intent.putExtra("fromactivity",TAG);
 
         startActivity(intent);
 

@@ -77,6 +77,8 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
     private static final String TAG = "ShowAllBrandsActivity";
 
+    String fromactivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +108,24 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        img_back.setOnClickListener(v -> startActivity(new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class)));
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+
+            fromactivity = extras.getString("fromactivity");
+
+            Log.w(TAG,"fromactivity : "+fromactivity );
+        }
+
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
 
         refresh_layout.setOnRefreshListener(
                 () -> {
@@ -305,5 +324,49 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+
+        if(fromactivity!=null&&!fromactivity.isEmpty()){
+
+            if(fromactivity.equals("ShopFragment")){
+
+                callDirections("3");
+            }
+
+            else  if(fromactivity.equals("HomeFragment")){
+
+                callDirections("1");
+            }
+
+            else {
+
+                Intent intent = new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+
+        }
+
+        else {
+
+            Intent intent = new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
+        }
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
+    }
 
 }

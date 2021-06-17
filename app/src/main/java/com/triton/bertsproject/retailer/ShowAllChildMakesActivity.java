@@ -75,11 +75,11 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
     private DD4YouConfig dd4YouConfig;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> makesBeanList ;
+    List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanList ;
 
     private static final String TAG = "ShowAllChildMakesActivity";
 
-    String make_id, make_name;
+    String make_id, make_name,fromactivity;
 
     AlertDialog alertDialog;
 
@@ -111,10 +111,16 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
         }
 
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
+
+            fromactivity = extras.getString("fromactivity");
+
             make_id = extras.getString("make_id");
+
             make_name = extras.getString("make_name");
-            Log.w(TAG,"make_id : "+make_id +"make_name : "+make_name);
+
+            Log.w(TAG,"fromactivity "+fromactivity+" make_id : "+make_id +"make_name : "+make_name);
         }
 
 
@@ -179,7 +185,7 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
                         Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
 
-                        makesBeanList = response.body().getData().getMake().get(0).getModels();
+                        makesBeanList = response.body().getData().getModel();
 
                         if(makesBeanList != null && makesBeanList.size()>0){
 
@@ -258,7 +264,7 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> makesBeanList) {
+    private void setView(List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanList) {
 
         rv_top_makes.setLayoutManager(new LinearLayoutManager(ShowAllChildMakesActivity.this));
 
@@ -340,6 +346,43 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
             alertDialog.dismiss();
         }catch (Exception ignored){
 
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(fromactivity!=null&&!fromactivity.isEmpty()){
+
+            if(fromactivity.equals("ParentMakesListAdapter")){
+
+
+                Intent intent = new Intent(ShowAllChildMakesActivity.this,ShowAllParentMakesActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+            else {
+
+                Intent intent = new Intent(ShowAllChildMakesActivity.this,RetailerDashboardActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+            }
+
+
+        }
+
+        else {
+
+            Intent intent = new Intent(ShowAllChildMakesActivity.this,RetailerDashboardActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
+
+            startActivity(intent);
         }
     }
 

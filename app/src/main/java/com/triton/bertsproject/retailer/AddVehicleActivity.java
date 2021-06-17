@@ -101,7 +101,7 @@ public class AddVehicleActivity extends AppCompatActivity {
 
     List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList ;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> modelBeanList ;
+    List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> modelBeanList ;
 
     List<FetchAllYearResponse.DataBean.YearBean> yearBeanList ;
 
@@ -634,7 +634,7 @@ public class AddVehicleActivity extends AppCompatActivity {
 
                         Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
 
-                        modelBeanList = response.body().getData().getMake();
+                        modelBeanList = response.body().getData().getModel();
 
                         if(modelBeanList != null && modelBeanList.size()>0){
 
@@ -690,7 +690,7 @@ public class AddVehicleActivity extends AppCompatActivity {
         return fetchChildMakeslistRequest;
     }
 
-    private void setViewModel(List<FetchChildMakeslistRequestResponse.DataBean.MakeBean> makesBeanList) {
+    private void setViewModel(List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanList) {
 
 
         ArrayList<String> arrayList = new ArrayList<>();
@@ -699,9 +699,9 @@ public class AddVehicleActivity extends AppCompatActivity {
 
         for(int i=0;i<makesBeanList.size();i++){
 
-            arrayList.add(makesBeanList.get(0).getModels().get(i).getName());
+            arrayList.add(makesBeanList.get(i).getName());
 
-            hashMap_modelid.put(makesBeanList.get(0).getModels().get(i).getName(),makesBeanList.get(0).getModels().get(i).getId());
+            hashMap_modelid.put(makesBeanList.get(i).getName(),makesBeanList.get(i).getId());
 
         }
 

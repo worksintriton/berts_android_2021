@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -63,10 +63,48 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10dp">
 
-            <ImageView
+            <RelativeLayout
+                android:id="@+id/rl_rooy"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <ImageView
+                    android:id="@+id/img_product_image"
+                    android:layout_width="@dimen/_100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/_10dp"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:layout_marginEnd="@dimen/_10dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:contentDescription="@string/image_description"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/noimage" />
+
+                <ImageView
+                    android:id="@+id/img_logo_image"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="false"
+                    android:contentDescription="@string/image_description"
+                    android:scaleType="fitXY"
+                    android:alpha="0.5"
+                    app:srcCompat="@drawable/logo" />
+
+            </RelativeLayout>
+
+
+         <!--   <ImageView
                 android:id="@+id/img_product_image"
                 android:layout_width="@dimen/_100dp"
                 android:layout_height="@dimen/_100dp"
@@ -79,13 +117,13 @@
                 android:layout_marginBottom="@dimen/_10dp"
                 android:contentDescription="@string/image_description"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/noimage" />
+                app:srcCompat="@drawable/noimage" />-->
 
             <TextView
                 android:id="@+id/txt_product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img_product_image"
+                android:layout_below="@id/rl_rooy"
                 android:layout_marginStart="@dimen/_5dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginEnd="@dimen/_5dp"

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
 import com.triton.bertsproject.retailer.ShowAllChildMakesActivity;
@@ -54,19 +56,31 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
 
         }
 
-        if (makesBean.getLogo()!= null && !makesBean.getLogo().isEmpty()) {
+        if (makesBean.getLogo()!= null && !makesBean.getLogo().isEmpty()&& URLUtil.isValidUrl(makesBean.getLogo())) {
+
+            Log.w(TAG,"Makes_Img "+makesBean.getLogo().replaceAll("[\\n\\r\\t]+", ""));
 
             Glide.with(context)
-                    .load(makesBean.getLogo())
+                    .load(makesBean.getLogo().replaceAll("[\\n\\r\\t]+", ""))
                     .into(holder.img_shplst);
 
 
         }
 
+        else {
+
+            Glide.with(context)
+                    .load(APIClient.BASE_IMAGE_URL)
+                    .into(holder.img_shplst);
+        }
+
+
 
         holder.cardView.setOnClickListener(v -> {
 
             Intent intent = new Intent(context, ShowAllChildMakesActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
 
             intent.putExtra("make_id",makesBean.getId());
 

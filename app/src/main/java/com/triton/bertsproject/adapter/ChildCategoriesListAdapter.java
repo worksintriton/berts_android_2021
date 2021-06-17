@@ -28,14 +28,15 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
     List<FetchChildCateglistResponse.DataBean.CategoriesBean>  categoriesBeanList;
     View view;
     int size;
-    String parent_id;
+    String parent_id,categ_name;
     private static final String TAG = "ChildCategoriesListAdapter";
 
-    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String parent_id) {
+    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String parent_id, String categ_name) {
         this.context = context;
         this.categoriesBeanList = categoriesBeanLists;
         this.size=size;
         this.parent_id=parent_id;
+        this.categ_name=categ_name;
 
     }
 
@@ -73,6 +74,8 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
 
             intent.putExtra("parent_id",categoriesBean.getParent_id());
 
+            intent.putExtra("categ_name",categ_name);
+
             intent.putExtra("subcategid",categoriesBean.getId());
 
             intent.putExtra("subcategname",categoriesBean.getName());
@@ -81,13 +84,14 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
 
             Log.w(TAG,"parent_id : "+categoriesBean.getParent_id() + "subcategid :" +categoriesBean.getId()
 
-                            + "subcategname : "+categoriesBean.getName() +
+                    + "subcategname : "+categoriesBean.getName() +
 
-                            "fromactivity :" +TAG);
+                    "fromactivity :" +TAG);
 
             context.startActivity(intent);
 
             Animatoo.animateSwipeLeft(context);
+
         });
 
     }

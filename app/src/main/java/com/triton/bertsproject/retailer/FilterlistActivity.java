@@ -244,7 +244,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
 
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> modelBeanList;
+    List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> modelBeanList;
 
     List<FetchAllYearResponse.DataBean.YearBean> yearBeanList;
 
@@ -661,7 +661,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                         Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
 
-                        modelBeanList = response.body().getData().getMake().get(0).getModels();
+                        modelBeanList = response.body().getData().getModel();
 
                         if(modelBeanList != null && modelBeanList.size()>0){
 
@@ -713,7 +713,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         return fetchChildMakeslistRequest;
     }
 
-    private void setModelView(List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> makesBeanList) {
+    private void setModelView(List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanList) {
 
         rv_models.setLayoutManager(new GridLayoutManager(FilterlistActivity.this,2));
 

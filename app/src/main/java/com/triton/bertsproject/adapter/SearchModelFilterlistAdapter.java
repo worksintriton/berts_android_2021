@@ -25,12 +25,12 @@ import java.util.List;
 
 public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchModelFilterlistAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> modelBeanList;
+    List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> modelBeanList;
     View view;
     GetModelIDListener getModelIDListener;
     private static final String TAG = "SearchModelFilterlistAdapter";
 
-    public SearchModelFilterlistAdapter(Context context,  List<FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean> modelBeanList, GetModelIDListener getModelIDListener) {
+    public SearchModelFilterlistAdapter(Context context,  List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> modelBeanList, GetModelIDListener getModelIDListener) {
         this.context = context;
         this.modelBeanList = modelBeanList;
         this.getModelIDListener=getModelIDListener;
@@ -48,7 +48,7 @@ public class SearchModelFilterlistAdapter extends RecyclerView.Adapter<SearchMod
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchChildMakeslistRequestResponse.DataBean.MakeBean.ModelsBean makeBean= modelBeanList.get(position);
+        final FetchChildMakeslistRequestResponse.DataBean.ModelBean makeBean= modelBeanList.get(position);
 
         Log.w(TAG,"GetName "+ makeBean.getName());
 

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
 
@@ -55,18 +57,32 @@ public class ParentCategoriesListAdapter extends RecyclerView.Adapter<ParentCate
 
         }
 
-        if (categoriesBean.getImage_1()!= null && !categoriesBean.getImage_1().isEmpty()) {
+
+        if (categoriesBean.getImage_1()!= null && !categoriesBean.getImage_1().isEmpty()&& URLUtil.isValidUrl(categoriesBean.getImage_1())) {
+
+            Log.w(TAG,"Cat_Img "+categoriesBean.getImage_1().replaceAll("[\\n\\r\\t]+", ""));
 
             Glide.with(context)
-                    .load(categoriesBean.getImage_1())
+                    .load(categoriesBean.getImage_1().replaceAll("[\\n\\r\\t]+", ""))
                     .into(holder.img_shplst);
 
 
         }
 
+        else {
+
+            Glide.with(context)
+                    .load(APIClient.BASE_IMAGE_URL)
+                    .into(holder.img_shplst);
+        }
+
+
+
         holder.cardView.setOnClickListener(v -> {
 
             Intent intent = new Intent(context, ShowAllChildCategActivity.class);
+
+            intent.putExtra("fromactivity",TAG);
 
             intent.putExtra("cate_id",categoriesBean.getId());
 

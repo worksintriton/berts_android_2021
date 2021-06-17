@@ -1,16 +1,21 @@
 package com.triton.bertsproject.retailerfragment;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,6 +32,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.Utlity.PopUpClass;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
 import com.triton.bertsproject.adapter.ShopbyAdapter;
@@ -147,6 +153,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.img_search)
     ImageView img_search;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_keyword_info)
+    TextView txt_keyword_info;
 
     HomepageDashboardResponse.DataBean.DefaultVehicleBean defaultVehicleBeanList ;
 
@@ -297,6 +306,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         });
 
+        txt_keyword_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showKeywordInfo(v);
+            }
+        });
+
 
         rlcart.setOnClickListener(v -> {
 
@@ -311,6 +328,34 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 
 
+    }
+
+    private void showKeywordInfo(View v) {
+
+        // Create an alert builder
+        AlertDialog.Builder builder
+                = new AlertDialog.Builder(getContext());
+
+        // set the custom layout
+        final View customLayout = getLayoutInflater().inflate(R.layout.popup_layout, null);
+        builder.setView(customLayout);
+
+        // add a button
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                // send data from the
+                // AlertDialog to the Activity
+
+            }
+        });
+
+        // create and show
+        // the alert dialog
+        AlertDialog dialog
+                = builder.create();
+        dialog.show();
     }
 
     private void checkValidation() {

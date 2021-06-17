@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
+import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.retailer.RetailerProductListActivity;
 import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
@@ -54,14 +56,24 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
 
         }
 
-        if (brandsBean.getLogo()!= null && !brandsBean.getLogo().isEmpty()) {
+        if (brandsBean.getLogo()!= null && !brandsBean.getLogo().isEmpty()&& URLUtil.isValidUrl(brandsBean.getLogo())) {
+
+            Log.w(TAG,"Brand_Img "+brandsBean.getLogo().replaceAll("[\\n\\r\\t]+", ""));
 
             Glide.with(context)
-                    .load(brandsBean.getLogo())
+                    .load(brandsBean.getLogo().replaceAll("[\\n\\r\\t]+", ""))
                     .into(holder.img_shplst);
 
 
         }
+
+        else {
+
+            Glide.with(context)
+                    .load(APIClient.BASE_IMAGE_URL)
+                    .into(holder.img_shplst);
+        }
+
 
         holder.cardView.setOnClickListener(v -> {
 

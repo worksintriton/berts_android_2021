@@ -196,7 +196,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
             Intent intent = new Intent(context, ShowAllParentCategoriesActivity.class);
 
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
 
             startActivity(intent);
 
@@ -207,7 +207,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
             Intent intent = new Intent(context, ShowAllBrandsActivity.class);
 
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
 
             startActivity(intent);
         });
@@ -216,7 +216,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
             Intent intent = new Intent(context, ShowAllParentMakesActivity.class);
 
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
 
             startActivity(intent);
         });

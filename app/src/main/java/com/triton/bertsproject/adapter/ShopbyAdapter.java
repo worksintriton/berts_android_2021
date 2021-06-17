@@ -23,6 +23,7 @@ public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.ShopbyHold
     Context context;
     List<ShopByNameModel> shopByNameModels;
     View view;
+    private static final String TAG = "ShopbyAdapter";
 
     public ShopbyAdapter(Context context, List<ShopByNameModel> shopByNameModels) {
         this.context = context;
@@ -54,17 +55,30 @@ public class ShopbyAdapter extends RecyclerView.Adapter<ShopbyAdapter.ShopbyHold
 
                 if(position==0){
 
-                    context.startActivity(new Intent(context, ShowAllParentCategoriesActivity.class));
+                    Intent intent = new Intent(context, ShowAllParentCategoriesActivity.class);
+
+                    intent.putExtra("fromactivity","HomeFragment");
+
+                    context.startActivity(intent);
                 }
 
                 else if(position==1){
 
-                    context.startActivity(new Intent(context, ShowAllBrandsActivity.class));
+                    Intent intent = new Intent(context, ShowAllBrandsActivity.class);
+
+                    intent.putExtra("fromactivity","HomeFragment");
+
+                    context.startActivity(intent);
                 }
 
                 else {
 
-                    context.startActivity(new Intent(context, ShowAllParentMakesActivity.class));
+
+                    Intent intent = new Intent(context, ShowAllParentMakesActivity.class);
+
+                    intent.putExtra("fromactivity","HomeFragment");
+
+                    context.startActivity(intent);
                 }
 
 

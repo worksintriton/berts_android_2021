@@ -63,19 +63,44 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/img_product_image"
-            android:layout_width="@dimen/_100dp"
-            android:layout_height="@dimen/_100dp"
+        <RelativeLayout
+            android:id="@+id/rl_rooy"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_below="@id/ll_root"
-            android:layout_marginStart="@dimen/_10dp"
-            android:layout_marginLeft="@dimen/_10dp"
-            android:layout_marginEnd="@dimen/_10dp"
-            android:layout_marginRight="@dimen/_10dp"
-            android:layout_marginBottom="@dimen/_10dp"
-            android:contentDescription="@string/image_description"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/noimage" />
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/img_product_image"
+                android:layout_width="@dimen/_100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:contentDescription="@string/image_description"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/noimage" />
+
+            <ImageView
+                android:id="@+id/img_logo_image"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="false"
+                android:alpha="0.5"
+                android:contentDescription="@string/image_description"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/logo" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/txt_product_name"
@@ -85,7 +110,7 @@
             android:layout_marginStart="@dimen/_5dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginEnd="@dimen/_5dp"
-            android:layout_toEndOf="@id/img_product_image"
+            android:layout_toEndOf="@id/rl_rooy"
             android:ellipsize="end"
             android:fontFamily="@font/lato_bold"
             android:maxLines="@integer/_int1"
@@ -101,7 +126,7 @@
             android:layout_marginStart="@dimen/_5dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginEnd="@dimen/_5dp"
-            android:layout_toEndOf="@id/img_product_image"
+            android:layout_toEndOf="@id/rl_rooy"
             android:ellipsize="end"
             android:fontFamily="@font/lato_regular"
             android:lineSpacingExtra="@dimen/_8sp"
@@ -118,7 +143,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:id="@+id/ll_image"
-            android:layout_toEndOf="@+id/img_product_image"
+            android:layout_toEndOf="@+id/rl_rooy"
             android:layout_below="@+id/txt_parts_name"
             android:layout_marginBottom="10dp">
 
@@ -197,7 +222,7 @@
             android:layout_below="@id/ll_image"
             android:layout_marginStart="@dimen/_5dp"
             android:layout_marginTop="5dp"
-            android:layout_toEndOf="@id/img_product_image"
+            android:layout_toEndOf="@id/rl_rooy"
             android:background="@color/yellow"
             android:ellipsize="end"
             android:fontFamily="@font/lato_regular"
@@ -215,7 +240,7 @@
             android:layout_marginStart="@dimen/_10dp"
             android:layout_marginTop="@dimen/_10dp"
             android:layout_marginBottom="@dimen/_10dp"
-            android:layout_toEndOf="@id/img_product_image"
+            android:layout_toEndOf="@id/rl_rooy"
             android:ellipsize="end"
             android:fontFamily="@font/lato_regular"
             android:maxLines="@integer/_int1"
@@ -226,7 +251,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/img_product_image"
+            android:layout_below="@id/rl_rooy"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_10dp"
             android:layout_marginBottom="@dimen/_10dp"

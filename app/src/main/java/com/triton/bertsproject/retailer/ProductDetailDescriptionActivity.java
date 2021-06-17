@@ -301,7 +301,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
-    String brand_id,brand_name,parent_id,subcategid,subcategname,make_id,model_id,model_name;
+    String brand_id,brand_name,parent_id,categ_name,subcategid,subcategname,make_id,model_id,model_name;
 
     int minteger = 1;
 
@@ -321,13 +321,15 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         if (extras != null) {
 
-            fromactivity = extras.getString("fromActivity");
+            fromactivity = extras.getString("fromactivity");
 
             prod_id = extras.getString("prod_id");
 
             //prod_id = "2";
 
             prod_name = extras.getString("prod_name");
+
+            categ_name = extras.getString("categ_name");
 
             brand_id = extras.getString("brand_id");
 
@@ -467,7 +469,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             intent.putExtra("prod_name",prod_name);
 
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
 
             startActivity(intent);
 
@@ -480,6 +482,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             intent.putExtra("parent_id",parent_id);
 
+            intent.putExtra("categ_name",categ_name);
+
             intent.putExtra("subcategid",subcategid);
 
             intent.putExtra("subcategname",subcategname);
@@ -488,7 +492,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             intent.putExtra("prod_name",prod_name);
 
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
 
             startActivity(intent);
 

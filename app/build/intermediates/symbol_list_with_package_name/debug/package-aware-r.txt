@@ -2016,6 +2016,7 @@ drawable com_facebook_tooltip_blue_xout
 drawable custom_progress_primary
 drawable cutomer_spinner_bgnd
 drawable dark_active_indicator
+drawable dark_blue_bgnd
 drawable dark_inactive_indicator
 drawable dd4you_logo
 drawable default_dot
@@ -2661,6 +2662,7 @@ id img_individual_star
 id img_like
 id img_local_returns
 id img_logo
+id img_logo_image
 id img_logout
 id img_manageaddress
 id img_minus
@@ -2933,6 +2935,7 @@ id rl_profile
 id rl_push_notifications
 id rl_receipt
 id rl_root
+id rl_rooy
 id rl_search
 id rl_settings
 id rl_sort
@@ -3194,6 +3197,7 @@ id txt_forget_password_reason
 id txt_gurantee_fit
 id txt_hifen
 id txt_increase
+id txt_keyword_info
 id txt_lang
 id txt_language
 id txt_length
@@ -3631,6 +3635,7 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout popup_layout
 layout row_first
 layout row_second
 layout row_third
@@ -3891,6 +3896,7 @@ string hifein
 string highest_discount
 string home
 string hot
+string i
 string icon_content_description
 string image_description
 string isdefault
