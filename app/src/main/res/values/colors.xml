@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+<!--    Berts Project Color Codes-->
+
+    <color name="background_color">#F5F5F5</color>
+    <color name="dark_blue">#014492</color>
+    <color name="light_grey">#B8BABC</color>
+    <color name="yellow">#FFF41C</color>
+    <color name="dark_grey">#38393A</color>
+    <color name="blue">#3B5998</color>
+    <color name="grey">#38393A</color>
+    <color name="stroke_color">#E8E8E8</color>
+    <color name="item_inactive_color">#7B7B7B</color>
+    <color name="item_active_color">#014492</color>
+    <color name="red">#E60000</color>
+    <color name="grey_bgnd">#B8BABC</color>
+    <color name="green">#1BF19D</color>
+    <color name="thickblue">#56CCF2</color>
+    <color name="thickYellow">#FFE11C</color>
+    <color name="lighter_grey">#B1B1B1</color>
+    <color name="med_green">#57B157</color>
+    <color name="thick_red">#F91111</color>
+    <color name="greyish">#C9C9C9</color>
+    <color name="light_blue">#B5CEEB</color>
+    <color name="med_grey">#979797</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="txt_common">#1B304D</color>
+    <color name="hint_color">#B8BABC</color>
+    <color name="light_yellow">#FFF41C</color>
+    <color name="orange">#FF9800</color>
+
+
+    <color name="sky_blue">#47D9CC</color>
+    <color name="sky_blue_light">#CAEEEA</color>
+
+    <color name="violet">#A25FE0</color>
+    <color name="violet_light">#E8DCF4</color>
+
+    <color name="blues">#448AD2</color>
+    <color name="blue_light">#C7E3F8</color>
+
+    <color name="greens">#4AC840</color>
+    <color name="green_light">#CDF7C9</color>
+
+    <color name="pinkk">#ffedf1</color>
+
+    <color name="color_line">#E0E0E0</color>
+    <color name="colorNew">#56ccf2</color>
+</resources>
