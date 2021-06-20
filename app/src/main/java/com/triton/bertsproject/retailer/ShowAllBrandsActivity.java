@@ -115,7 +115,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
             fromactivity = extras.getString("fromactivity");
 
-            Log.w(TAG,"fromactivity : "+fromactivity );
+            Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
         }
 
 
@@ -363,6 +363,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
     public void callDirections(String tag){
         Intent intent = new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("fromactivity",TAG);
         intent.putExtra("tag",tag);
         startActivity(intent);
         finish();

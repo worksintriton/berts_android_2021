@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: in.dd4you.appsconfig:appsconfig:1.4.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd5e592be8fc09588ad7d60073128645/jetified-appsconfig-1.4.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd5e592be8fc09588ad7d60073128645/jetified-appsconfig-1.4.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd5e592be8fc09588ad7d60073128645/jetified-appsconfig-1.4.6/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.dd4you.appsconfig/appsconfig/1.4.6/a04d57aefb033f2f0472675adfe81ec59b80ee22/appsconfig-1.4.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.dd4you.appsconfig/appsconfig/1.4.6/21682fbbaf04949d9da2bb110f7313adc79577bd/appsconfig-1.4.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

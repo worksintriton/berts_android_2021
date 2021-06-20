@@ -41,6 +41,7 @@ import com.triton.bertsproject.requestpojo.AddWishistRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnCatRequest;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -135,7 +136,11 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     SessionManager sessionManager;
 
-    String searchString = "",sorting="";
+    String searchString = "",sorting="",previousactivity;
+
+    Connectivity connectivity;
+
+    String value;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -149,27 +154,63 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         retailerProductlistModels = new ArrayList<>();
 
-        Bundle extras = getIntent().getExtras();
+        connectivity = new Connectivity();
 
-        if (extras != null) {
+        value = connectivity.getData(RetailerProductListBasedOnCategActivity.this,"ProductListCategories");
 
-            fromactivity = extras.getString("fromactivity");
+        if(value!=null&&!value.isEmpty()) {
 
-            brand_id = extras.getString("brand_id");
+            fromactivity = value;
 
-            parent_id = extras.getString("parent_id");
+            Bundle extras = getIntent().getExtras();
 
-            categ_name = extras.getString("categ_name");
+            if (extras != null) {
 
-            subcategid = extras.getString("subcategid");
+                previousactivity = extras.getString("previousactivity");
 
-            subcategname = extras.getString("subcategname");
+                brand_id = extras.getString("brand_id");
 
-            Log.w(TAG,"parent_id : "+parent_id+ "subcategid :" +subcategid
+                parent_id = extras.getString("parent_id");
 
-                    + "subcategname : "+subcategname +
+                categ_name = extras.getString("categ_name");
 
-                    "fromactivity :" +fromactivity);
+                subcategid = extras.getString("subcategid");
+
+                subcategname = extras.getString("subcategname");
+
+            }
+
+            Log.w(TAG,"Connectivity "+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
+
+                    + "subcategname : "+subcategname + "fromactivity :" +fromactivity + "previousactivity :" +previousactivity);
+
+        }
+
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                previousactivity = extras.getString("previousactivity");
+
+                brand_id = extras.getString("brand_id");
+
+                parent_id = extras.getString("parent_id");
+
+                categ_name = extras.getString("categ_name");
+
+                subcategid = extras.getString("subcategid");
+
+                subcategname = extras.getString("subcategname");
+
+                Log.w(TAG,"Connectivity "+"parent_id : "+parent_id+ "categ_name : "+categ_name+ " subcategid :" +subcategid
+
+                        + "subcategname : "+subcategname + "fromactivity :" +fromactivity + "previousactivity :" +previousactivity);
+
+            }
 
         }
 
@@ -777,7 +818,11 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
         intent.putExtra("fromactivity",TAG);
 
+        connectivity.clearData(RetailerProductListBasedOnCategActivity.this,"ProductListCategories");
+
         startActivity(intent);
+
+        finish();
 
         Log.w(TAG,"parent_id : "+parent_id+ "subcategid :" +subcategid
 
@@ -808,6 +853,8 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
         intent.putExtra("prod_name",prod_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        connectivity.storeData(context,"ProductListCategories",fromactivity);
 
         startActivity(intent);
     }

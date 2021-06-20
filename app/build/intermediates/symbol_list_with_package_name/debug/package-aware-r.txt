@@ -4112,6 +4112,7 @@ string sort_filter
 string state
 string status_bar_notification_info_overflow
 string str_new
+string sub_categories
 string tap_to_toggle_expansion
 string terms_conditions
 string terms_conditions1

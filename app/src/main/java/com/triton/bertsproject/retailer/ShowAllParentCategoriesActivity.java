@@ -26,6 +26,7 @@ import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -78,7 +79,11 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
     AlertDialog alertDialog;
 
-    String fromactivity;
+    String fromactivity,previousactivity;
+
+    Connectivity connectivity;
+
+    String value;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -93,6 +98,8 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
         dd4YouConfig = new DD4YouConfig(this);
 
         //registerBroadcastReceiver();
+
+        connectivity = new Connectivity();
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
@@ -109,16 +116,28 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
         txt_toolbar_title.setText(R.string.categories);
 
-        Bundle extras = getIntent().getExtras();
+        value = connectivity.getData(ShowAllParentCategoriesActivity.this,"ParentCategories");
 
-        if (extras != null) {
+        if(value!=null&&!value.isEmpty()){
 
-            fromactivity = extras.getString("fromactivity");
+            fromactivity = value;
 
-            Log.w(TAG,"fromactivity : "+fromactivity );
+            Log.w(TAG,"Connectivity "+ " fromactivity : "+ fromactivity);
         }
 
+        else {
 
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                Log.w(TAG,"Connectivity "+ " fromactivity : "+ fromactivity);
+            }
+
+
+        }
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -254,7 +273,7 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(ShowAllParentCategoriesActivity.this, categoriesBeanList,size);
+        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(ShowAllParentCategoriesActivity.this, categoriesBeanList,size,fromactivity);
 
         rv_top_categories.setAdapter(parentCategoriesListAdapter);
 
@@ -346,7 +365,11 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ShowAllParentCategoriesActivity.this,"ParentCategories");
+
                 startActivity(intent);
+
+                finish();
             }
 
 
@@ -358,13 +381,19 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
             intent.putExtra("fromactivity",TAG);
 
+            connectivity.clearData(ShowAllParentCategoriesActivity.this,"ParentCategories");
+
             startActivity(intent);
+
+            finish();
         }
     }
 
     public void callDirections(String tag){
         Intent intent = new Intent(ShowAllParentCategoriesActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("fromactivity",TAG);
         intent.putExtra("tag",tag);
+        connectivity.clearData(ShowAllParentCategoriesActivity.this,"ParentCategories");
         startActivity(intent);
         finish();
 

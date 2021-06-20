@@ -131,12 +131,10 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         else {
 
-            txt_toolbar_title.setText(R.string.make);
+            txt_toolbar_title.setText(R.string.model);
+
         }
 
-
-
-        txt_toolbar_title.setText(R.string.make);
 
         spin_kit_loadingView.setVisibility(View.GONE);
 

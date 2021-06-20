@@ -33,6 +33,7 @@ import com.triton.bertsproject.requestpojo.OrderCreateRequest;
 import com.triton.bertsproject.requestpojo.ShowCartListRequest;
 import com.triton.bertsproject.responsepojo.OrderCreateResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -164,6 +165,9 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
     String addr_name,address1,state_name,country_name;
 
+    Connectivity connectivity;
+
+    String value,categ_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,6 +180,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
         Log.w("Oncreate", TAG);
 
+        connectivity = new Connectivity();
+
         dd4YouConfig = new DD4YouConfig(this);
 
         sessionManager = new SessionManager(this);
@@ -184,41 +190,92 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
         user_id = user.get(SessionManager.KEY_ID);
 
-        Bundle extras = getIntent().getExtras();
+        value = connectivity.getData(CheckoutScreenActivity.this,"CheckoutScreen");
 
-        if (extras != null) {
+        if(value!=null&&!value.isEmpty()) {
 
-            fromactivity = extras.getString("fromActivity");
+            fromactivity = value;
 
-            prod_id = extras.getString("prod_id");
+            Bundle extras = getIntent().getExtras();
 
-            //prod_id = "2";
+            if (extras != null) {
 
-            prod_name = extras.getString("prod_name");
+                prod_id = extras.getString("prod_id");
 
-            brand_id = extras.getString("brand_id");
+                //prod_id = "2";
 
-            brand_name = extras.getString("brand_name");
+                prod_name = extras.getString("prod_name");
 
-            parent_id = extras.getString("parent_id");
+                brand_id = extras.getString("brand_id");
 
-            subcategid = extras.getString("subcategid");
+                brand_name = extras.getString("brand_name");
 
-            subcategname = extras.getString("subcategname");
+                parent_id = extras.getString("parent_id");
 
-            make_id = extras.getString("make_id");
+                categ_name = extras.getString("categ_name");
 
-            model_id = extras.getString("model_id");
+                subcategid = extras.getString("subcategid");
 
-            model_name = extras.getString("model_name");
+                subcategname = extras.getString("subcategname");
 
-            Log.w(TAG,"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+
+            }
+            Log.w(TAG,"Connectivity fromactivity "+ fromactivity +" brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
                     + "model_name : "+model_name);
 
         }
+
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                prod_id = extras.getString("prod_id");
+
+                //prod_id = "2";
+
+                prod_name = extras.getString("prod_name");
+
+                brand_id = extras.getString("brand_id");
+
+                brand_name = extras.getString("brand_name");
+
+                parent_id = extras.getString("parent_id");
+
+                categ_name = extras.getString("categ_name");
+
+                subcategid = extras.getString("subcategid");
+
+                subcategname = extras.getString("subcategname");
+
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+                Log.w(TAG,"Connectivity fromactivity "+ fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+
+                        + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
+
+                        + "model_name : "+model_name);
+
+            }
+        }
+
+
 
         cv_orders.setVisibility(View.GONE);
 
@@ -244,6 +301,14 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
             }
         }
+
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -274,14 +339,42 @@ public class CheckoutScreenActivity extends AppCompatActivity {
             if(fromactivity.equals("RetailerCartActivity")){
 
                 Intent intent = new Intent(CheckoutScreenActivity.this, RetailerCartActivity.class);
-                intent.putExtra("fromActivity",TAG);
+
+                intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("prod_id",prod_id);
+
+                intent.putExtra("prod_name",prod_name);
+
+                intent.putExtra("brand_id",brand_id);
+
+                intent.putExtra("brand_name",brand_name);
+
+                intent.putExtra("parent_id",parent_id);
+
+                intent.putExtra("categ_name",categ_name);
+
+                intent.putExtra("subcategid",subcategid);
+
+                intent.putExtra("subcategname",subcategname);
+
+                intent.putExtra("make_id",make_id);
+
+                intent.putExtra("model_id", model_id);
+
+                intent.putExtra("model_id",model_name);
+
+                connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
+
                 startActivity(intent);
+
                 finish();
             }
 
             else {
                 Intent intent = new Intent(CheckoutScreenActivity.this, RetailerDashboardActivity.class);
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromactivity",TAG);
+                connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
                 startActivity(intent);
                 finish();
 
@@ -290,6 +383,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
         else {
             Intent intent = new Intent(CheckoutScreenActivity.this, RetailerDashboardActivity.class);
             intent.putExtra("fromActivity",TAG);
+            connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
             startActivity(intent);
             finish();
 
@@ -639,9 +733,13 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                     intent.putExtra("fromActivity",TAG);
 
+                    connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
+
                     startActivity(intent);
 
                     sweetAlertDialog.dismiss();
+
+                    finish();
                 })
                 .show();
 

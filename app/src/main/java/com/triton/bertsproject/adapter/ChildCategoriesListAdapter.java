@@ -20,6 +20,7 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildCateglistResponse;
 import com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import java.util.List;
 
@@ -28,15 +29,16 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
     List<FetchChildCateglistResponse.DataBean.CategoriesBean>  categoriesBeanList;
     View view;
     int size;
-    String parent_id,categ_name;
+    String parent_id,categ_name,fromactivity;
     private static final String TAG = "ChildCategoriesListAdapter";
 
-    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String parent_id, String categ_name) {
+    public ChildCategoriesListAdapter(Context context, List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String parent_id, String categ_name, String fromactivity) {
         this.context = context;
         this.categoriesBeanList = categoriesBeanLists;
         this.size=size;
         this.parent_id=parent_id;
         this.categ_name=categ_name;
+        this.fromactivity = fromactivity;
 
     }
 
@@ -80,13 +82,17 @@ public class ChildCategoriesListAdapter extends RecyclerView.Adapter<ChildCatego
 
             intent.putExtra("subcategname",categoriesBean.getName());
 
-            intent.putExtra("fromactivity",TAG);
+            intent.putExtra("fromactivity","ShowAllChildCategActivity");
 
-            Log.w(TAG,"parent_id : "+categoriesBean.getParent_id() + "subcategid :" +categoriesBean.getId()
+            Connectivity connectivity = new Connectivity();
 
-                    + "subcategname : "+categoriesBean.getName() +
+            connectivity.storeData(context,"ChildCategories",fromactivity);
 
-                    "fromactivity :" +TAG);
+//            Log.w(TAG,"parent_id : "+categoriesBean.getParent_id() + "subcategid :" +categoriesBean.getId()
+//
+//                    + "subcategname : "+categoriesBean.getName() +
+//
+//                    "fromactivity :" +TAG);
 
             context.startActivity(intent);
 

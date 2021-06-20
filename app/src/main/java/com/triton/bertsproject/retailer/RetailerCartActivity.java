@@ -54,6 +54,7 @@ import com.triton.bertsproject.responsepojo.RemoveOverallProductsResponse;
 import com.triton.bertsproject.responsepojo.RemovefromCartResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
 import com.triton.bertsproject.responsepojo.ShowCartListResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 import com.triton.bertsproject.utils.SwipeToDeleteCallback;
@@ -181,6 +182,10 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
     String addr_name,address1,state_name,country_name;
 
+    Connectivity connectivity;
+
+    String value,categ_name;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailer_cart);
@@ -189,43 +194,94 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         txt_toolbar_title.setText(R.string.cart);
       //  floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 
-        Log.w("Oncreate", TAG);
+        connectivity = new Connectivity();
 
-        Bundle extras = getIntent().getExtras();
+        value = connectivity.getData(RetailerCartActivity.this,"RetailerCart");
 
-        if (extras != null) {
+        if(value!=null&&!value.isEmpty()) {
 
-            fromactivity = extras.getString("fromActivity");
+            fromactivity = value;
 
-            prod_id = extras.getString("prod_id");
+            Bundle extras = getIntent().getExtras();
 
-            //prod_id = "2";
+            if (extras != null) {
 
-            prod_name = extras.getString("prod_name");
+                prod_id = extras.getString("prod_id");
 
-            brand_id = extras.getString("brand_id");
+                //prod_id = "2";
 
-            brand_name = extras.getString("brand_name");
+                prod_name = extras.getString("prod_name");
 
-            parent_id = extras.getString("parent_id");
+                brand_id = extras.getString("brand_id");
 
-            subcategid = extras.getString("subcategid");
+                brand_name = extras.getString("brand_name");
 
-            subcategname = extras.getString("subcategname");
+                parent_id = extras.getString("parent_id");
 
-            make_id = extras.getString("make_id");
+                categ_name = extras.getString("categ_name");
 
-            model_id = extras.getString("model_id");
+                subcategid = extras.getString("subcategid");
 
-            model_name = extras.getString("model_name");
+                subcategname = extras.getString("subcategname");
 
-            Log.w(TAG,"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+            }
+
+            Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ " brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
                     + "model_name : "+model_name);
-
         }
+
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                prod_id = extras.getString("prod_id");
+
+                //prod_id = "2";
+
+                prod_name = extras.getString("prod_name");
+
+                brand_id = extras.getString("brand_id");
+
+                brand_name = extras.getString("brand_name");
+
+                parent_id = extras.getString("parent_id");
+
+                categ_name = extras.getString("categ_name");
+
+                subcategid = extras.getString("subcategid");
+
+                subcategname = extras.getString("subcategname");
+
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
+
+                        + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
+
+                        + "model_name : "+model_name);
+
+            }
+        }
+
+
+
 
         spin_kit_loadingView.setVisibility(View.GONE);
         tag = getIntent().getStringExtra("tag");
@@ -348,7 +404,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             if(fromactivity.equals("HomeFragment")){
 
                 Intent intent = new Intent(RetailerCartActivity.this, RetailerDashboardActivity.class);
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromactivity",TAG);
+                connectivity.clearData(RetailerCartActivity.this,"RetailerCart");
                 startActivity(intent);
                 finish();
             }
@@ -356,6 +413,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             else if(fromactivity.equals("ProductDetailDescriptionActivity")){
 
                 Intent intent = new Intent(RetailerCartActivity.this, ProductDetailDescriptionActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
 
                 intent.putExtra("prod_id",prod_id);
 
@@ -367,6 +426,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                 intent.putExtra("parent_id",parent_id);
 
+                intent.putExtra("categ_name",categ_name);
+
                 intent.putExtra("subcategid",subcategid);
 
                 intent.putExtra("subcategname",subcategname);
@@ -377,13 +438,16 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                 intent.putExtra("model_id",model_name);
 
+                connectivity.clearData(RetailerCartActivity.this,"RetailerCart");
+
                 startActivity(intent);
 
                 finish();
             }
             else {
                 Intent intent = new Intent(RetailerCartActivity.this, RetailerDashboardActivity.class);
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromactivity",TAG);
+                connectivity.clearData(RetailerCartActivity.this,"RetailerCart");
                 startActivity(intent);
                 finish();
 
@@ -391,7 +455,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         }
         else {
             Intent intent = new Intent(RetailerCartActivity.this, RetailerDashboardActivity.class);
-            intent.putExtra("fromActivity",TAG);
+            intent.putExtra("fromactivity",TAG);
+            connectivity.clearData(RetailerCartActivity.this,"RetailerCart");
             startActivity(intent);
             finish();
 
@@ -667,6 +732,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         Intent intent = new Intent(RetailerCartActivity.this, CheckoutScreenActivity.class);
 
+        intent.putExtra("fromactivity",TAG);
+
         intent.putExtra("prod_id",prod_id);
 
         intent.putExtra("prod_name",prod_name);
@@ -677,6 +744,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         intent.putExtra("parent_id",parent_id);
 
+        intent.putExtra("categ_name",categ_name);
+
         intent.putExtra("subcategid",subcategid);
 
         intent.putExtra("subcategname",subcategname);
@@ -686,6 +755,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         intent.putExtra("model_id", model_id);
 
         intent.putExtra("model_id",model_name);
+
+        connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
 
         startActivity(intent);
 

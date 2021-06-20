@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -26,22 +25,18 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.adapter.BrandListAdapter;
 import com.triton.bertsproject.adapter.ParentCategoriesListAdapter;
 import com.triton.bertsproject.adapter.ParentMakesListAdapter;
-import com.triton.bertsproject.adapter.ShoplistAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
-import com.triton.bertsproject.model.ShoplistModel;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.retailer.ShowAllBrandsActivity;
-import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
 import com.triton.bertsproject.retailer.ShowAllParentCategoriesActivity;
 import com.triton.bertsproject.retailer.ShowAllParentMakesActivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -324,7 +319,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(getContext(), categoriesBeanList, size);
+        ParentCategoriesListAdapter parentCategoriesListAdapter = new ParentCategoriesListAdapter(getContext(), categoriesBeanList, size, "ShopFragment");
 
         rv_top_categories.setAdapter(parentCategoriesListAdapter);
 

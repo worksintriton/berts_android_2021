@@ -21,6 +21,7 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import java.util.List;
 
@@ -30,12 +31,13 @@ public class ParentCategoriesListAdapter extends RecyclerView.Adapter<ParentCate
     View view;
     int size;
     private static final String TAG = "ParentCategoriesListAdapter";
+    String fromactivity;
 
-    public ParentCategoriesListAdapter(Context context, List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanLists, int size) {
+    public ParentCategoriesListAdapter(Context context, List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanLists, int size, String fromactivity) {
         this.context = context;
         this.categoriesBeanList = categoriesBeanLists;
         this.size=size;
-
+        this.fromactivity=fromactivity;
     }
 
     @NonNull
@@ -82,13 +84,17 @@ public class ParentCategoriesListAdapter extends RecyclerView.Adapter<ParentCate
 
             Intent intent = new Intent(context, ShowAllChildCategActivity.class);
 
-            intent.putExtra("fromactivity",TAG);
+            intent.putExtra("fromactivity","ShowAllParentCategoriesActivity");
 
             intent.putExtra("cate_id",categoriesBean.getId());
 
             intent.putExtra("cate_name",categoriesBean.getName());
 
-            Log.w(TAG,"parent_id : "+categoriesBean.getId() +"categ_name : "+categoriesBean.getParent_id());
+            Connectivity connectivity = new Connectivity();
+
+            connectivity.storeData(context,"ParentCategories",fromactivity);
+
+          //  Log.w(TAG,"parent_id : "+categoriesBean.getId() +"categ_name : "+categoriesBean.getParent_id());
 
             context.startActivity(intent);
 

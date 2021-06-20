@@ -80,7 +80,7 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
 
             Intent intent = new Intent(context, ShowAllChildMakesActivity.class);
 
-            intent.putExtra("fromactivity",TAG);
+            intent.putExtra("fromactivity","ShowAllParentMakesActivity");
 
             intent.putExtra("make_id",makesBean.getId());
 

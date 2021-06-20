@@ -42,6 +42,7 @@ import com.triton.bertsproject.requestpojo.AddToCartRequest;
 import com.triton.bertsproject.requestpojo.ProductDetailRequest;
 import com.triton.bertsproject.responsepojo.AddToCartResponse;
 import com.triton.bertsproject.responsepojo.ProductDetailRespone;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -305,7 +306,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     int minteger = 1;
 
-
+    Connectivity connectivity;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -317,50 +318,101 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         Log.w("Oncreate", TAG);
 
-        Bundle extras = getIntent().getExtras();
+        connectivity = new Connectivity();
 
-        if (extras != null) {
+        String value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
-            fromactivity = extras.getString("fromactivity");
+        if(value!=null&&!value.isEmpty()) {
 
-            prod_id = extras.getString("prod_id");
+            fromactivity = value;
 
-            //prod_id = "2";
+            Bundle extras = getIntent().getExtras();
 
-            prod_name = extras.getString("prod_name");
+            if (extras != null) {
 
-            categ_name = extras.getString("categ_name");
+                prod_id = extras.getString("prod_id");
 
-            brand_id = extras.getString("brand_id");
+                //prod_id = "2";
 
-            brand_name = extras.getString("brand_name");
+                prod_name = extras.getString("prod_name");
 
-            parent_id = extras.getString("parent_id");
+                categ_name = extras.getString("categ_name");
 
-            subcategid = extras.getString("subcategid");
+                brand_id = extras.getString("brand_id");
 
-            subcategname = extras.getString("subcategname");
+                brand_name = extras.getString("brand_name");
 
-            make_id = extras.getString("make_id");
+                parent_id = extras.getString("parent_id");
 
-            model_id = extras.getString("model_id");
+                subcategid = extras.getString("subcategid");
 
-            model_name = extras.getString("model_name");
+                subcategname = extras.getString("subcategname");
 
-            Log.w(TAG,"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+            }
+            Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+"categ_name : "+categ_name+ "subcategid :" +subcategid
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
                     + "model_name : "+model_name);
-
         }
 
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                prod_id = extras.getString("prod_id");
+
+                //prod_id = "2";
+
+                prod_name = extras.getString("prod_name");
+
+                categ_name = extras.getString("categ_name");
+
+                brand_id = extras.getString("brand_id");
+
+                brand_name = extras.getString("brand_name");
+
+                parent_id = extras.getString("parent_id");
+
+                subcategid = extras.getString("subcategid");
+
+                subcategname = extras.getString("subcategname");
+
+                make_id = extras.getString("make_id");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity +"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
+
+                        + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
+
+                        + "model_name : "+model_name);
+
+            }
+        }
+
+
+
+/*
 
         if(prod_name!=null&&!prod_name.isEmpty()){
 
             txt_toolbar_title.setText(prod_name);
 
         }
+*/
 
         dd4YouConfig = new DD4YouConfig(this);
 
@@ -457,66 +509,100 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(fromactivity.equals("RetailerProductListActivity")){
+        if(fromactivity!=null){
 
-            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListActivity.class);
+            if(fromactivity.equals("RetailerProductListActivity")){
 
-            intent.putExtra("brand_id",brand_id);
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListActivity.class);
 
-            intent.putExtra("brand_name",brand_name);
+                intent.putExtra("brand_id",brand_id);
 
-            intent.putExtra("prod_id",prod_id);
+                intent.putExtra("brand_name",brand_name);
 
-            intent.putExtra("prod_name",prod_name);
+                intent.putExtra("prod_id",prod_id);
 
-            intent.putExtra("fromactivity",TAG);
+                intent.putExtra("prod_name",prod_name);
 
-            startActivity(intent);
+                intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
+                startActivity(intent);
+
+                finish();
+
+                Animatoo.animateSwipeLeft(context);
+            }
+
+            else if(fromactivity.equals("RetailerProductListBasedOnCategActivity")){
+
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnCategActivity.class);
+
+                intent.putExtra("parent_id",parent_id);
+
+                intent.putExtra("categ_name",categ_name);
+
+                intent.putExtra("subcategid",subcategid);
+
+                intent.putExtra("subcategname",subcategname);
+
+                intent.putExtra("prod_id",prod_id);
+
+                intent.putExtra("prod_name",prod_name);
+
+                intent.putExtra("fromactivity",TAG);
+
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                startActivity(intent);
+
+                finish();
+
+                Animatoo.animateSwipeLeft(context);
+
+            }
+
+            else if(fromactivity.equals("RetailerProductListBasedOnMakeActivity")){
+
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnMakeActivity.class);
+
+                intent.putExtra("make_id",make_id);
+
+                intent.putExtra("model_id", model_id);
+
+                intent.putExtra("model_id",model_name);
+
+                intent.putExtra("prod_id",prod_id);
+
+                intent.putExtra("prod_name",prod_name);
+
+                intent.putExtra("fromactivity",TAG);
+
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                startActivity(intent);
+
+                finish();
+
+                Animatoo.animateSwipeLeft(context);
+            }
+
+            else {
+
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this, RetailerDashboardActivity.class);
+                intent.putExtra("fromactivity",TAG);
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+                startActivity(intent);
+                finish();
+            }
         }
 
-        else if(fromactivity.equals("RetailerProductListBasedOnCategActivity")){
-
-            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnCategActivity.class);
-
-            intent.putExtra("parent_id",parent_id);
-
-            intent.putExtra("categ_name",categ_name);
-
-            intent.putExtra("subcategid",subcategid);
-
-            intent.putExtra("subcategname",subcategname);
-
-            intent.putExtra("prod_id",prod_id);
-
-            intent.putExtra("prod_name",prod_name);
-
+        else {
+            Intent intent = new Intent(ProductDetailDescriptionActivity.this, RetailerDashboardActivity.class);
             intent.putExtra("fromactivity",TAG);
-
+            connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
             startActivity(intent);
-
-
-        }
-
-        else if(fromactivity.equals("RetailerProductListBasedOnMakeActivity")){
-
-            Intent intent = new Intent(ProductDetailDescriptionActivity.this,RetailerProductListBasedOnMakeActivity.class);
-
-            intent.putExtra("make_id",make_id);
-
-            intent.putExtra("model_id", model_id);
-
-            intent.putExtra("model_id",model_name);
-
-            intent.putExtra("prod_id",prod_id);
-
-            intent.putExtra("prod_name",prod_name);
-
-            intent.putExtra("fromActivity",TAG);
-
-            startActivity(intent);
-
+            finish();
 
         }
 
@@ -1033,6 +1119,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                         intent.putExtra("parent_id",parent_id);
 
+                        intent.putExtra("categ_name",categ_name);
+
                         intent.putExtra("subcategid",subcategid);
 
                         intent.putExtra("subcategname",subcategname);
@@ -1043,7 +1131,9 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                         intent.putExtra("model_id",model_name);
 
-                        intent.putExtra("fromActivity",TAG);
+                        intent.putExtra("fromactivity",TAG);
+
+                        connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
                         startActivity(intent);
 

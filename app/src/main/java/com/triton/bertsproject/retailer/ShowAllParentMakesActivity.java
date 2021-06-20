@@ -113,7 +113,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
             fromactivity = extras.getString("fromactivity");
 
-            Log.w(TAG,"fromactivity : "+fromactivity );
+            Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
         }
 
 
@@ -366,6 +366,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
     public void callDirections(String tag){
         Intent intent = new Intent(ShowAllParentMakesActivity.this,RetailerDashboardActivity.class);
         intent.putExtra("tag",tag);
+        intent.putExtra("fromactivity",TAG);
         startActivity(intent);
         finish();
 

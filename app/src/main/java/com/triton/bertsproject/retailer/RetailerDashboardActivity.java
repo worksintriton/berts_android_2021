@@ -20,6 +20,7 @@ import com.triton.bertsproject.retailerfragment.LiveChatFragment;
 import com.triton.bertsproject.retailerfragment.MyGarageFragment;
 import com.triton.bertsproject.retailerfragment.ProfileFragment;
 import com.triton.bertsproject.retailerfragment.ShopFragment;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,6 +51,8 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
 
     String fromactivity;
 
+    Connectivity connectivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,6 +63,20 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
         ButterKnife.bind(this);
 
         Log.w("Oncreate", TAG);
+
+        connectivity = new Connectivity();
+
+        connectivity.clearData(RetailerDashboardActivity.this,"ParentCategories");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"ChildCategories");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"ProductListCategories");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"RetailerCart");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"CheckoutScreen");
+
+
 
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 
@@ -79,6 +96,7 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
 
             fromactivity = extras.getString("fromactivity");
 
+            Log.w(TAG," fromactivity : "+fromactivity);
         }
 
         tag = getIntent().getStringExtra("tag");

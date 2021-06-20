@@ -29,6 +29,7 @@ import com.triton.bertsproject.requestpojo.FetchChildCateglistRequest;
 import com.triton.bertsproject.requestpojo.LoginRequest;
 import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildCateglistResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -81,7 +82,11 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
     List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanList ;
 
-    String parent_id, categ_name,fromactivity;
+    String parent_id, categ_name,fromactivity,previousactivity;
+
+    Connectivity connectivity;
+
+    String value;
 
     @SuppressLint("LongLogTag")
     @Override
@@ -97,20 +102,47 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         //registerBroadcastReceiver();
 
+        connectivity = new Connectivity();
 
-        Bundle extras = getIntent().getExtras();
+        value = connectivity.getData(ShowAllChildCategActivity.this,"ChildCategories");
 
-        if (extras != null) {
+        if(value!=null&&!value.isEmpty()){
 
+            fromactivity = value;
 
-            fromactivity = extras.getString("fromactivity");
+            Bundle extras = getIntent().getExtras();
 
-            parent_id = extras.getString("cate_id");
+            if (extras != null) {
 
-            categ_name = extras.getString("cate_name");
+                parent_id = extras.getString("cate_id");
 
-            Log.w(TAG," fromactivity "+fromactivity+"parent_id : "+parent_id +"categ_name : "+categ_name);
+                categ_name = extras.getString("cate_name");
+
+            }
+
+            Log.w(TAG, "Connectivity " + " fromactivity " + fromactivity + " parent_id : " + parent_id + " categ_name : " + categ_name);
+
         }
+
+        else {
+
+            Log.w(TAG, "false");
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                parent_id = extras.getString("cate_id");
+
+                categ_name = extras.getString("cate_name");
+
+                Log.w(TAG,"Connectivity "+" fromactivity "+fromactivity+ " parent_id : " + parent_id + " categ_name : " + categ_name);
+            }
+        }
+
+
 
 
         if(categ_name!=null&&!categ_name.isEmpty()){
@@ -120,7 +152,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         else {
 
-            txt_toolbar_title.setText(R.string.categories);
+            txt_toolbar_title.setText(R.string.sub_categories);
         }
 
 
@@ -281,7 +313,7 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         rv_top_categories.setItemAnimator(new DefaultItemAnimator());
 
-        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size,parent_id,categ_name);
+        ChildCategoriesListAdapter childCategoriesListAdapter = new ChildCategoriesListAdapter(ShowAllChildCategActivity.this, categoriesBeanList,size,parent_id,categ_name,fromactivity);
 
         rv_top_categories.setAdapter(childCategoriesListAdapter);
 
@@ -357,24 +389,20 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
         if(fromactivity!=null&&!fromactivity.isEmpty()){
 
-            if(fromactivity.equals("ParentCategoriesListAdapter")){
-
+            if(fromactivity.equals("ShowAllParentCategoriesActivity")){
 
                 Intent intent = new Intent(ShowAllChildCategActivity.this,ShowAllParentCategoriesActivity.class);
 
                 intent.putExtra("fromactivity",TAG);
+
+                connectivity.clearData(ShowAllChildCategActivity.this,"ChildCategories");
 
                 startActivity(intent);
             }
 
-            else if(fromactivity.equals("RetailerProductListBasedOnCategActivity")){
+            else if(fromactivity.equals("ShopFragment")){
 
-
-                Intent intent = new Intent(ShowAllChildCategActivity.this,ShowAllParentCategoriesActivity.class);
-
-                intent.putExtra("fromactivity",TAG);
-
-                startActivity(intent);
+                callDirections("3");
             }
 
             else {
@@ -383,19 +411,36 @@ public class ShowAllChildCategActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ShowAllChildCategActivity.this,"ChildCategories");
+
                 startActivity(intent);
+
+                finish();
             }
 
 
         }
-
         else {
 
             Intent intent = new Intent(ShowAllChildCategActivity.this,RetailerDashboardActivity.class);
 
             intent.putExtra("fromactivity",TAG);
 
+            connectivity.clearData(ShowAllChildCategActivity.this,"ChildCategories");
+
             startActivity(intent);
+
+            finish();
         }
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(ShowAllChildCategActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("fromactivity",TAG);
+        intent.putExtra("tag",tag);
+        connectivity.clearData(ShowAllChildCategActivity.this,"ChildCategories");
+        startActivity(intent);
+        finish();
+
     }
 }
