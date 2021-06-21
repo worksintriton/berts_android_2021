@@ -72,11 +72,21 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
 
         connectivity.clearData(RetailerDashboardActivity.this,"ProductListCategories");
 
+        connectivity.clearData(RetailerDashboardActivity.this,"ProductDetailList");
+
         connectivity.clearData(RetailerDashboardActivity.this,"RetailerCart");
 
         connectivity.clearData(RetailerDashboardActivity.this,"CheckoutScreen");
 
+        connectivity.clearData(RetailerDashboardActivity.this,"Brand");
 
+        connectivity.clearData(RetailerDashboardActivity.this,"BrandProduct");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"ParentMakes");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"ChildMakes");
+
+        connectivity.clearData(RetailerDashboardActivity.this,"MakesProductList");
 
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 

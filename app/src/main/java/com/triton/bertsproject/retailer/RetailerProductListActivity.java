@@ -43,6 +43,7 @@ import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -141,7 +142,11 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
     SessionManager sessionManager;
 
+    Connectivity connectivity;
 
+    String value;
+
+    @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,20 +156,45 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
         Log.w("Oncreate", TAG);
 
+        connectivity = new Connectivity();
+
         retailerProductlistModels = new ArrayList<>();
 
-        Bundle extras = getIntent().getExtras();
+        value = connectivity.getData(RetailerProductListActivity.this,"BrandProduct");
 
-        if (extras != null) {
+        if(value!=null&&!value.isEmpty()){
 
-            fromactivity = extras.getString("fromactivity");
+            fromactivity = value;
 
-            brand_id = extras.getString("brand_id");
+            Bundle extras = getIntent().getExtras();
 
-            brand_name = extras.getString("brand_name");
+            if (extras != null) {
+
+                brand_id = extras.getString("brand_id");
+
+                brand_name = extras.getString("brand_name");
+
+            }
+            Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name);
 
         }
 
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                brand_id = extras.getString("brand_id");
+
+                brand_name = extras.getString("brand_name");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name);
+            }
+
+        }
 
         if(brand_name!=null&&!brand_name.isEmpty()){
 
@@ -225,6 +255,8 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         intent.putExtra("brand_name",brand_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        connectivity.clearData(RetailerProductListActivity.this,"BrandProduct");
 
         context.startActivity(intent);
 
@@ -781,6 +813,8 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
         intent.putExtra("prod_name",prod_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        connectivity.storeData(context,"BrandProduct",fromactivity);
 
         startActivity(intent);
 

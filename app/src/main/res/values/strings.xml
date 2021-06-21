@@ -388,4 +388,5 @@
     <string name="cancel_order">Cancel Order</string>
     <string name="i">i</string>
     <string name="sub_categories">Sub Category</string>
+    <string name="model_dis_msg">"No Models Found "</string>
 </resources>

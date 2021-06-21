@@ -19,8 +19,8 @@ import com.bumptech.glide.Glide;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
-import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
 import com.triton.bertsproject.retailer.ShowAllChildMakesActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import java.util.List;
 
@@ -30,11 +30,14 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
     View view;
     int size;
     private static final String TAG = "ParentMakesListAdapter";
+    String fromactivity;
+    Connectivity connectivity;
 
-    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanLists, int size) {
+    public ParentMakesListAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanLists, int size, String fromactivity) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
         this.size = size;
+        this.fromactivity=fromactivity;
 
     }
 
@@ -85,6 +88,10 @@ public class ParentMakesListAdapter extends RecyclerView.Adapter<ParentMakesList
             intent.putExtra("make_id",makesBean.getId());
 
             intent.putExtra("make_name",makesBean.getName());
+
+            connectivity=new Connectivity();
+
+            connectivity.storeData(context,"ParentMakes",fromactivity);
 
             Log.w(TAG,"make_id " +makesBean.getId() + "make_name "+makesBean.getName());
 

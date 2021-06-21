@@ -20,7 +20,7 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
 import com.triton.bertsproject.retailer.RetailerProductListActivity;
-import com.triton.bertsproject.retailer.ShowAllChildCategActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import java.util.List;
 
@@ -30,11 +30,14 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
     View view;
     int size;
     private static final String TAG = "BrandListAdapter";
+    String fromactivity;
+    Connectivity connectivity;
 
-    public BrandListAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanLists, int size) {
+    public BrandListAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanLists, int size, String fromactivity) {
         this.context = context;
         this.brandsBeanList = brandsBeanLists;
         this.size=size;
+        this.fromactivity=fromactivity;
 
     }
 
@@ -84,6 +87,10 @@ public class BrandListAdapter extends RecyclerView.Adapter<BrandListAdapter.Shop
             intent.putExtra("brand_name",brandsBean.getName());
 
             intent.putExtra("fromactivity","ShowAllBrandsActivity");
+
+            connectivity = new Connectivity();
+
+            connectivity.storeData(context,"Brand",fromactivity);
 
             Log.w(TAG,"brand_id : "+brandsBean.getId());
 

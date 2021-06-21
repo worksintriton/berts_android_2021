@@ -167,7 +167,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
     Connectivity connectivity;
 
-    String value,categ_name;
+    String value,categ_name,make_name,search_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,6 +220,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                 make_id = extras.getString("make_id");
 
+                make_name = extras.getString("make_name");
+
                 model_id = extras.getString("model_id");
 
                 model_name = extras.getString("model_name");
@@ -261,6 +263,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 subcategname = extras.getString("subcategname");
 
                 make_id = extras.getString("make_id");
+
+                make_name = extras.getString("make_name");
 
                 model_id = extras.getString("model_id");
 
@@ -359,6 +363,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 intent.putExtra("subcategname",subcategname);
 
                 intent.putExtra("make_id",make_id);
+
+                intent.putExtra("make_name",make_name);
 
                 intent.putExtra("model_id", model_id);
 

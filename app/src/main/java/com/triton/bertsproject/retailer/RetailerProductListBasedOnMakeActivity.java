@@ -41,6 +41,7 @@ import com.triton.bertsproject.requestpojo.AddWishistRequest;
 import com.triton.bertsproject.requestpojo.FetchProductBasedOnMakeRequest;
 import com.triton.bertsproject.responsepojo.ProductListResponse;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -140,6 +141,10 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
     String searchString = "",sorting="";
 
+    Connectivity connectivity;
+
+    String value,make_name;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,28 +157,66 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         retailerProductlistModels = new ArrayList<>();
 
-        Bundle extras = getIntent().getExtras();
+        connectivity = new Connectivity();
 
-        if (extras != null) {
+        value = connectivity.getData(RetailerProductListBasedOnMakeActivity.this,"MakesProductList");
 
-            fromactivity = extras.getString("fromactivity");
+        if(value!=null&&!value.isEmpty()){
 
-            brand_id = extras.getString("brand_id");
+            fromactivity = value;
 
-            make_id = extras.getString("make_id");
+            Bundle extras = getIntent().getExtras();
 
-            model_id = extras.getString("model_id");
+            if (extras != null) {
 
-            model_name = extras.getString("model_name");
+                fromactivity = extras.getString("fromactivity");
 
-            Log.w(TAG,"make_id : "+make_id + "model_id :" +model_id
+                brand_id = extras.getString("brand_id");
+
+                make_id = extras.getString("make_id");
+
+                make_name = extras.getString("make_name");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+            }
+            Log.w(TAG,"Connectivity  + make_id : "+make_id + "model_id :" +model_id
 
                     + "model_name : "+model_name+
 
                     "fromactivity :" +TAG);
+        }
+
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                brand_id = extras.getString("brand_id");
+
+                make_id = extras.getString("make_id");
+
+                make_name = extras.getString("make_name");
+
+                model_id = extras.getString("model_id");
+
+                model_name = extras.getString("model_name");
+
+                Log.w(TAG,"Connectivity make_id : "+make_id + "model_id :" +model_id
+
+                        + "model_name : "+model_name+
+
+                        "fromactivity :" +TAG);
 
 
 
+
+            }
 
         }
 
@@ -775,11 +818,15 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         intent.putExtra("make_id",make_id);
 
+        intent.putExtra("make_name",make_name);
+
         intent.putExtra("model_id",model_id);
 
         intent.putExtra("model_name",model_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        connectivity.clearData(RetailerProductListBasedOnMakeActivity.this,"MakesProductList");
 
         context.startActivity(intent);
 
@@ -795,15 +842,19 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         intent.putExtra("make_id",make_id);
 
+        intent.putExtra("make_name",make_name);
+
         intent.putExtra("model_id", model_id);
 
-        intent.putExtra("model_id",model_name);
+        intent.putExtra("model_name",model_name);
 
         intent.putExtra("prod_id",prod_id);
 
         intent.putExtra("prod_name",prod_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        connectivity.storeData(RetailerProductListBasedOnMakeActivity.this,"MakesProductList",fromactivity);
 
         startActivity(intent);
 

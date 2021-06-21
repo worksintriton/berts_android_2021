@@ -29,6 +29,7 @@ import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.requestpojo.FetchChildMakeslistRequest;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -83,6 +84,10 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
     AlertDialog alertDialog;
 
+    Connectivity connectivity;
+
+    String value;
+
 
     @SuppressLint("LongLogTag")
     @Override
@@ -110,17 +115,49 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         }
 
-        Bundle extras = getIntent().getExtras();
+        connectivity = new Connectivity();
 
-        if (extras != null) {
+        value = connectivity.getData(ShowAllChildMakesActivity.this,"ChildMakes");
 
-            fromactivity = extras.getString("fromactivity");
+        if(value!=null&&!value.isEmpty()){
 
-            make_id = extras.getString("make_id");
+            Log.w(TAG, "condition --> true");
 
-            make_name = extras.getString("make_name");
+            fromactivity = value;
 
-            Log.w(TAG,"fromactivity "+fromactivity+" make_id : "+make_id +"make_name : "+make_name);
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                make_id = extras.getString("make_id");
+
+                make_name = extras.getString("make_name");
+
+
+            }
+
+            Log.w(TAG,"Connectivity : "+ "fromactivity "+fromactivity+" make_id : "+make_id +"make_name : "+make_name);
+        }
+
+        else {
+
+            Log.w(TAG, "condition --> false");
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                make_id = extras.getString("make_id");
+
+                make_name = extras.getString("make_name");
+
+                Log.w(TAG,"Connectivity : "+ "fromactivity "+fromactivity+" make_id : "+make_id +"make_name : "+make_name);
+            }
+
+
+
         }
 
 
@@ -138,9 +175,15 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
-        spin_kit_loadingView.setVisibility(View.GONE);
+        txt_no_records.setVisibility(View.GONE);
 
-        img_back.setOnClickListener(v -> startActivity(new Intent(ShowAllChildMakesActivity.this,RetailerDashboardActivity.class)));
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
 
         refresh_layout.setOnRefreshListener(
                 () -> {
@@ -204,7 +247,7 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
                             txt_no_records.setVisibility(View.VISIBLE);
 
-                            txt_no_records.setText(R.string.brnd_dis_msg);
+                            txt_no_records.setText(R.string.model_dis_msg);
                         }
                     }
 
@@ -274,7 +317,7 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ChildMakesListAdapter childMakesListAdapter = new ChildMakesListAdapter(ShowAllChildMakesActivity.this, makesBeanList, size);
+        ChildMakesListAdapter childMakesListAdapter = new ChildMakesListAdapter(ShowAllChildMakesActivity.this, makesBeanList, size,fromactivity);
 
         rv_top_makes.setAdapter(childMakesListAdapter);
 
@@ -352,14 +395,18 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         if(fromactivity!=null&&!fromactivity.isEmpty()){
 
-            if(fromactivity.equals("ParentMakesListAdapter")){
+            if(fromactivity.equals("ShowAllParentMakesActivity")){
 
 
                 Intent intent = new Intent(ShowAllChildMakesActivity.this,ShowAllParentMakesActivity.class);
 
                 intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ShowAllChildMakesActivity.this,"ChildMakes");
+
                 startActivity(intent);
+
+                finish();
             }
 
             else {
@@ -368,7 +415,11 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ShowAllChildMakesActivity.this,"ChildMakes");
+
                 startActivity(intent);
+
+                finish();
             }
 
 
@@ -380,7 +431,11 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
             intent.putExtra("fromactivity",TAG);
 
+            connectivity.clearData(ShowAllChildMakesActivity.this,"ChildMakes");
+
             startActivity(intent);
+
+            finish();
         }
     }
 

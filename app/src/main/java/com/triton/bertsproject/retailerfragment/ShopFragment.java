@@ -415,7 +415,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         rv_top_brands.setItemAnimator(new DefaultItemAnimator());
 
-        BrandListAdapter brandListAdapter = new BrandListAdapter(getContext(), brandsBeanList, size);
+        BrandListAdapter brandListAdapter = new BrandListAdapter(getContext(), brandsBeanList, size, "shopFragment");
 
         rv_top_brands.setAdapter(brandListAdapter);
 
@@ -512,7 +512,7 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(getContext(), makesBeanList,size);
+        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(getContext(), makesBeanList,size, "ShopFragment");
 
         rv_top_makes.setAdapter(parentMakesListAdapter);
 

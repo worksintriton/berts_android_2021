@@ -1535,6 +1535,7 @@
     <string name="minus">-</string>
     <string name="mm_dd_yyyy">mm/dd/yyyy</string>
     <string name="model">Model</string>
+    <string name="model_dis_msg">"No Models Found "</string>
     <string name="model_name">Model Name</string>
     <string name="model_valu"><![CDATA[Power Stop K2073–36 Z36 Truck & Tow Front and Rear Brake Kit]]></string>
     <string name="mohammad_ashfaq">Mohammad Ashfaq</string>

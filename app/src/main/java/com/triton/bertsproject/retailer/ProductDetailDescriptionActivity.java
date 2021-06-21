@@ -308,6 +308,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     Connectivity connectivity;
 
+    String value,search_text;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -320,11 +322,15 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         connectivity = new Connectivity();
 
-        String value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+        value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+        Log.w(TAG,"value "+value);
 
         if(value!=null&&!value.isEmpty()) {
 
             fromactivity = value;
+
+            Log.w(TAG,"condition:  true");
 
             Bundle extras = getIntent().getExtras();
 
@@ -333,6 +339,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 prod_id = extras.getString("prod_id");
 
                 //prod_id = "2";
+                Log.w(TAG,"condition :  true");
 
                 prod_name = extras.getString("prod_name");
 
@@ -354,6 +361,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 model_name = extras.getString("model_name");
 
+                search_text = extras.getString("search_text");
+
             }
             Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+"categ_name : "+categ_name+ "subcategid :" +subcategid
 
@@ -363,6 +372,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         }
 
         else {
+
+            Log.w(TAG,"condition :  false");
 
             Bundle extras = getIntent().getExtras();
 
@@ -393,6 +404,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 model_id = extras.getString("model_id");
 
                 model_name = extras.getString("model_name");
+
+                search_text = extras.getString("search_text");
 
                 Log.w(TAG,"Connectivity fromactivity : "+fromactivity +"brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
 
@@ -506,6 +519,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBackPressed() {
 
@@ -526,6 +540,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 intent.putExtra("fromactivity",TAG);
 
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                String value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
 
                 startActivity(intent);
 
@@ -554,6 +572,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
+                value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
+
                 startActivity(intent);
 
                 finish();
@@ -580,6 +602,31 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
+                value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
+
+                startActivity(intent);
+
+                finish();
+
+                Animatoo.animateSwipeLeft(context);
+            }
+
+            else if(fromactivity.equals("SearchProductListActivity")){
+
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this,SearchProductListActivity.class);
+
+                intent.putExtra("search_text",search_text);
+
+                intent.putExtra("fromactivity",TAG);
+
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
+
                 startActivity(intent);
 
                 finish();
@@ -592,6 +639,9 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProductDetailDescriptionActivity.this, RetailerDashboardActivity.class);
                 intent.putExtra("fromactivity",TAG);
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+                value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
                 startActivity(intent);
                 finish();
             }
@@ -600,6 +650,9 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         else {
             Intent intent = new Intent(ProductDetailDescriptionActivity.this, RetailerDashboardActivity.class);
             intent.putExtra("fromactivity",TAG);
+            String value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+            Log.w(TAG,"value "+value);
             connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
             startActivity(intent);
             finish();

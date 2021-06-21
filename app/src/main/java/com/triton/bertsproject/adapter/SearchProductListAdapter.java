@@ -36,12 +36,13 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     AddProductListener addProductListener;
 
     private final static String TAG = "SearchProductListAdapter";
+    String search_text;
 
-    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList,AddProductListener addProductListener) {
+    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList, AddProductListener addProductListener, String search_text) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
         this.addProductListener = addProductListener;
-
+        this.search_text = search_text;
     }
 
     @NonNull
@@ -164,7 +165,9 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
 
                 intent.putExtra("prod_name",prdouctsBean.getTitle());
 
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("search_text",search_text);
+
+                intent.putExtra("fromactivity","SearchProductListActivity");
 
                 context.startActivity(intent);
 

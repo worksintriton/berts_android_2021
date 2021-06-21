@@ -21,6 +21,8 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
 import com.triton.bertsproject.retailer.RetailerProductListBasedOnMakeActivity;
+import com.triton.bertsproject.retailer.ShowAllChildMakesActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 
 import java.util.List;
 
@@ -30,12 +32,13 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
     View view;
     int size;
     private static final String TAG = "ChildMakesListAdapter";
+    String fromactivity;
 
-    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanLists, int size) {
+    public ChildMakesListAdapter(Context context, List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanLists, int size, String fromactivity) {
         this.context = context;
         this.makesBeanList = makesBeanLists;
         this.size = size;
-
+        this.fromactivity = fromactivity;
     }
 
     @NonNull
@@ -71,17 +74,23 @@ public class ChildMakesListAdapter extends RecyclerView.Adapter<ChildMakesListAd
 
             intent.putExtra("make_id",makesBean.getMake_id());
 
+            intent.putExtra("make_name",makesBean.getMake_name());
+
             intent.putExtra("model_id",makesBean.getId());
 
             intent.putExtra("model_name",makesBean.getName());
 
-            intent.putExtra("fromactivity",TAG);
+            intent.putExtra("fromactivity", "ShowAllChildMakesActivity");
 
-            Log.w(TAG,"make_id : "+makesBean.getMake_id() + "model_id :" +makesBean.getId()
+            Connectivity connectivity = new Connectivity();
 
-                            + "model_name : "+makesBean.getName() +
+            connectivity.storeData(context,"ChildMakes",fromactivity);
 
-                            "fromactivity :" +TAG);
+//            Log.w(TAG,"make_id : "+makesBean.getMake_id() + "model_id :" +makesBean.getId()
+//
+//                            + "model_name : "+makesBean.getName() +
+//
+//                            "fromactivity :" +TAG);
 
             context.startActivity(intent);
 

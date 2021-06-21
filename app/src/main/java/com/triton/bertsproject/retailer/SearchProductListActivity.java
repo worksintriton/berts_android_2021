@@ -203,36 +203,41 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         });
     }
 
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+    @SuppressLint("NonConstantResourceId")
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.home:
-                active_tag = "1";
-                //replaceFragment(new HomeFragment());
-                break;
-            case R.id.garage:
-                active_tag = "2";
-                // replaceFragment(new MyGarageFragment());
-                break;
-            case R.id.shop:
-                active_tag = "3";
-                //replaceFragment(new ShopFragment());
-                break;
             case R.id.chat:
                 active_tag = "4";
-                // replaceFragment(new LiveChatFragment());
-                break;
+                callDirections(active_tag);
+                return true;
+            case R.id.garage:
+                active_tag = "2";
+                callDirections(active_tag);
+                return true;
+            case R.id.home:
+                active_tag = "1";
+                callDirections(active_tag);
+                return true;
             case R.id.profile:
                 active_tag = "5";
-                //replaceFragment(new ProfileFragment());
-                break;
-
+                callDirections(active_tag);
+                return true;
+            case R.id.shop:
+                active_tag = "3";
+                callDirections(active_tag);
+                return true;
             default:
-                return  false;
+                return false;
         }
-        return true;
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(SearchProductListActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
     }
 
     @Override
@@ -263,11 +268,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
     @Override
     public void onBackPressed() {
 
-        // super.onBackPressed(); commented this line in order to disable back press
-        //Write your code here
-        startActivity(new Intent(SearchProductListActivity.this, RetailerDashboardActivity.class));
-
-        Animatoo.animateSwipeRight(context);
+        callDirections("1");
     }
 
 
@@ -404,7 +405,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         rv_searchprodlist.setItemAnimator(new DefaultItemAnimator());
 
-        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, prdouctsBeanList,this);
+        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, prdouctsBeanList,this,search_text);
 
         rv_searchprodlist.setAdapter(searchProductListAdapter);
     }

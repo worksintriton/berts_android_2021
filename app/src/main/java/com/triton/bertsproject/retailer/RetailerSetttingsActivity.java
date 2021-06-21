@@ -212,18 +212,23 @@ public class RetailerSetttingsActivity extends AppCompatActivity implements Bott
         switch (item.getItemId()) {
             case R.id.chat:
                 active_tag = "4";
+                callDirections(active_tag);
                 return true;
             case R.id.garage:
                 active_tag = "2";
+                callDirections(active_tag);
                 return true;
             case R.id.home:
                 active_tag = "1";
+                callDirections(active_tag);
                 return true;
             case R.id.profile:
                 active_tag = "5";
+                callDirections(active_tag);
                 return true;
             case R.id.shop:
                 active_tag = "3";
+                callDirections(active_tag);
                 return true;
             default:
                 return false;
@@ -252,7 +257,7 @@ public class RetailerSetttingsActivity extends AppCompatActivity implements Bott
 
     public void onBackPressed() {
 
-        callDirections("1");
+        callDirections("5");
     }
 
 

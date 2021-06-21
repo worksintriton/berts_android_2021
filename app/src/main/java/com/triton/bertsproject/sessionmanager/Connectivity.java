@@ -44,7 +44,9 @@ public class Connectivity {
 
     public void clearData(Context context, String key){
 
-        SharedPreferences settings = context.getSharedPreferences(key, Context.MODE_PRIVATE);
-        settings.edit().clear().apply();
+        SharedPreferences settings = context.getSharedPreferences(key, 0);
+        settings.edit().remove(key).apply();
     }
+
+
 }

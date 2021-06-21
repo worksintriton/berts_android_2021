@@ -25,6 +25,7 @@ import com.triton.bertsproject.adapter.ParentMakesListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -80,6 +81,10 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
     String fromactivity;
 
+    Connectivity connectivity;
+
+    String value;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,44 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
         //registerBroadcastReceiver();
 
+        connectivity = new Connectivity();
+
+        value = connectivity.getData(ShowAllParentMakesActivity.this,"ParentMakes");
+
+        if(value!=null&&!value.isEmpty()){
+
+            Log.w(TAG, "condition --> true");
+
+            fromactivity = value;
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
+            }
+
+            Log.w(TAG,"Connectivity "+ " fromactivity : "+ fromactivity);
+        }
+
+        else {
+
+            Log.w(TAG, "condition --> false");
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
+            }
+
+        }
+
+
         if (dd4YouConfig.isInternetConnectivity()) {
 
             fetchallmakesListResponseCall();
@@ -104,16 +147,6 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
         {
             callnointernet();
 
-        }
-
-
-        Bundle extras = getIntent().getExtras();
-
-        if (extras != null) {
-
-            fromactivity = extras.getString("fromactivity");
-
-            Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
         }
 
 
@@ -251,7 +284,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
         rv_top_makes.setItemAnimator(new DefaultItemAnimator());
 
-        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(ShowAllParentMakesActivity.this, makesBeanList, size);
+        ParentMakesListAdapter parentMakesListAdapter = new ParentMakesListAdapter(ShowAllParentMakesActivity.this, makesBeanList, size,fromactivity);
 
         rv_top_makes.setAdapter(parentMakesListAdapter);
 
@@ -347,7 +380,11 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                connectivity.clearData(ShowAllParentMakesActivity.this,"ParentMakes");
+
                 startActivity(intent);
+
+                finish();
             }
 
 
@@ -359,7 +396,11 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
 
             intent.putExtra("fromactivity",TAG);
 
+            connectivity.clearData(ShowAllParentMakesActivity.this,"ParentMakes");
+
             startActivity(intent);
+
+            finish();
         }
     }
 
@@ -367,6 +408,7 @@ public class ShowAllParentMakesActivity extends AppCompatActivity {
         Intent intent = new Intent(ShowAllParentMakesActivity.this,RetailerDashboardActivity.class);
         intent.putExtra("tag",tag);
         intent.putExtra("fromactivity",TAG);
+        connectivity.clearData(ShowAllParentMakesActivity.this,"ParentMakes");
         startActivity(intent);
         finish();
 

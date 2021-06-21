@@ -25,6 +25,7 @@ import com.triton.bertsproject.adapter.BrandListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
 import com.triton.bertsproject.responsepojo.FetchAllBrandsResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -79,6 +80,10 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
     String fromactivity;
 
+    Connectivity connectivity;
+
+    String value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +96,8 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
         dd4YouConfig = new DD4YouConfig(this);
 
         //registerBroadcastReceiver();
+
+        connectivity = new Connectivity();
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
@@ -108,14 +115,24 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
+        value = connectivity.getData(ShowAllBrandsActivity.this,"Brand");
 
-        Bundle extras = getIntent().getExtras();
+        if(value!=null&&!value.isEmpty()){
 
-        if (extras != null) {
+            fromactivity = value;
 
-            fromactivity = extras.getString("fromactivity");
+            Log.w(TAG,"Connectivity "+ " fromactivity : "+ fromactivity);
+        }
 
-            Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
+        else {
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity );
+            }
         }
 
 
@@ -270,7 +287,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
 
         rv_top_brands.setItemAnimator(new DefaultItemAnimator());
 
-        BrandListAdapter brandListAdapter = new BrandListAdapter(ShowAllBrandsActivity.this, brandsBeanList,size);
+        BrandListAdapter brandListAdapter = new BrandListAdapter(ShowAllBrandsActivity.this, brandsBeanList,size,fromactivity);
 
         rv_top_brands.setAdapter(brandListAdapter);
 
@@ -365,6 +382,7 @@ public class ShowAllBrandsActivity extends AppCompatActivity {
         Intent intent = new Intent(ShowAllBrandsActivity.this,RetailerDashboardActivity.class);
         intent.putExtra("fromactivity",TAG);
         intent.putExtra("tag",tag);
+        connectivity.clearData(ShowAllBrandsActivity.this,"Brand");
         startActivity(intent);
         finish();
 
