@@ -62,7 +62,8 @@
                 android:layout_width="@dimen/_35dp"
                 android:layout_height="@dimen/_35dp"
                 android:layout_margin="@dimen/_10dp"
-                android:background="@drawable/rectangle_corner_yellow_background">
+                android:background="@drawable/rectangle_corner_yellow_background"
+                android:visibility="invisible">
 
                 <ImageView
                     android:id="@+id/img_cart"
@@ -201,6 +202,7 @@
                         android:layout_marginTop="@dimen/_20dp"
                         android:layout_marginEnd="@dimen/_10dp"
                         android:layout_marginBottom="@dimen/_10dp"
+                        android:visibility="gone"
                         app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="@dimen/_10dp">
 
@@ -339,6 +341,21 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="@dimen/_16sp"
                     android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_continue_shop"
+                    android:layout_width="@dimen/_200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20dp"
+                    android:background="@drawable/rectangle_corner_yellow_background"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="@string/continue_shopping"
+                    android:textAllCaps="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/txt_no_records"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="@dimen/_14sp"
+                    android:visibility="gone"/>
 
             </RelativeLayout>
 

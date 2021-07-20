@@ -73,10 +73,11 @@
                     android:id="@+id/sp_country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    />
+                    android:layout_toStartOf="@id/img_arrow1"
+                    android:background="@android:color/transparent" />
 
                 <ImageView
+                    android:id="@+id/img_arrow1"
                     android:layout_width="@dimen/_24dp"
                     android:layout_height="@dimen/_24dp"
                     android:layout_alignParentEnd="true"
@@ -99,9 +100,11 @@
                     android:id="@+id/sp_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/img_arrow2"
                     android:background="@android:color/transparent" />
 
                 <ImageView
+                    android:id="@+id/img_arrow2"
                     android:layout_width="@dimen/_24dp"
                     android:layout_height="@dimen/_24dp"
                     android:layout_alignParentEnd="true"

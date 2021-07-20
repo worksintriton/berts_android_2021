@@ -2,6 +2,7 @@
 package com.triton.bertsproject.retailer;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,11 +45,11 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.txt_shipaddrchange = Utils.findRequiredViewAsType(source, R.id.txt_shipaddrchange, "field 'txt_shipaddrchange'", TextView.class);
     target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
     target.cv_shipping = Utils.findRequiredViewAsType(source, R.id.cv_shipping, "field 'cv_shipping'", CardView.class);
-    target.cv_shipcharge = Utils.findRequiredViewAsType(source, R.id.cv_shipcharge, "field 'cv_shipcharge'", CardView.class);
     target.cv_price = Utils.findRequiredViewAsType(source, R.id.cv_price, "field 'cv_price'", CardView.class);
     target.txt_order_total = Utils.findRequiredViewAsType(source, R.id.txt_order_total, "field 'txt_order_total'", TextView.class);
     target.txt_deliveryaddrtype = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddrtype, "field 'txt_deliveryaddrtype'", TextView.class);
     target.txt_deliveryaddr = Utils.findRequiredViewAsType(source, R.id.txt_deliveryaddr, "field 'txt_deliveryaddr'", TextView.class);
+    target.btn_continue_shop = Utils.findRequiredViewAsType(source, R.id.btn_continue_shop, "field 'btn_continue_shop'", Button.class);
   }
 
   @Override
@@ -71,10 +72,10 @@ public class RetailerCartActivity_ViewBinding implements Unbinder {
     target.txt_shipaddrchange = null;
     target.txt_no_records = null;
     target.cv_shipping = null;
-    target.cv_shipcharge = null;
     target.cv_price = null;
     target.txt_order_total = null;
     target.txt_deliveryaddrtype = null;
     target.txt_deliveryaddr = null;
+    target.btn_continue_shop = null;
   }
 }

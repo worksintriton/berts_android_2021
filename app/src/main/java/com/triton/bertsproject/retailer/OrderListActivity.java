@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,6 +82,10 @@ public class OrderListActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
     SpinKitView spin_kit_loadingView;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_continue_shop)
+    Button btn_continue_shop;
 
     String tag;
 
@@ -197,7 +202,22 @@ public class OrderListActivity extends AppCompatActivity {
 
                             rv_orderlist.setVisibility(View.GONE);
 
-                            txt_no_records.setText("No Orders Found");
+                            txt_no_records.setVisibility(View.VISIBLE);
+
+                            btn_continue_shop.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setText("Hurray ! It's Time to Grab Offers");
+
+                            btn_continue_shop.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    callDirections("2");
+
+                                }
+                            });
+
+
                         }
                     }
 
@@ -205,7 +225,20 @@ public class OrderListActivity extends AppCompatActivity {
 
                         rv_orderlist.setVisibility(View.GONE);
 
-                        txt_no_records.setText("No Orders Found");
+                        txt_no_records.setVisibility(View.VISIBLE);
+
+                        btn_continue_shop.setVisibility(View.VISIBLE);
+
+                        txt_no_records.setText("Hurray ! It's Time to Grab Offers");
+
+                        btn_continue_shop.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                callDirections("2");
+
+                            }
+                        });
                     }
 
                 }

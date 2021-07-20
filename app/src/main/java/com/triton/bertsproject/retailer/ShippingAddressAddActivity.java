@@ -2,6 +2,7 @@ package com.triton.bertsproject.retailer;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -109,7 +110,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
     String userid, name, phoneno, countryid, stateid,city,
 
-    statename,countryname,zipcode,addrln1,addrln2,zip,set_default="1";
+    statename = "",countryname = "",zipcode,addrln1,addrln2,zip,set_default="1";
 
     List<GetCountryResponse.DataBean.CountriesBean> countriesBeanList ;
 
@@ -276,6 +277,15 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
                         else {
 
+                            ArrayList<String> arrayList = new ArrayList<>();
+
+                            arrayList.add("Select Country");
+
+                            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(ShippingAddressAddActivity.this, R.layout.spinner_item, arrayList);
+
+                            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down view
+
+                            sp_country.setAdapter(spinnerArrayAdapter);
 
                         }
                     }
@@ -385,7 +395,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
                     if(200==response.body().getCode()){
 
-                        Log.w(TAG,"GetCountryResponse" + new Gson().toJson(response.body()));
+                        Log.w(TAG,"GetStateResponse" + new Gson().toJson(response.body()));
 
                         statesBeanList = response.body().getData().getStates();
 
@@ -399,6 +409,15 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
                         else {
 
+                            ArrayList<String> arrayList1 = new ArrayList<>();
+
+                            arrayList1.add("Select State");
+
+                            ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<>(ShippingAddressAddActivity.this, R.layout.spinner_item, arrayList1);
+
+                            spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinner_item); // The drop down view
+
+                            sp_state.setAdapter(spinnerArrayAdapter1);
 
                         }
                     }
@@ -513,7 +532,7 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
             isvalid =false;
 
-            edt_name.setError("Please Fill First Name");
+            edt_name.setError("Please Fill the Name");
 
             edt_name.requestFocus();
         }
@@ -567,14 +586,24 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
 
             isvalid =false;
 
-            Toast.makeText(ShippingAddressAddActivity.this,"Please Select Country",Toast.LENGTH_SHORT).show();
+            TextView errorText = (TextView)sp_country.getSelectedView();
+            errorText.setError("");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please Select Country");//changes the selected item text to this
+
+            //Toast.makeText(ShippingAddressAddActivity.this,"Please Select Country",Toast.LENGTH_SHORT).show();
         }
 
         else if(statename.equals("Select State")){
 
             isvalid =false;
 
-            Toast.makeText(ShippingAddressAddActivity.this,"Please Select State",Toast.LENGTH_SHORT).show();
+            TextView errorText = (TextView)sp_state.getSelectedView();
+            errorText.setError("");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please Select State");//changes the selected item text to this
+
+           // Toast.makeText(ShippingAddressAddActivity.this,"Please Select State",Toast.LENGTH_SHORT).show();
         }
 
 

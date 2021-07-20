@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,6 +101,10 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_no_records)
     TextView txt_no_records;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.btn_continue_shop)
+    Button btn_continue_shop;
 
    List<WishlistSuccessResponse.DataBean.WishlistBean> wishlistBeanList ;
 
@@ -263,6 +268,8 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
                             txt_no_records.setVisibility(View.GONE);
 
+                            btn_continue_shop.setVisibility(View.GONE);
+
                             setView(wishlistBeanList);
 
                         }
@@ -271,7 +278,20 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
                             rv_productlist.setVisibility(View.GONE);
 
-                            txt_no_records.setText("No Products Found");
+                            txt_no_records.setVisibility(View.VISIBLE);
+
+                            btn_continue_shop.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setText("Your wishlist seems empty!");
+
+                            btn_continue_shop.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    callDirections("2");
+
+                                }
+                            });
                         }
                     }
 
@@ -279,7 +299,20 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
 
                         rv_productlist.setVisibility(View.GONE);
 
-                        txt_no_records.setText("No Products Found");
+                        txt_no_records.setVisibility(View.VISIBLE);
+
+                        btn_continue_shop.setVisibility(View.VISIBLE);
+
+                        txt_no_records.setText("Your wishlist seems empty!");
+
+                        btn_continue_shop.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                callDirections("2");
+
+                            }
+                        });
                     }
 
                 }
@@ -474,5 +507,12 @@ public class MyWishlistActivity extends AppCompatActivity implements BottomNavig
         return addWishistRequest;
     }
 
+    public void callDirections(String tag){
+        Intent intent = new Intent(MyWishlistActivity.this,RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+        finish();
+
+    }
 
 }

@@ -118,7 +118,11 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
 
         value = connectivity.getData(ShowAllParentCategoriesActivity.this,"ParentCategories");
 
+        Log.w(TAG,"Connectivity "+ " value : "+ value);
+
         if(value!=null&&!value.isEmpty()){
+
+            Log.w(TAG,"Condition TRUE ");
 
             fromactivity = value;
 
@@ -126,6 +130,8 @@ public class ShowAllParentCategoriesActivity extends AppCompatActivity {
         }
 
         else {
+
+            Log.w(TAG,"Condition FALSE ");
 
             Bundle extras = getIntent().getExtras();
 

@@ -42,10 +42,24 @@ public class Connectivity {
         }
     }
 
+    @SuppressLint("LongLogTag")
     public void clearData(Context context, String key){
 
-        SharedPreferences settings = context.getSharedPreferences(key, 0);
+      //  Log.w("Connectivity Class key"," Key : "+ key);
+
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String value = settings.getString(key, "");
+
+    //   Log.w("Connectivity Class before"," value : "+ value);
+
         settings.edit().remove(key).apply();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String value1 = preferences.getString(key, "");
+
+       // Log.w("Connectivity Class after"," value : "+ value1);
     }
 
 

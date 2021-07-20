@@ -48,6 +48,7 @@ import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
 import com.triton.bertsproject.retailer.SearchProductListActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -272,7 +273,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                 Intent intent = new Intent(getContext(), LoginActivity.class);
 
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromactivity",TAG);
 
                 startActivity(intent);
 
@@ -283,7 +284,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                 Intent intent = new Intent(getContext(), RegisterActivity.class);
 
-                intent.putExtra("fromActivity",TAG);
+                intent.putExtra("fromactivity",TAG);
 
                 startActivity(intent);
 
@@ -480,6 +481,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
                             cart_count = response.body().getData().getCart_count();
 
+                            Log.w(TAG, "Cart_Count" + cart_count);
+
+                            Connectivity connectivity = new Connectivity();
+
+                            connectivity.storeData(getContext(),"Cart_Count",String.valueOf(cart_count));
+
                             defaultVehicleBeanList =response.body().getData().getDefault_vehicle();
 
                             Log.w(TAG, "defaultVehicleBeanList" + new Gson().toJson(defaultVehicleBeanList));
@@ -662,9 +669,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         rl_manageveh.setOnClickListener(v -> {
 
-            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.fragment_container,new MyGarageFragment());
+            final FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container, new MyGarageFragment(), "NewFragmentTag");
+            ft.commit();
 
         });
 

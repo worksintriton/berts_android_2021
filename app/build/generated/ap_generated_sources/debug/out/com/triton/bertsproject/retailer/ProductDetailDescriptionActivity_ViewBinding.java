@@ -64,6 +64,11 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.rv_review_ratings = Utils.findRequiredViewAsType(source, R.id.rv_review_ratings, "field 'rv_review_ratings'", RecyclerView.class);
     target.viewPager = Utils.findRequiredViewAsType(source, R.id.pager, "field 'viewPager'", ViewPager.class);
     target.tabLayout = Utils.findRequiredViewAsType(source, R.id.tabDots, "field 'tabLayout'", TabLayout.class);
+    target.img_desc = Utils.findRequiredViewAsType(source, R.id.img_desc, "field 'img_desc'", ImageView.class);
+    target.img_prod_info = Utils.findRequiredViewAsType(source, R.id.img_prod_info, "field 'img_prod_info'", ImageView.class);
+    target.img_cust_revw = Utils.findRequiredViewAsType(source, R.id.img_cust_revw, "field 'img_cust_revw'", ImageView.class);
+    target.ll_product_info = Utils.findRequiredViewAsType(source, R.id.ll_product_info, "field 'll_product_info'", LinearLayout.class);
+    target.ll_cust_revw = Utils.findRequiredViewAsType(source, R.id.ll_cust_revw, "field 'll_cust_revw'", LinearLayout.class);
     target.hand_img1 = Utils.findRequiredViewAsType(source, R.id.hand_img1, "field 'hand_img1'", ImageView.class);
     target.hand_img2 = Utils.findRequiredViewAsType(source, R.id.hand_img2, "field 'hand_img2'", ImageView.class);
     target.hand_img3 = Utils.findRequiredViewAsType(source, R.id.hand_img3, "field 'hand_img3'", ImageView.class);
@@ -84,6 +89,8 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.txt_2star_perc = Utils.findRequiredViewAsType(source, R.id.txt_2star_perc, "field 'txt_2star_perc'", TextView.class);
     target.progress_bar_1star = Utils.findRequiredViewAsType(source, R.id.progress_bar_1star, "field 'progress_bar_1star'", RoundedHorizontalProgressBar.class);
     target.txt_1star_perc = Utils.findRequiredViewAsType(source, R.id.txt_1star_perc, "field 'txt_1star_perc'", TextView.class);
+    target.txt_cart_count = Utils.findRequiredViewAsType(source, R.id.txt_cart_count, "field 'txt_cart_count'", TextView.class);
+    target.rlcart = Utils.findRequiredViewAsType(source, R.id.rlcart, "field 'rlcart'", RelativeLayout.class);
   }
 
   @Override
@@ -123,6 +130,11 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.rv_review_ratings = null;
     target.viewPager = null;
     target.tabLayout = null;
+    target.img_desc = null;
+    target.img_prod_info = null;
+    target.img_cust_revw = null;
+    target.ll_product_info = null;
+    target.ll_cust_revw = null;
     target.hand_img1 = null;
     target.hand_img2 = null;
     target.hand_img3 = null;
@@ -143,5 +155,7 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.txt_2star_perc = null;
     target.progress_bar_1star = null;
     target.txt_1star_perc = null;
+    target.txt_cart_count = null;
+    target.rlcart = null;
   }
 }

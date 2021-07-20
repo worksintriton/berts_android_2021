@@ -25,27 +25,56 @@
             android:layout_marginEnd="5dp"
             tools:ignore="UselessParent">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/rv_default"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/rectangle_corner_light_yellow_background"
+                    android:padding="4dp"
+                    android:visibility="visible"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/txt_default"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="true"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/lato_black"
+                        android:maxLines="1"
+                        android:text="@string/isdefault"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
             <LinearLayout
                 android:id="@+id/ll_shipdaddr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/txt_username"
-                        android:layout_width="match_parent"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:ellipsize="end"
                         android:fontFamily="@font/lato_bold"
                         android:maxLines="1"
@@ -53,25 +82,6 @@
                         android:textColor="@color/dark_grey"
                         android:textSize="16sp"
                         android:textStyle="normal" />
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/txt_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/lato_regular"
-                            android:maxLines="1"
-                            android:text="@string/_14_02_1994"
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -85,43 +95,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:layout_weight="1"
                         android:ellipsize="end"
                         android:fontFamily="@font/lato_black"
                         android:maxLines="1"
                         android:text="@string/_91_9003237255"
                         android:textSize="14sp"
                         android:textStyle="normal" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
-                        android:layout_weight="1">
-
-                        <RelativeLayout
-                            android:id="@+id/rv_default"
-                            android:layout_width="wrap_content"
-                            android:layout_height="35dp"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/rectangle_corner_light_yellow_background"
-                            android:padding="4dp"
-                            android:visibility="gone"
-                            tools:ignore="UselessParent">
-
-                            <TextView
-                                android:id="@+id/txt_default"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="@font/lato_black"
-                                android:maxLines="1"
-                                android:text="@string/isdefault"
-                                android:textSize="12sp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
-
-                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -160,9 +139,9 @@
                     android:textSize="14sp"
                     android:textStyle="normal" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_10dp"
                     android:orientation="horizontal">
 
@@ -175,10 +154,9 @@
 
                         <ImageView
                             android:id="@+id/img_edit"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/_20dp"
+                            android:layout_height="@dimen/_20dp"
                             android:layout_marginStart="20dp"
-                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:src="@drawable/ic_edit"
                             tools:ignore="ContentDescription" />
@@ -187,33 +165,28 @@
                             android:id="@+id/txt_edit_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="@font/lato_black"
                             android:text="@string/edit"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_delete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/ll_edit"
-                        android:layout_toRightOf="@+id/ll_edit"
                         android:orientation="horizontal"
                         tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:id="@+id/img_delete"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_marginStart="20dp"
-                            android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="@dimen/_10dp"
-                            android:layout_marginRight="@dimen/_10dp"
                             android:src="@drawable/trash"
                             tools:ignore="ContentDescription" />
 
@@ -221,14 +194,14 @@
                             android:id="@+id/txt_delete"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="10dp"
                             android:fontFamily="@font/lato_black"
                             android:text="@string/delete"
                             android:textAllCaps="true"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
                     </LinearLayout>
-                </RelativeLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
