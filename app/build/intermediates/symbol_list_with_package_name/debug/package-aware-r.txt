@@ -2642,6 +2642,7 @@ id img_banner
 id img_car_icon
 id img_cart
 id img_colorlist
+id img_country
 id img_cust_revw
 id img_delete
 id img_deliveryaddr
@@ -2698,6 +2699,7 @@ id img_shplst
 id img_star
 id img_star1
 id img_star2
+id img_state
 id img_tick
 id img_tick11
 id img_user_icon
@@ -2757,15 +2759,18 @@ id ll_models
 id ll_multipleadd
 id ll_new
 id ll_orderdetails
+id ll_orderdetails_label
 id ll_price_range
 id ll_proceed
 id ll_product_info
 id ll_product_status
 id ll_productdetails
+id ll_productdetails_label
 id ll_rating
 id ll_root
 id ll_shipdaddr
 id ll_shippingaddress
+id ll_shippingaddress_label
 id ll_shoplist
 id ll_sort
 id ll_star_review
@@ -3397,6 +3402,7 @@ id view21
 id view22
 id view23
 id view24
+id view25
 id view3
 id view4
 id view5

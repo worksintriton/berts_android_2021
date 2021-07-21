@@ -176,7 +176,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
     Connectivity connectivity;
 
-    String value,categ_name,make_name,search_text;
+    String value,categ_name,make_name,search_text,radioValue="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -212,6 +212,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 prod_id = extras.getString("prod_id");
 
                 //prod_id = "2";
+                radioValue=extras.getString("radioValue");
 
                 prod_name = extras.getString("prod_name");
 
@@ -250,6 +251,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
 
             if (extras != null) {
+
+                radioValue=extras.getString("radioValue");
 
                 fromactivity = extras.getString("fromactivity");
 
@@ -322,6 +325,16 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        if(radioValue!=null&&!radioValue.equals("")){
+
+            txt_selectpymthd.setText(""+radioValue);
+        }
+
+        else {
+
+            txt_selectpymthd.setText("Choose Payment Method");
+        }
 
     }
 
@@ -576,14 +589,45 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                                     txt_total_price.setText("0");
                                 }
 
-                                txt_selectpymthd.setText("Choose Payment Method");
+
 
                                 rl_payment_method.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
 
                                         Intent intent=new Intent(CheckoutScreenActivity.this,PaymentMethodActivity.class);
-                                        startActivityForResult(intent, 2);// Activity is started with requestCode 2
+
+                                        intent.putExtra("fromactivity",TAG);
+
+                                        intent.putExtra("prod_id",prod_id);
+
+                                        intent.putExtra("prod_name",prod_name);
+
+                                        intent.putExtra("brand_id",brand_id);
+
+                                        intent.putExtra("brand_name",brand_name);
+
+                                        intent.putExtra("parent_id",parent_id);
+
+                                        intent.putExtra("categ_name",categ_name);
+
+                                        intent.putExtra("subcategid",subcategid);
+
+                                        intent.putExtra("subcategname",subcategname);
+
+                                        intent.putExtra("make_id",make_id);
+
+                                        intent.putExtra("make_name",make_name);
+
+                                        intent.putExtra("model_id", model_id);
+
+                                        intent.putExtra("model_id",model_name);
+
+                                        connectivity.storeData(CheckoutScreenActivity.this,"CheckoutScreen",fromactivity);
+
+                                        startActivity(intent);
+
+                                        finish();
                                     }
                                 });
 
@@ -800,28 +844,5 @@ public class CheckoutScreenActivity extends AppCompatActivity {
         }
     }
 
-    // Call Back method  to get the Message form other Activity
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        // check if the request code is same as what is passed  here it is 2
-        if(requestCode==2)
-        {
-            String message=data.getStringExtra("MESSAGE");
-
-            if(message!=null){
-
-                txt_selectpymthd.setText(" "+message);
-            }
-
-            else {
-
-                txt_selectpymthd.setText("Choose Payment Method");
-            }
-
-
-        }
-    }
 
 }

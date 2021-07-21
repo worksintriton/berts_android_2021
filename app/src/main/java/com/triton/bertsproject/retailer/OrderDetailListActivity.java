@@ -50,7 +50,7 @@ import retrofit2.Response;
 
 public class OrderDetailListActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "SPOrderDetailsActivity" ;
+    private static final String TAG = "OrderDetailListActivity" ;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_no_records)
@@ -167,6 +167,17 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
     @BindView(R.id.cancel_overall_order)
     TextView cancel_overall_order;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_orderdetails_label)
+    LinearLayout ll_orderdetails_label;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_shippingaddress_label)
+    LinearLayout ll_shippingaddress_label;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.ll_productdetails_label)
+    LinearLayout ll_productdetails_label;
 
     AlertDialog alertDialog;
 
@@ -232,6 +243,12 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
         ll_productdetails.setVisibility(View.GONE);
 
+        ll_orderdetails_label.setVisibility(View.GONE);
+
+        ll_shippingaddress_label.setVisibility(View.GONE);
+
+        ll_productdetails_label.setVisibility(View.GONE);
+
         if (dd4YouConfig.isInternetConnectivity()) {
 
             orderDetailListResponseCall();
@@ -252,13 +269,13 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                 Log.w(TAG, "button1IsVisible : "+button1IsVisible);
 
                 if(button1IsVisible) {
-                    ll_orderdetails.setVisibility(View.VISIBLE);
-                    img_expand_arrow.setImageResource(R.drawable.ic_up_arrow);
+                    ll_orderdetails.setVisibility(View.GONE);
+                    img_expand_arrow.setImageResource(R.drawable.ic_right_down);
                     button1IsVisible = false;
                 }
                 else {
-                    ll_orderdetails.setVisibility(View.GONE);
-                    img_expand_arrow.setImageResource(R.drawable.ic_right_down);
+                    ll_orderdetails.setVisibility(View.VISIBLE);
+                    img_expand_arrow.setImageResource(R.drawable.ic_up_arrow);
                     button1IsVisible = true;
 
                 }
@@ -273,12 +290,12 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                 Log.w(TAG, "ShippingIsVisible : "+ShippingIsVisible);
 
                 if(ShippingIsVisible) {
-                    ll_shippingaddress.setVisibility(View.VISIBLE);
-                    img_expand_arrow_shipping.setImageResource(R.drawable.ic_up_arrow);
-                    ShippingIsVisible = false;
-                } else {
                     ll_shippingaddress.setVisibility(View.GONE);
                     img_expand_arrow_shipping.setImageResource(R.drawable.ic_right_down);
+                    ShippingIsVisible = false;
+                } else {
+                    ll_shippingaddress.setVisibility(View.VISIBLE);
+                    img_expand_arrow_shipping.setImageResource(R.drawable.ic_up_arrow);
                     ShippingIsVisible = true;
 
                 }
@@ -487,6 +504,12 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                             view2.setVisibility(View.VISIBLE);
 
                             ll_productdetails.setVisibility(View.VISIBLE);
+
+                            ll_orderdetails_label.setVisibility(View.VISIBLE);
+
+                            ll_shippingaddress_label.setVisibility(View.VISIBLE);
+
+                            ll_productdetails_label.setVisibility(View.VISIBLE);
 
                             ordersBeanList = response.body().getData().getOrders();
 
