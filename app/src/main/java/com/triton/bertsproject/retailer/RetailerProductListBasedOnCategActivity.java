@@ -1102,9 +1102,14 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                             Log.w(TAG, "Cart_Count" + cart_count);
 
+
                             if (cart_count!=null&&!cart_count.equals("0"))  {
 
+                                Log.w(TAG, "Cart_Count --> true");
+
                                 Connectivity connectivity = new Connectivity();
+
+                                connectivity.clearData(context,"Cart_Count");
 
                                 connectivity.storeData(context,"Cart_Count",String.valueOf(cart_count));
 
@@ -1112,6 +1117,8 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
                             }
 
                             else {
+
+                                Log.w(TAG, "Cart_Count --> false");
 
                                 txt_cart_count.setVisibility(View.GONE);
 

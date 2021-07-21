@@ -236,13 +236,15 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                 model_name = extras.getString("model_name");
 
+                search_text = extras.getString("search_text");
+
 
             }
             Log.w(TAG,"Connectivity fromactivity "+ fromactivity +" brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                    + "model_name : "+model_name);
+                    + "model_name : "+model_name + "search_text : "+search_text);
 
         }
 
@@ -282,11 +284,13 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                 model_name = extras.getString("model_name");
 
+                search_text = extras.getString("search_text");
+
                 Log.w(TAG,"Connectivity fromactivity "+ fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
 
                         + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                        + "model_name : "+model_name);
+                        + "model_name : "+model_name + "search_text : "+search_text);
 
             }
         }
@@ -391,6 +395,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 intent.putExtra("model_id", model_id);
 
                 intent.putExtra("model_id",model_name);
+
+                intent.putExtra("search_text",search_text);
 
                 connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
 
@@ -621,7 +627,9 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                         intent.putExtra("model_id", model_id);
 
-                                        intent.putExtra("model_id",model_name);
+                                        intent.putExtra("model_name",model_name);
+
+                                        intent.putExtra("search_text",search_text);
 
                                         connectivity.storeData(CheckoutScreenActivity.this,"CheckoutScreen",fromactivity);
 

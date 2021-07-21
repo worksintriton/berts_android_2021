@@ -1016,7 +1016,9 @@ public class RetailerRegisterFragment extends Fragment {
 
         intent.putExtra("model_id", model_id);
 
-        intent.putExtra("model_id",model_name);
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
 
         startActivity(intent);
 
@@ -1068,7 +1070,9 @@ public class RetailerRegisterFragment extends Fragment {
 
         intent.putExtra("model_id", model_id);
 
-        intent.putExtra("model_id",model_name);
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
 
         intent.putExtra("fromactivity",TAG);
 

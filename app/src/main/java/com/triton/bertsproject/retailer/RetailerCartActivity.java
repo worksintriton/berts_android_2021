@@ -228,13 +228,15 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                 model_name = extras.getString("model_name");
 
+                search_text = extras.getString("search_text");
+
             }
 
             Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ " brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                    + "model_name : "+model_name);
+                    + "model_name : "+model_name + "search_text : "+search_text);
         }
 
         else {
@@ -271,11 +273,13 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                 model_name = extras.getString("model_name");
 
+                search_text = extras.getString("search_text");
+
                 Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
 
                         + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                        + "model_name : "+model_name);
+                        + "model_name : "+model_name + "search_text : "+search_text);
 
             }
         }
@@ -424,6 +428,13 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                 gotoProductDescrActivity();
 
             }
+            else if(fromactivity.equals("SearchProdListActivity")){
+
+                connectivity.clearData(RetailerCartActivity.this,"RetailerCart");
+
+                gotoSearchProductListActivity();
+
+            }
 
             else if(fromactivity.equals("RetailerProductListActivity")){
 
@@ -465,6 +476,43 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             finish();
 
         }
+    }
+
+    private void gotoSearchProductListActivity() {
+
+        Intent intent = new Intent(RetailerCartActivity.this, SearchProductListActivity.class);
+
+        intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("categ_name",categ_name);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("make_name",make_name);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
+
+        startActivity(intent);
+
+        finish();
     }
 
     private void gotoRetailerProductListBasedOnMakeActivity() {
@@ -554,6 +602,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             intent.putExtra("model_id", model_id);
 
             intent.putExtra("model_name",model_name);
+
+            intent.putExtra("search_text",search_text);
 
             startActivity(intent);
 
@@ -706,21 +756,25 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             txt_deliveryaddrchange.setOnClickListener(v -> {
 
-                                Intent intent = new Intent(RetailerCartActivity.this,ShippingAddressActivity.class);
+                                if(txt_deliveryaddrchange.getText().toString().equals("Add Address")){
 
-                                intent.putExtra("fromactivity",fromactivity);
+                                    gotoShippingAddressAddActivity();
+                                }
 
-                                startActivity(intent);
+                                else {
 
-                                Animatoo.animateSwipeRight(context);
+                                    gotoShippingAddressActivity();
+                                }
+
+
                             });
 
-                            txt_shipaddrchange.setOnClickListener(v -> {
-
-                                startActivity(new Intent(RetailerCartActivity.this, ShippingMethodActivity.class));
-
-                                Animatoo.animateSwipeRight(context);
-                            });
+//                            txt_shipaddrchange.setOnClickListener(v -> {
+//
+//                                startActivity(new Intent(RetailerCartActivity.this, ShippingMethodActivity.class));
+//
+//                                Animatoo.animateSwipeRight(context);
+//                            });
 
                             ll_proceed.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -798,6 +852,84 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
     }
 
+    private void gotoShippingAddressActivity() {
+
+        Intent intent = new Intent(RetailerCartActivity.this, ShippingAddressActivity.class);
+
+        intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("categ_name",categ_name);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("make_name",make_name);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
+
+        connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
+
+        startActivity(intent);
+
+        finish();
+    }
+
+    private void gotoShippingAddressAddActivity() {
+
+        Intent intent = new Intent(RetailerCartActivity.this, ShippingAddressAddActivity.class);
+
+        intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("categ_name",categ_name);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("make_name",make_name);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
+
+        connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
+
+        startActivity(intent);
+
+        finish();
+    }
+
     private void showOverallDeleteAlert() {
 
 
@@ -869,7 +1001,9 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         intent.putExtra("model_id", model_id);
 
-        intent.putExtra("model_id",model_name);
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
 
         connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
 
@@ -1235,6 +1369,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
             intent.putExtra("model_id",model_name);
 
+            intent.putExtra("search_text",search_text);
+
             connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
 
             startActivity(intent);
@@ -1268,6 +1404,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             intent.putExtra("model_id", model_id);
 
             intent.putExtra("model_id",model_name);
+
+            intent.putExtra("search_text",search_text);
 
             connectivity.storeData(RetailerCartActivity.this,"RetailerCart",fromactivity);
 

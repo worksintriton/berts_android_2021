@@ -406,7 +406,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                     + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                    + "model_name : "+model_name);
+                    + "model_name : "+model_name + "search_text : "+search_text);
         }
 
         else {
@@ -449,7 +449,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                         + "subcategname : "+subcategname + "make_id : "+make_id + "model_id :" +model_id
 
-                        + "model_name : "+model_name);
+                        + "model_name : "+model_name + "search_text : "+search_text);
 
             }
         }
@@ -608,6 +608,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         intent.putExtra("model_id", model_id);
 
         intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
 
         connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
@@ -1526,6 +1528,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             intent.putExtra("fromactivity",TAG);
 
+            intent.putExtra("search_text",search_text);
+
             connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
             startActivity(intent);
@@ -1558,6 +1562,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             intent.putExtra("model_name",model_name);
 
             intent.putExtra("fromactivity",TAG);
+
+            intent.putExtra("search_text",search_text);
 
             connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
@@ -1714,6 +1720,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         intent.putExtra("model_id",model_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("search_text",search_text);
 
         connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
