@@ -2051,6 +2051,7 @@ drawable ic_about
 drawable ic_baseline_add_24
 drawable ic_baseline_add_darkgrey
 drawable ic_baseline_check_circle_24
+drawable ic_baseline_close_24
 drawable ic_baseline_delete_forever_24
 drawable ic_baseline_keyboard_arrow_right_24
 drawable ic_baseline_remove_24
@@ -2317,6 +2318,7 @@ id activity_chooser_view_content
 id add
 id alertTitle
 id alert_header_txtview
+id alert_title_txtview
 id aligned
 id all
 id already_done_btn
@@ -2641,6 +2643,7 @@ id img_background
 id img_banner
 id img_car_icon
 id img_cart
+id img_close
 id img_colorlist
 id img_country
 id img_cust_revw
@@ -2929,6 +2932,7 @@ id rlList
 id rl_aboutus
 id rl_addVehfromdefault
 id rl_amke
+id rl_cancel
 id rl_currncy
 id rl_date
 id rl_default_shipping
@@ -2941,6 +2945,7 @@ id rl_manageaddress
 id rl_manageveh
 id rl_measurment_unit
 id rl_model
+id rl_no
 id rl_orderstatus
 id rl_ordrhist
 id rl_ordrtrack
@@ -2960,6 +2965,7 @@ id rl_time
 id rl_vehicle
 id rl_wishlist
 id rl_year
+id rl_yes
 id rlcart
 id round
 id rounded
@@ -3090,9 +3096,13 @@ id textStart
 id textTop
 id textView
 id textView1
+id textView17
 id textView2
 id textView3
 id textView4
+id textView5
+id textView6
+id textView7
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3154,6 +3164,7 @@ id txt_addreview
 id txt_addrtxt1
 id txt_addrtxt2
 id txt_addrtxt3
+id txt_alert_title
 id txt_all_categories
 id txt_ans
 id txt_ans_date
@@ -3226,7 +3237,9 @@ id txt_makes
 id txt_manage
 id txt_manageaddress
 id txt_manufacturer
+id txt_max_value
 id txt_measurment_unit
+id txt_min_value
 id txt_model
 id txt_model_selected_value
 id txt_no_products
@@ -3546,6 +3559,7 @@ layout adapter_slidebanner
 layout adapter_vehlist
 layout alert_dialog
 layout alert_logout_layout
+layout alert_vehicle_layout
 layout app_update
 layout bottom_sheet_dialog
 layout bottom_sheet_dialog_currency
@@ -3731,6 +3745,7 @@ string _6476_7687
 string _80
 string _876_kingston_jamaica
 string _91_9003237255
+string _zero
 string a
 string abc_action_bar_home_description
 string abc_action_bar_up_description
@@ -3875,6 +3890,8 @@ string dialog_ok
 string discard
 string discount_subtotal
 string do_i_need_to_change_my_calipers_too
+string dollor1000
+string dollor20
 string download_invoice
 string download_quotation
 string edit
@@ -3936,6 +3953,7 @@ string log_out
 string login
 string login_with_facebook
 string low_to_high
+string maintenance_servicing_parts
 string make
 string makes
 string manage_products
@@ -4075,6 +4093,7 @@ string push_notification
 string q
 string quantity
 string question_answers_5
+string radiator_assembly_manual_transmission
 string rate
 string receipts
 string recent_products

@@ -698,6 +698,7 @@ public class LoginActivity extends AppCompatActivity {
 
         intent.putExtra("unit_price",unit_price);
 
+        startActivity(intent);
 
     }
 

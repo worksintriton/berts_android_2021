@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -181,14 +182,30 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         ll_sort.setVisibility(View.GONE);
 
-        if(dd4YouConfig.isInternetConnectivity()){
+        if (fromactivity!=null&&fromactivity.equals("FilterlistActivity")){
 
-            fetchallproductsListResponseCall();
+            rv_searchprodlist.setVisibility(View.GONE);
+
+            txt_no_records.setVisibility(View.VISIBLE);
+
+            ll_sort.setVisibility(View.GONE);
+
+            txt_no_records.setText(R.string.no_prod_found);
+
+
         }
-
         else {
 
-            callnointernet();
+            if(dd4YouConfig.isInternetConnectivity()){
+
+                fetchallproductsListResponseCall();
+            }
+
+            else {
+
+                callnointernet();
+            }
+
         }
 
         img_back.setOnClickListener(new View.OnClickListener() {
@@ -452,46 +469,93 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
     private void showAlert(String prod_id, String quantity, String unit_price) {
 
-        AlertDialog.Builder builder=new AlertDialog.Builder(SearchProductListActivity.this);
-        builder.setTitle("Alert");
-        builder.setMessage("Please Login to add Products");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Login", (dialogInterface, i) -> {
-            Intent intent = new Intent(SearchProductListActivity.this, LoginActivity.class);
 
-            intent.putExtra("search_text",search_text);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SearchProductListActivity.this);
+// ...Irrelevant code for customizing the buttons and title
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_vehicle_layout, null);
+        dialogBuilder.setView(dialogView);
 
-            intent.putExtra("prod_id",prod_id);
+        dialogBuilder.setCancelable(false);
 
-            intent.putExtra("quantity",quantity);
+        RelativeLayout rl_yes = dialogView.findViewById(R.id.rl_yes);
 
-            intent.putExtra("unit_price",unit_price);
+        RelativeLayout rl_no = dialogView.findViewById(R.id.rl_no);
 
-            intent.putExtra("fromactivity",TAG);
+        ImageView img_close = dialogView.findViewById(R.id.img_close);
 
-            startActivity(intent);
-        });
-        builder.setNegativeButton("Sign In", (dialogInterface, i) -> {
-            Intent intent = new Intent(SearchProductListActivity.this, RegisterActivity.class);
+        img_close.setVisibility(View.VISIBLE);
 
-            intent.putExtra("search_text",search_text);
+        TextView alert_title_txtview = dialogView.findViewById(R.id.alert_title_txtview);
 
-            intent.putExtra("prod_id",prod_id);
+        alert_title_txtview.setText("Please Login to Add Products in Cart");
 
-            intent.putExtra("quantity",quantity);
+        TextView alert_title_login = dialogView.findViewById(R.id.textView6);
 
-            intent.putExtra("unit_price",unit_price);
+        alert_title_login.setText("Login");
 
-            intent.putExtra("fromactivity",TAG);
+        TextView alert_title_signup = dialogView.findViewById(R.id.textView7);
 
-            startActivity(intent);
-        });
-        builder.setNeutralButton("Cancel", (dialogInterface, i) -> {
+        alert_title_signup.setText("Signup");
 
-
-        });
-        AlertDialog alertDialog = builder.create();
+        AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
+
+        rl_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(SearchProductListActivity.this, RegisterActivity.class);
+
+                intent.putExtra("search_text",search_text);
+
+                intent.putExtra("prod_id",prod_id);
+
+                intent.putExtra("quantity",quantity);
+
+                intent.putExtra("unit_price",unit_price);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                alertDialog.dismiss();
+
+            }
+        });
+
+        rl_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SearchProductListActivity.this, LoginActivity.class);
+
+                intent.putExtra("search_text",search_text);
+
+                intent.putExtra("prod_id",prod_id);
+
+                intent.putExtra("quantity",quantity);
+
+                intent.putExtra("unit_price",unit_price);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                alertDialog.dismiss();
+
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                alertDialog.dismiss();
+            }
+        });
     }
 
 

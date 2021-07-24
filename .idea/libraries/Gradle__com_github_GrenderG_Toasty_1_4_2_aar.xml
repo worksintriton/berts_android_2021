@@ -1,9 +1,6 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.GrenderG:Toasty:1.4.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c89bf4beb6d70884b90cc8366a0f75f7/jetified-Toasty-1.4.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c89bf4beb6d70884b90cc8366a0f75f7/jetified-Toasty-1.4.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c89bf4beb6d70884b90cc8366a0f75f7/jetified-Toasty-1.4.2/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9d0ec9254eab1e2df8c7cdd479fafbd/jetified-Toasty-1.4.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9d0ec9254eab1e2df8c7cdd479fafbd/jetified-Toasty-1.4.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9d0ec9254eab1e2df8c7cdd479fafbd/jetified-Toasty-1.4.2/AndroidManifest.xml" />

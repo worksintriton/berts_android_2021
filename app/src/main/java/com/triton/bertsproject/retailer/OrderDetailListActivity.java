@@ -11,11 +11,13 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -342,35 +344,65 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
 
         try {
 
-            new SweetAlertDialog(OrderDetailListActivity.this, SweetAlertDialog.WARNING_TYPE)
-                    .setTitleText("Alert")
-                    .setContentText(msg)
-                    .setCancelText("No")
-                    .setConfirmText("Yes")
-                    .showCancelButton(true)
-                    .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
-                            sDialog.cancel();
-                        }
-                    })
-                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sDialog) {
 
-                            if(dd4YouConfig.isInternetConnectivity()){
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(OrderDetailListActivity.this);
+// ...Irrelevant code for customizing the buttons and title
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.alert_vehicle_layout, null);
+            dialogBuilder.setView(dialogView);
 
-                                emptycartlistResponseCall();
-                            }
-                            else {
+            dialogBuilder.setCancelable(false);
 
-                                callnointernet();
-                            }
-                            sDialog.dismiss();
+            RelativeLayout rl_yes = dialogView.findViewById(R.id.rl_yes);
 
-                        }
-                    })
-                    .show();
+            RelativeLayout rl_no = dialogView.findViewById(R.id.rl_no);
+
+            RelativeLayout rl_cancel = dialogView.findViewById(R.id.rl_cancel);
+
+            rl_cancel.setVisibility(View.GONE);
+
+            TextView alert_title_txtview = dialogView.findViewById(R.id.alert_title_txtview);
+
+            alert_title_txtview.setText(""+msg);
+
+            TextView alert_title_login = dialogView.findViewById(R.id.textView6);
+
+            alert_title_login.setText("Yes");
+
+            TextView alert_title_signup = dialogView.findViewById(R.id.textView7);
+
+            alert_title_signup.setText("No");
+
+            AlertDialog alertDialog = dialogBuilder.create();
+            alertDialog.show();
+
+            rl_no.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    alertDialog.dismiss();
+                }
+            });
+
+            rl_yes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+                        emptycartlistResponseCall();
+                    }
+                    else {
+
+                        callnointernet();
+                    }
+
+
+                    alertDialog.dismiss();
+
+                }
+            });
 
         }
 
@@ -516,17 +548,38 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                             if(ordersBeanList.get(0).getCreated_at()!=null&&!ordersBeanList.get(0).getCreated_at().isEmpty()){
                                 txt_order_date.setText(ordersBeanList.get(0).getCreated_at());
                             }
+                            else {
+
+                                txt_order_date.setText("");
+                            }
                             if(ordersBeanList.get(0).getOrder_number()!=null&&!ordersBeanList.get(0).getOrder_number().isEmpty()){
                                 txt_booking_id.setText("# "+ordersBeanList.get(0).getOrder_number());
 
+                            }else {
+
+                                 txt_booking_id.setText("");
+                            }
+
+                            if(ordersBeanList.get(0).getPayment_method()!=null&&!ordersBeanList.get(0).getPayment_method().isEmpty()){
+                                txt_payment_method.setText(" "+ordersBeanList.get(0).getPayment_method());
+
+                            }else {
+
+                                txt_payment_method.setText("");
                             }
                             if(ordersBeanList.get(0).getPrice_total()!=null&&!ordersBeanList.get(0).getPrice_total().isEmpty()){
                                 txt_total_order_cost.setText("$ "+ordersBeanList.get(0).getPrice_total());
+                            }else {
+
+                                txt_total_order_cost.setText("");
                             }
                             if(ordersBeanList.get(0).getProducts_count() !=0){
                                 txt_quantity.setText(""+ordersBeanList.get(0).getProducts_count());
                             }
+                            else {
 
+                                txt_quantity.setText("");
+                            }
                             if(ordersBeanList.get(0).getShipping_first_name()!=null&&!ordersBeanList.get(0).getShipping_first_name().isEmpty()){
 
                                 first_name =ordersBeanList.get(0).getShipping_first_name();

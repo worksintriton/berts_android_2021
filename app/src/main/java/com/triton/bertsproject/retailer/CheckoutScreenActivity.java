@@ -784,11 +784,21 @@ public class CheckoutScreenActivity extends AppCompatActivity {
          * PAYMENT_METHOD : Offline Payment
          */
 
+
+        String payment_method = txt_selectpymthd.getText().toString();
+
         OrderCreateRequest OrderCreateRequest = new OrderCreateRequest();
         OrderCreateRequest.setMODE("SAVE");
         OrderCreateRequest.setUSER_ID(user_id);
         OrderCreateRequest.setADDRESS_ID(shipid);
-        OrderCreateRequest.setPAYMENT_METHOD("Offline Payment");
+        if(!payment_method.isEmpty()){
+
+            OrderCreateRequest.setPAYMENT_METHOD(payment_method);
+        }
+        else {
+
+            OrderCreateRequest.setPAYMENT_METHOD("Offline Payment");
+        }
 
         Log.w(TAG,"OrderCreateRequest "+ new Gson().toJson(OrderCreateRequest));
         return OrderCreateRequest;

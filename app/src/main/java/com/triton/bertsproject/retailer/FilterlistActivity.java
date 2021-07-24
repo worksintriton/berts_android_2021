@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
+import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.triton.bertsproject.R;
@@ -407,6 +410,29 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             callnointernet();
         }
 
+        // get seekbar from view
+        final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
+
+// get min and max text view
+        final TextView tvMin = findViewById(R.id.txt_min_value);
+        final TextView tvMax = findViewById(R.id.txt_max_value);
+
+// set listener
+        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText("$ "+String.valueOf(minValue));
+                tvMax.setText("$ " +String.valueOf(maxValue));
+            }
+        });
+
+// set final value listener
+        rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+            @Override
+            public void finalValue(Number minValue, Number maxValue) {
+                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+            }
+        });
 
     }
 
@@ -1029,7 +1055,152 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                             btn_reset.setVisibility(View.VISIBLE);
 
+                            btn_reset.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+
+                                    ll_year.setVisibility(View.GONE);
+
+                                    ll_makes.setVisibility(View.GONE);
+
+                                    ll_models.setVisibility(View.GONE);
+
+                                    ll_brand.setVisibility(View.GONE);
+
+                                    ll_categ.setVisibility(View.GONE);
+
+                                    ll_price_range.setVisibility(View.GONE);
+
+                                    ll_rating.setVisibility(View.GONE);
+
+                                    ll_color.setVisibility(View.GONE);
+
+                                    view4.setVisibility(View.GONE);
+
+                                    view6.setVisibility(View.GONE);
+
+                                    view16.setVisibility(View.GONE);
+
+                                    view7.setVisibility(View.GONE);
+
+                                    view8.setVisibility(View.GONE);
+
+                                    view9.setVisibility(View.GONE);
+
+                                    view10.setVisibility(View.GONE);
+
+                                    btn_reset.setVisibility(View.GONE);
+
+                                    btn_apply.setVisibility(View.GONE);
+
+                                    spin_kit_loadingView.setVisibility(View.VISIBLE);
+
+                                    img_back.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+
+                                            onBackPressed();
+
+                                        }
+                                    });
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        fetchallyearListResponseCall();
+
+                                    }
+
+                                    else {
+
+                                        callnointernet();
+                                    }
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        fetchallmakesListResponseCall();
+
+                                    }
+
+                                    else {
+
+                                        callnointernet();
+                                    }
+
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        fetchallbrandsListResponseCall();
+
+                                    }
+
+                                    else {
+
+                                        callnointernet();
+                                    }
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        fetchallcategoriesListResponseCall();
+                                    }
+
+                                    else {
+
+                                        callnointernet();
+                                    }
+
+                                    if (dd4YouConfig.isInternetConnectivity()) {
+
+                                        fetchallcolorListResponseCall();
+
+                                    }
+
+                                    else {
+
+                                        callnointernet();
+                                    }
+
+                                    // get seekbar from view
+                                    final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
+
+// get min and max text view
+                                    final TextView tvMin = findViewById(R.id.txt_min_value);
+                                    final TextView tvMax = findViewById(R.id.txt_max_value);
+
+// set listener
+                                    rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+                                        @Override
+                                        public void valueChanged(Number minValue, Number maxValue) {
+                                            tvMin.setText("$ "+String.valueOf(minValue));
+                                            tvMax.setText("$ " +String.valueOf(maxValue));
+                                        }
+                                    });
+
+// set final value listener
+                                    rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+                                        @Override
+                                        public void finalValue(Number minValue, Number maxValue) {
+                                            Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                                        }
+                                    });
+                                }
+                            });
+
                             btn_apply.setVisibility(View.VISIBLE);
+
+                            btn_apply.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
+
+                                    intent.putExtra("fromactivity",TAG);
+
+                                    intent.putExtra("search_text",search_text);
+
+                                    startActivity(intent);
+                                }
+                            });
 
                             spin_kit_loadingView.setVisibility(View.GONE);
 
@@ -1348,51 +1519,51 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             case R.id.ll_year:
 
-            yearlist();
+                yearlist();
 
-            break;
+                break;
 
             case R.id.ll_makes:
 
-            makelist();
+                makelist();
 
-            break;
+                break;
 
             case R.id.ll_models:
 
-            modellist();
+                modellist();
 
-            break;
+                break;
 
             case R.id.ll_brand:
 
-            brandlist();
+                brandlist();
 
-            break;
+                break;
 
             case R.id.ll_categ:
 
-            categlist();
+                categlist();
 
-            break;
+                break;
 
             case R.id.ll_price_range:
 
-            pricelist();
+                pricelist();
 
-            break;
+                break;
 
             case R.id.ll_rating:
 
-            ratinglist();
+                ratinglist();
 
-            break;
+                break;
 
             case R.id.ll_color:
 
-            colorlist();
+                colorlist();
 
-            break;
+                break;
 
         }
 
