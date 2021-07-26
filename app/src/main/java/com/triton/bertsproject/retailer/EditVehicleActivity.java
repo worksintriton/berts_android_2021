@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -83,6 +84,9 @@ public class EditVehicleActivity extends AppCompatActivity {
     @BindView(R.id.rl_model)
     RelativeLayout rl_model;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.img_back)
+    ImageView img_back;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -194,6 +198,20 @@ public class EditVehicleActivity extends AppCompatActivity {
 
         txt_toolbar_title.setText(R.string.edit_vehicle);
 
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                onBackPressed();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        callDirections("2");
     }
 
     private void checkValidation() {

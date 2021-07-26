@@ -31,6 +31,7 @@ public class RetailerRegisterFragment_ViewBinding implements Unbinder {
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
     target.btnLogin = Utils.findRequiredViewAsType(source, R.id.login_button, "field 'btnLogin'", LoginButton.class);
     target.txt_or = Utils.findRequiredViewAsType(source, R.id.txt_or, "field 'txt_or'", TextView.class);
+    target.txt_terms_conditions = Utils.findRequiredViewAsType(source, R.id.txt_terms_conditions, "field 'txt_terms_conditions'", TextView.class);
   }
 
   @Override
@@ -49,5 +50,6 @@ public class RetailerRegisterFragment_ViewBinding implements Unbinder {
     target.btn_sigin = null;
     target.btnLogin = null;
     target.txt_or = null;
+    target.txt_terms_conditions = null;
   }
 }

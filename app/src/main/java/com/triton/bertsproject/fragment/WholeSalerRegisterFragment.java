@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,6 +61,7 @@ import com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity;
 import com.triton.bertsproject.retailer.RetailerProductListBasedOnMakeActivity;
 import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 import com.triton.bertsproject.retailer.SearchProductListActivity;
+import com.triton.bertsproject.retailer.TermsAndConditionsActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -137,6 +139,10 @@ public class WholeSalerRegisterFragment extends Fragment {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_or)
     TextView txt_or;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_terms_conditions)
+    TextView txt_terms_conditions;
 
     View view;
 
@@ -289,6 +295,21 @@ public class WholeSalerRegisterFragment extends Fragment {
         getKeyHash();
 
         callbackManager = CallbackManager.Factory.create();
+
+        String text = "<font color=#FF000000> with Bert's Auto</font> <font color=#014492>Terms and Condition</font>";
+
+        txt_terms_conditions.setText(Html.fromHtml(text));
+
+        txt_terms_conditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TermsAndConditionsActivity.class);
+                intent.putExtra("fromactivity",TAG);
+                startActivity(intent);
+
+            }
+        });
 
         btnLogin.setPermissions(Arrays.asList("user_photos", "email", "public_profile", "user_posts"));
 

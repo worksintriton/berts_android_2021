@@ -59,6 +59,7 @@ import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
 import com.triton.bertsproject.responsepojo.FilterResponse;
 import com.triton.bertsproject.responsepojo.ForgotPasswordResponse;
 import com.triton.bertsproject.responsepojo.GetCountryResponse;
+import com.triton.bertsproject.responsepojo.GetSettingsResponse;
 import com.triton.bertsproject.responsepojo.GetStateResponse;
 import com.triton.bertsproject.responsepojo.LoginResponse;
 import com.triton.bertsproject.responsepojo.OrderCancelOverallResponse;
@@ -262,5 +263,9 @@ public interface RestApiInterface {
     /*Filter Product*/
     @POST("product")
     Call<FilterResponse> fetchallfilterprodResponseCall(@Header("Content-Type") String type, @Body FilterRequest filterRequest);
+
+    /*Get All Settings*/
+    @GET("settings")
+    Call<GetSettingsResponse> fetchsettings(@Header("Content-Type") String type);
 
 }

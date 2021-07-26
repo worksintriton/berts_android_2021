@@ -136,13 +136,35 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
             if(qty.equals("0")){
 
-                holder.txt_stock_status.setVisibility(View.VISIBLE);
+                holder.txt_stock_status.setVisibility(View.GONE);
+
+                holder.btn_addcart.setText("Out of Stock");
+
+                holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        //do Nothing
+                    }
+                });
 
             }
 
             else {
 
                 holder.txt_stock_status.setVisibility(View.GONE);
+                
+                holder.btn_addcart.setText("Add to Cart");
+
+                holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(),holder.btn_addcart);
+
+                    }
+                });
+
             }
 
 
@@ -183,14 +205,6 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             }
         });
 
-        holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(),holder.btn_addcart);
-
-            }
-        });
 
         holder.cv_root.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -50,6 +50,8 @@ import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -345,6 +347,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @BindView(R.id.rlcart)
     RelativeLayout rlcart;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_stock_status)
+    TextView txt_stock_status;
+
     String cart_count ="0";
 
     @SuppressLint("LongLogTag")
@@ -525,6 +531,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         img_plus.setVisibility(View.GONE);
 
+        txt_stock_status.setVisibility(View.GONE);
+
         ll_text_fit.setVisibility(View.GONE);
 
         cv_prod_desc.setVisibility(View.GONE);
@@ -558,6 +566,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         viewPager.setVisibility(View.GONE);
 
         tabLayout.setVisibility(View.GONE);
+
+        btn_addcart.setVisibility(View.GONE);
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
@@ -856,6 +866,97 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     @SuppressLint("LongLogTag")
     private void setView(ProductDetailRespone.DataBean.ProductsBean prdouctsBean) {
+        String prod_qty = prdouctsBean.getQuantity();
+
+        Log.w(TAG,"Product Quantity" + prod_qty);
+
+        if(prod_qty!=null&&!prod_qty.equals("0")){
+
+            btn_addcart.setVisibility(VISIBLE);
+
+            ll_add_minus.setVisibility(VISIBLE);
+
+            img_minus.setVisibility(VISIBLE);
+
+            txt_count.setVisibility(VISIBLE);
+
+            img_plus.setVisibility(VISIBLE);
+
+            txt_stock_status.setVisibility(View.GONE);
+
+            img_minus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(!txt_count.getText().equals("1")){
+
+                        decreaseInteger();
+
+                    }
+                }
+            });
+
+            img_plus.setOnClickListener(v -> {
+
+                int threshold = Integer.parseInt(prdouctsBean.getQuantity());
+
+                int value = Integer.parseInt(txt_count.getText().toString());
+
+                if(value>threshold) {
+
+                    Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
+
+                }
+                else {
+
+                    increaseInteger();
+                }
+            });
+
+            btn_addcart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(sessionManager.isLoggedIn()){
+
+                        if(dd4YouConfig.isInternetConnectivity()){
+
+                            addcartlistResponseCall();
+                        }
+
+                        else {
+
+                            callnointernet();
+                        }
+                    }
+
+                    else {
+
+                        showAlert();
+                    }
+                }
+            });
+
+
+
+        }
+
+        else {
+
+            txt_stock_status.setVisibility(VISIBLE);
+
+
+            btn_addcart.setVisibility(View.GONE);
+
+            ll_add_minus.setVisibility(View.GONE);
+
+            img_minus.setVisibility(View.GONE);
+
+            txt_count.setVisibility(View.GONE);
+
+            img_plus.setVisibility(View.GONE);
+        }
+
 
         txt_product_name.setVisibility(VISIBLE);
 
@@ -867,13 +968,6 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         txt_price.setVisibility(VISIBLE);
 
-        ll_add_minus.setVisibility(VISIBLE);
-
-        img_minus.setVisibility(VISIBLE);
-
-        txt_count.setVisibility(VISIBLE);
-
-        img_plus.setVisibility(VISIBLE);
 
         ll_text_fit.setVisibility(VISIBLE);
 
@@ -1109,58 +1203,6 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             setReviewComments(reviewsDetailsBeanList);
         }
 
-        img_minus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(!txt_count.getText().equals("1")){
-
-                    decreaseInteger();
-
-                }
-            }
-        });
-
-        img_plus.setOnClickListener(v -> {
-
-            int threshold = Integer.parseInt(prdouctsBean.getQuantity());
-
-            int value = Integer.parseInt(txt_count.getText().toString());
-
-            if(value>threshold) {
-
-               Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
-
-            }
-            else {
-
-                increaseInteger();
-            }
-        });
-
-        btn_addcart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(sessionManager.isLoggedIn()){
-
-                    if(dd4YouConfig.isInternetConnectivity()){
-
-                        addcartlistResponseCall();
-                    }
-
-                    else {
-
-                        callnointernet();
-                    }
-                }
-
-                else {
-
-                    showAlert();
-                }
-            }
-        });
 
         Log.w(TAG,"prdouctsBeanList getReviews_ratings_percentage" + new Gson().toJson(prdouctsBean.getReviews_ratings_percentage()));
 

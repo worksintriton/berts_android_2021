@@ -27,6 +27,7 @@ import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
+import com.triton.bertsproject.retailer.AboutUsActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.OrderListActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
@@ -70,6 +71,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 //    @SuppressLint("NonConstantResourceId")
 //    @BindView(R.id.rl_settings)
 //    RelativeLayout rl_settings;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_aboutus)
+    RelativeLayout rl_aboutus;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rl_login_after)
@@ -232,6 +237,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 //                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
 //
 //            });
+//
+            rl_aboutus.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), AboutUsActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
 
             txt_username.setOnClickListener(v -> {
 

@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
@@ -47,6 +49,7 @@ import com.triton.bertsproject.responsepojo.FetchAllParentCategoriesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllParentMakesResponse;
 import com.triton.bertsproject.responsepojo.FetchAllYearResponse;
 import com.triton.bertsproject.responsepojo.FetchChildMakeslistRequestResponse;
+import com.triton.bertsproject.responsepojo.GetSettingsResponse;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
@@ -233,6 +236,26 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @BindView(R.id.view10)
     View view10;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rb_5star)
+    RadioButton rb_5star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rb_4star)
+    RadioButton rb_4star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rb_3star)
+    RadioButton rb_3star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rb_2star)
+    RadioButton rb_2star;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rb_1star)
+    RadioButton rb_1star;
+
     List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList;
 
     private static final String TAG = "FilterlistActivity";
@@ -269,7 +292,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     SearchBrandFilterlistAdapter searchBrandFilterlistAdapter;
 
-    String search_text,fromactivity,makesid,modelsid,categid,brandid,color,min_pri,max_pri,rating;;
+    String search_text,fromactivity,makesid,modelsid,categid,brandid,color, final_min_value,final_max_value,min_pri="0",max_pri = "0",rating;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -398,7 +421,16 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             callnointernet();
         }
+        if (dd4YouConfig.isInternetConnectivity()) {
 
+            fetchsettingsResponseCall();
+
+        }
+
+        else {
+
+            callnointernet();
+        }
         if (dd4YouConfig.isInternetConnectivity()) {
 
             fetchallcolorListResponseCall();
@@ -410,29 +442,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             callnointernet();
         }
 
-        // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
 
-// get min and max text view
-        final TextView tvMin = findViewById(R.id.txt_min_value);
-        final TextView tvMax = findViewById(R.id.txt_max_value);
 
-// set listener
-        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-            @Override
-            public void valueChanged(Number minValue, Number maxValue) {
-                tvMin.setText("$ "+String.valueOf(minValue));
-                tvMax.setText("$ " +String.valueOf(maxValue));
-            }
-        });
-
-// set final value listener
-        rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
-            @Override
-            public void finalValue(Number minValue, Number maxValue) {
-                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-            }
-        });
 
     }
 
@@ -995,6 +1006,118 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         }
 
     }
+    /* Get Settings */
+
+    @SuppressLint("LongLogTag")
+    private void fetchsettingsResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<GetSettingsResponse> call = apiInterface.fetchsettings(RestUtils.getContentType());
+        Log.w(TAG,"GetSettingsResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<GetSettingsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<GetSettingsResponse> call, @NonNull Response<GetSettingsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"GetSettingsResponse" + new Gson().toJson(response.body()));
+
+                        if(response.body().getData()!=null){
+
+
+                            if(response.body().getData().getMin_product_price()!=null&&!response.body().getData().getMin_product_price().isEmpty()){
+
+                                Log.w(TAG,"MinPrice" + response.body().getData().getMin_product_price());
+
+                                min_pri = response.body().getData().getMin_product_price();
+                            }
+
+                            else {
+
+                                min_pri = "0";
+                            }
+
+                            if(response.body().getData().getMax_product_price()!=null&&!response.body().getData().getMax_product_price().isEmpty()){
+
+                                Log.w(TAG,"MaxPrice" + response.body().getData().getMax_product_price());
+
+                                max_pri = response.body().getData().getMax_product_price();
+                            }
+
+                            else {
+
+                                max_pri = "0";
+                            }
+
+                            // get seekbar from view
+                            final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
+
+                            final TextView tvMin = findViewById(R.id.txt_min_value);
+                            final TextView tvMax = findViewById(R.id.txt_max_value);
+
+                            rangeSeekbar.setMinValue(Float.valueOf(min_pri));
+
+                            rangeSeekbar.setMaxValue(Float.valueOf(max_pri));
+
+
+                            tvMin.setText("$ "+min_pri);
+
+                            tvMax.setText("$ "+max_pri);
+
+                            // set listener
+                            rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+                                @Override
+                                public void valueChanged(Number minValue, Number maxValue) {
+                                    tvMin.setText("$ "+String.valueOf(minValue));
+                                    tvMax.setText("$ " +String.valueOf(maxValue));
+                                }
+                            });
+
+                            // set final value listener
+                            rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
+                                @Override
+                                public void finalValue(Number minValue, Number maxValue) {
+
+                                    final_min_value = String.valueOf(minValue);
+
+                                    final_max_value = String.valueOf(maxValue);
+
+                                    Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
+                                }
+                            });
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<GetSettingsResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"GetSettingsResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
 
     /* Get Colors */
 
@@ -1055,142 +1178,47 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                             btn_reset.setVisibility(View.VISIBLE);
 
+                            btn_apply.setVisibility(View.VISIBLE);
+
                             btn_reset.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
 
-
-                                    ll_year.setVisibility(View.GONE);
-
-                                    ll_makes.setVisibility(View.GONE);
-
-                                    ll_models.setVisibility(View.GONE);
-
-                                    ll_brand.setVisibility(View.GONE);
-
-                                    ll_categ.setVisibility(View.GONE);
-
-                                    ll_price_range.setVisibility(View.GONE);
-
-                                    ll_rating.setVisibility(View.GONE);
-
-                                    ll_color.setVisibility(View.GONE);
-
-                                    view4.setVisibility(View.GONE);
-
-                                    view6.setVisibility(View.GONE);
-
-                                    view16.setVisibility(View.GONE);
-
-                                    view7.setVisibility(View.GONE);
-
-                                    view8.setVisibility(View.GONE);
-
-                                    view9.setVisibility(View.GONE);
-
-                                    view10.setVisibility(View.GONE);
-
-                                    btn_reset.setVisibility(View.GONE);
-
-                                    btn_apply.setVisibility(View.GONE);
-
-                                    spin_kit_loadingView.setVisibility(View.VISIBLE);
-
-                                    img_back.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-
-                                            onBackPressed();
-
-                                        }
-                                    });
-
-                                    if (dd4YouConfig.isInternetConnectivity()) {
-
-                                        fetchallyearListResponseCall();
-
-                                    }
-
-                                    else {
-
-                                        callnointernet();
-                                    }
-
-                                    if (dd4YouConfig.isInternetConnectivity()) {
-
-                                        fetchallmakesListResponseCall();
-
-                                    }
-
-                                    else {
-
-                                        callnointernet();
-                                    }
-
-
-                                    if (dd4YouConfig.isInternetConnectivity()) {
-
-                                        fetchallbrandsListResponseCall();
-
-                                    }
-
-                                    else {
-
-                                        callnointernet();
-                                    }
-
-                                    if (dd4YouConfig.isInternetConnectivity()) {
-
-                                        fetchallcategoriesListResponseCall();
-                                    }
-
-                                    else {
-
-                                        callnointernet();
-                                    }
-
-                                    if (dd4YouConfig.isInternetConnectivity()) {
-
-                                        fetchallcolorListResponseCall();
-
-                                    }
-
-                                    else {
-
-                                        callnointernet();
-                                    }
-
-                                    // get seekbar from view
-                                    final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
-
-// get min and max text view
-                                    final TextView tvMin = findViewById(R.id.txt_min_value);
-                                    final TextView tvMax = findViewById(R.id.txt_max_value);
-
-// set listener
-                                    rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-                                        @Override
-                                        public void valueChanged(Number minValue, Number maxValue) {
-                                            tvMin.setText("$ "+String.valueOf(minValue));
-                                            tvMax.setText("$ " +String.valueOf(maxValue));
-                                        }
-                                    });
-
-// set final value listener
-                                    rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
-                                        @Override
-                                        public void finalValue(Number minValue, Number maxValue) {
-                                            Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-                                        }
-                                    });
+                                    startActivity(getIntent());
                                 }
                             });
-
-                            btn_apply.setVisibility(View.VISIBLE);
 
                             btn_apply.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
+
+                                    String radioValue = "0";
+
+                                    if(rb_1star.isChecked()){
+
+                                        radioValue = "1";
+                                    }
+
+                                    else if(rb_2star.isChecked()){
+
+                                        radioValue = "2";
+                                    }
+
+                                    else if(rb_3star.isChecked()){
+
+                                        radioValue = "3";
+                                    }
+
+                                    else if(rb_4star.isChecked()){
+
+                                        radioValue = "4";
+                                    }
+
+                                    else {
+
+                                        radioValue = "5";
+                                    }
+
 
                                     Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
 
@@ -1273,6 +1301,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
 
     }
+
 
     @Override
     public void getYearNameListener(String id, String year_name, CheckBox cb_flist, boolean isChecked) {
@@ -1456,6 +1485,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         Log.w(TAG,"Selected  Categ ID"+id);
 
+        categid = id;
+
         Log.w(TAG,"Selected  Categ Name"+categ_name);
     }
 
@@ -1463,6 +1494,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     public void getColorIDListener(String id, String color_name) {
 
         Log.w(TAG,"Selected  Color ID"+id);
+
+        color = id;
 
         Log.w(TAG,"Selected Color Name"+color_name);
     }

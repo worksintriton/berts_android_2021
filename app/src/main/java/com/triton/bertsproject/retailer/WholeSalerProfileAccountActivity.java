@@ -610,7 +610,7 @@ public class WholeSalerProfileAccountActivity extends AppCompatActivity {
 
     }
 
-    /* Get Country */
+    /* Get State */
 
     @SuppressLint("LongLogTag")
     private void fetchallstateListResponseCall(String countryid) {

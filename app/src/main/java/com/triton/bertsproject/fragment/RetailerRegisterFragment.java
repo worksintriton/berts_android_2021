@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,6 +62,7 @@ import com.triton.bertsproject.retailer.RetailerProductListBasedOnCategActivity;
 import com.triton.bertsproject.retailer.RetailerProductListBasedOnMakeActivity;
 import com.triton.bertsproject.retailer.SearchProductListActivity;
 import com.triton.bertsproject.retailer.ShowAllBrandsActivity;
+import com.triton.bertsproject.retailer.TermsAndConditionsActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
@@ -121,6 +123,10 @@ public class RetailerRegisterFragment extends Fragment {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_or)
     TextView txt_or;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_terms_conditions)
+    TextView txt_terms_conditions;
 
     View view;
 
@@ -240,6 +246,22 @@ public class RetailerRegisterFragment extends Fragment {
         callbackManager = CallbackManager.Factory.create();
 
         btnLogin.setPermissions(Arrays.asList("user_photos", "email", "public_profile", "user_posts"));
+
+        String text = "<font color=#FF000000> with Bert's Auto</font> <font color=#014492>Terms and Condition</font>";
+
+        txt_terms_conditions.setText(Html.fromHtml(text));
+
+        txt_terms_conditions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TermsAndConditionsActivity.class);
+                intent.putExtra("fromactivity",TAG);
+                startActivity(intent);
+
+            }
+        });
+
 
         // Callback registration
         btnLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {

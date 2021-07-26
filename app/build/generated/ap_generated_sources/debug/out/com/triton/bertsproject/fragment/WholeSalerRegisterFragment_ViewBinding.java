@@ -36,6 +36,7 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_revenue = Utils.findRequiredViewAsType(source, R.id.edt_revenue, "field 'edt_revenue'", CustomEditText.class);
     target.btn_sigin = Utils.findRequiredViewAsType(source, R.id.btn_sigin, "field 'btn_sigin'", Button.class);
     target.txt_or = Utils.findRequiredViewAsType(source, R.id.txt_or, "field 'txt_or'", TextView.class);
+    target.txt_terms_conditions = Utils.findRequiredViewAsType(source, R.id.txt_terms_conditions, "field 'txt_terms_conditions'", TextView.class);
   }
 
   @Override
@@ -58,5 +59,6 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     target.edt_revenue = null;
     target.btn_sigin = null;
     target.txt_or = null;
+    target.txt_terms_conditions = null;
   }
 }

@@ -3,6 +3,7 @@ package com.triton.bertsproject.retailer;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ public class EditVehicleActivity_ViewBinding implements Unbinder {
     target.rl_year = Utils.findRequiredViewAsType(source, R.id.rl_year, "field 'rl_year'", RelativeLayout.class);
     target.rl_make = Utils.findRequiredViewAsType(source, R.id.rl_amke, "field 'rl_make'", RelativeLayout.class);
     target.rl_model = Utils.findRequiredViewAsType(source, R.id.rl_model, "field 'rl_model'", RelativeLayout.class);
+    target.img_back = Utils.findRequiredViewAsType(source, R.id.img_back, "field 'img_back'", ImageView.class);
     target.btn_addVeh = Utils.findRequiredViewAsType(source, R.id.btn_addVeh, "field 'btn_addVeh'", Button.class);
   }
 
@@ -53,6 +55,7 @@ public class EditVehicleActivity_ViewBinding implements Unbinder {
     target.rl_year = null;
     target.rl_make = null;
     target.rl_model = null;
+    target.img_back = null;
     target.btn_addVeh = null;
   }
 }

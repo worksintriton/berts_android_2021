@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Berts Auto Parts</string>
     <string name="facebook_app_id">778009312869231</string>
     <string name="fb_login_protocol_scheme">fb778009312869231</string>
@@ -58,7 +58,7 @@
     <string name="vin_info">VIN/Chassis Number Search</string>
     <string name="vin_info_desc">VIN: 1XXXXXXX234XX</string>
     <string name="partsnosearch_info">Parts Number Search</string>
-    <string name="partsnosearch_info_desc">GXXA1</string>
+    <string name="partsnosearch_info_desc" tools:ignore="Typos">GXXA1</string>
     <string name="prod_search_info_desc">rear brake pads</string>
     <string name="viewall">VIEW ALL</string>
     <string name="top_categories">Top Categories</string>
@@ -358,7 +358,6 @@
     <string name="shipping_address">Shipping Address</string>
 
 
-
     <string name="_1234abcd12344321">1234ABCD12344321</string>
     <string name="business_location">Business Location</string>
     <string name="chennai_2a_3rd_main_rd_ram_nagar_karnam_street_dhadeswaram_nagar_velachery_chennai_tamil_nadu_600042_india">Chennai 2a, 3rd Main Rd, Ram Nagar, Karnam Street, Dhadeswaram Nagar, Velachery, Chennai, Tamil Nadu 600042, India</string>
@@ -398,4 +397,5 @@
     <string name="_zero">(0)</string>
     <string name="dollor20">$200</string>
     <string name="dollor1000">$100000</string>
+    <string name="loreum_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 </resources>
