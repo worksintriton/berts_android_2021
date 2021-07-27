@@ -620,6 +620,7 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
     private void setGridView(List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList,boolean isGrids) {
 
+
         isGrid=isGrids;
 
         rv_prodlist.setVisibility(View.VISIBLE);

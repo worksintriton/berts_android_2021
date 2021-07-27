@@ -172,16 +172,17 @@ public class WholeSalerRegisterFragment extends Fragment {
 
     String zipcode,revenue;
 
-    JSONObject data;
+    JSONObject data,json_data;
 
     String brand_id,brand_name,parent_id,subcategid,categ_name,subcategname,make_id,make_name,model_id,model_name, prod_id,prod_name;;
 
     String search_text , quantity, unit_price,country_name,state_name;
 
-    public WholeSalerRegisterFragment(String fromActivity, JSONObject data) {
+    public WholeSalerRegisterFragment(String fromActivity, JSONObject data, JSONObject json_data) {
         // Required empty public constructor
         this.fromActivity = fromActivity;
         this.data = data;
+        this.json_data = json_data;
     }
 
     @Override
@@ -1308,6 +1309,8 @@ public class WholeSalerRegisterFragment extends Fragment {
 
         intent.putExtra("fromactivity",TAG);
 
+        intent.putExtra("data",json_data.toString());
+
         startActivity(intent);
 
         Objects.requireNonNull(getActivity()).finish();
@@ -1327,6 +1330,8 @@ public class WholeSalerRegisterFragment extends Fragment {
 
         intent.putExtra("fromactivity",TAG);
 
+        intent.putExtra("data",json_data.toString());
+
         startActivity(intent);
 
         Objects.requireNonNull(getActivity()).finish();
@@ -1341,6 +1346,8 @@ public class WholeSalerRegisterFragment extends Fragment {
         intent.putExtra("brand_name",brand_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("data",json_data.toString());
 
         startActivity(intent);
 
@@ -1380,6 +1387,8 @@ public class WholeSalerRegisterFragment extends Fragment {
 
         intent.putExtra("search_text",search_text);
 
+        intent.putExtra("data",json_data.toString());
+
         startActivity(intent);
 
         Objects.requireNonNull(getActivity()).finish();
@@ -1400,6 +1409,8 @@ public class WholeSalerRegisterFragment extends Fragment {
         intent.putExtra("quantity",quantity);
 
         intent.putExtra("unit_price",unit_price);
+
+        intent.putExtra("data",json_data.toString());
 
         startActivity(intent);
 
@@ -1436,6 +1447,8 @@ public class WholeSalerRegisterFragment extends Fragment {
         intent.putExtra("search_text",search_text);
 
         intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("data",json_data.toString());
 
         startActivity(intent);
 

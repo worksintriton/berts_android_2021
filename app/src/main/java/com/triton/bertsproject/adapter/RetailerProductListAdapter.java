@@ -39,6 +39,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
     private final static String TAG = "RetailerProductListAdapter";
     AddProductListener addProductListener;
+    int default_quantity;
 
     public RetailerProductListAdapter(Context context,List<ProductListResponse.DataBean.ProductsBean> prdouctsBeanList , boolean check, WishlistAddProductListener wishlistAddProductListener, ProductListener productListener,AddProductListener addProductListener) {
         this.context = context;
@@ -130,6 +131,10 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             holder.txt_price.setText("$ 0");
         }
 
+        if (prdouctsBean.getDefault_quantity() != 0) {
+
+            default_quantity = prdouctsBean.getDefault_quantity();
+        }
         if(prdouctsBean.getQuantity()!=null&&!prdouctsBean.getQuantity().isEmpty()){
 
             String qty = prdouctsBean.getQuantity();
@@ -160,7 +165,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
                     @Override
                     public void onClick(View v) {
 
-                        addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(),holder.btn_addcart);
+                        addProductListener.addproductListener(prdouctsBean.getId(),String.valueOf(default_quantity),prdouctsBean.getPrice(),holder.btn_addcart);
 
                     }
                 });

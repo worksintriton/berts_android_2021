@@ -37,6 +37,9 @@ import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -178,6 +181,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
     String value,categ_name,make_name,search_text,radioValue="";
 
+    JSONObject data ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,6 +243,27 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                 search_text = extras.getString("search_text");
 
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
 
             }
             Log.w(TAG,"Connectivity fromactivity "+ fromactivity +" brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
@@ -285,6 +311,28 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 model_name = extras.getString("model_name");
 
                 search_text = extras.getString("search_text");
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 Log.w(TAG,"Connectivity fromactivity "+ fromactivity + "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "subcategid :" +subcategid
 
@@ -397,6 +445,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 intent.putExtra("model_id",model_name);
 
                 intent.putExtra("search_text",search_text);
+
+                intent.putExtra("data",data.toString());
 
                 connectivity.clearData(CheckoutScreenActivity.this,"CheckoutScreen");
 
@@ -630,6 +680,8 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                                         intent.putExtra("model_name",model_name);
 
                                         intent.putExtra("search_text",search_text);
+
+                                        intent.putExtra("data",data.toString());
 
                                         connectivity.storeData(CheckoutScreenActivity.this,"CheckoutScreen",fromactivity);
 

@@ -64,6 +64,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     String search_text , quantity, unit_price;
 
+    JSONObject data_json ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +116,27 @@ public class RegisterActivity extends AppCompatActivity {
 
             search_text = extras.getString("search_text");
 
+            try {
+
+                if(getIntent().getStringExtra("data")!=null){
+
+                    data_json = new JSONObject(getIntent().getStringExtra("data"));
+                }
+
+                else {
+
+                    data_json = new JSONObject();
+
+                    Log.w(TAG,"Cond --> false");
+
+                    data_json.put("sample","0");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
             Log.w(TAG,"brand_id "+brand_id+"brand_name "+ brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+"subcategid :" +subcategid
 
                     + "subcategname : "+subcategname +
@@ -159,7 +182,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         // Create an adapter that knows which fragment should be shown on each page
-        RegisterFragmentPagerAdapter adapter = new RegisterFragmentPagerAdapter(this, getSupportFragmentManager(),fromactivity,data);
+        RegisterFragmentPagerAdapter adapter = new RegisterFragmentPagerAdapter(this, getSupportFragmentManager(),fromactivity,data,data_json);
 
         // Set the adapter onto the view pager
         viewpager.setAdapter(adapter);

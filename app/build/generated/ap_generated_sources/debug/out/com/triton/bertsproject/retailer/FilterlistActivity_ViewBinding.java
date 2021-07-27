@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -71,6 +72,11 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.view8 = Utils.findRequiredView(source, R.id.view8, "field 'view8'");
     target.view9 = Utils.findRequiredView(source, R.id.view9, "field 'view9'");
     target.view10 = Utils.findRequiredView(source, R.id.view10, "field 'view10'");
+    target.rb_5star = Utils.findRequiredViewAsType(source, R.id.rb_5star, "field 'rb_5star'", RadioButton.class);
+    target.rb_4star = Utils.findRequiredViewAsType(source, R.id.rb_4star, "field 'rb_4star'", RadioButton.class);
+    target.rb_3star = Utils.findRequiredViewAsType(source, R.id.rb_3star, "field 'rb_3star'", RadioButton.class);
+    target.rb_2star = Utils.findRequiredViewAsType(source, R.id.rb_2star, "field 'rb_2star'", RadioButton.class);
+    target.rb_1star = Utils.findRequiredViewAsType(source, R.id.rb_1star, "field 'rb_1star'", RadioButton.class);
   }
 
   @Override
@@ -122,5 +128,10 @@ public class FilterlistActivity_ViewBinding implements Unbinder {
     target.view8 = null;
     target.view9 = null;
     target.view10 = null;
+    target.rb_5star = null;
+    target.rb_4star = null;
+    target.rb_3star = null;
+    target.rb_2star = null;
+    target.rb_1star = null;
   }
 }

@@ -262,7 +262,7 @@ public interface RestApiInterface {
 
     /*Filter Product*/
     @POST("product")
-    Call<FilterResponse> fetchallfilterprodResponseCall(@Header("Content-Type") String type, @Body FilterRequest filterRequest);
+    Call<SearchProductsResponse> fetchallfilterprodResponseCall(@Header("Content-Type") String type, @Body FilterRequest filterRequest);
 
     /*Get All Settings*/
     @GET("settings")

@@ -143,6 +143,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Connectivity connectivity;
 
+    JSONObject data ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -192,6 +194,27 @@ public class LoginActivity extends AppCompatActivity {
             unit_price = extras.getString("unit_price");
 
             search_text = extras.getString("search_text");
+
+            try {
+
+                if(getIntent().getStringExtra("data")!=null){
+
+                    data = new JSONObject(getIntent().getStringExtra("data"));
+                }
+
+                else {
+
+                    data = new JSONObject();
+
+                    Log.w(TAG,"Cond --> false");
+
+                    data.put("sample","0");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             Log.w(TAG,"brand_id "+brand_id+"brand_name "+ brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+"subcategid :" +subcategid
 
@@ -319,6 +342,7 @@ public class LoginActivity extends AppCompatActivity {
 
         intent.putExtra("unit_price",unit_price);
 
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
@@ -609,6 +633,8 @@ public class LoginActivity extends AppCompatActivity {
 
         intent.putExtra("fromactivity",TAG);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
 
         finish();
@@ -628,6 +654,8 @@ public class LoginActivity extends AppCompatActivity {
 
         intent.putExtra("fromactivity",TAG);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
 
         finish();
@@ -642,6 +670,8 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("brand_name",brand_name);
 
         intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
@@ -679,6 +709,8 @@ public class LoginActivity extends AppCompatActivity {
 
         intent.putExtra("search_text",search_text);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
 
         finish();
@@ -697,6 +729,8 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("quantity",quantity);
 
         intent.putExtra("unit_price",unit_price);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
@@ -733,6 +767,8 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra("model_name",model_name);
 
         intent.putExtra("search_text",search_text);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 

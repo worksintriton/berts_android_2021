@@ -4,24 +4,13 @@ import java.util.List;
 
 public class ProductListResponse {
 
-    /**
-     * status : Success
-     * code : 200
-     * message : Product list successful
-     * data : {"page":1,"per_page":15,"total_count":201,"total_pages":14,"products":[{"id":"201","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-201","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:56","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"200","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-200","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:54","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"199","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-199","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:54","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"198","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-198","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:53","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"197","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-197","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:53","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"196","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-196","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:52","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"195","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-195","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:51","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"194","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-194","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:51","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"193","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-193","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:50","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"192","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-192","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:50","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"191","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-191","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:49","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"190","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-190","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:49","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"189","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-189","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:48","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"188","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-188","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:47","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"187","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-187","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:47","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0}],"page_count":15}
-     */
+
 
     private String status;
     private int code;
     private String message;
-    /**
-     * page : 1
-     * per_page : 15
-     * total_count : 201
-     * total_pages : 14
-     * products : [{"id":"201","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-201","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:56","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"200","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-200","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:54","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"199","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-199","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:54","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"198","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-198","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:53","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"197","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-197","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:53","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"196","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-196","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:52","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"195","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-195","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:51","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"194","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-194","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:51","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"193","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-193","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:50","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"192","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-192","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:50","part_number":"30620-10G01-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"191","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-191","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:49","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"190","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-190","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:49","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"189","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-189","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:48","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"188","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-188","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:47","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0},{"id":"187","title":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","slug":"slave-cylinder-flat-nispickup-2wd-87-187","category_id":"9","subcategory_id":"29","third_category_id":null,"price":"1000","currency":"USD","description":"SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:06:47","part_number":"30620-10G01","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Gear Box (MTM) Parts","category_name":"Transmission & Drive Train","reviews_comments":0,"reviews_ratings":0,"best_fit":0,"wishlist":0}]
-     * page_count : 15
-     */
+
+
 
     private DataBean data;
 
@@ -64,15 +53,15 @@ public class ProductListResponse {
         private int total_pages;
         private int page_count;
         /**
-         * id : 201
-         * title : SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-
-         * slug : slave-cylinder-flat-nispickup-2wd-87-201
-         * category_id : 9
-         * subcategory_id : 29
-         * third_category_id : null
-         * price : 1000
+         * id : 107099
+         * title : BRAKE SHOE FRT & RR (10 HOLES) ISU ELF NPR NKR 93/05-
+         * slug : brake-shoe-frt-rr-10-holes-isu-elf-npr-nkr-9305-107099
+         * category_id : 5
+         * subcategory_id : 14
+         * third_category_id : 84
+         * price : 1200
          * currency : USD
-         * description : SLAVE CYLINDER FLAT NIS/PICKUP 2WD 87-
+         * description : BRAKE SHOE FRT & RR (10 HOLES) ISU ELF NPR NKR 93/05-
          * product_condition : null
          * country_id : null
          * state_id : null
@@ -89,14 +78,14 @@ public class ProductListResponse {
          * rating : 0
          * hit : 0
          * external_link : null
-         * quantity : 10
+         * quantity : 7
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-06-03 13:06:56
-         * part_number : 30620-10G01-J
+         * created_at : 2021-06-22 12:46:21
+         * part_number : S726
          * brand_id : 24
          * colors : null
          * weight : 0
@@ -108,10 +97,13 @@ public class ProductListResponse {
          * discount : 0
          * video : null
          * vin : null
-         * subcategory_name : Gear Box (MTM) Parts
-         * category_name : Transmission & Drive Train
+         * subcategory_name : Brake System
+         * category_name : Maintenance & Servicing Parts
+         * images : [{"id":"0","product_id":"107099","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}]
+         * default_quantity : 1
          * reviews_comments : 0
          * reviews_ratings : 0
+         * brand_name : Nissan
          * best_fit : 0
          * wishlist : 0
          */
@@ -172,7 +164,7 @@ public class ProductListResponse {
             private String slug;
             private String category_id;
             private String subcategory_id;
-            private Object third_category_id;
+            private String third_category_id;
             private String price;
             private String currency;
             private String description;
@@ -213,10 +205,23 @@ public class ProductListResponse {
             private Object vin;
             private String subcategory_name;
             private String category_name;
+            private int default_quantity;
             private int reviews_comments;
             private int reviews_ratings;
+            private String brand_name;
             private int best_fit;
             private int wishlist;
+            /**
+             * id : 0
+             * product_id : 107099
+             * image_default : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_big : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_small : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_order : 1
+             * storage : local
+             */
+
+            private List<ImagesBean> images;
 
             public String getId() {
                 return id;
@@ -258,11 +263,11 @@ public class ProductListResponse {
                 this.subcategory_id = subcategory_id;
             }
 
-            public Object getThird_category_id() {
+            public String getThird_category_id() {
                 return third_category_id;
             }
 
-            public void setThird_category_id(Object third_category_id) {
+            public void setThird_category_id(String third_category_id) {
                 this.third_category_id = third_category_id;
             }
 
@@ -586,6 +591,14 @@ public class ProductListResponse {
                 this.category_name = category_name;
             }
 
+            public int getDefault_quantity() {
+                return default_quantity;
+            }
+
+            public void setDefault_quantity(int default_quantity) {
+                this.default_quantity = default_quantity;
+            }
+
             public int getReviews_comments() {
                 return reviews_comments;
             }
@@ -602,6 +615,14 @@ public class ProductListResponse {
                 this.reviews_ratings = reviews_ratings;
             }
 
+            public String getBrand_name() {
+                return brand_name;
+            }
+
+            public void setBrand_name(String brand_name) {
+                this.brand_name = brand_name;
+            }
+
             public int getBest_fit() {
                 return best_fit;
             }
@@ -616,6 +637,80 @@ public class ProductListResponse {
 
             public void setWishlist(int wishlist) {
                 this.wishlist = wishlist;
+            }
+
+            public List<ImagesBean> getImages() {
+                return images;
+            }
+
+            public void setImages(List<ImagesBean> images) {
+                this.images = images;
+            }
+
+            public static class ImagesBean {
+                private String id;
+                private String product_id;
+                private String image_default;
+                private String image_big;
+                private String image_small;
+                private String image_order;
+                private String storage;
+
+                public String getId() {
+                    return id;
+                }
+
+                public void setId(String id) {
+                    this.id = id;
+                }
+
+                public String getProduct_id() {
+                    return product_id;
+                }
+
+                public void setProduct_id(String product_id) {
+                    this.product_id = product_id;
+                }
+
+                public String getImage_default() {
+                    return image_default;
+                }
+
+                public void setImage_default(String image_default) {
+                    this.image_default = image_default;
+                }
+
+                public String getImage_big() {
+                    return image_big;
+                }
+
+                public void setImage_big(String image_big) {
+                    this.image_big = image_big;
+                }
+
+                public String getImage_small() {
+                    return image_small;
+                }
+
+                public void setImage_small(String image_small) {
+                    this.image_small = image_small;
+                }
+
+                public String getImage_order() {
+                    return image_order;
+                }
+
+                public void setImage_order(String image_order) {
+                    this.image_order = image_order;
+                }
+
+                public String getStorage() {
+                    return storage;
+                }
+
+                public void setStorage(String storage) {
+                    this.storage = storage;
+                }
             }
         }
     }

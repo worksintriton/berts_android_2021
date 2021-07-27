@@ -91,6 +91,8 @@ public class RetailerDashboardActivity extends AppCompatActivity implements Bott
 
         connectivity.clearData(RetailerDashboardActivity.this,"MakesProductList");
 
+        connectivity.clearData(RetailerDashboardActivity.this,"SearchProductList");
+
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

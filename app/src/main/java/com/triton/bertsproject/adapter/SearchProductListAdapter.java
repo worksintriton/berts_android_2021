@@ -20,6 +20,10 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.interfaces.AddProductListener;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
 import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
+import com.triton.bertsproject.retailer.SearchProductListActivity;
+import com.triton.bertsproject.sessionmanager.Connectivity;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -30,13 +34,15 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     AddProductListener addProductListener;
 
     private final static String TAG = "SearchProductListAdapter";
-    String search_text;
-
-    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList, AddProductListener addProductListener, String search_text) {
+    String search_text,fromactivity;
+    JSONObject data;
+    public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList, AddProductListener addProductListener, String search_text, JSONObject data, String fromactivity) {
         this.context = context;
         this.prdouctsBeanList = prdouctsBeanList ;
         this.addProductListener = addProductListener;
         this.search_text = search_text;
+        this.data = data;
+        this.fromactivity=fromactivity;
     }
 
     @NonNull
@@ -167,6 +173,12 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
                 intent.putExtra("prod_name",prdouctsBean.getTitle());
 
                 intent.putExtra("search_text",search_text);
+
+                intent.putExtra("data",data.toString());
+
+                Connectivity connectivity = new Connectivity();
+
+                connectivity.storeData(context,"SearchProductList",fromactivity);
 
                 intent.putExtra("fromactivity","SearchProductListActivity");
 

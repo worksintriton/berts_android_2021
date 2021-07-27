@@ -29,6 +29,7 @@ import com.google.gson.Gson;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.activities.LoginActivity;
 import com.triton.bertsproject.activities.RegisterActivity;
+import com.triton.bertsproject.adapter.SearchBrandFilterlistAdapter;
 import com.triton.bertsproject.adapter.SearchProductListAdapter;
 import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.api.RestApiInterface;
@@ -41,9 +42,15 @@ import com.triton.bertsproject.requestpojo.SearchProductsRequest;
 import com.triton.bertsproject.responsepojo.AddToCartResponse;
 import com.triton.bertsproject.responsepojo.FilterResponse;
 import com.triton.bertsproject.responsepojo.SearchProductsResponse;
+import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -133,7 +140,15 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
     SessionManager sessionManager;
 
-    String years,makesid,modelsid,categid,brandid,colors,min_pri,max_pri,rating;
+    String makesid,modelsid,categid,brandid,color, radioValue,final_min_value,final_max_value,min_pri="0",max_pri = "0",rating;;
+
+    String years;
+
+    JSONObject data ;
+
+    String jsondata,value;
+
+    Connectivity connectivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,15 +161,191 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         floatingActionButton.setImageResource(R.drawable.berts_logo_fb);
 
-        Bundle extras = getIntent().getExtras();
+        connectivity = new Connectivity();
 
-        if (extras != null) {
+        value = connectivity.getData(SearchProductListActivity.this,"SearchProductList");
 
-            fromactivity = extras.getString("fromactivity");
+        if(value!=null&&!value.isEmpty()) {
 
-            search_text = extras.getString("search_text");
+            fromactivity = value;
 
-            Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "search_text : "+search_text);
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                search_text = extras.getString("search_text");
+
+                jsondata = extras.getString("data");
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "search_text : "+search_text
+
+                        + "jsondata : "+jsondata + "data " +data);
+
+                Log.w(TAG,"data "+ new Gson().toJson(data));
+
+            }
+
+        }
+
+        else {
+
+            Bundle extras = getIntent().getExtras();
+
+            if (extras != null) {
+
+                fromactivity = extras.getString("fromactivity");
+
+                search_text = extras.getString("search_text");
+
+                jsondata = extras.getString("data");
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Log.w(TAG,"Connectivity fromactivity : "+fromactivity + "search_text : "+search_text
+
+                        + "jsondata : "+jsondata + "data " +data);
+
+                Log.w(TAG,"data "+ new Gson().toJson(data));
+
+            }
+        }
+
+
+
+
+
+        if(data!=null){
+
+            try {
+
+                if(!data.getString("years").equals("")){
+
+                    years = data.getString("years");
+                }
+                else {
+
+                    years = "";
+                }
+
+
+                //prod_id = "2";
+
+                if(!data.getString("makesid").equals("")){
+
+                    makesid = data.getString("makesid");
+                }
+                else {
+
+                    makesid = "";
+                }
+
+                if(!data.getString("modelid").equals("")){
+
+                    modelsid = data.getString("modelid");
+                }
+                else {
+
+                    modelsid = "";
+                }
+
+                if(!data.getString("brandid").equals("")){
+
+                    brandid = data.getString("brandid");
+                }
+                else {
+
+                    brandid = "";
+                }
+
+                if(!data.getString("categid").equals("")){
+
+                    categid = data.getString("categid");
+                }
+                else {
+
+                    categid = "";
+                }
+                if(!data.getString("min_value").equals("")){
+
+                    final_min_value = data.getString("min_value");
+                }
+                else {
+
+                    final_min_value = "";
+                }
+                if(!data.getString("max_value").equals("")){
+
+                    final_max_value = data.getString("max_value");
+                }
+                else {
+
+                    final_max_value = "";
+                }
+                if(!data.getString("color").equals("")){
+
+                    color = data.getString("color");
+                }
+                else {
+
+                    color = "";
+                }
+                if(!data.getString("rate").equals("")){
+
+                    radioValue = data.getString("rate");
+                }
+                else {
+
+                    radioValue = "";
+                }
+
+                Log.w(TAG, "years : " + years + "makesid : " + makesid + "modelid : "+ modelsid + "brandid : "+ brandid +
+
+                        "categid :" + categid + "final_min_value :" + final_min_value + "final_max_value :" +final_max_value
+
+                        + "color : " + color + "radioValue : " + radioValue );
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
         }
 
@@ -184,15 +375,16 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         if (fromactivity!=null&&fromactivity.equals("FilterlistActivity")){
 
-            rv_searchprodlist.setVisibility(View.GONE);
 
-            txt_no_records.setVisibility(View.VISIBLE);
+            if(dd4YouConfig.isInternetConnectivity()){
 
-            ll_sort.setVisibility(View.GONE);
+                fetchallfiltersproductsListResponseCall();
+            }
 
-            txt_no_records.setText(R.string.no_prod_found);
+            else {
 
-
+                callnointernet();
+            }
         }
         else {
 
@@ -330,6 +522,8 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                                 intent.putExtra("search_text",search_text);
 
+                                connectivity.storeData(SearchProductListActivity.this,"SearchProductList",fromactivity);
+
                                 startActivity(intent);
 
                             });
@@ -419,7 +613,7 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
         rv_searchprodlist.setItemAnimator(new DefaultItemAnimator());
 
-        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, prdouctsBeanList,this,search_text);
+        SearchProductListAdapter searchProductListAdapter = new SearchProductListAdapter(SearchProductListActivity.this, prdouctsBeanList,this,search_text,data,fromactivity);
 
         rv_searchprodlist.setAdapter(searchProductListAdapter);
     }
@@ -518,6 +712,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                 intent.putExtra("fromactivity",TAG);
 
+                intent.putExtra("data",data.toString());
+
+                connectivity.storeData(SearchProductListActivity.this,"SearchProductList",fromactivity);
+
                 startActivity(intent);
 
                 alertDialog.dismiss();
@@ -540,6 +738,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
                 intent.putExtra("unit_price",unit_price);
 
                 intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("data",data.toString());
+
+                connectivity.storeData(SearchProductListActivity.this,"SearchProductList",fromactivity);
 
                 startActivity(intent);
 
@@ -587,6 +789,10 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
                         intent.putExtra("fromactivity",TAG);
 
                         intent.putExtra("search_text",search_text);
+
+                        intent.putExtra("data",data.toString());
+
+                        connectivity.storeData(SearchProductListActivity.this,"SearchProductList",fromactivity);
 
                         startActivity(intent);
 
@@ -642,13 +848,13 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
         spin_kit_loadingView.setVisibility(VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<FilterResponse> call = apiInterface.fetchallfilterprodResponseCall(RestUtils.getContentType(), FilterRequest());
-        Log.w(TAG,"FilterResponse url  :%s"+ call.request().url().toString());
+        Call<SearchProductsResponse> call = apiInterface.fetchallfilterprodResponseCall(RestUtils.getContentType(), FilterRequest());
+        Log.w(TAG,"SearchProductsResponse url  :%s"+ call.request().url().toString());
 
-        call.enqueue(new Callback<FilterResponse>() {
+        call.enqueue(new Callback<SearchProductsResponse>() {
             @SuppressLint("LogNotTimber")
             @Override
-            public void onResponse(@NonNull Call<FilterResponse> call, @NonNull Response<FilterResponse> response) {
+            public void onResponse(@NonNull Call<SearchProductsResponse> call, @NonNull Response<SearchProductsResponse> response) {
                 spin_kit_loadingView.setVisibility(View.GONE);
 
                 if (response.body() != null) {
@@ -657,19 +863,47 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                         Log.w(TAG,"FilterResponse" + new Gson().toJson(response.body()));
 
-//                        prdouctsBean = response.body().getData().getProducts();
-//
-//                        Log.w(TAG,"prdouctsBeanList" + new Gson().toJson(prdouctsBean));
-//
-//                        if(prdouctsBean != null){
-//
-//                            setView(prdouctsBean);
-//                        }
+                        prdouctsBeanList = response.body().getData().getProducts();
 
-//                        else {
-//
-//                            showErrorLoading(response.body().getMessage());
-//                        }
+                        if(response.body().getData().getTotal_count()!=0){
+
+                            txt_total_results.setText(" "+response.body().getData().getTotal_count()+ " Results");
+                        }
+
+                        if(prdouctsBeanList != null && prdouctsBeanList.size()>0){
+
+                            rv_searchprodlist.setVisibility(View.VISIBLE);
+
+                            txt_no_records.setVisibility(View.GONE);
+
+                            ll_sort.setVisibility(View.VISIBLE);
+
+                            rl_sort_filter.setOnClickListener(v -> {
+
+                                Intent intent = new Intent(SearchProductListActivity.this, FilterlistActivity.class);
+
+                                intent.putExtra("fromactivity",TAG);
+
+                                intent.putExtra("search_text",search_text);
+
+                                startActivity(intent);
+
+                            });
+
+                            setGridView(prdouctsBeanList);
+                        }
+
+                        else {
+
+
+                            rv_searchprodlist.setVisibility(View.GONE);
+
+                            txt_no_records.setVisibility(View.VISIBLE);
+
+                            ll_sort.setVisibility(View.GONE);
+
+                            txt_no_records.setText(R.string.no_prod_found);
+                        }
                     }
 
                     else {
@@ -686,9 +920,9 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
 
             @Override
-            public void onFailure(@NonNull Call<FilterResponse> call,@NonNull  Throwable t) {
+            public void onFailure(@NonNull Call<SearchProductsResponse> call,@NonNull  Throwable t) {
                 spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FilterResponse flr"+t.getMessage());
+                Log.w(TAG,"SearchProductsResponse flr"+t.getMessage());
 
             }
         });
@@ -715,20 +949,46 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
          * USER_ID : 541
          */
 
+//
+//               /* toString method returns the output as [Data
+//           Structure,Algorithms,...] In order to replace
+//           '[', ']' and spaces with empty strings to get
+//           comma separated values.*/
+//
+//        String commaseparatedlist = year.toString();
+//
+//        String years = commaseparatedlist.replace("[", "")
+//                .replace("]", "")
+//                .replace(" ", "");
+
+
         FilterRequest FilterRequest = new FilterRequest();
-        FilterRequest.setCATEGORY_ID(categid);
-        FilterRequest.setBRAND_ID(brandid);
-        FilterRequest.setMAKE_ID(makesid);
-        FilterRequest.setMODEL_ID(modelsid);
-        FilterRequest.setCATEGORY_ID(categid);
-        FilterRequest.setYEAR(years);
+        FilterRequest.setCATEGORY_ID("");
+        FilterRequest.setBRAND_ID("");
+        FilterRequest.setMAKE_ID("5");
+        FilterRequest.setMODEL_ID("205");
+        FilterRequest.setYEAR("");
         FilterRequest.setMODE("LIST");
-        FilterRequest.setRATING(rating);
-        FilterRequest.setCOLOR(colors);
-        FilterRequest.setMIN_PRICE(min_pri);
-        FilterRequest.setMAX_PRICE(max_pri);
+        FilterRequest.setRATING("");
+        FilterRequest.setCOLOR("");
+        FilterRequest.setMIN_PRICE("100");
+        FilterRequest.setMAX_PRICE("15000");
         FilterRequest.setUSER_ID(user_id);
 
+//        FilterRequest FilterRequest = new FilterRequest();
+//        FilterRequest.setCATEGORY_ID(categid);
+//        FilterRequest.setBRAND_ID(brandid);
+//        FilterRequest.setMAKE_ID(makesid);
+//        FilterRequest.setMODEL_ID(modelsid);
+//        FilterRequest.setCATEGORY_ID(categid);
+//        FilterRequest.setYEAR(years);
+//        FilterRequest.setMODE("LIST");
+//        FilterRequest.setRATING(radioValue);
+//        FilterRequest.setCOLOR(color);
+//        FilterRequest.setMIN_PRICE(final_min_value);
+//        FilterRequest.setMAX_PRICE(final_max_value);
+//        FilterRequest.setUSER_ID(user_id);
+//
 
 
         Log.w(TAG,"FilterRequest "+ new Gson().toJson(FilterRequest));

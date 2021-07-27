@@ -54,6 +54,9 @@ import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -185,6 +188,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
     String value,categ_name,make_name,search_text,cart_count;
 
+    JSONObject data ;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retailer_cart);
@@ -233,6 +238,27 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                 search_text = extras.getString("search_text");
 
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
             }
 
             Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ " brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
@@ -277,6 +303,27 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
                 model_name = extras.getString("model_name");
 
                 search_text = extras.getString("search_text");
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 Log.w(TAG,"Connectivity fromactivity : "+fromactivity+ "brand_id : "+brand_id + "brand_name : "+brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+ "subcategid :" +subcategid
 
@@ -503,6 +550,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         intent.putExtra("fromactivity",TAG);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
     }
 
@@ -511,6 +560,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         Intent intent = new Intent(RetailerCartActivity.this, MyWishlistActivity.class);
 
         intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
     }
@@ -547,6 +598,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         intent.putExtra("search_text",search_text);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
 
         finish();
@@ -567,6 +620,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         intent.putExtra("model_id", model_id);
 
         intent.putExtra("model_name",model_name);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
@@ -589,6 +644,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
         intent.putExtra("subcategname",subcategname);
 
+        intent.putExtra("data",data.toString());
+
         startActivity(intent);
 
         finish();
@@ -604,6 +661,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
         intent.putExtra("brand_id",brand_id);
 
         intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
@@ -641,6 +700,8 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
             intent.putExtra("model_name",model_name);
 
             intent.putExtra("search_text",search_text);
+
+            intent.putExtra("data",data.toString());
 
             startActivity(intent);
 

@@ -324,12 +324,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\star_rating.png"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_heart_outline.png.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_heart_outline.png"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_terms_and_conditions.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_terms_and_conditions.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_heart_outline.png.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_heart_outline.png"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_track.xml.flat",
@@ -788,12 +788,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_warning.png"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_change_password.xml.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_change_password.xml"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_about_us.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_about_us.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_change_password.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_change_password.xml"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_down_arrow.png.flat",

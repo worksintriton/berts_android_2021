@@ -17,13 +17,14 @@ public class RegisterFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private final Context mContext;
     String fromActivity;
-    JSONObject data;
+    JSONObject data,json_data;
 
-    public RegisterFragmentPagerAdapter(Context context, FragmentManager fm, String fromactivity, JSONObject data) {
+    public RegisterFragmentPagerAdapter(Context context, FragmentManager fm, String fromactivity, JSONObject data, JSONObject data_json) {
         super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mContext = context;
         this.fromActivity = fromactivity;
         this.data = data;
+        this.json_data = data_json;
     }
 
     // This determines the fragment for each tab
@@ -31,9 +32,9 @@ public class RegisterFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new RetailerRegisterFragment(fromActivity,data);
+            return new RetailerRegisterFragment(fromActivity,data,json_data);
         } else {
-            return new WholeSalerRegisterFragment(fromActivity,data);
+            return new WholeSalerRegisterFragment(fromActivity,data,json_data);
         }
 
     }

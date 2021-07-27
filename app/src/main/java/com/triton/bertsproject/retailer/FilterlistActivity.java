@@ -56,6 +56,10 @@ import com.triton.bertsproject.utils.RestUtils;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -1214,9 +1218,106 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
                                         radioValue = "4";
                                     }
 
-                                    else {
+                                    else if(rb_5star.isChecked()){
 
                                         radioValue = "5";
+                                    }
+
+                                    Log.w(TAG, "year : " + year + "makesid : " + makesid + "modelid : "+ modelid + "brandid : "+ brandid +
+
+                                            "categid :" + categid + "final_min_value :" + final_min_value + "final_max_value :" +final_max_value
+
+                                            + "color : " + color + "radioValue : " + radioValue );
+
+                                        /* toString method returns the output as [Data
+                                        Structure,Algorithms,...] In order to replace
+                                        '[', ']' and spaces with empty strings to get
+                                        comma separated values.*/
+
+                                    String commaseparatedlist = year.toString();
+
+                                    String years = commaseparatedlist.replace("[", "")
+                                            .replace("]", "")
+                                            .replace(" ", "");
+
+                                    JSONObject data = new JSONObject();
+                                    try {
+
+                                        if(!years.isEmpty()){
+
+                                            data.put("years",years);
+                                        }
+                                        else {
+
+                                            data.put("years","");
+                                        }
+                                        if(makesid!=null){
+
+                                            data.put("makesid",makesid);
+                                        }
+                                        else {
+
+                                            data.put("makesid","");
+                                        }
+                                        if(modelid!=null){
+
+                                            data.put("modelid",modelid);
+                                        }
+                                        else {
+
+                                            data.put("modelid","");
+                                        }
+                                        if(brandid!=null){
+
+                                            data.put("brandid",brandid);
+                                        }
+                                        else {
+
+                                            data.put("brandid","");
+                                        }
+
+                                        if(categid!=null){
+
+                                            data.put("categid",categid);
+                                        }
+                                        else {
+
+                                            data.put("categid","");
+                                        }
+                                        if(final_min_value!=null){
+
+                                            data.put("min_value",final_min_value);
+                                        }
+                                        else {
+
+                                            data.put("min_value","");
+                                        }
+
+                                        if(final_max_value!=null){
+
+                                            data.put("max_value",final_max_value);
+                                        }
+                                        else {
+
+                                            data.put("max_value",final_max_value);
+                                        }
+
+
+                                        if(color!=null){
+
+                                            data.put("color",color);
+                                        }
+                                        else {
+
+                                            data.put("color","");
+                                        }
+
+
+                                            data.put("rate",radioValue);
+
+                                        Log.w(TAG, "Data" + new Gson().toJson(data));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
                                     }
 
 
@@ -1226,7 +1327,11 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
                                     intent.putExtra("search_text",search_text);
 
+                                    intent.putExtra("data", data.toString());
+
                                     startActivity(intent);
+
+
                                 }
                             });
 
@@ -1316,6 +1421,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             year.add(year_name);
 
+
+
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
         }
 
@@ -1328,6 +1435,9 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
 
         }
+
+
+
 
     }
 

@@ -32,6 +32,9 @@ import com.triton.bertsproject.retailer.RetailerDashboardActivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import in.dd4you.appsconfig.DD4YouConfig;
@@ -74,6 +77,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     String brand_id,brand_name,parent_id,subcategid,categ_name,subcategname,make_id,make_name,model_id,model_name, prod_id,prod_name;;
 
     String search_text , quantity, unit_price;
+
+    JSONObject data ;
 
 
     @Override
@@ -128,6 +133,28 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             unit_price = extras.getString("unit_price");
 
             search_text = extras.getString("search_text");
+
+
+            try {
+
+                if(getIntent().getStringExtra("data")!=null){
+
+                    data = new JSONObject(getIntent().getStringExtra("data"));
+                }
+
+                else {
+
+                    data = new JSONObject();
+
+                    Log.w(TAG,"Cond --> false");
+
+                    data.put("sample","0");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             Log.w(TAG,"brand_id "+brand_id+"brand_name "+ brand_name+"parent_id : "+parent_id+ "categ_name : "+categ_name+"subcategid :" +subcategid
 
@@ -228,6 +255,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         intent.putExtra("unit_price",unit_price);
 
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 

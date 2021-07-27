@@ -50,6 +50,8 @@ import com.triton.bertsproject.sessionmanager.SessionManager;
 import com.triton.bertsproject.utils.GridSpacingItemDecoration;
 import com.triton.bertsproject.utils.RestUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -353,6 +355,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     String cart_count ="0";
 
+    JSONObject data ;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -378,6 +382,28 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
 
             if (extras != null) {
+
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 prod_id = extras.getString("prod_id");
 
@@ -425,6 +451,28 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             if (extras != null) {
 
                 fromactivity = extras.getString("fromactivity");
+
+
+                try {
+
+                    if(getIntent().getStringExtra("data")!=null){
+
+                        data = new JSONObject(getIntent().getStringExtra("data"));
+                    }
+
+                    else {
+
+                        data = new JSONObject();
+
+                        Log.w(TAG,"Cond --> false");
+
+                        data.put("sample","0");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 prod_id = extras.getString("prod_id");
 
@@ -622,6 +670,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         intent.putExtra("search_text",search_text);
 
+        intent.putExtra("data",data.toString());
+
         connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 
         startActivity(intent);
@@ -650,6 +700,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 intent.putExtra("prod_name",prod_name);
 
                 intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("data",data.toString());
 
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
@@ -682,6 +734,9 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                Log.w(TAG, " data " + data.toString());
+                intent.putExtra("data",data.toString());
+
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
                 value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
@@ -712,6 +767,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 intent.putExtra("fromactivity",TAG);
 
+                intent.putExtra("data",data.toString());
+
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
                 value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
@@ -732,6 +789,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
                 intent.putExtra("search_text",search_text);
 
                 intent.putExtra("fromactivity",TAG);
+
+                intent.putExtra("data",data.toString());
 
                 connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
 
@@ -1808,6 +1867,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         intent.putExtra("fromactivity",TAG);
 
         intent.putExtra("search_text",search_text);
+
+        intent.putExtra("data",data.toString());
 
         connectivity.storeData(ProductDetailDescriptionActivity.this,"ProductDetailList",fromactivity);
 

@@ -20,6 +20,9 @@ import com.triton.bertsproject.R;
 import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -71,7 +74,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
 
     String value,categ_name,make_name,search_text,fromactivity ;
 
-
+    JSONObject data ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,27 @@ public class PaymentMethodActivity extends AppCompatActivity {
             radioValue=extras.getString("radioValue");
 
             fromactivity = extras.getString("fromactivity");
+
+            try {
+
+                if(getIntent().getStringExtra("data")!=null){
+
+                    data = new JSONObject(getIntent().getStringExtra("data"));
+                }
+
+                else {
+
+                    data = new JSONObject();
+
+                    Log.w(TAG,"Cond --> false");
+
+                    data.put("sample","0");
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             prod_id = extras.getString("prod_id");
 
@@ -230,6 +254,8 @@ public class PaymentMethodActivity extends AppCompatActivity {
         intent.putExtra("model_name",model_name);
 
         intent.putExtra("search_text",search_text);
+
+        intent.putExtra("data",data.toString());
 
         startActivity(intent);
 
