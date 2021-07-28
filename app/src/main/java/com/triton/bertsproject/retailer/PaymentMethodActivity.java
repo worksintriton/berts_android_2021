@@ -60,7 +60,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
-    String user_id,user_type,radioValue="";
+    String user_id,user_type,radioValue="",selected_method="";
 
     RadioButton radioButton;
 
@@ -166,7 +166,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
             {
               radioButton = (RadioButton) findViewById(checkedId);
 
-              radioValue = radioButton.getText().toString();
+                selected_method = radioButton.getText().toString();
             }
         }
         );
@@ -210,7 +210,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(!radioValue.equals("")){
+        if(!selected_method.equals("")){
 
             gotoCheckoutActiVity();
         }
@@ -225,7 +225,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
 
         Intent intent=new Intent(PaymentMethodActivity.this,CheckoutScreenActivity.class);
 
-        intent.putExtra("radioValue",radioValue);
+        intent.putExtra("radioValue",selected_method);
 
         intent.putExtra("fromactivity",TAG);
 
