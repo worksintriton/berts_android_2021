@@ -140,29 +140,58 @@
 
                             <ImageView
                                 android:id="@+id/img_deliveryaddr"
-                                android:layout_width="@dimen/_35dp"
-                                android:layout_height="@dimen/_35dp"
+                                android:layout_width="@dimen/_25dp"
+                                android:layout_height="@dimen/_25dp"
+                                android:layout_gravity="center_vertical"
                                 android:contentDescription="@string/image_description"
                                 android:src="@drawable/location" />
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
 
-                                <TextView
-                                    android:id="@+id/txt_deliveryaddrtype"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="@dimen/_10dp"
-                                    android:fontFamily="@font/lato_black"
-                                    android:text="@string/sample"
-                                    android:textColor="@color/dark_blue"
-                                    android:textSize="@dimen/_16sp" />
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/txt_deliveryaddrtype"
+                                        android:layout_width="@dimen/_0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/lato_black"
+                                        android:text="@string/sample"
+                                        android:textColor="@color/dark_blue"
+                                        android:textSize="@dimen/_16sp"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="end"
+                                        android:layout_weight="1">
+
+                                        <TextView
+                                            android:id="@+id/txt_deliveryaddrchange"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_gravity="end"
+                                            android:layout_marginStart="@dimen/_10dp"
+                                            android:layout_marginTop="@dimen/_5dp"
+                                            android:fontFamily="@font/lato_bold"
+                                            android:text="@string/change"
+                                            android:textColor="@color/dark_blue"
+                                            android:textSize="@dimen/_12sp" />
+                                    </RelativeLayout>
+                                </LinearLayout>
 
                                 <TextView
                                     android:id="@+id/txt_deliveryaddr"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_10dp"
                                     android:layout_marginTop="@dimen/_5dp"
@@ -171,24 +200,6 @@
                                     android:textColor="@color/light_grey"
                                     android:textSize="@dimen/_12sp" />
                             </LinearLayout>
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <TextView
-                                    android:id="@+id/txt_deliveryaddrchange"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_gravity="end"
-                                    android:layout_marginStart="@dimen/_10dp"
-                                    android:layout_marginTop="@dimen/_5dp"
-                                    android:fontFamily="@font/lato_bold"
-                                    android:text="@string/change"
-                                    android:textColor="@color/dark_blue"
-                                    android:textSize="@dimen/_12sp" />
-                            </RelativeLayout>
 
                         </LinearLayout>
 

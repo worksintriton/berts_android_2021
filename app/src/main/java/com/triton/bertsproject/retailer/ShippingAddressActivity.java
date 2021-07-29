@@ -172,6 +172,8 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
             Log.w(TAG,"user_id "+userid);
         }
 
+        btn_addnewaddr.setVisibility(View.GONE);
+
         txt_toolbar_title.setText(R.string.ship_addr);
 
         btn_addnewaddr.setOnClickListener(new View.OnClickListener() {
@@ -325,6 +327,8 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
                     if(200==response.body().getCode()){
 
                         Log.w(TAG,"UserAddressListResponse" + new Gson().toJson(response.body()));
+
+                        btn_addnewaddr.setVisibility(View.VISIBLE);
 
                         addressBeanList = response.body().getData().getAddress();
 

@@ -5,19 +5,18 @@ import java.util.List;
 public class ProductDetailRespone {
 
 
-
     /**
      * status : Success
      * code : 200
      * message : Product Detail successful
-     * data : {"products":{"id":"2","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-2","category_id":"6","subcategory_id":"21","third_category_id":null,"price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:05:21","part_number":"21460-8H303","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":3,"reviews_ratings":4,"reviews_details":[{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}],"reviews_ratings_total_count":3,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}}}
+     * data : {"products":{"id":"1","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-1","category_id":"6","subcategory_id":"21","third_category_id":"40","price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"4","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-05 00:32:56","part_number":"21460-8H303","brand_id":"24","colors":"red","weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-X-Trail","images":[{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}],"default_quantity":1,"reviews_comments":1,"reviews_ratings":3,"reviews_details":[{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}],"reviews_ratings_total_count":1,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]}}
      */
 
     private String status;
     private int code;
     private String message;
     /**
-     * products : {"id":"2","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-2","category_id":"6","subcategory_id":"21","third_category_id":null,"price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-03 13:05:21","part_number":"21460-8H303","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}],"reviews_comments":3,"reviews_ratings":4,"reviews_details":[{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}],"reviews_ratings_total_count":3,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}}
+     * products : {"id":"1","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-1","category_id":"6","subcategory_id":"21","third_category_id":"40","price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"4","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-05 00:32:56","part_number":"21460-8H303","brand_id":"24","colors":"red","weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-X-Trail","images":[{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}],"default_quantity":1,"reviews_comments":1,"reviews_ratings":3,"reviews_details":[{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}],"reviews_ratings_total_count":1,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]}
      */
 
     private DataBean data;
@@ -56,12 +55,12 @@ public class ProductDetailRespone {
 
     public static class DataBean {
         /**
-         * id : 2
+         * id : 1
          * title : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
-         * slug : radiator-atm-nisxtrail-t30-qr20de-2000-03-2
+         * slug : radiator-atm-nisxtrail-t30-qr20de-2000-03-1
          * category_id : 6
          * subcategory_id : 21
-         * third_category_id : null
+         * third_category_id : 40
          * price : 1000
          * currency : USD
          * description : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
@@ -81,16 +80,16 @@ public class ProductDetailRespone {
          * rating : 0
          * hit : 0
          * external_link : null
-         * quantity : 10
+         * quantity : 4
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-06-03 13:05:21
+         * created_at : 2021-06-05 00:32:56
          * part_number : 21460-8H303
          * brand_id : 24
-         * colors : null
+         * colors : red
          * weight : 0
          * height : 0
          * length : 0
@@ -102,12 +101,17 @@ public class ProductDetailRespone {
          * vin : null
          * subcategory_name : Engine Cooling
          * category_name : Performance & Tuning
-         * images : [{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]
-         * reviews_comments : 3
-         * reviews_ratings : 4
-         * reviews_details : [{"rating":"4","review":"Good Product","date":"05/26/2021","added_by":"testf test"},{"rating":"5","review":"Good .","date":"12/28/2020","added_by":"testc testc"},{"rating":"4","review":"Very nice product write a review","date":"12/30/2019","added_by":"testc testc"}]
-         * reviews_ratings_total_count : 3
-         * reviews_ratings_percentage : {"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":67,"rating_5":33}
+         * brand_name : Nissan
+         * make_names : Nissan
+         * model_names : Nissan-X-Trail
+         * images : [{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}]
+         * default_quantity : 1
+         * reviews_comments : 1
+         * reviews_ratings : 3
+         * reviews_details : [{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}]
+         * reviews_ratings_total_count : 1
+         * reviews_ratings_percentage : {"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0}
+         * wholesaler_price : [{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]
          */
 
         private ProductsBean products;
@@ -126,7 +130,7 @@ public class ProductDetailRespone {
             private String slug;
             private String category_id;
             private String subcategory_id;
-            private Object third_category_id;
+            private String third_category_id;
             private String price;
             private String currency;
             private String description;
@@ -155,7 +159,7 @@ public class ProductDetailRespone {
             private String created_at;
             private String part_number;
             private String brand_id;
-            private Object colors;
+            private String colors;
             private String weight;
             private String height;
             private String length;
@@ -167,37 +171,47 @@ public class ProductDetailRespone {
             private Object vin;
             private String subcategory_name;
             private String category_name;
+            private String brand_name;
+            private String make_names;
+            private String model_names;
+            private int default_quantity;
             private int reviews_comments;
             private int reviews_ratings;
             private int reviews_ratings_total_count;
             /**
              * rating_1 : 0
              * rating_2 : 0
-             * rating_3 : 0
-             * rating_4 : 67
-             * rating_5 : 33
+             * rating_3 : 100
+             * rating_4 : 0
+             * rating_5 : 0
              */
 
             private ReviewsRatingsPercentageBean reviews_ratings_percentage;
             /**
-             * id : 339
-             * product_id : 2
-             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg
-             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg
-             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg
+             * id : 334
+             * product_id : 1
+             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg
+             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg
+             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg
              * image_order : 1
              * storage : local
              */
 
             private List<ImagesBean> images;
             /**
-             * rating : 4
-             * review : Good Product
-             * date : 05/26/2021
-             * added_by : testf test
+             * rating : 3
+             * review : test
+             * date : 06/05/2021
+             * added_by : testc testc
              */
 
             private List<ReviewsDetailsBean> reviews_details;
+            /**
+             * quantity : 2
+             * price : 250
+             */
+
+            private List<WholesalerPriceBean> wholesaler_price;
 
             public String getId() {
                 return id;
@@ -239,11 +253,11 @@ public class ProductDetailRespone {
                 this.subcategory_id = subcategory_id;
             }
 
-            public Object getThird_category_id() {
+            public String getThird_category_id() {
                 return third_category_id;
             }
 
-            public void setThird_category_id(Object third_category_id) {
+            public void setThird_category_id(String third_category_id) {
                 this.third_category_id = third_category_id;
             }
 
@@ -471,11 +485,11 @@ public class ProductDetailRespone {
                 this.brand_id = brand_id;
             }
 
-            public Object getColors() {
+            public String getColors() {
                 return colors;
             }
 
-            public void setColors(Object colors) {
+            public void setColors(String colors) {
                 this.colors = colors;
             }
 
@@ -567,6 +581,38 @@ public class ProductDetailRespone {
                 this.category_name = category_name;
             }
 
+            public String getBrand_name() {
+                return brand_name;
+            }
+
+            public void setBrand_name(String brand_name) {
+                this.brand_name = brand_name;
+            }
+
+            public String getMake_names() {
+                return make_names;
+            }
+
+            public void setMake_names(String make_names) {
+                this.make_names = make_names;
+            }
+
+            public String getModel_names() {
+                return model_names;
+            }
+
+            public void setModel_names(String model_names) {
+                this.model_names = model_names;
+            }
+
+            public int getDefault_quantity() {
+                return default_quantity;
+            }
+
+            public void setDefault_quantity(int default_quantity) {
+                this.default_quantity = default_quantity;
+            }
+
             public int getReviews_comments() {
                 return reviews_comments;
             }
@@ -613,6 +659,14 @@ public class ProductDetailRespone {
 
             public void setReviews_details(List<ReviewsDetailsBean> reviews_details) {
                 this.reviews_details = reviews_details;
+            }
+
+            public List<WholesalerPriceBean> getWholesaler_price() {
+                return wholesaler_price;
+            }
+
+            public void setWholesaler_price(List<WholesalerPriceBean> wholesaler_price) {
+                this.wholesaler_price = wholesaler_price;
             }
 
             public static class ReviewsRatingsPercentageBean {
@@ -765,6 +819,27 @@ public class ProductDetailRespone {
 
                 public void setAdded_by(String added_by) {
                     this.added_by = added_by;
+                }
+            }
+
+            public static class WholesalerPriceBean {
+                private String quantity;
+                private String price;
+
+                public String getQuantity() {
+                    return quantity;
+                }
+
+                public void setQuantity(String quantity) {
+                    this.quantity = quantity;
+                }
+
+                public String getPrice() {
+                    return price;
+                }
+
+                public void setPrice(String price) {
+                    this.price = price;
                 }
             }
         }

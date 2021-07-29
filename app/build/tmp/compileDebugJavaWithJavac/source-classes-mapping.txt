@@ -21,6 +21,7 @@ com/triton/bertsproject/responsepojo/ProductDetailRespone.java
  com.triton.bertsproject.responsepojo.ProductDetailRespone$DataBean$ProductsBean$ImagesBean
  com.triton.bertsproject.responsepojo.ProductDetailRespone$DataBean$ProductsBean$ReviewsDetailsBean
  com.triton.bertsproject.responsepojo.ProductDetailRespone$DataBean$ProductsBean$ReviewsRatingsPercentageBean
+ com.triton.bertsproject.responsepojo.ProductDetailRespone$DataBean$ProductsBean$WholesalerPriceBean
 com/triton/bertsproject/requestpojo/GetStateRequest.java
  com.triton.bertsproject.requestpojo.GetStateRequest
 com/triton/bertsproject/retailer/RetailerSetttingsActivity.java
@@ -431,8 +432,11 @@ com/triton/bertsproject/responsepojo/FetchAllBrandsResponse.java
  com.triton.bertsproject.responsepojo.FetchAllBrandsResponse
  com.triton.bertsproject.responsepojo.FetchAllBrandsResponse$DataBean
  com.triton.bertsproject.responsepojo.FetchAllBrandsResponse$DataBean$BrandBean
-com/triton/bertsproject/interfaces/WishlistAddProductListener.java
- com.triton.bertsproject.interfaces.WishlistAddProductListener
+com/triton/bertsproject/retailer/PaymentMethodActivity.java
+ com.triton.bertsproject.retailer.PaymentMethodActivity
+ com.triton.bertsproject.retailer.PaymentMethodActivity$1
+ com.triton.bertsproject.retailer.PaymentMethodActivity$2
+ com.triton.bertsproject.retailer.PaymentMethodActivity$3
 com/triton/bertsproject/responsepojo/FetchAllYearResponse.java
  com.triton.bertsproject.responsepojo.FetchAllYearResponse
  com.triton.bertsproject.responsepojo.FetchAllYearResponse$DataBean
@@ -594,23 +598,12 @@ com/triton/bertsproject/retailerfragment/MyGarageFragment.java
  com.triton.bertsproject.retailerfragment.MyGarageFragment$2
  com.triton.bertsproject.retailerfragment.MyGarageFragment$3
  com.triton.bertsproject.retailerfragment.MyGarageFragment$4
-com/triton/bertsproject/retailer/RetailerCartActivity.java
- com.triton.bertsproject.retailer.RetailerCartActivity
- com.triton.bertsproject.retailer.RetailerCartActivity$1
- com.triton.bertsproject.retailer.RetailerCartActivity$1$1
- com.triton.bertsproject.retailer.RetailerCartActivity$1$2
- com.triton.bertsproject.retailer.RetailerCartActivity$1$3
- com.triton.bertsproject.retailer.RetailerCartActivity$10
- com.triton.bertsproject.retailer.RetailerCartActivity$11
- com.triton.bertsproject.retailer.RetailerCartActivity$2
- com.triton.bertsproject.retailer.RetailerCartActivity$3
- com.triton.bertsproject.retailer.RetailerCartActivity$4
- com.triton.bertsproject.retailer.RetailerCartActivity$5
- com.triton.bertsproject.retailer.RetailerCartActivity$6
- com.triton.bertsproject.retailer.RetailerCartActivity$7
- com.triton.bertsproject.retailer.RetailerCartActivity$8
- com.triton.bertsproject.retailer.RetailerCartActivity$9
- com.triton.bertsproject.retailer.RetailerCartActivity$9$1
+com/triton/bertsproject/retailer/CheckoutScreenActivity.java
+ com.triton.bertsproject.retailer.CheckoutScreenActivity
+ com.triton.bertsproject.retailer.CheckoutScreenActivity$1
+ com.triton.bertsproject.retailer.CheckoutScreenActivity$2
+ com.triton.bertsproject.retailer.CheckoutScreenActivity$2$1
+ com.triton.bertsproject.retailer.CheckoutScreenActivity$3
 com/triton/bertsproject/retailer/ShippingAddressEditActivity.java
  com.triton.bertsproject.retailer.ShippingAddressEditActivity
  com.triton.bertsproject.retailer.ShippingAddressEditActivity$1
@@ -722,14 +715,22 @@ com/triton/bertsproject/requestpojo/EditVehicleRequest.java
  com.triton.bertsproject.requestpojo.EditVehicleRequest
 com/triton/bertsproject/sessionmanager/SessionManager.java
  com.triton.bertsproject.sessionmanager.SessionManager
-com/triton/bertsproject/retailer/PaymentMethodActivity.java
- com.triton.bertsproject.retailer.PaymentMethodActivity
- com.triton.bertsproject.retailer.PaymentMethodActivity$1
- com.triton.bertsproject.retailer.PaymentMethodActivity$2
- com.triton.bertsproject.retailer.PaymentMethodActivity$3
-com/triton/bertsproject/retailer/CheckoutScreenActivity.java
- com.triton.bertsproject.retailer.CheckoutScreenActivity
- com.triton.bertsproject.retailer.CheckoutScreenActivity$1
- com.triton.bertsproject.retailer.CheckoutScreenActivity$2
- com.triton.bertsproject.retailer.CheckoutScreenActivity$2$1
- com.triton.bertsproject.retailer.CheckoutScreenActivity$3
+com/triton/bertsproject/retailer/RetailerCartActivity.java
+ com.triton.bertsproject.retailer.RetailerCartActivity
+ com.triton.bertsproject.retailer.RetailerCartActivity$1
+ com.triton.bertsproject.retailer.RetailerCartActivity$1$1
+ com.triton.bertsproject.retailer.RetailerCartActivity$1$2
+ com.triton.bertsproject.retailer.RetailerCartActivity$1$3
+ com.triton.bertsproject.retailer.RetailerCartActivity$10
+ com.triton.bertsproject.retailer.RetailerCartActivity$11
+ com.triton.bertsproject.retailer.RetailerCartActivity$2
+ com.triton.bertsproject.retailer.RetailerCartActivity$3
+ com.triton.bertsproject.retailer.RetailerCartActivity$4
+ com.triton.bertsproject.retailer.RetailerCartActivity$5
+ com.triton.bertsproject.retailer.RetailerCartActivity$6
+ com.triton.bertsproject.retailer.RetailerCartActivity$7
+ com.triton.bertsproject.retailer.RetailerCartActivity$8
+ com.triton.bertsproject.retailer.RetailerCartActivity$9
+ com.triton.bertsproject.retailer.RetailerCartActivity$9$1
+com/triton/bertsproject/interfaces/WishlistAddProductListener.java
+ com.triton.bertsproject.interfaces.WishlistAddProductListener

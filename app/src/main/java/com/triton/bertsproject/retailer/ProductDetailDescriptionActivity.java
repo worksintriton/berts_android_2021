@@ -757,9 +757,11 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 intent.putExtra("make_id",make_id);
 
+                intent.putExtra("make_name",make_name);
+
                 intent.putExtra("model_id", model_id);
 
-                intent.putExtra("model_id",model_name);
+                intent.putExtra("model_name",model_name);
 
                 intent.putExtra("prod_id",prod_id);
 
