@@ -48,6 +48,7 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.edt_search = Utils.findRequiredViewAsType(source, R.id.edt_search, "field 'edt_search'", EditText.class);
     target.img_search = Utils.findRequiredViewAsType(source, R.id.img_search, "field 'img_search'", ImageView.class);
     target.txt_keyword_info = Utils.findRequiredViewAsType(source, R.id.txt_keyword_info, "field 'txt_keyword_info'", TextView.class);
+    target.txt_select_vehc31 = Utils.findRequiredViewAsType(source, R.id.txt_select_vehc31, "field 'txt_select_vehc31'", TextView.class);
   }
 
   @Override
@@ -79,5 +80,6 @@ public class HomeFragment_ViewBinding implements Unbinder {
     target.edt_search = null;
     target.img_search = null;
     target.txt_keyword_info = null;
+    target.txt_select_vehc31 = null;
   }
 }

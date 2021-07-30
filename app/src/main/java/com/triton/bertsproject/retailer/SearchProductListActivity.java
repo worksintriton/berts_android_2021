@@ -501,9 +501,9 @@ public class SearchProductListActivity extends AppCompatActivity implements Bott
 
                         prdouctsBeanList = response.body().getData().getProducts();
 
-                        if(response.body().getData().getTotal_count()!=0){
+                        if(response.body().getData().getPer_page()!=0){
 
-                            txt_total_results.setText(" "+response.body().getData().getTotal_count()+ " Results");
+                            txt_total_results.setText(" "+response.body().getData().getPer_page()+ " Results");
                         }
 
                         if(prdouctsBeanList != null && prdouctsBeanList.size()>0){

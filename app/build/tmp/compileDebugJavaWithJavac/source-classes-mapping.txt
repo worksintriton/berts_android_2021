@@ -176,8 +176,8 @@ com/triton/bertsproject/fragment/WholeSalerRegisterFragment.java
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$10
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$11
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$12
+ com.triton.bertsproject.fragment.WholeSalerRegisterFragment$13
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$2
- com.triton.bertsproject.fragment.WholeSalerRegisterFragment$2$1
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$3
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$4
  com.triton.bertsproject.fragment.WholeSalerRegisterFragment$5
@@ -444,6 +444,7 @@ com/triton/bertsproject/responsepojo/FetchAllYearResponse.java
 com/triton/bertsproject/adapter/MywishListAdapter.java
  com.triton.bertsproject.adapter.MywishListAdapter
  com.triton.bertsproject.adapter.MywishListAdapter$1
+ com.triton.bertsproject.adapter.MywishListAdapter$2
  com.triton.bertsproject.adapter.MywishListAdapter$ShoplistHolder
 com/triton/bertsproject/adapter/OrderListAdapter.java
  com.triton.bertsproject.adapter.OrderListAdapter
@@ -528,7 +529,6 @@ com/triton/bertsproject/interfaces/RemoveProductListener.java
 com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity
  com.triton.bertsproject.activities.LoginActivity$1
- com.triton.bertsproject.activities.LoginActivity$1$1
  com.triton.bertsproject.activities.LoginActivity$2
  com.triton.bertsproject.activities.LoginActivity$3
  com.triton.bertsproject.activities.LoginActivity$4
@@ -536,6 +536,7 @@ com/triton/bertsproject/activities/LoginActivity.java
  com.triton.bertsproject.activities.LoginActivity$6
  com.triton.bertsproject.activities.LoginActivity$7
  com.triton.bertsproject.activities.LoginActivity$8
+ com.triton.bertsproject.activities.LoginActivity$9
 com/triton/bertsproject/retailer/CouponApplyDetailActivity.java
  com.triton.bertsproject.retailer.CouponApplyDetailActivity
 com/triton/bertsproject/retailer/ShowAllParentMakesActivity.java
@@ -560,13 +561,13 @@ com/triton/bertsproject/fragment/RetailerRegisterFragment.java
  com.triton.bertsproject.fragment.RetailerRegisterFragment
  com.triton.bertsproject.fragment.RetailerRegisterFragment$1
  com.triton.bertsproject.fragment.RetailerRegisterFragment$2
- com.triton.bertsproject.fragment.RetailerRegisterFragment$2$1
  com.triton.bertsproject.fragment.RetailerRegisterFragment$3
  com.triton.bertsproject.fragment.RetailerRegisterFragment$4
  com.triton.bertsproject.fragment.RetailerRegisterFragment$5
  com.triton.bertsproject.fragment.RetailerRegisterFragment$6
  com.triton.bertsproject.fragment.RetailerRegisterFragment$7
  com.triton.bertsproject.fragment.RetailerRegisterFragment$8
+ com.triton.bertsproject.fragment.RetailerRegisterFragment$9
 com/triton/bertsproject/retailer/AboutUsActivity.java
  com.triton.bertsproject.retailer.AboutUsActivity
  com.triton.bertsproject.retailer.AboutUsActivity$1

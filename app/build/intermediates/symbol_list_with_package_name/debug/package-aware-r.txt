@@ -2361,6 +2361,7 @@ id btn_addcart1
 id btn_addnewaddr
 id btn_apply
 id btn_continue_shop
+id btn_login_with_facebook
 id btn_no
 id btn_payment_gateway
 id btn_proceed
@@ -3563,6 +3564,7 @@ layout adapter_shoplist
 layout adapter_slidebanner
 layout adapter_vehlist
 layout alert_dialog
+layout alert_fb_layout
 layout alert_logout_layout
 layout alert_vehicle_layout
 layout app_update
@@ -3915,6 +3917,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string facebook_app_id
 string fast_shipping
+string fb_alert
 string fb_login_protocol_scheme
 string feb_28_2021_10_19
 string fill_height

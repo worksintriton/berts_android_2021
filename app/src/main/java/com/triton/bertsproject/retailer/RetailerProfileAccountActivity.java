@@ -49,6 +49,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -340,7 +341,9 @@ public class RetailerProfileAccountActivity extends AppCompatActivity {
 
             if (dd4YouConfig.isInternetConnectivity()) {
 
-                registerResponseCall(firstname,lastname,email,zip);
+                Toasty.success(RetailerProfileAccountActivity.this, "Updated Success", Toast.LENGTH_SHORT).show();
+
+                callDirections("5");
 
             }
 

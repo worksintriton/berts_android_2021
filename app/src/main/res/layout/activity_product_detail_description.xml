@@ -468,6 +468,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
+                    android:visibility="visible"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp"
                     tools:ignore="UnusedAttribute">
@@ -534,6 +535,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10dp"
+                    android:visibility="visible"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp">
 
@@ -1341,7 +1343,7 @@
                                     android:fontFamily="@font/lato_regular"
                                     android:text="@string/_5_star"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="200dp"
@@ -1381,7 +1383,7 @@
                                     android:gravity="end"
                                     android:text="@string/_80"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
@@ -1404,7 +1406,7 @@
                                     android:fontFamily="@font/lato_regular"
                                     android:text="@string/_4_star"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="200dp"
@@ -1443,7 +1445,7 @@
                                     android:gravity="end"
                                     android:text="@string/_60"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
@@ -1466,7 +1468,7 @@
                                     android:fontFamily="@font/lato_regular"
                                     android:text="@string/_3_star"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="200dp"
@@ -1505,7 +1507,7 @@
                                     android:gravity="end"
                                     android:text="@string/_40"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
@@ -1528,7 +1530,7 @@
                                     android:fontFamily="@font/lato_regular"
                                     android:text="@string/_2_star"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="200dp"
@@ -1567,7 +1569,7 @@
                                     android:gravity="end"
                                     android:text="@string/_20"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
 
                             </LinearLayout>
@@ -1590,7 +1592,7 @@
                                     android:fontFamily="@font/lato_regular"
                                     android:text="@string/_1_star"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                                 <LinearLayout
                                     android:layout_width="200dp"
@@ -1629,7 +1631,7 @@
                                     android:gravity="end"
                                     android:text="@string/_5"
                                     android:textColor="@color/dark_grey"
-                                    android:textSize="@dimen/_16sp" />
+                                    android:textSize="14sp" />
 
                             </LinearLayout>
                         </LinearLayout>

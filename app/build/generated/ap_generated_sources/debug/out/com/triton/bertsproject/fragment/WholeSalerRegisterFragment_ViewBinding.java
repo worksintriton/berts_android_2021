@@ -9,7 +9,6 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import com.facebook.login.widget.LoginButton;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.triton.bertsproject.R;
 import com.triton.bertsproject.customView.CustomEditText;
@@ -23,7 +22,7 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
   public WholeSalerRegisterFragment_ViewBinding(WholeSalerRegisterFragment target, View source) {
     this.target = target;
 
-    target.btnLogin = Utils.findRequiredViewAsType(source, R.id.login_button, "field 'btnLogin'", LoginButton.class);
+    target.btn_sigin_with_facebook = Utils.findRequiredViewAsType(source, R.id.btn_sigin_with_facebook, "field 'btn_sigin_with_facebook'", Button.class);
     target.spin_kit_loadingView = Utils.findRequiredViewAsType(source, R.id.spin_kit_loadingView, "field 'spin_kit_loadingView'", SpinKitView.class);
     target.edt_firstname = Utils.findRequiredViewAsType(source, R.id.edt_firstname, "field 'edt_firstname'", CustomEditText.class);
     target.edt_lastname = Utils.findRequiredViewAsType(source, R.id.edt_lastname, "field 'edt_lastname'", CustomEditText.class);
@@ -46,7 +45,7 @@ public class WholeSalerRegisterFragment_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.btnLogin = null;
+    target.btn_sigin_with_facebook = null;
     target.spin_kit_loadingView = null;
     target.edt_firstname = null;
     target.edt_lastname = null;

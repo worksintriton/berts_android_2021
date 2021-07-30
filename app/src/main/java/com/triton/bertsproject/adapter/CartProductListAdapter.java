@@ -88,9 +88,10 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 //
 //            holder.txt_total_reviews.setText(review);
 //        }
+
         if (cartBean.getPrice() != null&&!cartBean.getPrice().isEmpty()) {
 
-            String price = "\u0024" + cartBean.getPrice();
+            String price = "USD " + cartBean.getPrice();
 
             holder.txt_price.setText(price);
         }

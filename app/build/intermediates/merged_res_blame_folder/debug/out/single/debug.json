@@ -896,6 +896,10 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\tab_background_unselected.xml"
     },
     {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_alert_fb_layout.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\alert_fb_layout.xml"
+    },
+    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_retailer_order_track.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_retailer_order_track.xml"
     },

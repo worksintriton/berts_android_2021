@@ -32,6 +32,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList ;
     View view;
     AddProductListener addProductListener;
+    String curreency;
 
     private final static String TAG = "SearchProductListAdapter";
     String search_text,fromactivity;
@@ -144,12 +145,30 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             holder.txt_total_reviews.setText(review);
         }
 
+        if(prdouctsBean.getCurrency()!=null&&!prdouctsBean.getCurrency().isEmpty()){
+
+            curreency = prdouctsBean.getCurrency();
+
+        }
+
+        else {
+
+            curreency="";
+        }
+
         if (prdouctsBean.getPrice()!= null) {
 
-            String price = "$ "+prdouctsBean.getPrice();
+            String price = curreency+" "+prdouctsBean.getPrice();
 
             holder.txt_price.setText(price);
 
+        }
+
+        else {
+
+            String price = curreency+" "+"0";
+
+            holder.txt_price.setText(price);
         }
 
         holder.btn_addcart.setOnClickListener(new View.OnClickListener() {

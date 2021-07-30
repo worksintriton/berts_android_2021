@@ -568,10 +568,10 @@ public class OrderDetailListActivity extends AppCompatActivity implements View.O
                                 txt_payment_method.setText("");
                             }
                             if(ordersBeanList.get(0).getPrice_total()!=null&&!ordersBeanList.get(0).getPrice_total().isEmpty()){
-                                txt_total_order_cost.setText("$ "+ordersBeanList.get(0).getPrice_total());
+                                txt_total_order_cost.setText("USD "+ordersBeanList.get(0).getPrice_total());
                             }else {
 
-                                txt_total_order_cost.setText("");
+                                txt_total_order_cost.setText("USD 0");
                             }
                             if(ordersBeanList.get(0).getProducts_count() !=0){
                                 txt_quantity.setText(""+ordersBeanList.get(0).getProducts_count());

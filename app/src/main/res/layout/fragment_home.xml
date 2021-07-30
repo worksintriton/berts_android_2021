@@ -229,11 +229,12 @@
                                         android:id="@+id/txt_select_vehc31"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_5dp"
                                         android:fontFamily="@font/lato_bold"
                                         android:text="@string/_2_0l_xxxxcs_fl_turbo_vin_xasd"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/_12sp"
-                                        android:visibility="gone" />
+                                        android:visibility="visible" />
                                 </LinearLayout>
 
                                 <RelativeLayout

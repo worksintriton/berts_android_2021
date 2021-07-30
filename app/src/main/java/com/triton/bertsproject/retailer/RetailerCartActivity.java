@@ -770,7 +770,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                             if(response.body().getData().getCart_total()!=0){
 
-                                txt_order_total.setText("$ "+response.body().getData().getCart_total());
+                                txt_order_total.setText("USD "+response.body().getData().getCart_total());
                             }
 
 

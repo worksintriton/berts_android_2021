@@ -24,6 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -116,9 +118,13 @@ public class RetailerRegisterFragment extends Fragment {
     @BindView(R.id.btn_sigin)
     Button btn_sigin;
 
+//    @SuppressLint("NonConstantResourceId")
+//    @BindView(R.id.login_button)
+//    LoginButton btnLogin;
+
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.login_button)
-    LoginButton btnLogin;
+    @BindView(R.id.btn_sigin_with_facebook)
+    Button btn_sigin_with_facebook;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_or)
@@ -239,15 +245,15 @@ public class RetailerRegisterFragment extends Fragment {
 
         }
 
-        btnLogin=view.findViewById(R.id.login_button);
-
-        btnLogin.setFragment(this);
+//        btnLogin=view.findViewById(R.id.login_button);
+//
+//        btnLogin.setFragment(this);
 
         getKeyHash();
 
         callbackManager = CallbackManager.Factory.create();
 
-        btnLogin.setPermissions(Arrays.asList("user_photos", "email", "public_profile", "user_posts"));
+     //   btnLogin.setPermissions(Arrays.asList("user_photos", "email", "public_profile", "user_posts"));
 
         String text = "<font color=#FF000000> with Bert's Auto</font> <font color=#014492>Terms and Condition</font>";
 
@@ -265,53 +271,101 @@ public class RetailerRegisterFragment extends Fragment {
         });
 
 
-        // Callback registration
-        btnLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//        // Callback registration
+//        btnLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                GraphRequest request = GraphRequest.newMeRequest(
+//                        loginResult.getAccessToken(),
+//                        new GraphRequest.GraphJSONObjectCallback() {
+//
+//                            @SuppressLint("LongLogTag")
+//                            @Override
+//                            public void onCompleted(JSONObject object, GraphResponse response) {
+//
+//                                Log.w(TAG, "Facebook" + object);
+//
+//                                Log.v("Main", response.toString());
+//                                setProfileToView(object);
+//                            }
+//                        });
+//                Bundle parameters = new Bundle();
+//                parameters.putString("fields", "id,name,link,email,gender,last_name,first_name,locale,timezone,updated_time,verified");
+//                request.setParameters(parameters);
+//                request.executeAsync();
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onError(FacebookException exception) {
+//                Toast.makeText(getContext(), "error to Login Facebook", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        if (!App.appUtils.isNetAvailable()) {
+//            alertUserP(getContext(), "Connection Error", "No Internet connection available", "OK");
+//        } else {
+//            disconnectFromFacebook();
+//        }
 
+        btn_sigin_with_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-                GraphRequest request = GraphRequest.newMeRequest(
-                        loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
+            public void onClick(View v) {
 
-                            @SuppressLint("LongLogTag")
-                            @Override
-                            public void onCompleted(JSONObject object, GraphResponse response) {
-
-                                Log.w(TAG, "Facebook" + object);
-
-                                Log.v("Main", response.toString());
-                                setProfileToView(object);
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,link,email,gender,last_name,first_name,locale,timezone,updated_time,verified");
-                request.setParameters(parameters);
-                request.executeAsync();
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException exception) {
-                Toast.makeText(getContext(), "error to Login Facebook", Toast.LENGTH_SHORT).show();
+                showAlert();
             }
         });
-
-        if (!App.appUtils.isNetAvailable()) {
-            alertUserP(getContext(), "Connection Error", "No Internet connection available", "OK");
-        } else {
-            disconnectFromFacebook();
-        }
 
         btn_sigin.setOnClickListener(v -> checkValidation());
 
         spin_kit_loadingView.setVisibility(View.GONE);
 
         return view;
+    }
+
+    private void showAlert() {
+
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+// ...Irrelevant code for customizing the buttons and title
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.alert_fb_layout, null);
+        dialogBuilder.setView(dialogView);
+
+        RelativeLayout rl_yes = dialogView.findViewById(R.id.rl_yes);
+
+        RelativeLayout rl_no = dialogView.findViewById(R.id.rl_no);
+
+        RelativeLayout rl_cancel = dialogView.findViewById(R.id.rl_cancel);
+
+        ImageView img_close = dialogView.findViewById(R.id.img_close);
+
+        rl_cancel.setVisibility(View.GONE);
+
+        img_close.setVisibility(View.GONE);
+
+        TextView alert_title_txtview = dialogView.findViewById(R.id.alert_title_txtview);
+
+        alert_title_txtview.setText(R.string.fb_alert);
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+
+        rl_yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                alertDialog.dismiss();
+
+            }
+        });
+
     }
 
 
@@ -335,7 +389,7 @@ public class RetailerRegisterFragment extends Fragment {
 
         txt_or.setVisibility(View.GONE);
 
-        btnLogin.setVisibility(View.GONE);
+     //   btnLogin.setVisibility(View.GONE);
 
         try {
 //

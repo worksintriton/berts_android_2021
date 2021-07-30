@@ -243,6 +243,14 @@ public class ShippingAddressActivity extends AppCompatActivity implements SetDef
 
                 gotoRetailerCartActivity();
             }
+            else if(fromActivity.equals("ShippingAddressAddActivity")){
+
+                gotoRetailerCartActivity();
+            }
+            else if(fromActivity.equals("ShippingAddressEditActivity")){
+
+                gotoRetailerCartActivity();
+            }
             else {
 
                 Intent intent = new Intent(ShippingAddressActivity.this,RetailerDashboardActivity.class);

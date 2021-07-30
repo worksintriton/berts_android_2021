@@ -36,6 +36,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
     boolean check;
     WishlistAddProductListener wishlistAddProductListener;
     ProductListener productListener;
+    String curreency;
 
     private final static String TAG = "RetailerProductListAdapter";
     AddProductListener addProductListener;
@@ -118,9 +119,21 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             holder.txt_total_reviews.setText("( 0 )");
         }
 
+
+        if(prdouctsBean.getCurrency()!=null&&!prdouctsBean.getCurrency().isEmpty()){
+
+            curreency = prdouctsBean.getCurrency();
+
+        }
+
+        else {
+
+            curreency="";
+        }
+
         if (prdouctsBean.getPrice()!= null) {
 
-            String price = "$ "+prdouctsBean.getPrice();
+            String price = curreency+" "+prdouctsBean.getPrice();
 
             holder.txt_price.setText(price);
 
@@ -128,7 +141,9 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
         else {
 
-            holder.txt_price.setText("$ 0");
+            String price = curreency+" "+"0";
+
+            holder.txt_price.setText(price);
         }
 
         if (prdouctsBean.getDefault_quantity() != 0) {

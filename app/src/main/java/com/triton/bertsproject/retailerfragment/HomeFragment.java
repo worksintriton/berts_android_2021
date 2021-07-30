@@ -46,6 +46,8 @@ import com.triton.bertsproject.requestpojo.HomepageDashboardResponse;
 import com.triton.bertsproject.retailer.AddVehicleActivity;
 import com.triton.bertsproject.retailer.MyWishlistActivity;
 import com.triton.bertsproject.retailer.RetailerCartActivity;
+import com.triton.bertsproject.retailer.RetailerDashboardActivity;
+import com.triton.bertsproject.retailer.RetailerSetttingsActivity;
 import com.triton.bertsproject.retailer.SearchProductListActivity;
 import com.triton.bertsproject.retailer.SearchProductsActivity;
 import com.triton.bertsproject.sessionmanager.Connectivity;
@@ -157,6 +159,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_keyword_info)
     TextView txt_keyword_info;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.txt_select_vehc31)
+    TextView txt_select_vehc31;
 
     HomepageDashboardResponse.DataBean.DefaultVehicleBean defaultVehicleBeanList ;
 
@@ -333,30 +339,25 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void showKeywordInfo(View v) {
 
-        // Create an alert builder
-        AlertDialog.Builder builder
-                = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+// ...Irrelevant code for customizing the buttons and title
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.popup_layout, null);
+        dialogBuilder.setView(dialogView);
 
-        // set the custom layout
-        final View customLayout = getLayoutInflater().inflate(R.layout.popup_layout, null);
-        builder.setView(customLayout);
+        RelativeLayout rl_yes = dialogView.findViewById(R.id.rl_yes);
 
-        // add a button
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        rl_yes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
 
-                // send data from the
-                // AlertDialog to the Activity
-
+                alertDialog.dismiss();
             }
         });
 
-        // create and show
-        // the alert dialog
-        AlertDialog dialog
-                = builder.create();
-        dialog.show();
     }
 
     private void checkValidation() {
@@ -659,7 +660,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         txt_user_type.setText(""+username);
 
-        txt_selected_vehc.setText(year + " " + " " +make_name+ " "+ model_name);
+        txt_selected_vehc.setText(make_name+ " "+ model_name);
+
+        txt_select_vehc31.setText(year);
 
         rl_addVehfromdefault.setOnClickListener(v -> {
 
@@ -704,7 +707,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
         builder.setCancelable(false);
         builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
-            startActivity(new Intent(getContext(), MyWishlistActivity.class));
+            callDirections("1");
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -728,5 +731,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }catch (Exception ignored){
 
         }
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(getContext(),RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
     }
 }

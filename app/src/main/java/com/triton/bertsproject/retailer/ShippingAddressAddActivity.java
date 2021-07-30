@@ -278,7 +278,34 @@ public class ShippingAddressAddActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        gotoShippingAddressActivity();
+        if(fromActivity!=null){
+
+            if(fromActivity.equals("RetailerCartActivity")){
+
+                gotoCartActivity();
+            }
+
+            else if(fromActivity.equals("ShippingAddressActivity")){
+
+                gotoShippingAddressActivity();
+            }
+
+            else {
+
+                Intent intent = new Intent(ShippingAddressAddActivity.this, RetailerDashboardActivity.class);
+                intent.putExtra("fromactivity",TAG);
+                startActivity(intent);
+                finish();
+            }
+        }
+
+        else {
+
+            Intent intent = new Intent(ShippingAddressAddActivity.this, RetailerDashboardActivity.class);
+            intent.putExtra("fromactivity",TAG);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void gotoShippingAddressActivity() {

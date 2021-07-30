@@ -123,6 +123,29 @@
                 android:textColor="@color/dark_grey"
                 android:textSize="@dimen/_14sp" />
 
+            <RelativeLayout
+                android:id="@+id/rl_yes"
+                android:layout_width="@dimen/_200dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:background="@color/yellow"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="OK"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

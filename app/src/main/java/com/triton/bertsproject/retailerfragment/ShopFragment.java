@@ -347,17 +347,24 @@ public class ShopFragment extends Fragment implements View.OnClickListener {
     }
 
     private void callnointernet() {
-        AlertDialog.Builder builder=new AlertDialog.Builder(Objects.requireNonNull(getContext()));
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
         builder.setTitle("No Internet Conncetion");
         builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
         builder.setCancelable(false);
         builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
-            startActivity(new Intent(getContext(), RetailerDashboardActivity.class));
+            callDirections("3");
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
 
+
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(getContext(),RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
+    }
     private void setViewCategList(List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList) {
 
 

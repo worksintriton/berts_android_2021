@@ -357,6 +357,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
     JSONObject data ;
 
+    String curreency;
+
     @SuppressLint("LongLogTag")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -806,6 +808,24 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 Animatoo.animateSwipeLeft(context);
             }
+            else if(fromactivity.equals("MyWishlistActivity")){
+
+                Intent intent = new Intent(ProductDetailDescriptionActivity.this,MyWishlistActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                connectivity.clearData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                value = connectivity.getData(ProductDetailDescriptionActivity.this,"ProductDetailList");
+
+                Log.w(TAG,"value "+value);
+
+                startActivity(intent);
+
+                finish();
+
+                Animatoo.animateSwipeLeft(context);
+            }
 
             else {
 
@@ -961,9 +981,13 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
                 int threshold = Integer.parseInt(prdouctsBean.getQuantity());
 
+                Log.w(TAG, "threshold : "+threshold);
+
                 int value = Integer.parseInt(txt_count.getText().toString());
 
-                if(value>threshold) {
+                Log.w(TAG, "value : "+value);
+
+                if(value>=threshold) {
 
                     Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
 
@@ -1154,11 +1178,28 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             viewpageData(imageList);
         }
 
+
+        if(prdouctsBean.getCurrency()!=null&&!prdouctsBean.getCurrency().isEmpty()){
+
+            curreency = prdouctsBean.getCurrency();
+
+        }
+
+        else {
+
+            curreency="";
+        }
+
+
         if(prdouctsBean.getPrice()!=null&&!prdouctsBean.getPrice().isEmpty()){
 
-            txt_price.setText("$ "+prdouctsBean.getPrice());
+            txt_price.setText(curreency+" "+prdouctsBean.getPrice());
 
             price = prdouctsBean.getPrice();
+        }
+        else {
+
+            txt_price.setText(curreency+" "+"0");
         }
 
         if(prdouctsBean.getDescription()!=null&&!prdouctsBean.getDescription().isEmpty()){

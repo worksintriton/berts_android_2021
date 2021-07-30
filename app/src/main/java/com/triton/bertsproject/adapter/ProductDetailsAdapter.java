@@ -65,7 +65,7 @@ public class ProductDetailsAdapter extends  RecyclerView.Adapter<RecyclerView.Vi
 
         if (currentItem.getProduct_total_price()!= null && !currentItem.getProduct_total_price().isEmpty()) {
 
-                holder.txt_products_price.setText("$ " + currentItem.getProduct_total_price());
+                holder.txt_products_price.setText("USD " + currentItem.getProduct_total_price());
         }
 
 //        if (currentItem.) {

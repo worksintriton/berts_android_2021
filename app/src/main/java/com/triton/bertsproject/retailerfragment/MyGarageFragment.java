@@ -393,7 +393,7 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener, 
         builder.setMessage("Please Turn on Your MobileData or Connect to Wifi Network");
         builder.setCancelable(false);
         builder.setPositiveButton("RETRY", (dialogInterface, i) -> {
-            startActivity(new Intent(getContext(),MyWishlistActivity.class));
+            callDirections("2");
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -417,6 +417,12 @@ public class MyGarageFragment extends Fragment implements View.OnClickListener, 
         }catch (Exception ignored){
 
         }
+    }
+
+    public void callDirections(String tag){
+        Intent intent = new Intent(getContext(),RetailerDashboardActivity.class);
+        intent.putExtra("tag",tag);
+        startActivity(intent);
     }
 
     @Override

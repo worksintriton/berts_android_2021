@@ -36,6 +36,7 @@ import com.triton.bertsproject.retailer.RetailerOrderTrackActivity;
 import com.triton.bertsproject.retailer.RetailerProfileAccountActivity;
 import com.triton.bertsproject.retailer.RetailerSetttingsActivity;
 import com.triton.bertsproject.retailer.ShippingAddressActivity;
+import com.triton.bertsproject.retailer.WholeSalerProfileAccountActivity;
 import com.triton.bertsproject.sessionmanager.Connectivity;
 import com.triton.bertsproject.sessionmanager.SessionManager;
 
@@ -132,6 +133,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     String cart_count ="0";
 
+    String user_type;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -178,6 +180,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             userid = user.get(SessionManager.KEY_ID);
 
             imgUrl = user.get(SessionManager.KEY_PROFILE_IMAGE);
+
+            user_type = user.get(SessionManager.KEY_TYPE);
 
             username = user.get(SessionManager.KEY_FIRST_NAME) + " " + user.get(SessionManager.KEY_LAST_NAME);
 
@@ -252,13 +256,33 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
             txt_username.setOnClickListener(v -> {
 
-            Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
+                if(user_type!=null) {
 
-            intent.putExtra("fromactivity",TAG);
+                    if (user_type.equals("retail")) {
 
-            startActivity(intent);
+                        Intent intent = new Intent(getContext(), RetailerProfileAccountActivity.class);
 
-            Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+                        intent.putExtra("fromactivity",TAG);
+
+                        startActivity(intent);
+
+                        Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+                    }
+
+                    else {
+
+                        Intent intent = new Intent(getContext(), WholeSalerProfileAccountActivity.class);
+
+                        intent.putExtra("fromactivity",TAG);
+
+                        startActivity(intent);
+
+                        Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+                    }
+
+                }
 
         });
 

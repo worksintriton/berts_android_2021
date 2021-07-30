@@ -65,7 +65,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         if (orderlistModel.getPrice_total()!= null&&!orderlistModel.getPrice_total().isEmpty()) {
 
-            String price = "$ "+orderlistModel.getPrice_total();
+            String price = "USD "+orderlistModel.getPrice_total();
 
             holder.txt_price.setText(price);
 
@@ -73,7 +73,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         else {
 
-            holder.txt_price.setText("$ 0");
+            holder.txt_price.setText("USD 0");
         }
 
 
@@ -85,7 +85,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
 
         else {
 
-            holder.txt_orders.setText("$ 0");
+            holder.txt_orders.setText("0");
         }
 
         if (orderlistModel.getStatus_name()!= null&&!orderlistModel.getStatus_name().isEmpty()) {

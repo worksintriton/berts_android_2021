@@ -1,6 +1,7 @@
 package com.triton.bertsproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.triton.bertsproject.api.APIClient;
 import com.triton.bertsproject.interfaces.WishlistAddProductListener;
 import com.triton.bertsproject.model.RetailerProductlistModel;
 import com.triton.bertsproject.responsepojo.WishlistSuccessResponse;
+import com.triton.bertsproject.retailer.ProductDetailDescriptionActivity;
+import com.triton.bertsproject.retailer.RetailerProductListActivity;
 
 import java.util.List;
 
@@ -81,7 +84,7 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
 //        }
         if (wishlistBean.getPrice() != null) {
 
-            String price = "\u0024" + wishlistBean.getPrice();
+            String price = "USD " + wishlistBean.getPrice();
 
             holder.txt_price.setText(price);
         }
@@ -99,6 +102,22 @@ public class MywishListAdapter extends RecyclerView.Adapter<MywishListAdapter.Sh
             public void onClick(View v) {
 
                 wishlistAddProductListener.addproductListener(wishlistBean.getWishlist_product_id());
+            }
+        });
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, ProductDetailDescriptionActivity.class);
+
+                intent.putExtra("prod_id",wishlistBean.getWishlist_product_id());
+
+                intent.putExtra("prod_name",wishlistBean.getTitle());
+
+                intent.putExtra("fromactivity","MyWishlistActivity");
+
+                context.startActivity(intent);
             }
         });
 

@@ -296,6 +296,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     SearchBrandFilterlistAdapter searchBrandFilterlistAdapter;
 
+    boolean isFilter = false;
+
     String search_text,fromactivity,makesid,modelsid,categid,brandid,color, final_min_value,final_max_value,min_pri="0",max_pri = "0",rating;;
 
     @Override
@@ -1196,141 +1198,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
                                 @Override
                                 public void onClick(View v) {
 
-                                    String radioValue = "0";
-
-                                    if(rb_1star.isChecked()){
-
-                                        radioValue = "1";
-                                    }
-
-                                    else if(rb_2star.isChecked()){
-
-                                        radioValue = "2";
-                                    }
-
-                                    else if(rb_3star.isChecked()){
-
-                                        radioValue = "3";
-                                    }
-
-                                    else if(rb_4star.isChecked()){
-
-                                        radioValue = "4";
-                                    }
-
-                                    else if(rb_5star.isChecked()){
-
-                                        radioValue = "5";
-                                    }
-
-                                    Log.w(TAG, "year : " + year + "makesid : " + makesid + "modelid : "+ modelid + "brandid : "+ brandid +
-
-                                            "categid :" + categid + "final_min_value :" + final_min_value + "final_max_value :" +final_max_value
-
-                                            + "color : " + color + "radioValue : " + radioValue );
-
-                                        /* toString method returns the output as [Data
-                                        Structure,Algorithms,...] In order to replace
-                                        '[', ']' and spaces with empty strings to get
-                                        comma separated values.*/
-
-                                    String commaseparatedlist = year.toString();
-
-                                    String years = commaseparatedlist.replace("[", "")
-                                            .replace("]", "")
-                                            .replace(" ", "");
-
-                                    JSONObject data = new JSONObject();
-                                    try {
-
-                                        if(!years.isEmpty()){
-
-                                            data.put("years",years);
-                                        }
-                                        else {
-
-                                            data.put("years","");
-                                        }
-                                        if(makesid!=null){
-
-                                            data.put("makesid",makesid);
-                                        }
-                                        else {
-
-                                            data.put("makesid","");
-                                        }
-                                        if(modelid!=null){
-
-                                            data.put("modelid",modelid);
-                                        }
-                                        else {
-
-                                            data.put("modelid","");
-                                        }
-                                        if(brandid!=null){
-
-                                            data.put("brandid",brandid);
-                                        }
-                                        else {
-
-                                            data.put("brandid","");
-                                        }
-
-                                        if(categid!=null){
-
-                                            data.put("categid",categid);
-                                        }
-                                        else {
-
-                                            data.put("categid","");
-                                        }
-                                        if(final_min_value!=null){
-
-                                            data.put("min_value",final_min_value);
-                                        }
-                                        else {
-
-                                            data.put("min_value","");
-                                        }
-
-                                        if(final_max_value!=null){
-
-                                            data.put("max_value",final_max_value);
-                                        }
-                                        else {
-
-                                            data.put("max_value",final_max_value);
-                                        }
-
-
-                                        if(color!=null){
-
-                                            data.put("color",color);
-                                        }
-                                        else {
-
-                                            data.put("color","");
-                                        }
-
-
-                                            data.put("rate",radioValue);
-
-                                        Log.w(TAG, "Data" + new Gson().toJson(data));
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-
-
-                                    Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
-
-                                    intent.putExtra("fromactivity",TAG);
-
-                                    intent.putExtra("search_text",search_text);
-
-                                    intent.putExtra("data", data.toString());
-
-                                    startActivity(intent);
-
+                                  gotoSearchProd();
 
                                 }
                             });
@@ -1360,6 +1228,145 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             }
         });
 
+
+    }
+
+    private void gotoSearchProd() {
+
+        String radioValue = "0";
+
+        if(rb_1star.isChecked()){
+
+            radioValue = "1";
+        }
+
+        else if(rb_2star.isChecked()){
+
+            radioValue = "2";
+        }
+
+        else if(rb_3star.isChecked()){
+
+            radioValue = "3";
+        }
+
+        else if(rb_4star.isChecked()){
+
+            radioValue = "4";
+        }
+
+        else if(rb_5star.isChecked()){
+
+            radioValue = "5";
+        }
+
+        Log.w(TAG, "year : " + year + "makesid : " + makesid + "modelid : "+ modelid + "brandid : "+ brandid +
+
+                "categid :" + categid + "final_min_value :" + final_min_value + "final_max_value :" +final_max_value
+
+                + "color : " + color + "radioValue : " + radioValue );
+
+                                        /* toString method returns the output as [Data
+                                        Structure,Algorithms,...] In order to replace
+                                        '[', ']' and spaces with empty strings to get
+                                        comma separated values.*/
+
+        String commaseparatedlist = year.toString();
+
+        String years = commaseparatedlist.replace("[", "")
+                .replace("]", "")
+                .replace(" ", "");
+
+        JSONObject data = new JSONObject();
+        try {
+
+            if(!years.isEmpty()){
+
+                data.put("years",years);
+            }
+            else {
+
+                data.put("years","");
+            }
+            if(makesid!=null){
+
+                data.put("makesid",makesid);
+            }
+            else {
+
+                data.put("makesid","");
+            }
+            if(modelid!=null){
+
+                data.put("modelid",modelid);
+            }
+            else {
+
+                data.put("modelid","");
+            }
+            if(brandid!=null){
+
+                data.put("brandid",brandid);
+            }
+            else {
+
+                data.put("brandid","");
+            }
+
+            if(categid!=null){
+
+                data.put("categid",categid);
+            }
+            else {
+
+                data.put("categid","");
+            }
+            if(final_min_value!=null){
+
+                data.put("min_value",final_min_value);
+            }
+            else {
+
+                data.put("min_value","");
+            }
+
+            if(final_max_value!=null){
+
+                data.put("max_value",final_max_value);
+            }
+            else {
+
+                data.put("max_value",final_max_value);
+            }
+
+
+            if(color!=null){
+
+                data.put("color",color);
+            }
+            else {
+
+                data.put("color","");
+            }
+
+
+            data.put("rate",radioValue);
+
+            Log.w(TAG, "Data" + new Gson().toJson(data));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
+
+        intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("search_text",search_text);
+
+        intent.putExtra("data", data.toString());
+
+        startActivity(intent);
 
     }
 
@@ -1421,7 +1428,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             year.add(year_name);
 
-
+            isFilter = true;
 
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
         }
@@ -1431,6 +1438,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(false);
 
             year.remove(year_name);
+
+            isFilter = false;
 
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
 
@@ -1453,6 +1462,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(true);
 
             make.add(id);
+
+            isFilter = true;
 
             Log.w(TAG, "Make_ID" + new Gson().toJson(make));
 
@@ -1487,6 +1498,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(false);
 
             make.remove(id);
+
+            isFilter = false;
 
             Log.w(TAG, "Make_ID" + new Gson().toJson(make));
 
@@ -1529,6 +1542,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             model.add(id);
 
+            isFilter = true;
+
             Log.w(TAG, "Model_ID" + new Gson().toJson(model));
 
                /* toString method returns the output as [Data
@@ -1552,6 +1567,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(false);
 
             model.remove(id);
+
+            isFilter = false;
 
             Log.w(TAG, "Model_ID" + new Gson().toJson(model));
 
@@ -1582,11 +1599,16 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         if(isChecked){
 
             brandid = idd;
+
+            isFilter = true;
+
         }
 
         else {
 
-            brandid="";
+           brandid="";
+
+            isFilter = false;
         }
     }
 

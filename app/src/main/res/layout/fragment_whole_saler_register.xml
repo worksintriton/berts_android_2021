@@ -257,14 +257,15 @@
                 android:textSize="@dimen/_14sp" />
 
             <com.facebook.login.widget.LoginButton
-                xmlns:fb="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/login_button"
-                android:layout_marginBottom="@dimen/_60dp"
+                style="@style/FacebookLoginButton"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                style="@style/FacebookLoginButton"
+                android:layout_marginBottom="@dimen/_60dp"
                 android:paddingTop="15dp"
-                android:paddingBottom="15dp"/>
+                android:paddingBottom="15dp"
+                android:text="@string/sigin_with_facebook"
+                android:visibility="gone" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_register_with_facebook"
@@ -272,8 +273,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginBottom="@dimen/_20dp"
+                android:visibility="visible"
                 app:cardPreventCornerOverlap="true"
-                android:visibility="gone"
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
@@ -296,12 +297,12 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:fontFamily="@font/lato_bold"
+                        android:gravity="center"
                         android:text="@string/sigin_with_facebook"
-                        android:textAllCaps="false"
                         android:textAlignment="center"
+                        android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_14sp"
-                        android:gravity="center" />
+                        android:textSize="@dimen/_14sp" />
 
 
                 </RelativeLayout>

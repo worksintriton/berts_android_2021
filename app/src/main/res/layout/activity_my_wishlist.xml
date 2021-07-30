@@ -183,10 +183,13 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
+            style="@style/MyBottomNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_60dp"
+            android:layout_gravity="bottom"
             app:backgroundTint="@android:color/transparent"
             app:elevation="0dp"
+            app:itemIconSize="@dimen/_18dp"
             app:itemIconTint="@color/selector"
             app:itemRippleColor="@android:color/white"
             app:itemTextColor="@color/selector"

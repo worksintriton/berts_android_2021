@@ -517,12 +517,12 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                 if(response.body().getData().getCart_total()!=0){
 
-                                    txt_order_total.setText("$ "+response.body().getData().getCart_total());
+                                    txt_order_total.setText("USD "+response.body().getData().getCart_total());
                                 }
 
                                 else {
 
-                                    txt_order_total.setText("$ 0");
+                                    txt_order_total.setText("USD 0");
                                 }
 
                                 setView(cartBeanList);
@@ -620,29 +620,29 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                 if(response.body().getData().getShipping_cost()!=0){
 
-                                   txt_shipping_subtotal_value.setText("$ "+response.body().getData().getShipping_cost());
+                                   txt_shipping_subtotal_value.setText("USD "+response.body().getData().getShipping_cost());
                                 }
                                 else {
 
-                                    txt_shipping_subtotal_value.setText("0");
+                                    txt_shipping_subtotal_value.setText("USD 0");
                                 }
 
                                 if(response.body().getData().getDiscount()!=0){
 
-                                    txt_dis_total_price.setText("$ "+response.body().getData().getDiscount());
+                                    txt_dis_total_price.setText("USD "+response.body().getData().getDiscount());
                                 }
                                 else {
 
-                                    txt_dis_total_price.setText("0");
+                                    txt_dis_total_price.setText("USD 0");
                                 }
 
                                 if(response.body().getData().getCart_total()!=0){
 
-                                    txt_total_price.setText("$ "+response.body().getData().getCart_total());
+                                    txt_total_price.setText("USD "+response.body().getData().getCart_total());
                                 }
                                 else {
 
-                                    txt_total_price.setText("0");
+                                    txt_total_price.setText("USD 0");
                                 }
 
 
