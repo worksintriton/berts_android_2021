@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.cachapa:ExpandableLayout:2.9.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d640bb7277b0f6345dd16e47a42e2172/jetified-ExpandableLayout-2.9.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d640bb7277b0f6345dd16e47a42e2172/jetified-ExpandableLayout-2.9.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d640bb7277b0f6345dd16e47a42e2172/jetified-ExpandableLayout-2.9.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/579b184d18ccefe0e3d23f63d2de3f78/jetified-ExpandableLayout-2.9.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/579b184d18ccefe0e3d23f63d2de3f78/jetified-ExpandableLayout-2.9.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/579b184d18ccefe0e3d23f63d2de3f78/jetified-ExpandableLayout-2.9.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.cachapa/ExpandableLayout/2.9.2/45fb818f360d50fa98d7f7fc790a0a04742a01a6/ExpandableLayout-2.9.2-javadoc.jar!/" />

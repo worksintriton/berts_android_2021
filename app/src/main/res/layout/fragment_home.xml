@@ -136,7 +136,8 @@
                                         android:textAlignment="center"
                                         android:textColor="#FFF"
                                         android:textSize="@dimen/_12sp"
-                                        android:textStyle="bold" />
+                                        android:textStyle="bold"
+                                        android:visibility="visible" />
                                 </RelativeLayout>
 
 
