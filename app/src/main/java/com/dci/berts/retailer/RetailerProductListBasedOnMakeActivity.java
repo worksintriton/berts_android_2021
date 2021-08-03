@@ -298,7 +298,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
         }
 
-        spin_kit_loadingView.setVisibility(View.GONE);
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
 
         if(model_name!=null&&!model_name.isEmpty()){
 
@@ -1205,20 +1205,45 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
 
                             Log.w(TAG, "HomepageDashboardResponse" + new Gson().toJson(response.body()));
 
+                            rlcart.setVisibility(View.VISIBLE);
+
                             cart_count = String.valueOf(response.body().getData().getCart_count());
 
                             Log.w(TAG, "Cart_Count" + cart_count);
 
                             if (cart_count!=null&&!cart_count.equals("0"))  {
 
+                                Log.w(TAG, "Cart_Count --> true");
+
                                 Connectivity connectivity = new Connectivity();
+
+                                connectivity.clearData(context,"Cart_Count");
 
                                 connectivity.storeData(context,"Cart_Count",String.valueOf(cart_count));
 
-                                txt_cart_count.setText(""+cart_count);
+                                cart_count = connectivity.getData(context,"Cart_Count");
+
+                                Log.w(TAG,"cart_count_from_session"+cart_count);
+
+                                if(cart_count!=null&&!cart_count.equals("0")){
+
+                                    Log.w(TAG, "Cart_Count_from_session --> true");
+
+                                    txt_cart_count.setVisibility(View.VISIBLE);
+
+                                    txt_cart_count.setText(""+cart_count);
+                                }
+
+                                else {
+
+                                    txt_cart_count.setVisibility(View.GONE);
+                                }
+
                             }
 
                             else {
+
+                                Log.w(TAG, "Cart_Count --> false");
 
                                 txt_cart_count.setVisibility(View.GONE);
 
@@ -1255,6 +1280,7 @@ public class RetailerProductListBasedOnMakeActivity extends AppCompatActivity im
                     }
 
                 }
+
 
             }
 

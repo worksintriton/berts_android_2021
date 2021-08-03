@@ -42,13 +42,10 @@ com/dci/berts/responsepojo/SignupResponse.java
  com.dci.berts.responsepojo.SignupResponse
  com.dci.berts.responsepojo.SignupResponse$DataBean
  com.dci.berts.responsepojo.SignupResponse$DataBean$ProfileBean
-com/dci/berts/retailer/ShippingAddressEditActivity.java
- com.dci.berts.retailer.ShippingAddressEditActivity
- com.dci.berts.retailer.ShippingAddressEditActivity$1
- com.dci.berts.retailer.ShippingAddressEditActivity$2
- com.dci.berts.retailer.ShippingAddressEditActivity$3
- com.dci.berts.retailer.ShippingAddressEditActivity$4
- com.dci.berts.retailer.ShippingAddressEditActivity$5
+com/dci/berts/responsepojo/UpdateProfileResponse.java
+ com.dci.berts.responsepojo.UpdateProfileResponse
+ com.dci.berts.responsepojo.UpdateProfileResponse$DataBean
+ com.dci.berts.responsepojo.UpdateProfileResponse$DataBean$UserBean
 com/dci/berts/requestpojo/RemoveOverallProductsRequest.java
  com.dci.berts.requestpojo.RemoveOverallProductsRequest
 com/dci/berts/adapter/ParentCategoriesListAdapter.java
@@ -129,9 +126,18 @@ com/dci/berts/requestpojo/UpdateProfileRequest.java
  com.dci.berts.requestpojo.UpdateProfileRequest
 com/dci/berts/interfaces/GetModelIDListener.java
  com.dci.berts.interfaces.GetModelIDListener
-com/dci/berts/adapter/SearchFilterlistAdapter.java
- com.dci.berts.adapter.SearchFilterlistAdapter
- com.dci.berts.adapter.SearchFilterlistAdapter$ShopFilterlistHolder
+com/dci/berts/retailer/RetailerProductListActivity.java
+ com.dci.berts.retailer.RetailerProductListActivity
+ com.dci.berts.retailer.RetailerProductListActivity$1
+ com.dci.berts.retailer.RetailerProductListActivity$10
+ com.dci.berts.retailer.RetailerProductListActivity$2
+ com.dci.berts.retailer.RetailerProductListActivity$3
+ com.dci.berts.retailer.RetailerProductListActivity$4
+ com.dci.berts.retailer.RetailerProductListActivity$5
+ com.dci.berts.retailer.RetailerProductListActivity$6
+ com.dci.berts.retailer.RetailerProductListActivity$7
+ com.dci.berts.retailer.RetailerProductListActivity$8
+ com.dci.berts.retailer.RetailerProductListActivity$9
 com/dci/berts/requestpojo/FetchProductBasedOnBrandRequest.java
  com.dci.berts.requestpojo.FetchProductBasedOnBrandRequest
 com/dci/berts/responsepojo/ProductListResponse.java
@@ -193,27 +199,19 @@ com/dci/berts/adapter/ParentMakesListAdapter.java
  com.dci.berts.adapter.ParentMakesListAdapter$ShoplistHolder
 com/dci/berts/BuildConfig.java
  com.dci.berts.BuildConfig
-com/dci/berts/fragment/RetailerRegisterFragment.java
- com.dci.berts.fragment.RetailerRegisterFragment
- com.dci.berts.fragment.RetailerRegisterFragment$1
- com.dci.berts.fragment.RetailerRegisterFragment$2
- com.dci.berts.fragment.RetailerRegisterFragment$3
- com.dci.berts.fragment.RetailerRegisterFragment$4
- com.dci.berts.fragment.RetailerRegisterFragment$5
- com.dci.berts.fragment.RetailerRegisterFragment$6
- com.dci.berts.fragment.RetailerRegisterFragment$7
- com.dci.berts.fragment.RetailerRegisterFragment$8
- com.dci.berts.fragment.RetailerRegisterFragment$9
-com/dci/berts/retailer/ShowAllParentCategoriesActivity.java
- com.dci.berts.retailer.ShowAllParentCategoriesActivity
- com.dci.berts.retailer.ShowAllParentCategoriesActivity$1
- com.dci.berts.retailer.ShowAllParentCategoriesActivity$2
+com/dci/berts/retailer/AboutUsActivity.java
+ com.dci.berts.retailer.AboutUsActivity
+ com.dci.berts.retailer.AboutUsActivity$1
+com/dci/berts/model/ShoplistModel.java
+ com.dci.berts.model.ShoplistModel
 com/dci/berts/interfaces/DeleteAddressListener.java
  com.dci.berts.interfaces.DeleteAddressListener
 com/dci/berts/requestpojo/FetchChildMakeslistRequest.java
  com.dci.berts.requestpojo.FetchChildMakeslistRequest
-com/dci/berts/model/ShoplistModel.java
- com.dci.berts.model.ShoplistModel
+com/dci/berts/retailerfragment/ProfileFragment.java
+ com.dci.berts.retailerfragment.ProfileFragment
+ com.dci.berts.retailerfragment.ProfileFragment$1
+ com.dci.berts.retailerfragment.ProfileFragment$2
 com/dci/berts/responsepojo/FetchAllParentCategoriesResponse.java
  com.dci.berts.responsepojo.FetchAllParentCategoriesResponse
  com.dci.berts.responsepojo.FetchAllParentCategoriesResponse$DataBean
@@ -222,14 +220,16 @@ com/dci/berts/adapter/OrderListAdapter.java
  com.dci.berts.adapter.OrderListAdapter
  com.dci.berts.adapter.OrderListAdapter$1
  com.dci.berts.adapter.OrderListAdapter$OrderListHolder
-com/dci/berts/responsepojo/UpdateProfileResponse.java
- com.dci.berts.responsepojo.UpdateProfileResponse
- com.dci.berts.responsepojo.UpdateProfileResponse$DataBean
- com.dci.berts.responsepojo.UpdateProfileResponse$DataBean$UserBean
+com/dci/berts/adapter/VehicletListAdapter.java
+ com.dci.berts.adapter.VehicletListAdapter
+ com.dci.berts.adapter.VehicletListAdapter$ShoplistHolder
 com/dci/berts/requestpojo/SetDefaultAddrRequest.java
  com.dci.berts.requestpojo.SetDefaultAddrRequest
-com/dci/berts/requestpojo/AddToCartRequest.java
- com.dci.berts.requestpojo.AddToCartRequest
+com/dci/berts/retailerfragment/HomeFragment.java
+ com.dci.berts.retailerfragment.HomeFragment
+ com.dci.berts.retailerfragment.HomeFragment$1
+ com.dci.berts.retailerfragment.HomeFragment$2
+ com.dci.berts.retailerfragment.HomeFragment$3
 com/dci/berts/retailer/PaymentMethodActivity.java
  com.dci.berts.retailer.PaymentMethodActivity
  com.dci.berts.retailer.PaymentMethodActivity$1
@@ -262,9 +262,10 @@ com/dci/berts/adapter/RetailerProductListAdapter.java
 com/dci/berts/adapter/ChildCategoriesListAdapter.java
  com.dci.berts.adapter.ChildCategoriesListAdapter
  com.dci.berts.adapter.ChildCategoriesListAdapter$ViewHolder
-com/dci/berts/adapter/ChildMakesListAdapter.java
- com.dci.berts.adapter.ChildMakesListAdapter
- com.dci.berts.adapter.ChildMakesListAdapter$ShoplistHolder
+com/dci/berts/retailer/ShowAllParentCategoriesActivity.java
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity$1
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity$2
 com/dci/berts/responsepojo/FetchAllColorsResponse.java
  com.dci.berts.responsepojo.FetchAllColorsResponse
  com.dci.berts.responsepojo.FetchAllColorsResponse$DataBean
@@ -303,8 +304,9 @@ com/dci/berts/retailer/ShippingAddressAddActivity.java
  com.dci.berts.retailer.ShippingAddressAddActivity$5
 com/dci/berts/retailer/SampleActivity.java
  com.dci.berts.retailer.SampleActivity
-com/dci/berts/model/RetailerProductlistModel.java
- com.dci.berts.model.RetailerProductlistModel
+com/dci/berts/adapter/SearchFilterlistAdapter.java
+ com.dci.berts.adapter.SearchFilterlistAdapter
+ com.dci.berts.adapter.SearchFilterlistAdapter$ShopFilterlistHolder
 com/dci/berts/retailer/ShowAllBrandsActivity.java
  com.dci.berts.retailer.ShowAllBrandsActivity
  com.dci.berts.retailer.ShowAllBrandsActivity$1
@@ -354,9 +356,9 @@ com/dci/berts/responsepojo/EditAddressListResponse.java
  com.dci.berts.responsepojo.EditAddressListResponse$DataBean$AddressBean
 com/dci/berts/requestpojo/SignupWholesalerRequest.java
  com.dci.berts.requestpojo.SignupWholesalerRequest
-com/dci/berts/retailer/AboutUsActivity.java
- com.dci.berts.retailer.AboutUsActivity
- com.dci.berts.retailer.AboutUsActivity$1
+com/dci/berts/activities/ForgetPasswordActivity.java
+ com.dci.berts.activities.ForgetPasswordActivity
+ com.dci.berts.activities.ForgetPasswordActivity$1
 com/dci/berts/responsepojo/FetchAllBrandsResponse.java
  com.dci.berts.responsepojo.FetchAllBrandsResponse
  com.dci.berts.responsepojo.FetchAllBrandsResponse$DataBean
@@ -428,21 +430,15 @@ com/dci/berts/requestpojo/DeleteVehicleRequest.java
  com.dci.berts.requestpojo.DeleteVehicleRequest
 com/dci/berts/interfaces/AddProductListener.java
  com.dci.berts.interfaces.AddProductListener
-com/dci/berts/fragment/WholeSalerRegisterFragment.java
- com.dci.berts.fragment.WholeSalerRegisterFragment
- com.dci.berts.fragment.WholeSalerRegisterFragment$1
- com.dci.berts.fragment.WholeSalerRegisterFragment$10
- com.dci.berts.fragment.WholeSalerRegisterFragment$11
- com.dci.berts.fragment.WholeSalerRegisterFragment$12
- com.dci.berts.fragment.WholeSalerRegisterFragment$13
- com.dci.berts.fragment.WholeSalerRegisterFragment$2
- com.dci.berts.fragment.WholeSalerRegisterFragment$3
- com.dci.berts.fragment.WholeSalerRegisterFragment$4
- com.dci.berts.fragment.WholeSalerRegisterFragment$5
- com.dci.berts.fragment.WholeSalerRegisterFragment$6
- com.dci.berts.fragment.WholeSalerRegisterFragment$7
- com.dci.berts.fragment.WholeSalerRegisterFragment$8
- com.dci.berts.fragment.WholeSalerRegisterFragment$9
+com/dci/berts/retailer/SearchProductListActivity.java
+ com.dci.berts.retailer.SearchProductListActivity
+ com.dci.berts.retailer.SearchProductListActivity$1
+ com.dci.berts.retailer.SearchProductListActivity$2
+ com.dci.berts.retailer.SearchProductListActivity$3
+ com.dci.berts.retailer.SearchProductListActivity$4
+ com.dci.berts.retailer.SearchProductListActivity$5
+ com.dci.berts.retailer.SearchProductListActivity$6
+ com.dci.berts.retailer.SearchProductListActivity$7
 com/dci/berts/model/SearchFilterListModel.java
  com.dci.berts.model.SearchFilterListModel
 com/dci/berts/adapter/SecondLevelAdapter.java
@@ -535,9 +531,12 @@ com/dci/berts/adapter/ShippingaddrListAdapter.java
  com.dci.berts.adapter.ShippingaddrListAdapter$1
  com.dci.berts.adapter.ShippingaddrListAdapter$2
  com.dci.berts.adapter.ShippingaddrListAdapter$ShoplistHolder
-com/dci/berts/adapter/VehicletListAdapter.java
- com.dci.berts.adapter.VehicletListAdapter
- com.dci.berts.adapter.VehicletListAdapter$ShoplistHolder
+com/dci/berts/retailerfragment/MyGarageFragment.java
+ com.dci.berts.retailerfragment.MyGarageFragment
+ com.dci.berts.retailerfragment.MyGarageFragment$1
+ com.dci.berts.retailerfragment.MyGarageFragment$2
+ com.dci.berts.retailerfragment.MyGarageFragment$3
+ com.dci.berts.retailerfragment.MyGarageFragment$4
 com/dci/berts/interfaces/GetCategIDListener.java
  com.dci.berts.interfaces.GetCategIDListener
 com/dci/berts/app/App.java
@@ -576,8 +575,18 @@ com/dci/berts/requestpojo/ForgotPasswordRequest.java
  com.dci.berts.requestpojo.ForgotPasswordRequest
 com/dci/berts/model/ShopByNameModel.java
  com.dci.berts.model.ShopByNameModel
-com/dci/berts/activities/RegisterActivity.java
- com.dci.berts.activities.RegisterActivity
+com/dci/berts/retailer/RetailerProductListBasedOnCategActivity.java
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$1
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$10
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$2
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$3
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$4
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$5
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$6
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$7
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$8
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$9
 com/dci/berts/model/FilterColorlistModel.java
  com.dci.berts.model.FilterColorlistModel
 com/dci/berts/responsepojo/FetchChildCateglistResponse.java
@@ -601,8 +610,12 @@ com/dci/berts/interfaces/ProductListener.java
  com.dci.berts.interfaces.ProductListener
 com/dci/berts/adapter/ViewPagerProductDetailsAdapter.java
  com.dci.berts.adapter.ViewPagerProductDetailsAdapter
-com/dci/berts/adapter/RegisterFragmentPagerAdapter.java
- com.dci.berts.adapter.RegisterFragmentPagerAdapter
+com/dci/berts/retailer/MyWishlistActivity.java
+ com.dci.berts.retailer.MyWishlistActivity
+ com.dci.berts.retailer.MyWishlistActivity$1
+ com.dci.berts.retailer.MyWishlistActivity$1$1
+ com.dci.berts.retailer.MyWishlistActivity$1$2
+ com.dci.berts.retailer.MyWishlistActivity$2
 com/dci/berts/interfaces/CartRemoveProductListener.java
  com.dci.berts.interfaces.CartRemoveProductListener
 com/dci/berts/requestpojo/FetchAllColorsRequest.java
@@ -624,18 +637,35 @@ com/dci/berts/responsepojo/OrderCreateResponse.java
  com.dci.berts.responsepojo.OrderCreateResponse$DataBean$OrderBean
  com.dci.berts.responsepojo.OrderCreateResponse$DataBean$OrderBean$ProductsBean
  com.dci.berts.responsepojo.OrderCreateResponse$DataBean$OrderBean$ProductsBean$ImagesBean
-com/dci/berts/retailer/RetailerProductListActivity.java
- com.dci.berts.retailer.RetailerProductListActivity
- com.dci.berts.retailer.RetailerProductListActivity$1
- com.dci.berts.retailer.RetailerProductListActivity$10
- com.dci.berts.retailer.RetailerProductListActivity$2
- com.dci.berts.retailer.RetailerProductListActivity$3
- com.dci.berts.retailer.RetailerProductListActivity$4
- com.dci.berts.retailer.RetailerProductListActivity$5
- com.dci.berts.retailer.RetailerProductListActivity$6
- com.dci.berts.retailer.RetailerProductListActivity$7
- com.dci.berts.retailer.RetailerProductListActivity$8
- com.dci.berts.retailer.RetailerProductListActivity$9
+com/dci/berts/requestpojo/AddToCartRequest.java
+ com.dci.berts.requestpojo.AddToCartRequest
+com/dci/berts/adapter/RegisterFragmentPagerAdapter.java
+ com.dci.berts.adapter.RegisterFragmentPagerAdapter
+com/dci/berts/model/RetailerProductlistModel.java
+ com.dci.berts.model.RetailerProductlistModel
+com/dci/berts/retailer/ShippingAddressEditActivity.java
+ com.dci.berts.retailer.ShippingAddressEditActivity
+ com.dci.berts.retailer.ShippingAddressEditActivity$1
+ com.dci.berts.retailer.ShippingAddressEditActivity$2
+ com.dci.berts.retailer.ShippingAddressEditActivity$3
+ com.dci.berts.retailer.ShippingAddressEditActivity$4
+ com.dci.berts.retailer.ShippingAddressEditActivity$5
+com/dci/berts/activities/RegisterActivity.java
+ com.dci.berts.activities.RegisterActivity
+com/dci/berts/adapter/ChildMakesListAdapter.java
+ com.dci.berts.adapter.ChildMakesListAdapter
+ com.dci.berts.adapter.ChildMakesListAdapter$ShoplistHolder
+com/dci/berts/fragment/RetailerRegisterFragment.java
+ com.dci.berts.fragment.RetailerRegisterFragment
+ com.dci.berts.fragment.RetailerRegisterFragment$1
+ com.dci.berts.fragment.RetailerRegisterFragment$2
+ com.dci.berts.fragment.RetailerRegisterFragment$3
+ com.dci.berts.fragment.RetailerRegisterFragment$4
+ com.dci.berts.fragment.RetailerRegisterFragment$5
+ com.dci.berts.fragment.RetailerRegisterFragment$6
+ com.dci.berts.fragment.RetailerRegisterFragment$7
+ com.dci.berts.fragment.RetailerRegisterFragment$8
+ com.dci.berts.fragment.RetailerRegisterFragment$9
 com/dci/berts/retailer/RetailerCartActivity.java
  com.dci.berts.retailer.RetailerCartActivity
  com.dci.berts.retailer.RetailerCartActivity$1
@@ -653,25 +683,21 @@ com/dci/berts/retailer/RetailerCartActivity.java
  com.dci.berts.retailer.RetailerCartActivity$8
  com.dci.berts.retailer.RetailerCartActivity$9
  com.dci.berts.retailer.RetailerCartActivity$9$1
-com/dci/berts/activities/ForgetPasswordActivity.java
- com.dci.berts.activities.ForgetPasswordActivity
- com.dci.berts.activities.ForgetPasswordActivity$1
-com/dci/berts/retailerfragment/ProfileFragment.java
- com.dci.berts.retailerfragment.ProfileFragment
- com.dci.berts.retailerfragment.ProfileFragment$1
- com.dci.berts.retailerfragment.ProfileFragment$2
-com/dci/berts/retailer/MyWishlistActivity.java
- com.dci.berts.retailer.MyWishlistActivity
- com.dci.berts.retailer.MyWishlistActivity$1
- com.dci.berts.retailer.MyWishlistActivity$1$1
- com.dci.berts.retailer.MyWishlistActivity$1$2
- com.dci.berts.retailer.MyWishlistActivity$2
-com/dci/berts/retailerfragment/MyGarageFragment.java
- com.dci.berts.retailerfragment.MyGarageFragment
- com.dci.berts.retailerfragment.MyGarageFragment$1
- com.dci.berts.retailerfragment.MyGarageFragment$2
- com.dci.berts.retailerfragment.MyGarageFragment$3
- com.dci.berts.retailerfragment.MyGarageFragment$4
+com/dci/berts/fragment/WholeSalerRegisterFragment.java
+ com.dci.berts.fragment.WholeSalerRegisterFragment
+ com.dci.berts.fragment.WholeSalerRegisterFragment$1
+ com.dci.berts.fragment.WholeSalerRegisterFragment$10
+ com.dci.berts.fragment.WholeSalerRegisterFragment$11
+ com.dci.berts.fragment.WholeSalerRegisterFragment$12
+ com.dci.berts.fragment.WholeSalerRegisterFragment$13
+ com.dci.berts.fragment.WholeSalerRegisterFragment$2
+ com.dci.berts.fragment.WholeSalerRegisterFragment$3
+ com.dci.berts.fragment.WholeSalerRegisterFragment$4
+ com.dci.berts.fragment.WholeSalerRegisterFragment$5
+ com.dci.berts.fragment.WholeSalerRegisterFragment$6
+ com.dci.berts.fragment.WholeSalerRegisterFragment$7
+ com.dci.berts.fragment.WholeSalerRegisterFragment$8
+ com.dci.berts.fragment.WholeSalerRegisterFragment$9
 com/dci/berts/retailer/RetailerProductListBasedOnMakeActivity.java
  com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity
  com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity$1
@@ -684,18 +710,6 @@ com/dci/berts/retailer/RetailerProductListBasedOnMakeActivity.java
  com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity$7
  com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity$8
  com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity$9
-com/dci/berts/retailer/RetailerProductListBasedOnCategActivity.java
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$1
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$10
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$2
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$3
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$4
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$5
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$6
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$7
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$8
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$9
 com/dci/berts/activities/LoginActivity.java
  com.dci.berts.activities.LoginActivity
  com.dci.berts.activities.LoginActivity$1
@@ -721,17 +735,3 @@ com/dci/berts/retailer/ProductDetailDescriptionActivity.java
  com.dci.berts.retailer.ProductDetailDescriptionActivity$7
  com.dci.berts.retailer.ProductDetailDescriptionActivity$8
  com.dci.berts.retailer.ProductDetailDescriptionActivity$9
-com/dci/berts/retailer/SearchProductListActivity.java
- com.dci.berts.retailer.SearchProductListActivity
- com.dci.berts.retailer.SearchProductListActivity$1
- com.dci.berts.retailer.SearchProductListActivity$2
- com.dci.berts.retailer.SearchProductListActivity$3
- com.dci.berts.retailer.SearchProductListActivity$4
- com.dci.berts.retailer.SearchProductListActivity$5
- com.dci.berts.retailer.SearchProductListActivity$6
- com.dci.berts.retailer.SearchProductListActivity$7
-com/dci/berts/retailerfragment/HomeFragment.java
- com.dci.berts.retailerfragment.HomeFragment
- com.dci.berts.retailerfragment.HomeFragment$1
- com.dci.berts.retailerfragment.HomeFragment$2
- com.dci.berts.retailerfragment.HomeFragment$3

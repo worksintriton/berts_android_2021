@@ -1244,7 +1244,6 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                             Log.w(TAG, "Cart_Count" + cart_count);
 
-
                             if (cart_count!=null&&!cart_count.equals("0"))  {
 
                                 Log.w(TAG, "Cart_Count --> true");
@@ -1255,7 +1254,24 @@ public class RetailerProductListBasedOnCategActivity extends AppCompatActivity i
 
                                 connectivity.storeData(context,"Cart_Count",String.valueOf(cart_count));
 
-                                txt_cart_count.setText(""+cart_count);
+                                cart_count = connectivity.getData(context,"Cart_Count");
+
+                                Log.w(TAG,"cart_count_from_session"+cart_count);
+
+                                if(cart_count!=null&&!cart_count.equals("0")){
+
+                                    Log.w(TAG, "Cart_Count_from_session --> true");
+
+                                    txt_cart_count.setVisibility(View.VISIBLE);
+
+                                    txt_cart_count.setText(""+cart_count);
+                                }
+
+                                else {
+
+                                    txt_cart_count.setVisibility(View.GONE);
+                                }
+
                             }
 
                             else {

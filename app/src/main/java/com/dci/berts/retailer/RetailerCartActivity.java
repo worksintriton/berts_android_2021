@@ -1639,9 +1639,7 @@ public class RetailerCartActivity extends AppCompatActivity implements BottomNav
 
                         Toasty.success(getApplicationContext(),""+response.body().getMessage(),Toast.LENGTH_LONG).show();
 
-                        usercommonResponseCall();
-
-                        startActivity(new Intent(RetailerCartActivity.this,RetailerDashboardActivity.class));
+                        showcartlistResponseCall();
                     }
 
                     else {

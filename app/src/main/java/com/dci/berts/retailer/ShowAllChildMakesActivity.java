@@ -98,18 +98,6 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
 
         //registerBroadcastReceiver();
 
-        if (dd4YouConfig.isInternetConnectivity()) {
-
-            fetchallmakesListResponseCall();
-
-        }
-
-        else
-        {
-            callnointernet();
-
-        }
-
         connectivity = new Connectivity();
 
         value = connectivity.getData(ShowAllChildMakesActivity.this,"ChildMakes");
@@ -180,23 +168,18 @@ public class ShowAllChildMakesActivity extends AppCompatActivity {
             }
         });
 
-        refresh_layout.setOnRefreshListener(
-                () -> {
-                    refresh_layout.setEnabled(false);
-                    if (dd4YouConfig.isInternetConnectivity()) {
+        if (dd4YouConfig.isInternetConnectivity()) {
 
-                        fetchallmakesListResponseCall();
+            fetchallmakesListResponseCall();
 
-                    }
+        }
 
-                    else
-                    {
-                        callnointernet();
+        else
+        {
+            callnointernet();
 
-                    }
+        }
 
-                }
-        );
     }
 
 

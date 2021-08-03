@@ -1153,6 +1153,8 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
                             Log.w(TAG, "HomepageDashboardResponse" + new Gson().toJson(response.body()));
 
+                            rlcart.setVisibility(View.VISIBLE);
+
                             cart_count = String.valueOf(response.body().getData().getCart_count());
 
                             Log.w(TAG, "Cart_Count" + cart_count);
@@ -1167,7 +1169,24 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
 
                                 connectivity.storeData(context,"Cart_Count",String.valueOf(cart_count));
 
-                                txt_cart_count.setText(""+cart_count);
+                                cart_count = connectivity.getData(context,"Cart_Count");
+
+                                Log.w(TAG,"cart_count_from_session"+cart_count);
+
+                                if(cart_count!=null&&!cart_count.equals("0")){
+
+                                    Log.w(TAG, "Cart_Count_from_session --> true");
+
+                                    txt_cart_count.setVisibility(View.VISIBLE);
+
+                                    txt_cart_count.setText(""+cart_count);
+                                }
+
+                                else {
+
+                                    txt_cart_count.setVisibility(View.GONE);
+                                }
+
                             }
 
                             else {
@@ -1209,6 +1228,7 @@ public class RetailerProductListActivity extends AppCompatActivity implements Wi
                     }
 
                 }
+
 
             }
 
