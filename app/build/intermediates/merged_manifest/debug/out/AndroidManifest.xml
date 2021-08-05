@@ -37,6 +37,11 @@
         android:testOnly="true"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.dci.berts.retailer.NotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name="com.dci.berts.retailer.TermsAndConditionsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"

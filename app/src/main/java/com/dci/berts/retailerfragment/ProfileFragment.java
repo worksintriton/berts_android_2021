@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.bumptech.glide.Glide;
+import com.dci.berts.retailer.NotificationActivity;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.dci.berts.R;
 import com.dci.berts.activities.LoginActivity;
@@ -59,6 +60,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 //    @SuppressLint("NonConstantResourceId")
 //    @BindView(R.id.rl_ordrtrack)
 //    RelativeLayout rl_ordrtrack;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_notification)
+    RelativeLayout rl_notification;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rlEdit)
@@ -212,7 +217,20 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
 
             });
-//
+
+            rl_notification.setOnClickListener(v -> {
+
+                Intent intent = new Intent(getContext(), NotificationActivity.class);
+
+                intent.putExtra("fromactivity",TAG);
+
+                startActivity(intent);
+
+                Animatoo.animateSwipeRight(Objects.requireNonNull(getContext()));
+
+            });
+
+
 //            rl_ordrtrack.setOnClickListener(v -> {
 //
 //                Intent intent = new Intent(getContext(), RetailerOrderTrackActivity.class);

@@ -24,6 +24,8 @@ import com.dci.berts.requestpojo.GetStateRequest;
 import com.dci.berts.requestpojo.HomepageDashboardRequest;
 import com.dci.berts.requestpojo.HomepageDashboardResponse;
 import com.dci.berts.requestpojo.LoginRequest;
+import com.dci.berts.requestpojo.NotificationGetlistRequest;
+import com.dci.berts.requestpojo.NotificationsMarkRequest;
 import com.dci.berts.requestpojo.OrderCancelOverallRequest;
 import com.dci.berts.requestpojo.OrderCreateRequest;
 import com.dci.berts.requestpojo.OrderDetailListRequest;
@@ -61,6 +63,7 @@ import com.dci.berts.responsepojo.GetCountryResponse;
 import com.dci.berts.responsepojo.GetSettingsResponse;
 import com.dci.berts.responsepojo.GetStateResponse;
 import com.dci.berts.responsepojo.LoginResponse;
+import com.dci.berts.responsepojo.NotificationGetlistResponse;
 import com.dci.berts.responsepojo.OrderCancelOverallResponse;
 import com.dci.berts.responsepojo.OrderCreateResponse;
 import com.dci.berts.responsepojo.OrderDetailListResponse;
@@ -75,6 +78,7 @@ import com.dci.berts.responsepojo.ShowCartListResponse;
 import com.dci.berts.responsepojo.ShowOrderlistResponse;
 import com.dci.berts.responsepojo.ShowVehiclelistResponse;
 import com.dci.berts.responsepojo.SignupResponse;
+import com.dci.berts.responsepojo.SuccessResponse;
 import com.dci.berts.responsepojo.UpdateProfileResponse;
 import com.dci.berts.responsepojo.UserAddressListResponse;
 import com.dci.berts.responsepojo.WishlistSuccessResponse;
@@ -266,5 +270,14 @@ public interface RestApiInterface {
     /*Get All Settings*/
     @GET("settings")
     Call<GetSettingsResponse> fetchsettings(@Header("Content-Type") String type);
+
+    /*notification mark*/
+    @POST("notification/mark_readed")
+    Call<SuccessResponse> notificationMarkResponseCall(@Header("Content-Type") String type, @Body NotificationsMarkRequest notificationsMarkRequest);
+
+    /*notifications list*/
+    @POST("notification/mobile/getlist_id")
+    Call<NotificationGetlistResponse> notificationGetlistResponseCall(@Header("Content-Type") String type, @Body NotificationGetlistRequest notificationGetlistRequest);
+
 
 }

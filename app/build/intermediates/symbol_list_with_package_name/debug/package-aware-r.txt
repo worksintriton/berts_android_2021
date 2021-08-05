@@ -2174,6 +2174,7 @@ drawable mtrl_popupmenu_background_dark
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
 drawable noimage
+drawable notification
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -2417,6 +2418,7 @@ id btn_signin
 id btn_update
 id btn_website
 id btn_yes
+id btnnotificationsdelete
 id butt
 id button
 id button1
@@ -2673,6 +2675,7 @@ id img_arrow_year
 id img_arrowwrit1
 id img_arrowwrit2
 id img_arrowwrit3
+id img_arrowwrit31
 id img_arrowwrit4
 id img_arrowwrit5
 id img_arrowwrit56
@@ -2719,6 +2722,8 @@ id img_logo_image
 id img_logout
 id img_manageaddress
 id img_minus
+id img_notification
+id img_notify_imge
 id img_order_confirmed
 id img_order_deliverynProgress
 id img_order_shipped
@@ -2991,6 +2996,7 @@ id rl_manageveh
 id rl_measurment_unit
 id rl_model
 id rl_no
+id rl_notification
 id rl_orderstatus
 id rl_ordrhist
 id rl_ordrtrack
@@ -3028,6 +3034,7 @@ id rv_filterlist
 id rv_language_list
 id rv_makes
 id rv_models
+id rv_notificationlist
 id rv_orderlist
 id rv_productdetails
 id rv_productlist
@@ -3286,6 +3293,8 @@ id txt_manageaddress
 id txt_manufacturer
 id txt_max_value
 id txt_measurment_unit
+id txt_message
+id txt_message_details
 id txt_min_value
 id txt_model
 id txt_model_selected_value
@@ -3294,6 +3303,8 @@ id txt_no_records
 id txt_no_recordsbrands
 id txt_no_recordscateg
 id txt_no_recordsmakes
+id txt_notification
+id txt_notification_title
 id txt_or
 id txt_order_ID
 id txt_order_ID_label
@@ -3460,7 +3471,6 @@ id view2
 id view20
 id view21
 id view22
-id view23
 id view24
 id view25
 id view3
@@ -3562,6 +3572,7 @@ layout activity_filterlist
 layout activity_forget_password
 layout activity_login
 layout activity_my_wishlist
+layout activity_notification
 layout activity_order_detail_list
 layout activity_order_list
 layout activity_payment_method
@@ -3597,6 +3608,7 @@ layout adapter_filter_colorlist
 layout adapter_filter_yearlist
 layout adapter_filterlist
 layout adapter_modellist
+layout adapter_notifications_cardview
 layout adapter_orderlist
 layout adapter_prodlist_gridview
 layout adapter_prodlist_listview
@@ -4106,7 +4118,9 @@ string my_wishlistt
 string new_addr
 string new_arrival
 string no_data_found
+string no_notifications
 string no_prod_found
+string notification
 string now_available_n_stock_izuzu_and_mazda_parts
 string offline_payment
 string only_if_needed_their_calipers_are_good_too

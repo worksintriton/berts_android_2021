@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.dci.berts.app.App"
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,144 +25,151 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name="com.dci.berts.retailer.TermsAndConditionsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Customtheme"
-            android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
-        <activity android:name="com.dci.berts.retailer.AboutUsActivity"
+        <activity android:name=".retailer.NotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.OrderDetailListActivity"
+            android:name=".retailer.TermsAndConditionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".retailer.OrderDetailListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerProductListBasedOnCategActivity"
+            android:name=".retailer.RetailerProductListBasedOnCategActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity"
+            android:name=".retailer.RetailerProductListBasedOnMakeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllChildMakesActivity"
+            android:name=".retailer.ShowAllChildMakesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllChildMakesListActivity"
+            android:name=".retailer.ShowAllChildMakesListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllChildCategActivity"
+            android:name=".retailer.ShowAllChildCategActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllParentMakesActivity"
+            android:name=".retailer.ShowAllParentMakesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllBrandsActivity"
+            android:name=".retailer.ShowAllBrandsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShowAllParentCategoriesActivity"
+            android:name=".retailer.ShowAllParentCategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.SampleActivity"
+            android:name=".retailer.SampleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.PaymentMethodActivity"
+            android:name=".retailer.PaymentMethodActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.CouponApplyDetailActivity"
+            android:name=".retailer.CouponApplyDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.CheckoutScreenActivity"
+            android:name=".retailer.CheckoutScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShippingMethodActivity"
+            android:name=".retailer.ShippingMethodActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Parent"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerAllCategoriesActivity"
+            android:name=".retailer.RetailerAllCategoriesActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerSetttingsActivity"
+            android:name=".retailer.RetailerSetttingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ProductDetailDescriptionActivity"
+            android:name=".retailer.ProductDetailDescriptionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.AddVehicleActivity"
+            android:name=".retailer.AddVehicleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.EditVehicleActivity"
+            android:name=".retailer.EditVehicleActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerReceiptActivity"
+            android:name=".retailer.RetailerReceiptActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ChangePasswordActivity"
+            android:name=".retailer.ChangePasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.FilterlistActivity"
+            android:name=".retailer.FilterlistActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
@@ -179,91 +186,91 @@
 
         </activity>
         <activity
-            android:name="com.dci.berts.retailer.ShippingAddressAddActivity"
+            android:name=".retailer.ShippingAddressAddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShippingAddressEditActivity"
+            android:name=".retailer.ShippingAddressEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.ShippingAddressActivity"
+            android:name=".retailer.ShippingAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerProfileAccountActivity"
+            android:name=".retailer.RetailerProfileAccountActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.MyWishlistActivity"
+            android:name=".retailer.MyWishlistActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerOrderTrackActivity"
+            android:name=".retailer.RetailerOrderTrackActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.OrderListActivity"
+            android:name=".retailer.OrderListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerCartActivity"
+            android:name=".retailer.RetailerCartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.Cart"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.SearchProductListActivity"
+            android:name=".retailer.SearchProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerProductListActivity"
+            android:name=".retailer.RetailerProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.SearchProductsActivity"
+            android:name=".retailer.SearchProductsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.retailer.RetailerDashboardActivity"
+            android:name=".retailer.RetailerDashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Parent"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.activities.ForgetPasswordActivity"
+            android:name=".activities.ForgetPasswordActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.activities.RegisterActivity"
+            android:name=".activities.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.dci.berts.activities.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
@@ -275,7 +282,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dci.berts.activities.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"

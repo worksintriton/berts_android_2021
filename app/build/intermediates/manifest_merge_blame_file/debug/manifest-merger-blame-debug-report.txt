@@ -42,9 +42,9 @@
 23-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:8:20-72
 24
 25    <application
-25-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:15:5-304:19
+25-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:15:5-311:19
 26        android:name="com.dci.berts.app.App"
-26-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:16:9-45
+26-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:16:9-32
 27        android:allowBackup="true"
 27-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:17:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -69,8 +69,8 @@
 38-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:25:9-44
 39        <activity
 39-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:28:9-32:56
-40            android:name="com.dci.berts.retailer.TermsAndConditionsActivity"
-40-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:28:19-83
+40            android:name="com.dci.berts.retailer.NotificationActivity"
+40-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:28:19-64
 41            android:screenOrientation="portrait"
 41-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:29:13-49
 42            android:theme="@style/Customtheme"
@@ -78,819 +78,829 @@
 43            android:windowSoftInputMode="adjustPan" />
 43-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:31:13-52
 44        <activity
-44-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:33:9-37:56
-45            android:name="com.dci.berts.retailer.AboutUsActivity"
-45-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:33:19-72
+44-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:33:9-38:56
+45            android:name="com.dci.berts.retailer.TermsAndConditionsActivity"
+45-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:34:13-64
 46            android:screenOrientation="portrait"
-46-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:34:13-49
+46-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:35:13-49
 47            android:theme="@style/Customtheme"
-47-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:35:13-47
+47-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:36:13-47
 48            android:windowSoftInputMode="adjustPan" />
-48-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:36:13-52
+48-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:37:13-52
 49        <activity
-49-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:38:9-43:56
-50            android:name="com.dci.berts.retailer.OrderDetailListActivity"
-50-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:39:13-74
+49-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:39:9-44:56
+50            android:name="com.dci.berts.retailer.AboutUsActivity"
+50-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:40:13-53
 51            android:screenOrientation="portrait"
-51-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:40:13-49
-52            android:theme="@style/Theme.BertsProject.SearchProduct"
-52-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:41:13-68
+51-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:41:13-49
+52            android:theme="@style/Customtheme"
+52-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:42:13-47
 53            android:windowSoftInputMode="adjustPan" />
-53-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:42:13-52
+53-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:43:13-52
 54        <activity
-54-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:44:9-49:56
-55            android:name="com.dci.berts.retailer.RetailerProductListBasedOnCategActivity"
-55-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:45:13-90
+54-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:45:9-50:56
+55            android:name="com.dci.berts.retailer.OrderDetailListActivity"
+55-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:46:13-61
 56            android:screenOrientation="portrait"
-56-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:46:13-49
+56-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:47:13-49
 57            android:theme="@style/Theme.BertsProject.SearchProduct"
-57-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:47:13-68
+57-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:48:13-68
 58            android:windowSoftInputMode="adjustPan" />
-58-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:48:13-52
+58-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:49:13-52
 59        <activity
-59-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:50:9-55:56
-60            android:name="com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity"
-60-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:51:13-89
+59-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:51:9-56:56
+60            android:name="com.dci.berts.retailer.RetailerProductListBasedOnCategActivity"
+60-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:52:13-77
 61            android:screenOrientation="portrait"
-61-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:52:13-49
+61-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:53:13-49
 62            android:theme="@style/Theme.BertsProject.SearchProduct"
-62-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:53:13-68
+62-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:54:13-68
 63            android:windowSoftInputMode="adjustPan" />
-63-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:54:13-52
+63-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:55:13-52
 64        <activity
-64-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:56:9-61:56
-65            android:name="com.dci.berts.retailer.ShowAllChildMakesActivity"
-65-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:57:13-76
+64-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:57:9-62:56
+65            android:name="com.dci.berts.retailer.RetailerProductListBasedOnMakeActivity"
+65-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:58:13-76
 66            android:screenOrientation="portrait"
-66-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:58:13-49
+66-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:59:13-49
 67            android:theme="@style/Theme.BertsProject.SearchProduct"
-67-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:59:13-68
+67-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:60:13-68
 68            android:windowSoftInputMode="adjustPan" />
-68-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:60:13-52
+68-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:61:13-52
 69        <activity
-69-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:62:9-67:56
-70            android:name="com.dci.berts.retailer.ShowAllChildMakesListActivity"
-70-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:63:13-80
+69-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:63:9-68:56
+70            android:name="com.dci.berts.retailer.ShowAllChildMakesActivity"
+70-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:64:13-63
 71            android:screenOrientation="portrait"
-71-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:64:13-49
+71-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:65:13-49
 72            android:theme="@style/Theme.BertsProject.SearchProduct"
-72-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:65:13-68
+72-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:66:13-68
 73            android:windowSoftInputMode="adjustPan" />
-73-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:66:13-52
+73-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:67:13-52
 74        <activity
-74-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:68:9-73:56
-75            android:name="com.dci.berts.retailer.ShowAllChildCategActivity"
-75-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:69:13-76
+74-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:69:9-74:56
+75            android:name="com.dci.berts.retailer.ShowAllChildMakesListActivity"
+75-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:70:13-67
 76            android:screenOrientation="portrait"
-76-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:70:13-49
+76-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:71:13-49
 77            android:theme="@style/Theme.BertsProject.SearchProduct"
-77-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:71:13-68
+77-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:72:13-68
 78            android:windowSoftInputMode="adjustPan" />
-78-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:72:13-52
+78-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:73:13-52
 79        <activity
-79-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:74:9-79:56
-80            android:name="com.dci.berts.retailer.ShowAllParentMakesActivity"
-80-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:75:13-77
+79-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:75:9-80:56
+80            android:name="com.dci.berts.retailer.ShowAllChildCategActivity"
+80-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:76:13-63
 81            android:screenOrientation="portrait"
-81-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:76:13-49
+81-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:77:13-49
 82            android:theme="@style/Theme.BertsProject.SearchProduct"
-82-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:77:13-68
+82-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:78:13-68
 83            android:windowSoftInputMode="adjustPan" />
-83-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:78:13-52
+83-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:79:13-52
 84        <activity
-84-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:80:9-85:56
-85            android:name="com.dci.berts.retailer.ShowAllBrandsActivity"
-85-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:81:13-72
+84-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:81:9-86:56
+85            android:name="com.dci.berts.retailer.ShowAllParentMakesActivity"
+85-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:82:13-64
 86            android:screenOrientation="portrait"
-86-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:82:13-49
+86-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:83:13-49
 87            android:theme="@style/Theme.BertsProject.SearchProduct"
-87-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:83:13-68
+87-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:84:13-68
 88            android:windowSoftInputMode="adjustPan" />
-88-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:84:13-52
+88-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:85:13-52
 89        <activity
-89-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:86:9-91:56
-90            android:name="com.dci.berts.retailer.ShowAllParentCategoriesActivity"
-90-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:87:13-82
+89-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:87:9-92:56
+90            android:name="com.dci.berts.retailer.ShowAllBrandsActivity"
+90-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:88:13-59
 91            android:screenOrientation="portrait"
-91-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:88:13-49
+91-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:89:13-49
 92            android:theme="@style/Theme.BertsProject.SearchProduct"
-92-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:89:13-68
+92-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:90:13-68
 93            android:windowSoftInputMode="adjustPan" />
-93-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:90:13-52
+93-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:91:13-52
 94        <activity
-94-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:92:9-97:56
-95            android:name="com.dci.berts.retailer.SampleActivity"
-95-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:93:13-65
+94-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:93:9-98:56
+95            android:name="com.dci.berts.retailer.ShowAllParentCategoriesActivity"
+95-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:94:13-69
 96            android:screenOrientation="portrait"
-96-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:94:13-49
+96-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:95:13-49
 97            android:theme="@style/Theme.BertsProject.SearchProduct"
-97-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:95:13-68
+97-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:96:13-68
 98            android:windowSoftInputMode="adjustPan" />
-98-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:96:13-52
+98-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:97:13-52
 99        <activity
-99-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:98:9-103:56
-100            android:name="com.dci.berts.retailer.PaymentMethodActivity"
-100-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:99:13-72
+99-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:99:9-104:56
+100            android:name="com.dci.berts.retailer.SampleActivity"
+100-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:100:13-52
 101            android:screenOrientation="portrait"
-101-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:100:13-49
+101-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:101:13-49
 102            android:theme="@style/Theme.BertsProject.SearchProduct"
-102-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:101:13-68
+102-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:102:13-68
 103            android:windowSoftInputMode="adjustPan" />
-103-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:102:13-52
+103-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:103:13-52
 104        <activity
-104-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:104:9-109:56
-105            android:name="com.dci.berts.retailer.CouponApplyDetailActivity"
-105-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:105:13-76
+104-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:105:9-110:56
+105            android:name="com.dci.berts.retailer.PaymentMethodActivity"
+105-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:106:13-59
 106            android:screenOrientation="portrait"
-106-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:106:13-49
+106-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:107:13-49
 107            android:theme="@style/Theme.BertsProject.SearchProduct"
-107-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:107:13-68
+107-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:108:13-68
 108            android:windowSoftInputMode="adjustPan" />
-108-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:108:13-52
+108-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:109:13-52
 109        <activity
-109-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:110:9-115:56
-110            android:name="com.dci.berts.retailer.CheckoutScreenActivity"
-110-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:111:13-73
+109-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:111:9-116:56
+110            android:name="com.dci.berts.retailer.CouponApplyDetailActivity"
+110-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:112:13-63
 111            android:screenOrientation="portrait"
-111-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:112:13-49
+111-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:113:13-49
 112            android:theme="@style/Theme.BertsProject.SearchProduct"
-112-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:113:13-68
+112-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:114:13-68
 113            android:windowSoftInputMode="adjustPan" />
-113-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:114:13-52
+113-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:115:13-52
 114        <activity
-114-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:116:9-121:56
-115            android:name="com.dci.berts.retailer.ShippingMethodActivity"
-115-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:117:13-73
+114-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:117:9-122:56
+115            android:name="com.dci.berts.retailer.CheckoutScreenActivity"
+115-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:118:13-60
 116            android:screenOrientation="portrait"
-116-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:118:13-49
-117            android:theme="@style/Parent"
-117-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:119:13-42
+116-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:119:13-49
+117            android:theme="@style/Theme.BertsProject.SearchProduct"
+117-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:120:13-68
 118            android:windowSoftInputMode="adjustPan" />
-118-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:120:13-52
+118-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:121:13-52
 119        <activity
-119-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:122:9-127:56
-120            android:name="com.dci.berts.retailer.RetailerAllCategoriesActivity"
-120-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:123:13-80
+119-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:123:9-128:56
+120            android:name="com.dci.berts.retailer.ShippingMethodActivity"
+120-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:124:13-60
 121            android:screenOrientation="portrait"
-121-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:124:13-49
-122            android:theme="@style/Theme.BertsProject.SearchProduct"
-122-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:125:13-68
+121-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:125:13-49
+122            android:theme="@style/Parent"
+122-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:126:13-42
 123            android:windowSoftInputMode="adjustPan" />
-123-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:126:13-52
+123-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:127:13-52
 124        <activity
-124-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:128:9-133:56
-125            android:name="com.dci.berts.retailer.RetailerSetttingsActivity"
-125-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:129:13-76
+124-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:129:9-134:56
+125            android:name="com.dci.berts.retailer.RetailerAllCategoriesActivity"
+125-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:130:13-67
 126            android:screenOrientation="portrait"
-126-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:130:13-49
+126-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:131:13-49
 127            android:theme="@style/Theme.BertsProject.SearchProduct"
-127-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:131:13-68
+127-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:132:13-68
 128            android:windowSoftInputMode="adjustPan" />
-128-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:132:13-52
+128-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:133:13-52
 129        <activity
-129-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:134:9-139:56
-130            android:name="com.dci.berts.retailer.ProductDetailDescriptionActivity"
-130-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:135:13-83
+129-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:135:9-140:56
+130            android:name="com.dci.berts.retailer.RetailerSetttingsActivity"
+130-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:136:13-63
 131            android:screenOrientation="portrait"
-131-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:136:13-49
+131-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:137:13-49
 132            android:theme="@style/Theme.BertsProject.SearchProduct"
-132-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:137:13-68
+132-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:138:13-68
 133            android:windowSoftInputMode="adjustPan" />
-133-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:138:13-52
+133-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:139:13-52
 134        <activity
-134-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:140:9-145:56
-135            android:name="com.dci.berts.retailer.AddVehicleActivity"
-135-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:141:13-69
+134-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:141:9-146:56
+135            android:name="com.dci.berts.retailer.ProductDetailDescriptionActivity"
+135-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:142:13-70
 136            android:screenOrientation="portrait"
-136-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:142:13-49
-137            android:theme="@style/Customtheme"
-137-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:143:13-47
+136-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:143:13-49
+137            android:theme="@style/Theme.BertsProject.SearchProduct"
+137-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:144:13-68
 138            android:windowSoftInputMode="adjustPan" />
-138-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:144:13-52
+138-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:145:13-52
 139        <activity
-139-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:146:9-151:56
-140            android:name="com.dci.berts.retailer.EditVehicleActivity"
-140-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:147:13-70
+139-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:147:9-152:56
+140            android:name="com.dci.berts.retailer.AddVehicleActivity"
+140-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:148:13-56
 141            android:screenOrientation="portrait"
-141-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:148:13-49
+141-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:149:13-49
 142            android:theme="@style/Customtheme"
-142-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:149:13-47
+142-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:150:13-47
 143            android:windowSoftInputMode="adjustPan" />
-143-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:150:13-52
+143-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:151:13-52
 144        <activity
-144-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:152:9-157:56
-145            android:name="com.dci.berts.retailer.RetailerReceiptActivity"
-145-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:153:13-74
+144-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:153:9-158:56
+145            android:name="com.dci.berts.retailer.EditVehicleActivity"
+145-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:154:13-57
 146            android:screenOrientation="portrait"
-146-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:154:13-49
+146-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:155:13-49
 147            android:theme="@style/Customtheme"
-147-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:155:13-47
+147-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:156:13-47
 148            android:windowSoftInputMode="adjustPan" />
-148-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:156:13-52
+148-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:157:13-52
 149        <activity
-149-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:158:9-163:56
-150            android:name="com.dci.berts.retailer.ChangePasswordActivity"
-150-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:159:13-73
+149-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:159:9-164:56
+150            android:name="com.dci.berts.retailer.RetailerReceiptActivity"
+150-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:160:13-61
 151            android:screenOrientation="portrait"
-151-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:160:13-49
+151-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:161:13-49
 152            android:theme="@style/Customtheme"
-152-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:161:13-47
+152-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:162:13-47
 153            android:windowSoftInputMode="adjustPan" />
-153-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:162:13-52
+153-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:163:13-52
 154        <activity
-154-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:164:9-180:20
-155            android:name="com.dci.berts.retailer.FilterlistActivity"
-155-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:165:13-69
+154-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:165:9-170:56
+155            android:name="com.dci.berts.retailer.ChangePasswordActivity"
+155-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:166:13-60
 156            android:screenOrientation="portrait"
-156-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:166:13-49
+156-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:167:13-49
 157            android:theme="@style/Customtheme"
-157-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:167:13-47
-158            android:windowSoftInputMode="adjustPan" >
-158-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:168:13-52
-159
-160            <!--
-161                 <intent-filter>
-162             <action android:name="android.intent.action.MAIN" />
-163
+157-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:168:13-47
+158            android:windowSoftInputMode="adjustPan" />
+158-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:169:13-52
+159        <activity
+159-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:171:9-187:20
+160            android:name="com.dci.berts.retailer.FilterlistActivity"
+160-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:172:13-56
+161            android:screenOrientation="portrait"
+161-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:173:13-49
+162            android:theme="@style/Customtheme"
+162-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:174:13-47
+163            android:windowSoftInputMode="adjustPan" >
+163-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:175:13-52
 164
-165             <category android:name="android.intent.category.LAUNCHER" />
-166             </intent-filter>
-167            -->
+165            <!--
+166                 <intent-filter>
+167             <action android:name="android.intent.action.MAIN" />
 168
-169        </activity>
-170        <activity
-170-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:181:9-186:56
-171            android:name="com.dci.berts.retailer.ShippingAddressAddActivity"
-171-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:182:13-77
-172            android:screenOrientation="portrait"
-172-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:183:13-49
-173            android:theme="@style/Theme.BertsProject"
-173-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:184:13-54
-174            android:windowSoftInputMode="adjustPan" />
-174-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:185:13-52
+169
+170             <category android:name="android.intent.category.LAUNCHER" />
+171             </intent-filter>
+172            -->
+173
+174        </activity>
 175        <activity
-175-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:187:9-192:56
-176            android:name="com.dci.berts.retailer.ShippingAddressEditActivity"
-176-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:188:13-78
+175-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:188:9-193:56
+176            android:name="com.dci.berts.retailer.ShippingAddressAddActivity"
+176-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:189:13-64
 177            android:screenOrientation="portrait"
-177-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:189:13-49
+177-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:190:13-49
 178            android:theme="@style/Theme.BertsProject"
-178-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:190:13-54
+178-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:191:13-54
 179            android:windowSoftInputMode="adjustPan" />
-179-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:191:13-52
+179-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:192:13-52
 180        <activity
-180-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:193:9-198:56
-181            android:name="com.dci.berts.retailer.ShippingAddressActivity"
-181-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:194:13-74
+180-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:194:9-199:56
+181            android:name="com.dci.berts.retailer.ShippingAddressEditActivity"
+181-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:195:13-65
 182            android:screenOrientation="portrait"
-182-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:195:13-49
-183            android:theme="@style/Customtheme"
-183-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:196:13-47
+182-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:196:13-49
+183            android:theme="@style/Theme.BertsProject"
+183-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:197:13-54
 184            android:windowSoftInputMode="adjustPan" />
-184-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:197:13-52
+184-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:198:13-52
 185        <activity
-185-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:199:9-204:56
-186            android:name="com.dci.berts.retailer.RetailerProfileAccountActivity"
-186-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:200:13-81
+185-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:200:9-205:56
+186            android:name="com.dci.berts.retailer.ShippingAddressActivity"
+186-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:201:13-61
 187            android:screenOrientation="portrait"
-187-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:201:13-49
+187-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:202:13-49
 188            android:theme="@style/Customtheme"
-188-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:202:13-47
+188-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:203:13-47
 189            android:windowSoftInputMode="adjustPan" />
-189-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:203:13-52
+189-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:204:13-52
 190        <activity
-190-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:205:9-210:56
-191            android:name="com.dci.berts.retailer.MyWishlistActivity"
-191-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:206:13-69
+190-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:206:9-211:56
+191            android:name="com.dci.berts.retailer.RetailerProfileAccountActivity"
+191-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:207:13-68
 192            android:screenOrientation="portrait"
-192-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:207:13-49
-193            android:theme="@style/Theme.BertsProject.Cart"
-193-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:208:13-59
+192-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:208:13-49
+193            android:theme="@style/Customtheme"
+193-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:209:13-47
 194            android:windowSoftInputMode="adjustPan" />
-194-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:209:13-52
+194-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:210:13-52
 195        <activity
-195-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:211:9-216:56
-196            android:name="com.dci.berts.retailer.RetailerOrderTrackActivity"
-196-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:212:13-77
+195-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:212:9-217:56
+196            android:name="com.dci.berts.retailer.MyWishlistActivity"
+196-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:213:13-56
 197            android:screenOrientation="portrait"
-197-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:213:13-49
+197-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:214:13-49
 198            android:theme="@style/Theme.BertsProject.Cart"
-198-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:214:13-59
+198-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:215:13-59
 199            android:windowSoftInputMode="adjustPan" />
-199-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:215:13-52
+199-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:216:13-52
 200        <activity
-200-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:217:9-222:56
-201            android:name="com.dci.berts.retailer.OrderListActivity"
-201-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:218:13-68
+200-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:218:9-223:56
+201            android:name="com.dci.berts.retailer.RetailerOrderTrackActivity"
+201-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:219:13-64
 202            android:screenOrientation="portrait"
-202-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:219:13-49
+202-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:220:13-49
 203            android:theme="@style/Theme.BertsProject.Cart"
-203-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:220:13-59
+203-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:221:13-59
 204            android:windowSoftInputMode="adjustPan" />
-204-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:221:13-52
+204-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:222:13-52
 205        <activity
-205-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:223:9-228:56
-206            android:name="com.dci.berts.retailer.RetailerCartActivity"
-206-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:224:13-71
+205-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:224:9-229:56
+206            android:name="com.dci.berts.retailer.OrderListActivity"
+206-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:225:13-55
 207            android:screenOrientation="portrait"
-207-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:225:13-49
+207-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:226:13-49
 208            android:theme="@style/Theme.BertsProject.Cart"
-208-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:226:13-59
+208-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:227:13-59
 209            android:windowSoftInputMode="adjustPan" />
-209-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:227:13-52
+209-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:228:13-52
 210        <activity
-210-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:229:9-234:56
-211            android:name="com.dci.berts.retailer.SearchProductListActivity"
-211-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:230:13-76
+210-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:230:9-235:56
+211            android:name="com.dci.berts.retailer.RetailerCartActivity"
+211-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:231:13-58
 212            android:screenOrientation="portrait"
-212-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:231:13-49
-213            android:theme="@style/Theme.BertsProject.SearchProduct"
-213-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:232:13-68
+212-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:232:13-49
+213            android:theme="@style/Theme.BertsProject.Cart"
+213-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:233:13-59
 214            android:windowSoftInputMode="adjustPan" />
-214-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:233:13-52
+214-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:234:13-52
 215        <activity
-215-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:235:9-240:56
-216            android:name="com.dci.berts.retailer.RetailerProductListActivity"
-216-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:236:13-78
+215-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:236:9-241:56
+216            android:name="com.dci.berts.retailer.SearchProductListActivity"
+216-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:237:13-63
 217            android:screenOrientation="portrait"
-217-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:237:13-49
+217-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:238:13-49
 218            android:theme="@style/Theme.BertsProject.SearchProduct"
-218-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:238:13-68
+218-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:239:13-68
 219            android:windowSoftInputMode="adjustPan" />
-219-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:239:13-52
+219-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:240:13-52
 220        <activity
-220-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:241:9-246:56
-221            android:name="com.dci.berts.retailer.SearchProductsActivity"
-221-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:242:13-73
+220-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:242:9-247:56
+221            android:name="com.dci.berts.retailer.RetailerProductListActivity"
+221-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:243:13-65
 222            android:screenOrientation="portrait"
-222-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:243:13-49
+222-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:244:13-49
 223            android:theme="@style/Theme.BertsProject.SearchProduct"
-223-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:244:13-68
+223-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:245:13-68
 224            android:windowSoftInputMode="adjustPan" />
-224-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:245:13-52
+224-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:246:13-52
 225        <activity
-225-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:247:9-252:56
-226            android:name="com.dci.berts.retailer.RetailerDashboardActivity"
-226-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:248:13-76
+225-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:248:9-253:56
+226            android:name="com.dci.berts.retailer.SearchProductsActivity"
+226-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:249:13-60
 227            android:screenOrientation="portrait"
-227-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:249:13-49
-228            android:theme="@style/Parent"
-228-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:250:13-42
+227-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:250:13-49
+228            android:theme="@style/Theme.BertsProject.SearchProduct"
+228-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:251:13-68
 229            android:windowSoftInputMode="adjustPan" />
-229-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:251:13-52
+229-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:252:13-52
 230        <activity
-230-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:253:9-258:56
-231            android:name="com.dci.berts.activities.ForgetPasswordActivity"
-231-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:254:13-75
+230-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:254:9-259:56
+231            android:name="com.dci.berts.retailer.RetailerDashboardActivity"
+231-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:255:13-63
 232            android:screenOrientation="portrait"
-232-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:255:13-49
-233            android:theme="@style/Customtheme"
-233-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:256:13-47
+232-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:256:13-49
+233            android:theme="@style/Parent"
+233-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:257:13-42
 234            android:windowSoftInputMode="adjustPan" />
-234-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:257:13-52
+234-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:258:13-52
 235        <activity
-235-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:259:9-264:56
-236            android:name="com.dci.berts.activities.RegisterActivity"
-236-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:260:13-69
+235-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:260:9-265:56
+236            android:name="com.dci.berts.activities.ForgetPasswordActivity"
+236-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:261:13-62
 237            android:screenOrientation="portrait"
-237-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:261:13-49
+237-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:262:13-49
 238            android:theme="@style/Customtheme"
-238-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:262:13-47
+238-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:263:13-47
 239            android:windowSoftInputMode="adjustPan" />
-239-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:263:13-52
+239-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:264:13-52
 240        <activity
-240-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:265:9-276:20
-241            android:name="com.dci.berts.activities.SplashActivity"
-241-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:266:13-67
+240-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:266:9-271:56
+241            android:name="com.dci.berts.activities.RegisterActivity"
+241-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:267:13-56
 242            android:screenOrientation="portrait"
-242-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:267:13-49
+242-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:268:13-49
 243            android:theme="@style/Customtheme"
-243-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:268:13-47
-244            android:windowSoftInputMode="adjustPan" >
-244-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:269:13-52
-245            <intent-filter>
-245-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:271:13-275:29
-246                <action android:name="android.intent.action.MAIN" />
-246-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:272:17-69
-246-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:272:25-66
-247
-248                <category android:name="android.intent.category.LAUNCHER" />
-248-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:274:17-77
-248-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:274:27-74
-249            </intent-filter>
-250        </activity>
-251        <activity
-251-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:277:9-282:56
-252            android:name="com.dci.berts.activities.LoginActivity"
-252-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:278:13-66
-253            android:screenOrientation="portrait"
-253-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:279:13-49
-254            android:theme="@style/Customtheme"
-254-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:280:13-47
-255            android:windowSoftInputMode="adjustPan" />
-255-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:281:13-52
-256
-257        <meta-data
-257-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:284:9-286:55
-258            android:name="com.facebook.sdk.ApplicationId"
-258-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:285:13-58
-259            android:value="@string/facebook_app_id" />
-259-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:286:13-52
-260
-261        <activity
-261-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:288:9-291:48
-262            android:name="com.facebook.FacebookActivity"
-262-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:289:13-57
-263            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-263-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:290:13-96
-264            android:label="@string/app_name"
-264-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:291:13-45
-265            android:theme="@style/com_facebook_activity_theme" />
-265-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:33:13-63
+243-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:269:13-47
+244            android:windowSoftInputMode="adjustPan" />
+244-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:270:13-52
+245        <activity
+245-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:272:9-283:20
+246            android:name="com.dci.berts.activities.SplashActivity"
+246-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:273:13-54
+247            android:screenOrientation="portrait"
+247-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:274:13-49
+248            android:theme="@style/Customtheme"
+248-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:275:13-47
+249            android:windowSoftInputMode="adjustPan" >
+249-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:276:13-52
+250            <intent-filter>
+250-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:278:13-282:29
+251                <action android:name="android.intent.action.MAIN" />
+251-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:279:17-69
+251-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:279:25-66
+252
+253                <category android:name="android.intent.category.LAUNCHER" />
+253-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:281:17-77
+253-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:281:27-74
+254            </intent-filter>
+255        </activity>
+256        <activity
+256-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:284:9-289:56
+257            android:name="com.dci.berts.activities.LoginActivity"
+257-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:285:13-53
+258            android:screenOrientation="portrait"
+258-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:286:13-49
+259            android:theme="@style/Customtheme"
+259-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:287:13-47
+260            android:windowSoftInputMode="adjustPan" />
+260-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:288:13-52
+261
+262        <meta-data
+262-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:291:9-293:55
+263            android:name="com.facebook.sdk.ApplicationId"
+263-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:292:13-58
+264            android:value="@string/facebook_app_id" />
+264-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:293:13-52
+265
 266        <activity
-266-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:292:9-303:20
-267            android:name="com.facebook.CustomTabActivity"
-267-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:293:13-58
-268            android:exported="true" >
-268-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:294:13-36
-269            <intent-filter>
-269-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:295:13-302:29
-270                <action android:name="android.intent.action.VIEW" />
-270-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:17-69
-270-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:25-66
-271
-272                <category android:name="android.intent.category.DEFAULT" />
-272-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:17-76
-272-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:27-73
-273                <category android:name="android.intent.category.BROWSABLE" />
-273-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:17-78
-273-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:27-75
-274
-275                <data android:scheme="@string/fb_login_protocol_scheme" />
-275-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:17-75
-275-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:23-72
-276            </intent-filter>
-277            <intent-filter>
-277-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:39:13-48:29
-278                <action android:name="android.intent.action.VIEW" />
-278-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:17-69
-278-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:25-66
+266-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:295:9-298:48
+267            android:name="com.facebook.FacebookActivity"
+267-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:13-57
+268            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+268-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:297:13-96
+269            android:label="@string/app_name"
+269-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:13-45
+270            android:theme="@style/com_facebook_activity_theme" />
+270-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:33:13-63
+271        <activity
+271-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:9-310:20
+272            android:name="com.facebook.CustomTabActivity"
+272-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:300:13-58
+273            android:exported="true" >
+273-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:13-36
+274            <intent-filter>
+274-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:302:13-309:29
+275                <action android:name="android.intent.action.VIEW" />
+275-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:17-69
+275-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:25-66
+276
+277                <category android:name="android.intent.category.DEFAULT" />
+277-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:17-76
+277-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:27-73
+278                <category android:name="android.intent.category.BROWSABLE" />
+278-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:17-78
+278-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:27-75
 279
-280                <category android:name="android.intent.category.DEFAULT" />
-280-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:17-76
-280-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:27-73
-281                <category android:name="android.intent.category.BROWSABLE" />
-281-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:17-78
-281-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:27-75
-282
-283                <data
-283-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:17-75
-284                    android:host="cct.com.dci.berts"
-285                    android:scheme="fbconnect" />
-285-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:23-72
-286            </intent-filter>
-287        </activity>
-288        <activity android:name="com.facebook.CustomTabMainActivity" />
-288-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
-288-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
-289
-290        <receiver
-290-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:27:9-35:20
-291            android:name="com.google.firebase.messaging.directboot.FirebaseMessagingDirectBootReceiver"
-291-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:28:13-104
-292            android:directBootAware="true"
-292-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:29:13-43
-293            android:exported="true"
-293-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:30:13-36
-294            android:permission="com.google.android.c2dm.permission.SEND" >
-294-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:31:13-73
-295            <intent-filter>
-295-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:32:13-34:29
-296                <action android:name="com.google.firebase.messaging.RECEIVE_DIRECT_BOOT" />
-296-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:33:17-92
-296-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:33:25-89
-297            </intent-filter>
-298        </receiver>
-299        <receiver
-299-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
-300            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-300-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
-301            android:exported="true"
-301-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
-302            android:permission="com.google.android.c2dm.permission.SEND" >
-302-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
-303            <intent-filter>
-303-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
-304                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-304-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
-304-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
-305            </intent-filter>
-306        </receiver>
-307        <!--
-308             FirebaseMessagingService performs security checks at runtime,
-309             but set to not exported to explicitly avoid allowing another app to call it.
-310        -->
-311        <service
-311-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
-312            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-312-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
-313            android:directBootAware="true"
-313-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
-314            android:exported="false" >
-314-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
-315            <intent-filter android:priority="-500" >
-315-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
-315-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
-316                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-316-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
-316-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
-317            </intent-filter>
-318        </service>
-319        <service
-319-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
-320            android:name="com.google.firebase.components.ComponentDiscoveryService"
-320-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
-321            android:directBootAware="true"
-321-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
-322            android:exported="false" >
-322-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
-323            <meta-data
-323-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
-324                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-324-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
-325                android:value="com.google.firebase.components.ComponentRegistrar" />
-325-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
-326            <meta-data
-326-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:77:13-79:85
-327                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-327-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:78:17-109
-328                android:value="com.google.firebase.components.ComponentRegistrar" />
-328-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:79:17-82
-329            <meta-data
-329-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:18:13-20:85
-330                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
-330-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:19:17-115
-331                android:value="com.google.firebase.components.ComponentRegistrar" />
-331-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:20:17-82
-332            <meta-data
-332-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
-333                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-333-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
-334                android:value="com.google.firebase.components.ComponentRegistrar" />
-334-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
-335            <meta-data
-335-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:30:13-32:85
-336                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-336-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:31:17-139
-337                android:value="com.google.firebase.components.ComponentRegistrar" />
-337-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:32:17-82
-338            <meta-data
-338-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
-339                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-339-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
-340                android:value="com.google.firebase.components.ComponentRegistrar" />
-340-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
-341        </service>
-342
-343        <activity
-343-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:27:9-44:20
-344            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-344-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:28:13-80
-345            android:excludeFromRecents="true"
-345-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:29:13-46
-346            android:exported="true"
-346-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:30:13-36
-347            android:launchMode="singleTask"
-347-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:31:13-44
-348            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-348-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:32:13-72
-349            <intent-filter>
-349-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
-350                <action android:name="android.intent.action.VIEW" />
-350-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:17-69
-350-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:25-66
-351
-352                <category android:name="android.intent.category.DEFAULT" />
-352-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:17-76
-352-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:27-73
-353                <category android:name="android.intent.category.BROWSABLE" />
-353-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:17-78
-353-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:27-75
-354
-355                <data
-355-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:17-75
-356                    android:host="firebase.auth"
-357                    android:path="/"
-358                    android:scheme="genericidp" />
-358-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:23-72
-359            </intent-filter>
-360        </activity>
-361        <activity
-361-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:45:9-62:20
-362            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-362-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:46:13-79
-363            android:excludeFromRecents="true"
-363-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:47:13-46
-364            android:exported="true"
-364-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:48:13-36
-365            android:launchMode="singleTask"
-365-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:49:13-44
-366            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-366-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:50:13-72
-367            <intent-filter>
-367-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
-368                <action android:name="android.intent.action.VIEW" />
-368-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:17-69
-368-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:296:25-66
-369
-370                <category android:name="android.intent.category.DEFAULT" />
-370-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:17-76
-370-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:27-73
-371                <category android:name="android.intent.category.BROWSABLE" />
-371-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:17-78
-371-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:299:27-75
-372
-373                <data
-373-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:17-75
-374                    android:host="firebase.auth"
-375                    android:path="/"
-376                    android:scheme="recaptcha" />
-376-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:301:23-72
-377            </intent-filter>
-378        </activity>
-379
-380        <service
-380-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:64:9-73:19
-381            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
-381-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:65:13-101
-382            android:enabled="true"
-382-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:66:13-35
-383            android:exported="false" >
-383-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:67:13-37
-384            <intent-filter>
-384-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:68:13-72:29
-385                <action android:name="com.google.firebase.auth.api.gms.service.START" />
-385-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:17-89
-385-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
-386
-387                <category android:name="android.intent.category.DEFAULT" />
-387-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:17-76
-387-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:298:27-73
-388            </intent-filter>
-389        </service>
-390        <service
-390-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
-391            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-391-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
-392            android:exported="false" >
-392-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
-393            <meta-data
-393-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
-394                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-394-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
-395                android:value="cct" />
-395-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
-396        </service>
-397
-398        <provider
-398-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
-399            android:name="com.google.firebase.provider.FirebaseInitProvider"
-399-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
-400            android:authorities="com.dci.berts.firebaseinitprovider"
-400-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
-401            android:directBootAware="true"
-401-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
-402            android:exported="false"
-402-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
-403            android:initOrder="100" />
-403-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
-404
-405        <activity
-405-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
-406            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-406-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+280                <data android:scheme="@string/fb_login_protocol_scheme" />
+280-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:17-75
+280-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:23-72
+281            </intent-filter>
+282            <intent-filter>
+282-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:39:13-48:29
+283                <action android:name="android.intent.action.VIEW" />
+283-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:17-69
+283-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:25-66
+284
+285                <category android:name="android.intent.category.DEFAULT" />
+285-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:17-76
+285-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:27-73
+286                <category android:name="android.intent.category.BROWSABLE" />
+286-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:17-78
+286-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:27-75
+287
+288                <data
+288-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:17-75
+289                    android:host="cct.com.dci.berts"
+290                    android:scheme="fbconnect" />
+290-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:23-72
+291            </intent-filter>
+292        </activity>
+293        <activity android:name="com.facebook.CustomTabMainActivity" />
+293-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:9-71
+293-->[com.facebook.android:facebook-common:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\b7e77c7bf373213a63c6e804039b7f87\jetified-facebook-common-5.15.3\AndroidManifest.xml:34:19-68
+294
+295        <receiver
+295-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:27:9-35:20
+296            android:name="com.google.firebase.messaging.directboot.FirebaseMessagingDirectBootReceiver"
+296-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:28:13-104
+297            android:directBootAware="true"
+297-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:29:13-43
+298            android:exported="true"
+298-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:30:13-36
+299            android:permission="com.google.android.c2dm.permission.SEND" >
+299-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:31:13-73
+300            <intent-filter>
+300-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:32:13-34:29
+301                <action android:name="com.google.firebase.messaging.RECEIVE_DIRECT_BOOT" />
+301-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:33:17-92
+301-->[com.google.firebase:firebase-messaging-directboot:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\16901c59752f1914bb3bde7d01d6014c\jetified-firebase-messaging-directboot-22.0.0\AndroidManifest.xml:33:25-89
+302            </intent-filter>
+303        </receiver>
+304        <receiver
+304-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
+305            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+305-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
+306            android:exported="true"
+306-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
+307            android:permission="com.google.android.c2dm.permission.SEND" >
+307-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
+308            <intent-filter>
+308-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
+309                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+309-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
+309-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
+310            </intent-filter>
+311        </receiver>
+312        <!--
+313             FirebaseMessagingService performs security checks at runtime,
+314             but set to not exported to explicitly avoid allowing another app to call it.
+315        -->
+316        <service
+316-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
+317            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+317-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
+318            android:directBootAware="true"
+318-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
+319            android:exported="false" >
+319-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
+320            <intent-filter android:priority="-500" >
+320-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
+320-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
+321                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+321-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
+321-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
+322            </intent-filter>
+323        </service>
+324        <service
+324-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
+325            android:name="com.google.firebase.components.ComponentDiscoveryService"
+325-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
+326            android:directBootAware="true"
+326-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+327            android:exported="false" >
+327-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
+328            <meta-data
+328-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
+329                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+329-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
+330                android:value="com.google.firebase.components.ComponentRegistrar" />
+330-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\0ac06f1ee7d65afc9a37c3cdd5ba02a9\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
+331            <meta-data
+331-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:77:13-79:85
+332                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+332-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:78:17-109
+333                android:value="com.google.firebase.components.ComponentRegistrar" />
+333-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:79:17-82
+334            <meta-data
+334-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:18:13-20:85
+335                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+335-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:19:17-115
+336                android:value="com.google.firebase.components.ComponentRegistrar" />
+336-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e65f9e587384aed7d4ee97793e04a104\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:20:17-82
+337            <meta-data
+337-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
+338                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+338-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
+339                android:value="com.google.firebase.components.ComponentRegistrar" />
+339-->[com.google.firebase:firebase-datatransport:18.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\36df8df0edcb4e5f9526082d69afce87\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
+340            <meta-data
+340-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:30:13-32:85
+341                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+341-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:31:17-139
+342                android:value="com.google.firebase.components.ComponentRegistrar" />
+342-->[com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\a217ca5b7937aa64e4a0e6103748885e\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:32:17-82
+343            <meta-data
+343-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
+344                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+344-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
+345                android:value="com.google.firebase.components.ComponentRegistrar" />
+345-->[com.google.firebase:firebase-installations:17.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\932326c5f60f03f668be72362d7f80b4\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
+346        </service>
+347
+348        <activity
+348-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:27:9-44:20
+349            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+349-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:28:13-80
+350            android:excludeFromRecents="true"
+350-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:29:13-46
+351            android:exported="true"
+351-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:30:13-36
+352            android:launchMode="singleTask"
+352-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:31:13-44
+353            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+353-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:32:13-72
+354            <intent-filter>
+354-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:33:13-43:29
+355                <action android:name="android.intent.action.VIEW" />
+355-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:17-69
+355-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:25-66
+356
+357                <category android:name="android.intent.category.DEFAULT" />
+357-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:17-76
+357-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:27-73
+358                <category android:name="android.intent.category.BROWSABLE" />
+358-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:17-78
+358-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:27-75
+359
+360                <data
+360-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:17-75
+361                    android:host="firebase.auth"
+362                    android:path="/"
+363                    android:scheme="genericidp" />
+363-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:23-72
+364            </intent-filter>
+365        </activity>
+366        <activity
+366-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:45:9-62:20
+367            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+367-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:46:13-79
+368            android:excludeFromRecents="true"
+368-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:47:13-46
+369            android:exported="true"
+369-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:48:13-36
+370            android:launchMode="singleTask"
+370-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:49:13-44
+371            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+371-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:50:13-72
+372            <intent-filter>
+372-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:51:13-61:29
+373                <action android:name="android.intent.action.VIEW" />
+373-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:17-69
+373-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:303:25-66
+374
+375                <category android:name="android.intent.category.DEFAULT" />
+375-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:17-76
+375-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:27-73
+376                <category android:name="android.intent.category.BROWSABLE" />
+376-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:17-78
+376-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:306:27-75
+377
+378                <data
+378-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:17-75
+379                    android:host="firebase.auth"
+380                    android:path="/"
+381                    android:scheme="recaptcha" />
+381-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:308:23-72
+382            </intent-filter>
+383        </activity>
+384
+385        <service
+385-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:64:9-73:19
+386            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
+386-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:65:13-101
+387            android:enabled="true"
+387-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:66:13-35
+388            android:exported="false" >
+388-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:67:13-37
+389            <intent-filter>
+389-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:68:13-72:29
+390                <action android:name="com.google.firebase.auth.api.gms.service.START" />
+390-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:17-89
+390-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\6f443a0c695c0581b8d8993da686be09\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
+391
+392                <category android:name="android.intent.category.DEFAULT" />
+392-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:17-76
+392-->D:\Workspace\berts_android_2021\app\src\main\AndroidManifest.xml:305:27-73
+393            </intent-filter>
+394        </service>
+395        <service
+395-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
+396            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+396-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
+397            android:exported="false" >
+397-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
+398            <meta-data
+398-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
+399                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+399-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
+400                android:value="cct" />
+400-->[com.google.android.datatransport:transport-backend-cct:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\1da8c9d270fd5bcd52480348eb21c96e\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
+401        </service>
+402
+403        <provider
+403-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+404            android:name="com.google.firebase.provider.FirebaseInitProvider"
+404-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+405            android:authorities="com.dci.berts.firebaseinitprovider"
+405-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+406            android:directBootAware="true"
+406-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
 407            android:exported="false"
-407-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
-408            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-408-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+407-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+408            android:initOrder="100" />
+408-->[com.google.firebase:firebase-common:20.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\55dc66a3c0609006990bd13b1be982b0\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
 409
-410        <receiver
-410-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:29:9-33:20
-411            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-411-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:30:13-85
-412            android:enabled="true"
-412-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:31:13-35
-413            android:exported="false" >
-413-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:32:13-37
-414        </receiver>
-415
-416        <service
-416-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:35:9-38:40
-417            android:name="com.google.android.gms.measurement.AppMeasurementService"
-417-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:36:13-84
-418            android:enabled="true"
-418-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:37:13-35
-419            android:exported="false" />
-419-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:38:13-37
-420        <service
-420-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:39:9-43:72
-421            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-421-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:40:13-87
-422            android:enabled="true"
-422-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:41:13-35
-423            android:exported="false"
-423-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:42:13-37
-424            android:permission="android.permission.BIND_JOB_SERVICE" />
-424-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:43:13-69
-425
-426        <meta-data
-426-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:23:9-25:69
-427            android:name="com.google.android.gms.version"
-427-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
-428            android:value="@integer/google_play_services_version" />
-428-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
-429        <!--
-430         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
-431         with the application context. This config is merged in with the host app's manifest,
-432         but there can only be one provider with the same authority activated at any given
-433         point; so if the end user has two or more different apps that use Facebook SDK, only the
-434         first one will be able to use the provider. To work around this problem, we use the
-435         following placeholder in the authority to identify each host application as if it was
-436         a completely different provider.
-437        -->
-438        <provider
-438-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
-439            android:name="com.facebook.internal.FacebookInitProvider"
-439-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
-440            android:authorities="com.dci.berts.FacebookInitProvider"
-440-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
-441            android:exported="false" />
-441-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
-442
-443        <receiver
-443-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
-444            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
-444-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
-445            android:exported="false" >
-445-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
-446            <intent-filter>
-446-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
-447                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
-447-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
-447-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
-448            </intent-filter>
-449        </receiver>
-450
-451        <service
-451-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
-452            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-452-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
-453            android:exported="false"
-453-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
-454            android:permission="android.permission.BIND_JOB_SERVICE" >
-454-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
-455        </service>
-456
-457        <receiver
-457-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
-458            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-458-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
-459            android:exported="false" /> <!-- The activities will be merged into the manifest of the hosting app. -->
-459-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
-460        <activity
-460-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:5-271
-461            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
-461-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:15-102
-462            android:enabled="false"
-462-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:103-126
-463            android:exported="false"
-463-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:127-151
-464            android:launchMode="singleInstance"
-464-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:204-239
-465            android:process=":playcore_missing_splits_activity"
-465-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:152-203
-466            android:stateNotNeeded="true" />
-466-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:240-269
-467        <activity
-467-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:5-226
-468            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
-468-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:15-95
-469            android:enabled="false"
-469-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:96-119
-470            android:exported="false"
-470-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:120-144
-471            android:stateNotNeeded="true"
-471-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:145-174
-472            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
-472-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:175-224
-473        <service
-473-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:5-145
-474            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
-474-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:14-95
-475            android:enabled="false"
-475-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:96-119
-476            android:exported="true" />
-476-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:120-143
-477    </application>
-478
-479</manifest>
+410        <activity
+410-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+411            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+411-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+412            android:exported="false"
+412-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+413            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+413-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\467e53f7548cc40cf7974ac857887a7c\jetified-play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+414
+415        <receiver
+415-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:29:9-33:20
+416            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+416-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:30:13-85
+417            android:enabled="true"
+417-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:31:13-35
+418            android:exported="false" >
+418-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:32:13-37
+419        </receiver>
+420
+421        <service
+421-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:35:9-38:40
+422            android:name="com.google.android.gms.measurement.AppMeasurementService"
+422-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:36:13-84
+423            android:enabled="true"
+423-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:37:13-35
+424            android:exported="false" />
+424-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:38:13-37
+425        <service
+425-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:39:9-43:72
+426            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+426-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:40:13-87
+427            android:enabled="true"
+427-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:41:13-35
+428            android:exported="false"
+428-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:42:13-37
+429            android:permission="android.permission.BIND_JOB_SERVICE" />
+429-->[com.google.android.gms:play-services-measurement:19.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f410c5940e2efe36ca0b8f522d39f132\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:43:13-69
+430
+431        <meta-data
+431-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:23:9-25:69
+432            android:name="com.google.android.gms.version"
+432-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
+433            android:value="@integer/google_play_services_version" />
+433-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\e7f0d219894509552a759b0b0d8cd93c\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
+434        <!--
+435         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+436         with the application context. This config is merged in with the host app's manifest,
+437         but there can only be one provider with the same authority activated at any given
+438         point; so if the end user has two or more different apps that use Facebook SDK, only the
+439         first one will be able to use the provider. To work around this problem, we use the
+440         following placeholder in the authority to identify each host application as if it was
+441         a completely different provider.
+442        -->
+443        <provider
+443-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:39:9-42:40
+444            android:name="com.facebook.internal.FacebookInitProvider"
+444-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:40:13-70
+445            android:authorities="com.dci.berts.FacebookInitProvider"
+445-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:41:13-72
+446            android:exported="false" />
+446-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:42:13-37
+447
+448        <receiver
+448-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:44:9-50:20
+449            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+449-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:45:13-86
+450            android:exported="false" >
+450-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:46:13-37
+451            <intent-filter>
+451-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:47:13-49:29
+452                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+452-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:17-95
+452-->[com.facebook.android:facebook-core:5.15.3] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\f591872e2fbf2de73fbab038ef392a68\jetified-facebook-core-5.15.3\AndroidManifest.xml:48:25-92
+453            </intent-filter>
+454        </receiver>
+455
+456        <service
+456-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
+457            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+457-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
+458            android:exported="false"
+458-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
+459            android:permission="android.permission.BIND_JOB_SERVICE" >
+459-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
+460        </service>
+461
+462        <receiver
+462-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
+463            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+463-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
+464            android:exported="false" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+464-->[com.google.android.datatransport:transport-runtime:3.0.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\9657002d1767a2df3b75d8be03a4c9fa\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
+465        <activity
+465-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:5-271
+466            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+466-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:15-102
+467            android:enabled="false"
+467-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:103-126
+468            android:exported="false"
+468-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:127-151
+469            android:launchMode="singleInstance"
+469-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:204-239
+470            android:process=":playcore_missing_splits_activity"
+470-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:152-203
+471            android:stateNotNeeded="true" />
+471-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:12:240-269
+472        <activity
+472-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:5-226
+473            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+473-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:15-95
+474            android:enabled="false"
+474-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:96-119
+475            android:exported="false"
+475-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:120-144
+476            android:stateNotNeeded="true"
+476-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:145-174
+477            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The service will be merged into the manifest of the hosting app. -->
+477-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:13:175-224
+478        <service
+478-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:5-145
+479            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+479-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:14-95
+480            android:enabled="false"
+480-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:96-119
+481            android:exported="true" />
+481-->[com.google.android.play:core:1.8.0] C:\Users\santh\.gradle\caches\transforms-2\files-2.1\84842321c55ea8ba6499410c828b15b2\jetified-core-1.8.0\AndroidManifest.xml:16:120-143
+482    </application>
+483
+484</manifest>

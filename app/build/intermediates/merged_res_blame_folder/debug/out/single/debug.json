@@ -28,12 +28,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\fragment_retailer_register.xml"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_product_detail_description.xml.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_product_detail_description.xml"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_product_detail_description.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_product_detail_description.xml"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_downloadqtn.png.flat",
@@ -172,12 +172,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\linear_background.xml"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shadow__background.xml.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\shadow__background.xml"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icn1.PNG.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\icn1.PNG"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shadow__background.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\shadow__background.xml"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
@@ -208,12 +208,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\bg_edt_error.xml"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dark_active_indicator.png.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\dark_active_indicator.png"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_prodlist_gridview.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\adapter_prodlist_gridview.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dark_active_indicator.png.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\dark_active_indicator.png"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_product_details.xml.flat",
@@ -252,12 +252,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\isuzulogo.png"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thumbs_up.png.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\thumbs_up.png"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_edit.png.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_edit.png"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_thumbs_up.png.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\thumbs_up.png"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
@@ -288,12 +288,12 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_dialog_lang.xml.flat",
-        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\bottom_sheet_dialog_lang.xml"
-    },
-    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_logout.png.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_logout.png"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_dialog_lang.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\bottom_sheet_dialog_lang.xml"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_garage_bb.png.flat",
@@ -398,6 +398,10 @@
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_add_24.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification.png.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\drawable\\notification.png"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab_background.xml.flat",
@@ -596,6 +600,10 @@
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_retailer_all_categories.xml"
     },
     {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_notification.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\activity_notification.xml"
+    },
+    {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_review_ratings.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\adapter_review_ratings.xml"
     },
@@ -778,6 +786,10 @@
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_checkout_prodlist.xml.flat",
         "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\adapter_checkout_prodlist.xml"
+    },
+    {
+        "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_notifications_cardview.xml.flat",
+        "source": "D:\\Workspace\\berts_android_2021\\app\\src\\main\\res\\layout\\adapter_notifications_cardview.xml"
     },
     {
         "merged": "D:\\Workspace\\berts_android_2021\\app\\build\\intermediates\\res\\merged\\debug\\layout_adapter_modellist.xml.flat",
