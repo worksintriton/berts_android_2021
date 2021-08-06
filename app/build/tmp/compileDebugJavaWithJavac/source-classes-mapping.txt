@@ -350,20 +350,18 @@ com/dci/berts/retailer/ShippingAddressAddActivity.java
  com.dci.berts.retailer.ShippingAddressAddActivity$5
 com/dci/berts/retailer/SampleActivity.java
  com.dci.berts.retailer.SampleActivity
-com/dci/berts/retailer/ProductDetailDescriptionActivity.java
- com.dci.berts.retailer.ProductDetailDescriptionActivity
- com.dci.berts.retailer.ProductDetailDescriptionActivity$1
- com.dci.berts.retailer.ProductDetailDescriptionActivity$10
- com.dci.berts.retailer.ProductDetailDescriptionActivity$11
- com.dci.berts.retailer.ProductDetailDescriptionActivity$12
- com.dci.berts.retailer.ProductDetailDescriptionActivity$2
- com.dci.berts.retailer.ProductDetailDescriptionActivity$3
- com.dci.berts.retailer.ProductDetailDescriptionActivity$4
- com.dci.berts.retailer.ProductDetailDescriptionActivity$5
- com.dci.berts.retailer.ProductDetailDescriptionActivity$6
- com.dci.berts.retailer.ProductDetailDescriptionActivity$7
- com.dci.berts.retailer.ProductDetailDescriptionActivity$8
- com.dci.berts.retailer.ProductDetailDescriptionActivity$9
+com/dci/berts/retailer/RetailerProductListBasedOnCategActivity.java
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$1
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$10
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$2
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$3
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$4
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$5
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$6
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$7
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$8
+ com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$9
 com/dci/berts/retailer/ShowAllBrandsActivity.java
  com.dci.berts.retailer.ShowAllBrandsActivity
  com.dci.berts.retailer.ShowAllBrandsActivity$1
@@ -673,6 +671,10 @@ com/dci/berts/interfaces/CartRemoveProductListener.java
  com.dci.berts.interfaces.CartRemoveProductListener
 com/dci/berts/requestpojo/FetchAllColorsRequest.java
  com.dci.berts.requestpojo.FetchAllColorsRequest
+com/dci/berts/retailer/ShowAllParentCategoriesActivity.java
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity$1
+ com.dci.berts.retailer.ShowAllParentCategoriesActivity$2
 com/dci/berts/adapter/SearchColorFilterlistAdapter.java
  com.dci.berts.adapter.SearchColorFilterlistAdapter
  com.dci.berts.adapter.SearchColorFilterlistAdapter$ShopFilterlistHolder
@@ -727,6 +729,8 @@ com/dci/berts/responsepojo/UpdateProfileResponse.java
  com.dci.berts.responsepojo.UpdateProfileResponse
  com.dci.berts.responsepojo.UpdateProfileResponse$DataBean
  com.dci.berts.responsepojo.UpdateProfileResponse$DataBean$UserBean
+com/dci/berts/requestpojo/AddReviewRequest.java
+ com.dci.berts.requestpojo.AddReviewRequest
 com/dci/berts/adapter/VehicletListAdapter.java
  com.dci.berts.adapter.VehicletListAdapter
  com.dci.berts.adapter.VehicletListAdapter$ShoplistHolder
@@ -737,19 +741,25 @@ com/dci/berts/model/ShoplistModel.java
 com/dci/berts/retailer/AboutUsActivity.java
  com.dci.berts.retailer.AboutUsActivity
  com.dci.berts.retailer.AboutUsActivity$1
-com/dci/berts/retailer/ShowAllParentCategoriesActivity.java
- com.dci.berts.retailer.ShowAllParentCategoriesActivity
- com.dci.berts.retailer.ShowAllParentCategoriesActivity$1
- com.dci.berts.retailer.ShowAllParentCategoriesActivity$2
-com/dci/berts/retailer/RetailerProductListBasedOnCategActivity.java
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$1
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$10
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$2
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$3
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$4
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$5
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$6
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$7
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$8
- com.dci.berts.retailer.RetailerProductListBasedOnCategActivity$9
+com/dci/berts/retailer/ProductDetailDescriptionActivity.java
+ com.dci.berts.retailer.ProductDetailDescriptionActivity
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$1
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$10
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$11
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$12
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$13
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$14
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$15
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$16
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$2
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$3
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$4
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$5
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$6
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$7
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$8
+ com.dci.berts.retailer.ProductDetailDescriptionActivity$9
+com/dci/berts/responsepojo/AddReviewResponse.java
+ com.dci.berts.responsepojo.AddReviewResponse
+ com.dci.berts.responsepojo.AddReviewResponse$DataBean
+ com.dci.berts.responsepojo.AddReviewResponse$DataBean$ReviewBean

@@ -2479,6 +2479,7 @@ id custom_image
 id custom_view_container
 id cut
 id cv_aboutus
+id cv_addreview
 id cv_addvehicle
 id cv_before_login
 id cv_coupon
@@ -2542,6 +2543,7 @@ id editText
 id edit_query
 id edtAddress1
 id edtAddress2
+id edt_addreview
 id edt_city
 id edt_cnfmpassword
 id edt_country
@@ -2956,6 +2958,7 @@ id rate_us_bg
 id rate_us_message
 id rate_us_rating_bar
 id rate_us_title
+id ratingBar
 id ratio
 id rb_1star
 id rb_2star
@@ -3015,6 +3018,7 @@ id rl_star
 id rl_time
 id rl_vehicle
 id rl_wishlist
+id rl_write_review
 id rl_year
 id rl_yes
 id rlcart
@@ -3620,6 +3624,7 @@ layout adapter_shopbyname
 layout adapter_shoplist
 layout adapter_slidebanner
 layout adapter_vehlist
+layout addreview_popup_layout
 layout alert_dialog
 layout alert_fb_layout
 layout alert_logout_layout
@@ -4284,6 +4289,8 @@ string weight
 string weights
 string wholesaler
 string write_a_review
+string write_here
+string write_review
 string x_1
 string year
 string your_address
@@ -4550,6 +4557,7 @@ style MessengerButtonText_White_Large
 style MessengerButtonText_White_Small
 style MyBottomNavigationView
 style MyBottomNavigationView_TextAppearance
+style MyRatingBar
 style Parent
 style Platform_AppCompat
 style Platform_AppCompat_Light

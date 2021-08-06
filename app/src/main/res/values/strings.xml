@@ -401,4 +401,6 @@
     <string name="fb_alert">We are activating Facebook sign up. Please use the regular sign up and login for the moment</string>
     <string name="notification">Notification</string>
     <string name="no_notifications">No Notifications Found</string>
+    <string name="write_review">WRITE REVIEW</string>
+    <string name="write_here">Write Here. . .</string>
 </resources>

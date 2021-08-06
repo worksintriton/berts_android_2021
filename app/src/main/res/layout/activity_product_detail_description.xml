@@ -1653,6 +1653,28 @@
                             android:textSize="@dimen/_14sp"
                             android:visibility="gone" />
 
+                        <RelativeLayout
+                            android:id="@+id/rl_write_review"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10dp"
+                            android:background="@drawable/rectangle_corner_blue_background"
+                            android:padding="@dimen/_10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+                                android:text="@string/write_review"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_review_ratings"
                             android:layout_width="match_parent"

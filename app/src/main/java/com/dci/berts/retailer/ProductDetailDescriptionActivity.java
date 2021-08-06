@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.dci.berts.requestpojo.AddReviewRequest;
+import com.dci.berts.requestpojo.AddReviewRequest;
+import com.dci.berts.responsepojo.AddReviewResponse;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
@@ -57,6 +62,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import in.dd4you.appsconfig.DD4YouConfig;
 import retrofit2.Call;
@@ -299,8 +305,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     TextView txt_1star_perc;
 
 
-
-    String fromactivity;
+    String fromactivity,rating,comments;
 
     ProductDetailRespone.DataBean dataBeanList;
 
@@ -347,6 +352,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.txt_stock_status)
     TextView txt_stock_status;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_write_review)
+    RelativeLayout rl_write_review;
 
     String cart_count ="0";
 
@@ -529,6 +538,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             user_id = user.get(SessionManager.KEY_ID);
 
+            rl_write_review.setVisibility(VISIBLE);
+
             rlcart.setOnClickListener(v -> {
 
                gotoCartActivity();
@@ -556,6 +567,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
             user_id  = "";
             txt_cart_count.setVisibility(View.GONE);
+            rl_write_review.setVisibility(View.GONE);
+
         }
 
         txt_product_name.setVisibility(View.GONE);
@@ -606,6 +619,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         txt_review_countings.setVisibility(View.GONE);
 
+        rl_write_review.setVisibility(View.GONE);
+
         rv_review_ratings.setVisibility(View.GONE);
 
         viewPager.setVisibility(View.GONE);
@@ -613,6 +628,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         tabLayout.setVisibility(View.GONE);
 
         btn_addcart.setVisibility(View.GONE);
+
+
 
         if (dd4YouConfig.isInternetConnectivity()) {
 
@@ -1037,6 +1054,18 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             img_plus.setVisibility(View.GONE);
         }
 
+        if(sessionManager.isLoggedIn()){
+
+            rl_write_review.setVisibility(VISIBLE);
+
+        }
+
+        else {
+
+
+            rl_write_review.setVisibility(View.GONE);
+
+        }
 
         txt_product_name.setVisibility(VISIBLE);
 
@@ -1448,7 +1477,17 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             }
         });
 
+        rl_write_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                showAddReviewLayout();
+            }
+        });
+
     }
+
+
 
     @SuppressLint("LongLogTag")
     private void addcartlistResponseCall() {
@@ -1914,5 +1953,181 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
 
     }
+    private void showAddReviewLayout() {
+
+
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProductDetailDescriptionActivity.this);
+// ...Irrelevant code for customizing the buttons and title
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.addreview_popup_layout, null);
+        dialogBuilder.setView(dialogView);
+
+        dialogBuilder.setCancelable(false);
+
+        ImageView img_close = dialogView.findViewById(R.id.img_close);
+
+        RatingBar ratingBar = dialogView.findViewById(R.id.ratingBar);
+
+        EditText edt_addreview = dialogView.findViewById(R.id.edt_addreview);
+
+        RelativeLayout rl_write_review = dialogView.findViewById(R.id.rl_write_review);
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        rl_write_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                comments = edt_addreview.getText().toString();
+
+                rating = String.valueOf(ratingBar.getRating());
+
+                if(ratingBar.getRating()==0){
+
+                    Toasty.warning(context,"Please fill rating",Toasty.LENGTH_LONG).show();
+                }
+
+                else if(edt_addreview.getText().toString().equals("")){
+
+                    edt_addreview.setError("Please Add Review");
+
+                }
+
+                else {
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+                        addproductreviewResponseCall();
+
+                        alertDialog.dismiss();
+                    }
+                    else {
+
+                        callnointernet();
+                    }
+
+                }
+
+            }
+        });
+
+        img_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                alertDialog.dismiss();
+            }
+        });
+
+    }
+
+
+    @SuppressLint({"LogNotTimber", "LongLogTag"})
+    private void addproductreviewResponseCall() {
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        RestApiInterface ApiService = APIClient.getClient().create(RestApiInterface.class);
+        Call<AddReviewResponse> call = ApiService.addproductreviewResponseCall(RestUtils.getContentType(),addReviewRequest());
+        Log.w(TAG,"url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<AddReviewResponse>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(@NonNull Call<AddReviewResponse> call, @NonNull Response<AddReviewResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG," AddReviewResponse"+ "--->" + new Gson().toJson(response.body()));
+
+                if (response.body() != null) {
+
+                    if(response.body().getCode() == 200){
+
+                        Log.w(TAG, "AddReviewResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.success(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                        successMessage(response.body().getMessage());
+
+
+                    }
+
+                    else {
+
+                        Log.w(TAG, "AddReviewResponse" + new Gson().toJson(response.body()));
+
+                        Toasty.warning(getApplicationContext(),response.body().getMessage(), Toast.LENGTH_SHORT, true).show();
+
+                        failureMessage(response.body().getMessage());
+                    }
+
+                }
+
+
+            }
+
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onFailure(@NonNull Call<AddReviewResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                Log.w(TAG,"AddReviewResponse flr"+"--->" + t.getMessage());
+            }
+        });
+
+    }
+    @SuppressLint({"LogNotTimber", "LongLogTag"})
+    private AddReviewRequest addReviewRequest() {
+
+        /*
+         * PRODUCT_ID : 3
+         * USER_ID : 688
+         * RATING : 4
+         * REVIEW : Good Product
+         * MODE : ADD
+         */
+
+        AddReviewRequest addReviewRequest = new AddReviewRequest();
+        addReviewRequest.setPRODUCT_ID(prod_id);
+        addReviewRequest.setUSER_ID(user_id);
+        addReviewRequest.setRATING(rating);
+        addReviewRequest.setREVIEW(comments);
+        addReviewRequest.setMODE("ADD");
+
+        Log.w(TAG,"AddReviewRequest"+ "--->" + new Gson().toJson(addReviewRequest));
+        return addReviewRequest;
+    }
+
+
+    public void successMessage(String message) {
+
+        new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText("Success")
+                .setContentText(message)
+                .setConfirmClickListener(sweetAlertDialog -> {
+
+                    sweetAlertDialog.dismiss();
+
+                    finish();
+                })
+                .show();
+
+    }
+
+    public void failureMessage(String message) {
+
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Alert")
+                .setContentText(message)
+                .setConfirmClickListener(sweetAlertDialog -> {
+
+                    sweetAlertDialog.dismiss();
+
+                    finish();
+                })
+                .show();
+
+    }
+
+
 
 }

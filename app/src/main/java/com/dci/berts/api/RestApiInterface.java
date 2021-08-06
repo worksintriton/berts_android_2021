@@ -2,6 +2,7 @@ package com.dci.berts.api;
 
 
 import com.dci.berts.model.DeleteCartListRequest;
+import com.dci.berts.requestpojo.AddReviewRequest;
 import com.dci.berts.requestpojo.AddToCartRequest;
 import com.dci.berts.requestpojo.AddVehicleRequest;
 import com.dci.berts.requestpojo.AddWishistRequest;
@@ -44,6 +45,7 @@ import com.dci.berts.requestpojo.SignupRequest;
 import com.dci.berts.requestpojo.SignupWholesalerRequest;
 import com.dci.berts.requestpojo.UpdateProfileRequest;
 import com.dci.berts.requestpojo.UserAddressListRequest;
+import com.dci.berts.responsepojo.AddReviewResponse;
 import com.dci.berts.responsepojo.AddToCartResponse;
 import com.dci.berts.responsepojo.AddVehicleResponse;
 import com.dci.berts.responsepojo.CreateAddressListResponse;
@@ -278,6 +280,12 @@ public interface RestApiInterface {
     /*notifications list*/
     @POST("notification/mobile/getlist_id")
     Call<NotificationGetlistResponse> notificationGetlistResponseCall(@Header("Content-Type") String type, @Body NotificationGetlistRequest notificationGetlistRequest);
+
+    /*add product review*/
+    @POST("api/productreview")
+    Call<AddReviewResponse> addproductreviewResponseCall(@Header("Content-Type") String type, @Body AddReviewRequest addReviewRequest);
+
+
 
 
 }
