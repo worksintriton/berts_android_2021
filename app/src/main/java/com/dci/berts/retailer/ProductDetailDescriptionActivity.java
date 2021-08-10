@@ -8,12 +8,15 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.dci.berts.requestpojo.AddReviewRequest;
 import com.dci.berts.requestpojo.AddReviewRequest;
 import com.dci.berts.responsepojo.AddReviewResponse;
+import com.dci.berts.responsepojo.GetCountryResponse;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
@@ -304,6 +308,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @BindView(R.id.txt_1star_perc)
     TextView txt_1star_perc;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.sp_wholesaler_price)
+    Spinner sp_wholesaler_price;
+
 
     String fromactivity,rating,comments;
 
@@ -326,6 +334,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     AlertDialog alertDialog;
 
     String user_id,product_id,price;
+
+    String user_role;
 
 //    private DD4YouNetReceiver dd4YouNetReceiver;
 
@@ -357,7 +367,17 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     @BindView(R.id.rl_write_review)
     RelativeLayout rl_write_review;
 
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_wholesaler_price)
+    RelativeLayout rl_wholesaler_price;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.rl_retail_price)
+    RelativeLayout rl_retail_price;
+
     String cart_count ="0";
+
+    String wholesaler_quantity;
 
     JSONObject data ;
 
@@ -537,6 +557,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             HashMap<String, String> user = sessionManager.getProfileDetails();
 
             user_id = user.get(SessionManager.KEY_ID);
+
+            user_role = user.get(SessionManager.KEY_TYPE);
+
+            Log.w(TAG,"USER_ROLE"+user_role);
 
             rl_write_review.setVisibility(VISIBLE);
 
@@ -945,6 +969,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         ProductDetailRequest ProductDetailRequest = new ProductDetailRequest();
         ProductDetailRequest.setPRODUCT_ID(prod_id);
         ProductDetailRequest.setMODE("DETAIL");
+        ProductDetailRequest.setUSER_ID(user_id);
 
         Log.w(TAG,"ProductDetailRequest "+ new Gson().toJson(ProductDetailRequest));
         return ProductDetailRequest;
@@ -964,114 +989,296 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     }
 
     @SuppressLint("LongLogTag")
-    private void setView(ProductDetailRespone.DataBean.ProductsBean prdouctsBean) {
+    private void setView(@NonNull ProductDetailRespone.DataBean.ProductsBean prdouctsBean) {
+
         String prod_qty = prdouctsBean.getQuantity();
 
         Log.w(TAG,"Product Quantity" + prod_qty);
 
-        if(prod_qty!=null&&!prod_qty.equals("0")){
+        if(prdouctsBean.getBest_fit()!=0){
 
-            btn_addcart.setVisibility(VISIBLE);
+            ll_text_fit.setVisibility(VISIBLE);
+        }
 
-            ll_add_minus.setVisibility(VISIBLE);
+        else {
 
-            img_minus.setVisibility(VISIBLE);
+            ll_text_fit.setVisibility(View.GONE);
+        }
 
-            txt_count.setVisibility(VISIBLE);
+        if(user_role!=null&&user_role.equals("retail")){
 
-            img_plus.setVisibility(VISIBLE);
+            rl_retail_price.setVisibility(VISIBLE);
 
-            txt_stock_status.setVisibility(View.GONE);
+            rl_wholesaler_price.setVisibility(View.GONE);
 
-            img_minus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+            txt_price.setVisibility(VISIBLE);
 
-                    if(!txt_count.getText().equals("1")){
+            if(prdouctsBean.getCurrency()!=null&&!prdouctsBean.getCurrency().isEmpty()){
 
-                        decreaseInteger();
+                curreency = prdouctsBean.getCurrency();
+
+            }
+
+            else {
+
+                curreency="";
+            }
+
+
+            if(prdouctsBean.getPrice()!=null&&!prdouctsBean.getPrice().isEmpty()){
+
+                txt_price.setText(curreency+" "+prdouctsBean.getPrice());
+
+                price = prdouctsBean.getPrice();
+            }
+            else {
+
+                txt_price.setText(curreency+" "+"0");
+            }
+
+
+            if(prod_qty!=null&&!prod_qty.equals("0")){
+
+                btn_addcart.setVisibility(VISIBLE);
+
+                ll_add_minus.setVisibility(VISIBLE);
+
+                img_minus.setVisibility(VISIBLE);
+
+                txt_count.setVisibility(VISIBLE);
+
+                img_plus.setVisibility(VISIBLE);
+
+                txt_stock_status.setVisibility(View.GONE);
+
+                img_minus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if(!txt_count.getText().equals("1")){
+
+                            decreaseInteger();
+
+                        }
+                    }
+                });
+
+                img_plus.setOnClickListener(v -> {
+
+                    int threshold = Integer.parseInt(prdouctsBean.getQuantity());
+
+                    Log.w(TAG, "threshold : "+threshold);
+
+                    int value = Integer.parseInt(txt_count.getText().toString());
+
+                    Log.w(TAG, "value : "+value);
+
+                    if(value>=threshold) {
+
+                        Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
 
                     }
-                }
-            });
+                    else {
 
-            img_plus.setOnClickListener(v -> {
+                        increaseInteger();
+                    }
+                });
 
-                int threshold = Integer.parseInt(prdouctsBean.getQuantity());
+                btn_addcart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                Log.w(TAG, "threshold : "+threshold);
+                        if(sessionManager.isLoggedIn()){
 
-                int value = Integer.parseInt(txt_count.getText().toString());
+                            if(dd4YouConfig.isInternetConnectivity()){
 
-                Log.w(TAG, "value : "+value);
+                                String quantity = txt_count.getText().toString();
 
-                if(value>=threshold) {
+                                Log.w(TAG,"quantity"+quantity);
 
-                    Toasty.warning(getApplicationContext(),"Sorry you cant add beyond quantity",Toasty.LENGTH_LONG).show();
+                                addcartlistResponseCall(quantity);
+                            }
 
-                }
-                else {
+                            else {
 
-                    increaseInteger();
-                }
-            });
-
-            btn_addcart.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if(sessionManager.isLoggedIn()){
-
-                        if(dd4YouConfig.isInternetConnectivity()){
-
-                            addcartlistResponseCall();
+                                callnointernet();
+                            }
                         }
 
                         else {
 
-                            callnointernet();
+                            showAlert();
                         }
                     }
+                });
 
-                    else {
 
-                        showAlert();
-                    }
+
+            }
+
+            else {
+
+                txt_stock_status.setVisibility(VISIBLE);
+
+
+                btn_addcart.setVisibility(View.GONE);
+
+                ll_add_minus.setVisibility(View.GONE);
+
+                img_minus.setVisibility(View.GONE);
+
+                txt_count.setVisibility(View.GONE);
+
+                img_plus.setVisibility(View.GONE);
+
+                rl_retail_price.setVisibility(View.GONE);
+
+                rl_wholesaler_price.setVisibility(View.GONE);
+            }
+
+        }
+
+        else {
+
+            txt_price.setVisibility(VISIBLE);
+
+              if(prdouctsBean.getWholesaler_price()!=null&&prdouctsBean.getWholesaler_price().size()>0){
+
+                  if(prdouctsBean.getWholesaler_price().get(1).getPrice()!=null&&!prdouctsBean.getWholesaler_price().get(1).getPrice().isEmpty()){
+                      txt_price.setText("USD " +prdouctsBean.getWholesaler_price().get(1).getPrice());
+
+                      price = prdouctsBean.getWholesaler_price().get(1).getPrice();
+
+                  }
+                  else {
+
+                      txt_price.setText("USD 0");
+
+                      price = "0";
+                  }
+
                 }
-            });
+                else {
+                  txt_price.setText("USD 0");
+
+                  price = "0";
+              }
+
+
+            if(prod_qty!=null&&!prod_qty.equals("0")){
+
+                rl_retail_price.setVisibility(View.GONE);
+
+                rl_wholesaler_price.setVisibility(VISIBLE);
+
+                if(prdouctsBean.getWholesaler_price()!=null&&prdouctsBean.getWholesaler_price().size()>0){
+
+                    setWholesalerPrice(prdouctsBean.getWholesaler_price());
+                }
+                else {
+
+                    HashMap<String, String> hashMap_wholesaler_price = new HashMap<>();
+
+                    ArrayList<String> arrayList = new ArrayList<>();
+
+                    arrayList.add("0");
+
+                    hashMap_wholesaler_price.put("0","0");
+
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(ProductDetailDescriptionActivity.this, R.layout.spinner_item, arrayList);
+
+                    spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down vi
+
+                    price = "0";
+
+                    sp_wholesaler_price.setAdapter(spinnerArrayAdapter);
+
+                    sp_wholesaler_price.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @SuppressLint("LongLogTag")
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
+
+                            wholesaler_quantity = sp_wholesaler_price.getSelectedItem().toString();
+
+                            String prices =  hashMap_wholesaler_price.get(wholesaler_quantity) ;
+
+                            Log.w(TAG,"quantity "+wholesaler_quantity);
+
+                            Log.w(TAG,"price "+prices);
+
+                            price = "0";
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> arg0) {
+                            // TODO Auto-generated method stub
+
+                        }
+                    });
+
+                    btn_addcart.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Toasty.warning(ProductDetailDescriptionActivity.this,"No quantities available",Toasty.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+
+
+                btn_addcart.setVisibility(VISIBLE);
+
+                ll_add_minus.setVisibility(View.GONE);
+
+                img_minus.setVisibility(View.GONE);
+
+                txt_count.setVisibility(View.GONE);
+
+                img_plus.setVisibility(View.GONE);
+
+                txt_stock_status.setVisibility(View.GONE);
 
 
 
+            }
+
+            else {
+
+                txt_stock_status.setVisibility(VISIBLE);
+
+                btn_addcart.setVisibility(View.GONE);
+
+                ll_add_minus.setVisibility(View.GONE);
+
+                img_minus.setVisibility(View.GONE);
+
+                txt_count.setVisibility(View.GONE);
+
+                img_plus.setVisibility(View.GONE);
+
+                rl_retail_price.setVisibility(View.GONE);
+
+                rl_wholesaler_price.setVisibility(View.GONE);
+
+            }
         }
 
-        else {
 
-            txt_stock_status.setVisibility(VISIBLE);
-
-
-            btn_addcart.setVisibility(View.GONE);
-
-            ll_add_minus.setVisibility(View.GONE);
-
-            img_minus.setVisibility(View.GONE);
-
-            txt_count.setVisibility(View.GONE);
-
-            img_plus.setVisibility(View.GONE);
-        }
-
-        if(sessionManager.isLoggedIn()){
-
-            rl_write_review.setVisibility(VISIBLE);
-
-        }
-
-        else {
-
-
-            rl_write_review.setVisibility(View.GONE);
-
-        }
+//        if(sessionManager.isLoggedIn()){
+//
+//            rl_write_review.setVisibility(VISIBLE);
+//
+//        }
+//
+//        else {
+//
+//
+//            rl_write_review.setVisibility(View.GONE);
+//
+//        }
 
         txt_product_name.setVisibility(VISIBLE);
 
@@ -1081,10 +1288,8 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
 
         txt_total_reviews.setVisibility(VISIBLE);
 
-        txt_price.setVisibility(VISIBLE);
 
-
-        ll_text_fit.setVisibility(VISIBLE);
+     //   ll_text_fit.setVisibility(VISIBLE);
 
         cv_prod_desc.setVisibility(VISIBLE);
 
@@ -1209,28 +1414,6 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         }
 
 
-        if(prdouctsBean.getCurrency()!=null&&!prdouctsBean.getCurrency().isEmpty()){
-
-            curreency = prdouctsBean.getCurrency();
-
-        }
-
-        else {
-
-            curreency="";
-        }
-
-
-        if(prdouctsBean.getPrice()!=null&&!prdouctsBean.getPrice().isEmpty()){
-
-            txt_price.setText(curreency+" "+prdouctsBean.getPrice());
-
-            price = prdouctsBean.getPrice();
-        }
-        else {
-
-            txt_price.setText(curreency+" "+"0");
-        }
 
         if(prdouctsBean.getDescription()!=null&&!prdouctsBean.getDescription().isEmpty()){
 
@@ -1483,25 +1666,116 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             }
         });
 
-        rl_write_review.setOnClickListener(new View.OnClickListener() {
+//        rl_write_review.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                showAddReviewLayout();
+//            }
+//        });
+
+        rl_write_review.setVisibility(View.GONE);
+    }
+
+    private void setWholesalerPrice(List<ProductDetailRespone.DataBean.ProductsBean.WholesalerPriceBean> wholesaler_price) {
+
+
+
+        HashMap<String, String> hashMap_wholesaler_price = new HashMap<>();
+
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        arrayList.add("0");
+
+        hashMap_wholesaler_price.put("0","0");
+
+        for(int i=0;i<wholesaler_price.size();i++){
+
+            arrayList.add(wholesaler_price.get(i).getQuantity());
+
+            hashMap_wholesaler_price.put(wholesaler_price.get(i).getQuantity(),wholesaler_price.get(i).getPrice());
+        }
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(ProductDetailDescriptionActivity.this, R.layout.spinner_item, arrayList);
+
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item); // The drop down vi
+
+        sp_wholesaler_price.setAdapter(spinnerArrayAdapter);
+
+        sp_wholesaler_price.setSelection(1);
+
+        sp_wholesaler_price.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(getResources().getColor(R.color.hint_color));
+
+                wholesaler_quantity = sp_wholesaler_price.getSelectedItem().toString();
+
+                String prices =  hashMap_wholesaler_price.get(wholesaler_quantity) ;
+
+                Log.w(TAG,"quantity "+wholesaler_quantity);
+
+                Log.w(TAG,"price "+prices);
+
+                txt_price.setText("USD " +prices);
+
+                price = prices;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        btn_addcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showAddReviewLayout();
+              if(wholesaler_quantity!=null&&wholesaler_quantity.equals("0")){
+
+                  Toasty.warning(ProductDetailDescriptionActivity.this,"Cant add zero quantity").show();
+
+              }
+
+              else {
+
+                    if(sessionManager.isLoggedIn()){
+
+                    if(dd4YouConfig.isInternetConnectivity()){
+
+
+                        addcartlistResponseCall(wholesaler_quantity);
+                    }
+
+                    else {
+
+                        callnointernet();
+                    }
+                }
+
+                else {
+
+                    showAlert();
+                }
+              }
             }
         });
+
+
 
     }
 
 
-
     @SuppressLint("LongLogTag")
-    private void addcartlistResponseCall() {
+    private void addcartlistResponseCall(String quantity) {
 
         spin_kit_loadingView.setVisibility(View.VISIBLE);
         //Creating an object of our api interface
         RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<AddToCartResponse> call = apiInterface.addcartlistResponseCall(RestUtils.getContentType(),AddToCartRequest());
+        Call<AddToCartResponse> call = apiInterface.addcartlistResponseCall(RestUtils.getContentType(),AddToCartRequest(quantity));
         Log.w(TAG,"AddToCartResponse url  :%s"+ call.request().url().toString());
 
         call.enqueue(new Callback<AddToCartResponse>() {
@@ -1543,7 +1817,7 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
     }
 
     @SuppressLint("LongLogTag")
-    private AddToCartRequest AddToCartRequest() {
+    private AddToCartRequest AddToCartRequest(String quantity) {
 
 
         /*
@@ -1553,11 +1827,10 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
          * UNIT_PRICE : 50000
          * MODE : ADDTOCART
          */
-        String QUANTITY = txt_count.getText().toString();
 
         AddToCartRequest AddToCartRequest = new AddToCartRequest();
         AddToCartRequest.setUNIT_PRICE(price);
-        AddToCartRequest.setQUANTITY(QUANTITY);
+        AddToCartRequest.setQUANTITY(quantity);
         AddToCartRequest.setPRODUCT_ID(prod_id);
         AddToCartRequest.setUSER_ID(user_id);
         AddToCartRequest.setMODE("ADDTOCART");

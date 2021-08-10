@@ -135,7 +135,16 @@
             android:name="com.dci.berts.retailer.ProductDetailDescriptionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity>
         <activity
             android:name="com.dci.berts.retailer.AddVehicleActivity"
             android:screenOrientation="portrait"
@@ -189,6 +198,11 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.dci.berts.retailer.RetailerProfileAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.dci.berts.retailer.WholeSalerProfileAccountActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan" />

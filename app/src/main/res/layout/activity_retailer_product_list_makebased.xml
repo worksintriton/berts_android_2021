@@ -57,7 +57,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/lato_black"
                         android:padding="@dimen/_5dp"
-                        android:text="@string/side_view_mirrors"
+                        android:text="Make Product list"
                         android:textColor="@color/dark_blue"
                         android:textSize="@dimen/_16sp" />
 

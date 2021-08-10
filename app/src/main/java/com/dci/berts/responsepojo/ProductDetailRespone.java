@@ -9,14 +9,14 @@ public class ProductDetailRespone {
      * status : Success
      * code : 200
      * message : Product Detail successful
-     * data : {"products":{"id":"1","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-1","category_id":"6","subcategory_id":"21","third_category_id":"40","price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"4","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-05 00:32:56","part_number":"21460-8H303","brand_id":"24","colors":"red","weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-X-Trail","images":[{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}],"default_quantity":1,"reviews_comments":1,"reviews_ratings":3,"reviews_details":[{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}],"reviews_ratings_total_count":1,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]}}
+     * data : {"products":{"id":"106267","title":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","slug":"brake-shoe-niscaravan-urvan-homy-e24-e25-z2024s-td23-td25-td27-93-ka20-ka24-zd30-02-2wd-d21d22-pickup-frontier-90-106267","category_id":"5","subcategory_id":"14","third_category_id":"84","price":"250","currency":"USD","description":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-22 12:33:40","part_number":"44060-VE425-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"transmission_id":null,"fuel_type_id":null,"engine_size_id":null,"subcategory_name":"Brake System","thirdcategory_name":"Brake Shoes","category_name":"Maintenance & Servicing Parts","transmission_name":null,"fuel_type_name":null,"brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-Nissan Truck","images":[{"id":"0","product_id":"106267","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}],"default_quantity":"2","engine_size_name":null,"reviews_comments":0,"reviews_ratings":0,"reviews_details":[],"reviews_ratings_total_count":0,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}],"best_fit":0}}
      */
 
     private String status;
     private int code;
     private String message;
     /**
-     * products : {"id":"1","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","slug":"radiator-atm-nisxtrail-t30-qr20de-2000-03-1","category_id":"6","subcategory_id":"21","third_category_id":"40","price":"1000","currency":"USD","description":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"4","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-05 00:32:56","part_number":"21460-8H303","brand_id":"24","colors":"red","weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-X-Trail","images":[{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}],"default_quantity":1,"reviews_comments":1,"reviews_ratings":3,"reviews_details":[{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}],"reviews_ratings_total_count":1,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]}
+     * products : {"id":"106267","title":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","slug":"brake-shoe-niscaravan-urvan-homy-e24-e25-z2024s-td23-td25-td27-93-ka20-ka24-zd30-02-2wd-d21d22-pickup-frontier-90-106267","category_id":"5","subcategory_id":"14","third_category_id":"84","price":"250","currency":"USD","description":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","product_condition":null,"country_id":null,"state_id":null,"address":null,"zip_code":null,"user_id":"1","status":"1","is_promoted":"0","promote_start_date":null,"promote_end_date":null,"promote_plan":null,"promote_day":null,"visibility":"1","rating":"0","hit":"0","external_link":null,"quantity":"10","shipping_time":"2_3_business_days","shipping_cost_type":null,"shipping_cost":"0","is_sold":"0","is_deleted":"0","created_at":"2021-06-22 12:33:40","part_number":"44060-VE425-J","brand_id":"24","colors":null,"weight":"0","height":"0","length":"0","tag_hot":"0","tag_new":"0","unit":null,"discount":"0","video":null,"vin":null,"transmission_id":null,"fuel_type_id":null,"engine_size_id":null,"subcategory_name":"Brake System","thirdcategory_name":"Brake Shoes","category_name":"Maintenance & Servicing Parts","transmission_name":null,"fuel_type_name":null,"brand_name":"Nissan","make_names":"Nissan","model_names":"Nissan-Nissan Truck","images":[{"id":"0","product_id":"106267","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}],"default_quantity":"2","engine_size_name":null,"reviews_comments":0,"reviews_ratings":0,"reviews_details":[],"reviews_ratings_total_count":0,"reviews_ratings_percentage":{"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":0,"rating_5":0},"wholesaler_price":[{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}],"best_fit":0}
      */
 
     private DataBean data;
@@ -55,15 +55,15 @@ public class ProductDetailRespone {
 
     public static class DataBean {
         /**
-         * id : 1
-         * title : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
-         * slug : radiator-atm-nisxtrail-t30-qr20de-2000-03-1
-         * category_id : 6
-         * subcategory_id : 21
-         * third_category_id : 40
-         * price : 1000
+         * id : 106267
+         * title : BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-
+         * slug : brake-shoe-niscaravan-urvan-homy-e24-e25-z2024s-td23-td25-td27-93-ka20-ka24-zd30-02-2wd-d21d22-pickup-frontier-90-106267
+         * category_id : 5
+         * subcategory_id : 14
+         * third_category_id : 84
+         * price : 250
          * currency : USD
-         * description : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
+         * description : BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-
          * product_condition : null
          * country_id : null
          * state_id : null
@@ -80,16 +80,16 @@ public class ProductDetailRespone {
          * rating : 0
          * hit : 0
          * external_link : null
-         * quantity : 4
+         * quantity : 10
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-06-05 00:32:56
-         * part_number : 21460-8H303
+         * created_at : 2021-06-22 12:33:40
+         * part_number : 44060-VE425-J
          * brand_id : 24
-         * colors : red
+         * colors : null
          * weight : 0
          * height : 0
          * length : 0
@@ -99,19 +99,27 @@ public class ProductDetailRespone {
          * discount : 0
          * video : null
          * vin : null
-         * subcategory_name : Engine Cooling
-         * category_name : Performance & Tuning
+         * transmission_id : null
+         * fuel_type_id : null
+         * engine_size_id : null
+         * subcategory_name : Brake System
+         * thirdcategory_name : Brake Shoes
+         * category_name : Maintenance & Servicing Parts
+         * transmission_name : null
+         * fuel_type_name : null
          * brand_name : Nissan
          * make_names : Nissan
-         * model_names : Nissan-X-Trail
-         * images : [{"id":"334","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg","image_order":"1","storage":"local"},{"id":"335","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7b87ad4.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7bba7db.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec7becfb7.jpg","image_order":"2","storage":"local"},{"id":"336","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec8703eb9.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec8733c9d.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec876a4ac.jpg","image_order":"3","storage":"local"},{"id":"337","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec906eeb6.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec90988c7.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec90c4744.jpg","image_order":"4","storage":"local"},{"id":"338","product_id":"1","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6087ec990a0ed.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec99378cb.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6087ec996181f.jpg","image_order":"5","storage":"local"}]
-         * default_quantity : 1
-         * reviews_comments : 1
-         * reviews_ratings : 3
-         * reviews_details : [{"rating":"3","review":"test","date":"06/05/2021","added_by":"testc testc"}]
-         * reviews_ratings_total_count : 1
-         * reviews_ratings_percentage : {"rating_1":0,"rating_2":0,"rating_3":100,"rating_4":0,"rating_5":0}
+         * model_names : Nissan-Nissan Truck
+         * images : [{"id":"0","product_id":"106267","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}]
+         * default_quantity : 2
+         * engine_size_name : null
+         * reviews_comments : 0
+         * reviews_ratings : 0
+         * reviews_details : []
+         * reviews_ratings_total_count : 0
+         * reviews_ratings_percentage : {"rating_1":0,"rating_2":0,"rating_3":0,"rating_4":0,"rating_5":0}
          * wholesaler_price : [{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]
+         * best_fit : 0
          */
 
         private ProductsBean products;
@@ -159,7 +167,7 @@ public class ProductDetailRespone {
             private String created_at;
             private String part_number;
             private String brand_id;
-            private String colors;
+            private Object colors;
             private String weight;
             private String height;
             private String length;
@@ -169,42 +177,43 @@ public class ProductDetailRespone {
             private String discount;
             private Object video;
             private Object vin;
+            private Object transmission_id;
+            private Object fuel_type_id;
+            private Object engine_size_id;
             private String subcategory_name;
+            private String thirdcategory_name;
             private String category_name;
+            private Object transmission_name;
+            private Object fuel_type_name;
             private String brand_name;
             private String make_names;
             private String model_names;
-            private int default_quantity;
+            private String default_quantity;
+            private Object engine_size_name;
             private int reviews_comments;
             private int reviews_ratings;
             private int reviews_ratings_total_count;
             /**
              * rating_1 : 0
              * rating_2 : 0
-             * rating_3 : 100
+             * rating_3 : 0
              * rating_4 : 0
              * rating_5 : 0
              */
 
             private ReviewsRatingsPercentageBean reviews_ratings_percentage;
+            private int best_fit;
             /**
-             * id : 334
-             * product_id : 1
-             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6087ec7369432.jpg
-             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6087ec7393c7f.jpg
-             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6087ec73bdcac.jpg
+             * id : 0
+             * product_id : 106267
+             * image_default : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_big : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_small : http://dciinternal.in/dev01/assets/img/no-image.jpg
              * image_order : 1
              * storage : local
              */
 
             private List<ImagesBean> images;
-            /**
-             * rating : 3
-             * review : test
-             * date : 06/05/2021
-             * added_by : testc testc
-             */
-
             private List<ReviewsDetailsBean> reviews_details;
             /**
              * quantity : 2
@@ -485,11 +494,11 @@ public class ProductDetailRespone {
                 this.brand_id = brand_id;
             }
 
-            public String getColors() {
+            public Object getColors() {
                 return colors;
             }
 
-            public void setColors(String colors) {
+            public void setColors(Object colors) {
                 this.colors = colors;
             }
 
@@ -565,6 +574,30 @@ public class ProductDetailRespone {
                 this.vin = vin;
             }
 
+            public Object getTransmission_id() {
+                return transmission_id;
+            }
+
+            public void setTransmission_id(Object transmission_id) {
+                this.transmission_id = transmission_id;
+            }
+
+            public Object getFuel_type_id() {
+                return fuel_type_id;
+            }
+
+            public void setFuel_type_id(Object fuel_type_id) {
+                this.fuel_type_id = fuel_type_id;
+            }
+
+            public Object getEngine_size_id() {
+                return engine_size_id;
+            }
+
+            public void setEngine_size_id(Object engine_size_id) {
+                this.engine_size_id = engine_size_id;
+            }
+
             public String getSubcategory_name() {
                 return subcategory_name;
             }
@@ -573,12 +606,36 @@ public class ProductDetailRespone {
                 this.subcategory_name = subcategory_name;
             }
 
+            public String getThirdcategory_name() {
+                return thirdcategory_name;
+            }
+
+            public void setThirdcategory_name(String thirdcategory_name) {
+                this.thirdcategory_name = thirdcategory_name;
+            }
+
             public String getCategory_name() {
                 return category_name;
             }
 
             public void setCategory_name(String category_name) {
                 this.category_name = category_name;
+            }
+
+            public Object getTransmission_name() {
+                return transmission_name;
+            }
+
+            public void setTransmission_name(Object transmission_name) {
+                this.transmission_name = transmission_name;
+            }
+
+            public Object getFuel_type_name() {
+                return fuel_type_name;
+            }
+
+            public void setFuel_type_name(Object fuel_type_name) {
+                this.fuel_type_name = fuel_type_name;
             }
 
             public String getBrand_name() {
@@ -605,12 +662,20 @@ public class ProductDetailRespone {
                 this.model_names = model_names;
             }
 
-            public int getDefault_quantity() {
+            public String getDefault_quantity() {
                 return default_quantity;
             }
 
-            public void setDefault_quantity(int default_quantity) {
+            public void setDefault_quantity(String default_quantity) {
                 this.default_quantity = default_quantity;
+            }
+
+            public Object getEngine_size_name() {
+                return engine_size_name;
+            }
+
+            public void setEngine_size_name(Object engine_size_name) {
+                this.engine_size_name = engine_size_name;
             }
 
             public int getReviews_comments() {
@@ -645,6 +710,14 @@ public class ProductDetailRespone {
                 this.reviews_ratings_percentage = reviews_ratings_percentage;
             }
 
+            public int getBest_fit() {
+                return best_fit;
+            }
+
+            public void setBest_fit(int best_fit) {
+                this.best_fit = best_fit;
+            }
+
             public List<ImagesBean> getImages() {
                 return images;
             }
@@ -660,7 +733,6 @@ public class ProductDetailRespone {
             public void setReviews_details(List<ReviewsDetailsBean> reviews_details) {
                 this.reviews_details = reviews_details;
             }
-
             public List<WholesalerPriceBean> getWholesaler_price() {
                 return wholesaler_price;
             }
@@ -716,6 +788,7 @@ public class ProductDetailRespone {
                     this.rating_5 = rating_5;
                 }
             }
+
 
             public static class ImagesBean {
                 private String id;
@@ -821,6 +894,7 @@ public class ProductDetailRespone {
                     this.added_by = added_by;
                 }
             }
+
 
             public static class WholesalerPriceBean {
                 private String quantity;

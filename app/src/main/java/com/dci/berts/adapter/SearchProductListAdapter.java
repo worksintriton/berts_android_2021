@@ -36,7 +36,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
     String curreency;
 
     private final static String TAG = "SearchProductListAdapter";
-    String search_text,fromactivity;
+    String search_text,fromactivity,best_fit;
     JSONObject data;
     public SearchProductListAdapter(Context context, List<SearchProductsResponse.DataBean.ProductsBean> prdouctsBeanList, AddProductListener addProductListener, String search_text, JSONObject data, String fromactivity) {
         this.context = context;
@@ -199,7 +199,15 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             holder.txt_price.setText(price);
         }
 
+        if(prdouctsBean.getBest_fit()!=0){
 
+            holder.ll_fit.setVisibility(View.VISIBLE);
+        }
+
+        else {
+
+            holder.ll_fit.setVisibility(View.GONE);
+        }
 
 
         holder.cv_root.setOnClickListener(new View.OnClickListener() {
@@ -238,7 +246,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
         ImageView img_product_image,img_heart;
         TextView txt_product_name, txt_parts_name,txt_total_reviews,txt_price,txt_stock_status;
         //      RatingBar ratingBar;
-        LinearLayout ll_product_status;
+        LinearLayout ll_product_status,ll_fit;
 
         public ImageView hand_img1,hand_img2,hand_img3,hand_img4,hand_img5;
 
@@ -271,6 +279,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             hand_img4 = itemView.findViewById(R.id.hand_img4);
             hand_img5 = itemView.findViewById(R.id.hand_img5);
 
+            ll_fit = itemView.findViewById(R.id.ll_fit);
 
         }
     }

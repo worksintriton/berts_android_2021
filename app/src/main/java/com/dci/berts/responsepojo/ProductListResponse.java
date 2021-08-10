@@ -5,12 +5,9 @@ import java.util.List;
 public class ProductListResponse {
 
 
-
     private String status;
     private int code;
     private String message;
-
-
 
     private DataBean data;
 
@@ -53,15 +50,15 @@ public class ProductListResponse {
         private int total_pages;
         private int page_count;
         /**
-         * id : 107099
-         * title : BRAKE SHOE FRT & RR (10 HOLES) ISU ELF NPR NKR 93/05-
-         * slug : brake-shoe-frt-rr-10-holes-isu-elf-npr-nkr-9305-107099
+         * id : 106267
+         * title : BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-
+         * slug : brake-shoe-niscaravan-urvan-homy-e24-e25-z2024s-td23-td25-td27-93-ka20-ka24-zd30-02-2wd-d21d22-pickup-frontier-90-106267
          * category_id : 5
          * subcategory_id : 14
          * third_category_id : 84
-         * price : 1200
+         * price : 250
          * currency : USD
-         * description : BRAKE SHOE FRT & RR (10 HOLES) ISU ELF NPR NKR 93/05-
+         * description : BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-
          * product_condition : null
          * country_id : null
          * state_id : null
@@ -78,14 +75,14 @@ public class ProductListResponse {
          * rating : 0
          * hit : 0
          * external_link : null
-         * quantity : 7
+         * quantity : 10
          * shipping_time : 2_3_business_days
          * shipping_cost_type : null
          * shipping_cost : 0
          * is_sold : 0
          * is_deleted : 0
-         * created_at : 2021-06-22 12:46:21
-         * part_number : S726
+         * created_at : 2021-06-22 12:33:40
+         * part_number : 44060-VE425-J
          * brand_id : 24
          * colors : null
          * weight : 0
@@ -97,15 +94,23 @@ public class ProductListResponse {
          * discount : 0
          * video : null
          * vin : null
+         * transmission_id : null
+         * fuel_type_id : null
+         * engine_size_id : null
          * subcategory_name : Brake System
          * category_name : Maintenance & Servicing Parts
-         * images : [{"id":"0","product_id":"107099","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}]
-         * default_quantity : 1
+         * thirdcategory_name : Brake Shoes
+         * transmission_name : null
+         * fuel_type_name : null
+         * images : [{"id":"0","product_id":"106267","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}]
+         * default_quantity : 2
+         * engine_size_name : null
+         * wholesaler_price : [{"quantity":"2","price":"250"},{"quantity":"3","price":"375"},{"quantity":"4","price":"500"}]
          * reviews_comments : 0
          * reviews_ratings : 0
          * brand_name : Nissan
          * best_fit : 0
-         * wishlist : 0
+         * wishlist : 1
          */
 
         private List<ProductsBean> products;
@@ -203,9 +208,16 @@ public class ProductListResponse {
             private String discount;
             private Object video;
             private Object vin;
+            private Object transmission_id;
+            private Object fuel_type_id;
+            private Object engine_size_id;
             private String subcategory_name;
             private String category_name;
-            private int default_quantity;
+            private String thirdcategory_name;
+            private Object transmission_name;
+            private Object fuel_type_name;
+            private String default_quantity;
+            private Object engine_size_name;
             private int reviews_comments;
             private int reviews_ratings;
             private String brand_name;
@@ -213,7 +225,7 @@ public class ProductListResponse {
             private int wishlist;
             /**
              * id : 0
-             * product_id : 107099
+             * product_id : 106267
              * image_default : http://dciinternal.in/dev01/assets/img/no-image.jpg
              * image_big : http://dciinternal.in/dev01/assets/img/no-image.jpg
              * image_small : http://dciinternal.in/dev01/assets/img/no-image.jpg
@@ -222,6 +234,12 @@ public class ProductListResponse {
              */
 
             private List<ImagesBean> images;
+            /**
+             * quantity : 2
+             * price : 250
+             */
+
+            private List<WholesalerPriceBean> wholesaler_price;
 
             public String getId() {
                 return id;
@@ -575,6 +593,30 @@ public class ProductListResponse {
                 this.vin = vin;
             }
 
+            public Object getTransmission_id() {
+                return transmission_id;
+            }
+
+            public void setTransmission_id(Object transmission_id) {
+                this.transmission_id = transmission_id;
+            }
+
+            public Object getFuel_type_id() {
+                return fuel_type_id;
+            }
+
+            public void setFuel_type_id(Object fuel_type_id) {
+                this.fuel_type_id = fuel_type_id;
+            }
+
+            public Object getEngine_size_id() {
+                return engine_size_id;
+            }
+
+            public void setEngine_size_id(Object engine_size_id) {
+                this.engine_size_id = engine_size_id;
+            }
+
             public String getSubcategory_name() {
                 return subcategory_name;
             }
@@ -591,12 +633,44 @@ public class ProductListResponse {
                 this.category_name = category_name;
             }
 
-            public int getDefault_quantity() {
+            public String getThirdcategory_name() {
+                return thirdcategory_name;
+            }
+
+            public void setThirdcategory_name(String thirdcategory_name) {
+                this.thirdcategory_name = thirdcategory_name;
+            }
+
+            public Object getTransmission_name() {
+                return transmission_name;
+            }
+
+            public void setTransmission_name(Object transmission_name) {
+                this.transmission_name = transmission_name;
+            }
+
+            public Object getFuel_type_name() {
+                return fuel_type_name;
+            }
+
+            public void setFuel_type_name(Object fuel_type_name) {
+                this.fuel_type_name = fuel_type_name;
+            }
+
+            public String getDefault_quantity() {
                 return default_quantity;
             }
 
-            public void setDefault_quantity(int default_quantity) {
+            public void setDefault_quantity(String default_quantity) {
                 this.default_quantity = default_quantity;
+            }
+
+            public Object getEngine_size_name() {
+                return engine_size_name;
+            }
+
+            public void setEngine_size_name(Object engine_size_name) {
+                this.engine_size_name = engine_size_name;
             }
 
             public int getReviews_comments() {
@@ -645,6 +719,14 @@ public class ProductListResponse {
 
             public void setImages(List<ImagesBean> images) {
                 this.images = images;
+            }
+
+            public List<WholesalerPriceBean> getWholesaler_price() {
+                return wholesaler_price;
+            }
+
+            public void setWholesaler_price(List<WholesalerPriceBean> wholesaler_price) {
+                this.wholesaler_price = wholesaler_price;
             }
 
             public static class ImagesBean {
@@ -710,6 +792,27 @@ public class ProductListResponse {
 
                 public void setStorage(String storage) {
                     this.storage = storage;
+                }
+            }
+
+            public static class WholesalerPriceBean {
+                private String quantity;
+                private String price;
+
+                public String getQuantity() {
+                    return quantity;
+                }
+
+                public void setQuantity(String quantity) {
+                    this.quantity = quantity;
+                }
+
+                public String getPrice() {
+                    return price;
+                }
+
+                public void setPrice(String price) {
+                    this.price = price;
                 }
             }
         }

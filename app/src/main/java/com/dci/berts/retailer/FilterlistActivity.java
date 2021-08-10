@@ -16,30 +16,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
-import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
-import com.dci.berts.adapter.SearchChildCategoriesListAdapter;
-import com.dci.berts.adapter.SearchEnginelistAdapter;
-import com.dci.berts.adapter.SearchFuelTypelistAdapter;
-import com.dci.berts.adapter.SearchThirdChildCategoriesListAdapter;
-import com.dci.berts.adapter.SearchTransmisionlistAdapter;
-import com.dci.berts.interfaces.GetChildCategIDListener;
-import com.dci.berts.interfaces.GetEngineIDListener;
-import com.dci.berts.interfaces.GetFuelTypeIDListener;
-import com.dci.berts.interfaces.GetThirdCategIDListener;
-import com.dci.berts.interfaces.GetTransmissonIDListener;
-import com.dci.berts.requestpojo.FetchChildCateglistRequest;
-import com.dci.berts.requestpojo.GetEngineSizeRequest;
-import com.dci.berts.requestpojo.GetThirdCategoryRequest;
-import com.dci.berts.responsepojo.FetchChildCateglistResponse;
-import com.dci.berts.responsepojo.GetEngineSizeResponse;
-import com.dci.berts.responsepojo.GetFuelTypesResponse;
-import com.dci.berts.responsepojo.GetThirdCategoryResponse;
-import com.dci.berts.responsepojo.GetTransmissionsResponse;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.dci.berts.R;
@@ -66,15 +44,11 @@ import com.dci.berts.responsepojo.FetchAllParentCategoriesResponse;
 import com.dci.berts.responsepojo.FetchAllParentMakesResponse;
 import com.dci.berts.responsepojo.FetchAllYearResponse;
 import com.dci.berts.responsepojo.FetchChildMakeslistRequestResponse;
-import com.dci.berts.responsepojo.GetSettingsResponse;
 import com.dci.berts.sessionmanager.SessionManager;
 import com.dci.berts.utils.GridSpacingItemDecoration;
 import com.dci.berts.utils.RestUtils;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +60,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener, GetBrandIDListener, GetCategIDListener, GetColorIDListener, GetModelIDListener, View.OnClickListener, GetEngineIDListener, GetFuelTypeIDListener, GetTransmissonIDListener, GetChildCategIDListener, GetThirdCategIDListener {
+public class FilterlistActivity extends AppCompatActivity implements GetYearNameListener, GetMakeIDListener, GetBrandIDListener, GetCategIDListener, GetColorIDListener, GetModelIDListener, View.OnClickListener {
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.expandable_layout_yr)
@@ -121,26 +95,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     ExpandableLayout expandable_layout_color;
 
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.expandable_layout_engine_size)
-    ExpandableLayout expandable_layout_engine_size;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.expandable_layout_fuel_type)
-    ExpandableLayout expandable_layout_fuel_type;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.expandable_layout_transmission)
-    ExpandableLayout expandable_layout_transmission;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.expandable_layout_subcateg)
-    ExpandableLayout expandable_layout_subcateg;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.expandable_layout_thirdcateg)
-    ExpandableLayout expandable_layout_thirdcateg;
-
-    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.ll_year)
     LinearLayout ll_year;
 
@@ -171,26 +125,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.ll_color)
     LinearLayout ll_color;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.ll_engine_size)
-    LinearLayout ll_engine_size;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.ll_fuel_type)
-    LinearLayout ll_fuel_type;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.ll_transmission)
-    LinearLayout ll_transmission;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.ll_subcateg)
-    LinearLayout ll_subcateg;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.ll_thirdcateg)
-    LinearLayout ll_thirdcateg;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.img_arrow_year)
@@ -225,28 +159,8 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     ImageView img_arrow_color;
 
     @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.img_arrow_engine_size)
-    ImageView img_arrow_engine_size;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.img_arrow_subcateg)
-    ImageView img_arrow_subcateg;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.img_arrow_thirdcateg)
-    ImageView img_arrow_thirdcateg;
-
-    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.img_back)
     ImageView img_back;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.img_arrow_fuel_type)
-    ImageView img_arrow_fuel_type;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.img_arrow_transmission)
-    ImageView img_arrow_transmission;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_year)
@@ -271,26 +185,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.rv_color)
     RecyclerView rv_color;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_engine_size)
-    RecyclerView rv_engine_size;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_fuel_type)
-    RecyclerView rv_fuel_type;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_transmission)
-    RecyclerView rv_transmission;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_subcateg)
-    RecyclerView rv_subcateg;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rv_thirdcateg)
-    RecyclerView rv_thirdcateg;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spin_kit_loadingView)
@@ -336,46 +230,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
     @BindView(R.id.view10)
     View view10;
 
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.view11)
-    View view11;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.view12)
-    View view12;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.view13)
-    View view13;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.view14)
-    View view14;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.view15)
-    View view15;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rb_5star)
-    RadioButton rb_5star;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rb_4star)
-    RadioButton rb_4star;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rb_3star)
-    RadioButton rb_3star;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rb_2star)
-    RadioButton rb_2star;
-
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.rb_1star)
-    RadioButton rb_1star;
-
     List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList;
 
     private static final String TAG = "FilterlistActivity";
@@ -398,12 +252,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList;
 
-    List<GetEngineSizeResponse.DataBean.EngineSizeBean> engineSizeBeanList;
-
-    List<GetFuelTypesResponse.DataBean.FuelTypesBean> fuelTypesBeanList;
-
-    List<GetTransmissionsResponse.DataBean.TransmissionsBean> transmissionsBeanList;
-
     ArrayList<String> year = new ArrayList();
 
     ArrayList<String> make = new ArrayList();
@@ -418,13 +266,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     SearchBrandFilterlistAdapter searchBrandFilterlistAdapter;
 
-    List<FetchChildCateglistResponse.DataBean.CategoriesBean> subcategoriesBeanList ;
-
-    List<GetThirdCategoryResponse.DataBean.CategoriesBean> thirdcategoriesBeanList ;
-
-    boolean isFilter = false;
-
-    String search_text,fromactivity,makesid,modelsid,categid,subcategid,thirdlevelcategid,brandid,engineid,fueltypeid,transmissionid,color, final_min_value,final_max_value,min_pri="0",max_pri = "0",rating;;
+    String search_text,fromactivity,makesid,modelsid,categid,brandid,color,min_pri,max_pri,rating;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -461,15 +303,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         ll_color.setOnClickListener(this);
 
-        ll_engine_size.setOnClickListener(this);
-
-        ll_fuel_type.setOnClickListener(this);
-
-        ll_transmission.setOnClickListener(this);
-
-        ll_subcateg.setOnClickListener(this);
-
-        ll_thirdcateg.setOnClickListener(this);
 
 
 
@@ -490,20 +323,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         ll_color.setVisibility(View.GONE);
 
-        ll_engine_size.setVisibility(View.GONE);
-
-        ll_fuel_type.setVisibility(View.GONE);
-
-        ll_transmission.setVisibility(View.GONE);
-
-        ll_subcateg.setVisibility(View.GONE);
-
-        ll_thirdcateg.setVisibility(View.GONE);
-
-        btn_apply.setOnClickListener(this);
-
-
-
         view4.setVisibility(View.GONE);
 
         view6.setVisibility(View.GONE);
@@ -517,18 +336,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         view9.setVisibility(View.GONE);
 
         view10.setVisibility(View.GONE);
-
-        view11.setVisibility(View.GONE);
-
-        view12.setVisibility(View.GONE);
-
-        view13.setVisibility(View.GONE);
-
-        view14.setVisibility(View.GONE);
-
-        view15.setVisibility(View.GONE);
-
-
 
         btn_reset.setVisibility(View.GONE);
 
@@ -544,6 +351,62 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             }
         });
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallyearListResponseCall();
+
+        }
+
+        else {
+
+            callnointernet();
+        }
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallmakesListResponseCall();
+
+        }
+
+        else {
+
+            callnointernet();
+        }
+
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallbrandsListResponseCall();
+
+        }
+
+        else {
+
+            callnointernet();
+        }
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallcategoriesListResponseCall();
+        }
+
+        else {
+
+            callnointernet();
+        }
+
+        if (dd4YouConfig.isInternetConnectivity()) {
+
+            fetchallcolorListResponseCall();
+
+        }
+
+        else {
+
+            callnointernet();
+        }
+
 
     }
 
@@ -561,6 +424,81 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             img_arrow_year.setImageResource(R.drawable.ic_up_arrow);
         }
 
+    }
+
+    @SuppressLint("LongLogTag")
+    private void fetchallyearListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllYearResponse> call = apiInterface.fetchallyearListResponseCall(RestUtils.getContentType(), fetchAllYearRequest());
+        Log.w(TAG, "FetchAllYearResponse url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllYearResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllYearResponse> call, @NonNull Response<FetchAllYearResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllYearResponse" + new Gson().toJson(response.body()));
+
+                        yearBeanList = response.body().getData().getYear();
+
+                        if (yearBeanList != null && yearBeanList.size() > 0) {
+
+                            if (dd4YouConfig.isInternetConnectivity()) {
+
+                                fetchallmakesListResponseCall();
+                            } else {
+
+                                callnointernet();
+                            }
+
+                            setViewYearList(yearBeanList);
+                        } else {
+
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllYearResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllYearResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private FetchAllYearRequest fetchAllYearRequest() {
+
+
+        /*
+         * ATTRIBUTE : YEAR
+         */
+
+        FetchAllYearRequest fetchAllYearRequest = new FetchAllYearRequest();
+        fetchAllYearRequest.setATTRIBUTE("YEAR");
+
+
+        Log.w(TAG, "FetchAllYearRequest " + new Gson().toJson(fetchAllYearRequest));
+        return fetchAllYearRequest;
     }
 
     private void setViewYearList(List<FetchAllYearResponse.DataBean.YearBean> yearBeanList) {
@@ -607,6 +545,58 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
+    @SuppressLint("LongLogTag")
+    private void fetchallmakesListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllParentMakesResponse> call = apiInterface.fetchallmakesListResponseCall(RestUtils.getContentType());
+        Log.w(TAG, "FetchAllParentMakesResponse url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllParentMakesResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllParentMakesResponse> call, @NonNull Response<FetchAllParentMakesResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllParentMakesResponse" + new Gson().toJson(response.body()));
+
+                        makesBeanList = response.body().getData().getMake();
+
+                        if (makesBeanList != null && makesBeanList.size() > 0) {
+
+
+                            setViewMakesList(makesBeanList);
+                        } else {
+
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllParentMakesResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllParentMakesResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
+
     private void setViewMakesList(List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList) {
 
         rv_makes.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
@@ -650,6 +640,78 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
+    @SuppressLint("LongLogTag")
+    private void fetchallmodelListResponseCall(String makesid) {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchChildMakeslistRequestResponse> call = apiInterface.fetchallchildmakelistResponseCall(RestUtils.getContentType(),fetchChildMakeslistRequest(makesid));
+        Log.w(TAG,"FetchChildMakeslistRequestResponse url  :%s"+ call.request().url().toString());
+
+        call.enqueue(new Callback<FetchChildMakeslistRequestResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchChildMakeslistRequestResponse> call, @NonNull Response<FetchChildMakeslistRequestResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if(200==response.body().getCode()){
+
+                        Log.w(TAG,"FetchChildMakeslistRequestResponse" + new Gson().toJson(response.body()));
+
+                        modelBeanList = response.body().getData().getModel();
+
+                        if(modelBeanList != null && modelBeanList.size()>0){
+
+                            setModelView(modelBeanList);
+                        }
+
+                        else {
+
+
+                        }
+                    }
+
+                    else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchChildMakeslistRequestResponse> call,@NonNull  Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG,"FetchChildMakeslistRequestResponse flr"+t.getMessage());
+            }
+        });
+
+
+
+    }
+
+    @SuppressLint("LongLogTag")
+    private FetchChildMakeslistRequest fetchChildMakeslistRequest(String makesid) {
+
+        /*
+         * MAKE_ID : 6
+         * SORT_BY : DESC
+         */
+        FetchChildMakeslistRequest fetchChildMakeslistRequest = new FetchChildMakeslistRequest();
+        fetchChildMakeslistRequest.setMAKE_ID(makesid);
+        fetchChildMakeslistRequest.setSORT_BY("DESC");
+
+        Log.w(TAG,"FetchChildMakeslistRequest "+ new Gson().toJson(fetchChildMakeslistRequest));
+        return fetchChildMakeslistRequest;
+    }
 
     private void setModelView(List<FetchChildMakeslistRequestResponse.DataBean.ModelBean> makesBeanList) {
 
@@ -688,6 +750,55 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
+    @SuppressLint("LongLogTag")
+    private void fetchallbrandsListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllBrandsResponse> call = apiInterface.fetchallbrandsListResponseCall(RestUtils.getContentType());
+        Log.w(TAG, "FetchAllBrandsResponse url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllBrandsResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllBrandsResponse> call, @NonNull Response<FetchAllBrandsResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllBrandsResponse" + new Gson().toJson(response.body()));
+
+                        brandsBeanList = response.body().getData().getBrand();
+
+                        if (brandsBeanList != null && brandsBeanList.size() > 0) {
+
+                            setBrandView(brandsBeanList);
+                        } else {
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllBrandsResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllParentCategoriesResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
 
     private void setBrandView(List<FetchAllBrandsResponse.DataBean.BrandBean> brandsBeanList) {
 
@@ -733,6 +844,57 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
+    @SuppressLint("LongLogTag")
+    private void fetchallcategoriesListResponseCall() {
+
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllParentCategoriesResponse> call = apiInterface.fetchallcategoriesListResponseCall(RestUtils.getContentType());
+        Log.w(TAG, "url  :%s" + call.request().url().toString());
+
+        call.enqueue(new Callback<FetchAllParentCategoriesResponse>() {
+            @SuppressLint("LogNotTimber")
+            @Override
+            public void onResponse(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Response<FetchAllParentCategoriesResponse> response) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllParentCategoriesResponse" + new Gson().toJson(response.body()));
+
+                        categoriesBeanList = response.body().getData().getCategories();
+
+                        if (categoriesBeanList != null && categoriesBeanList.size() > 0) {
+
+                            setView(categoriesBeanList);
+                        } else {
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllParentCategoriesResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllParentCategoriesResponse flr" + t.getMessage());
+            }
+        });
+
+
+    }
+
     private void setView(List<FetchAllParentCategoriesResponse.DataBean.CategoriesBean> categoriesBeanList) {
 
 
@@ -756,233 +918,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         rv_categ.setAdapter(searchCategFilterlistAdapter);
 
-
-    }
-
-    /* Get Subcategory */
-
-    private void subcategorylist() {
-
-        if (expandable_layout_subcateg.isExpanded()) {
-            expandable_layout_subcateg.collapse();
-            rv_subcateg.setVisibility(View.GONE);
-            img_arrow_subcateg.setImageResource(R.drawable.ic_down_arrow);
-        } else {
-            expandable_layout_subcateg.expand();
-            rv_subcateg.setVisibility(View.VISIBLE);
-            img_arrow_subcateg.setImageResource(R.drawable.ic_up_arrow);
-        }
-
-    }
-
-    @SuppressLint("LongLogTag")
-    private void fetchallchildcategoriesListResponseCall() {
-
-        spin_kit_loadingView.setVisibility(View.VISIBLE);
-        //Creating an object of our api interface
-        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<FetchChildCateglistResponse> call = apiInterface.fetchallchildcateglistResponseCall(RestUtils.getContentType(),fetchChildCateglistRequest());
-        Log.w(TAG,"FetchChildCateglistResponse url  :%s"+ call.request().url().toString());
-
-        call.enqueue(new Callback<FetchChildCateglistResponse>() {
-            @SuppressLint("LogNotTimber")
-            @Override
-            public void onResponse(@NonNull Call<FetchChildCateglistResponse> call, @NonNull Response<FetchChildCateglistResponse> response) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-
-                if (response.body() != null) {
-
-                    if(200==response.body().getCode()){
-
-                        Log.w(TAG,"FetchChildCateglistResponse" + new Gson().toJson(response.body()));
-
-                        subcategoriesBeanList = response.body().getData().getCategories();
-
-                        if(subcategoriesBeanList != null && subcategoriesBeanList.size()>0){
-
-
-                            setSubcategory(subcategoriesBeanList);
-                        }
-
-                        else {
-
-
-                        }
-                    }
-
-                    else {
-
-                        showErrorLoading(response.body().getMessage());
-
-                    }
-
-
-
-                }
-
-            }
-
-
-            @Override
-            public void onFailure(@NonNull Call<FetchChildCateglistResponse> call,@NonNull  Throwable t) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"FetchChildCateglistResponse flr"+t.getMessage());
-            }
-        });
-
-    }
-
-    @SuppressLint("LongLogTag")
-    private FetchChildCateglistRequest fetchChildCateglistRequest() {
-
-        /*
-         * PARENT_ID : 1
-         */
-
-        FetchChildCateglistRequest fetchChildCateglistRequest = new FetchChildCateglistRequest();
-        fetchChildCateglistRequest.setPARENT_ID("");
-
-        Log.w(TAG,"FetchChildCateglistRequest "+ new Gson().toJson(fetchChildCateglistRequest));
-        return fetchChildCateglistRequest;
-    }
-
-
-    private void setSubcategory(List<FetchChildCateglistResponse.DataBean.CategoriesBean> categoriesBeanList) {
-
-        rv_subcateg.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_subcateg.setMotionEventSplittingEnabled(false);
-
-        rv_subcateg.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_subcateg.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_subcateg.setItemAnimator(new DefaultItemAnimator());
-
-        SearchChildCategoriesListAdapter searchChildCategoriesListAdapter = new SearchChildCategoriesListAdapter(FilterlistActivity.this, categoriesBeanList, this);
-
-        rv_subcateg.setAdapter(searchChildCategoriesListAdapter);
-
-    }
-
-    /* Get Thirdcategory */
-
-    private void thirdcategorylist() {
-
-        if (expandable_layout_thirdcateg.isExpanded()) {
-            expandable_layout_thirdcateg.collapse();
-            rv_thirdcateg.setVisibility(View.GONE);
-            img_arrow_thirdcateg.setImageResource(R.drawable.ic_down_arrow);
-        } else {
-            expandable_layout_thirdcateg.expand();
-            rv_thirdcateg.setVisibility(View.VISIBLE);
-            img_arrow_thirdcateg.setImageResource(R.drawable.ic_up_arrow);
-        }
-
-    }
-
-    @SuppressLint("LongLogTag")
-    private void getthirdcategoryListResponseCall() {
-
-        spin_kit_loadingView.setVisibility(View.VISIBLE);
-        //Creating an object of our api interface
-        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
-        Call<GetThirdCategoryResponse> call = apiInterface.getthirdcategoryListResponseCall(RestUtils.getContentType(),fetchthirdcateglistRequest());
-        Log.w(TAG,"GetThirdCategoryResponse url  :%s"+ call.request().url().toString());
-
-        call.enqueue(new Callback<GetThirdCategoryResponse>() {
-            @SuppressLint("LogNotTimber")
-            @Override
-            public void onResponse(@NonNull Call<GetThirdCategoryResponse> call, @NonNull Response<GetThirdCategoryResponse> response) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-
-                if (response.body() != null) {
-
-                    if(200==response.body().getCode()){
-
-                        Log.w(TAG,"GetThirdCategoryResponse" + new Gson().toJson(response.body()));
-
-                        thirdcategoriesBeanList = response.body().getData().getCategories();
-
-                        if(thirdcategoriesBeanList != null && thirdcategoriesBeanList.size()>0){
-
-
-                            setThirdcategory(thirdcategoriesBeanList);
-                        }
-
-                        else {
-
-
-                        }
-                    }
-
-                    else {
-
-                        showErrorLoading(response.body().getMessage());
-
-                    }
-
-
-
-                }
-
-            }
-
-
-            @Override
-            public void onFailure(@NonNull Call<GetThirdCategoryResponse> call, @NonNull  Throwable t) {
-                spin_kit_loadingView.setVisibility(View.GONE);
-                Log.w(TAG,"GetThirdCategoryResponse flr"+t.getMessage());
-            }
-        });
-
-    }
-
-    @SuppressLint("LongLogTag")
-    private GetThirdCategoryRequest fetchthirdcateglistRequest() {
-
-        /*
-         * PARENT_ID : 1
-         */
-
-        GetThirdCategoryRequest fetchChildCateglistRequest = new GetThirdCategoryRequest();
-        fetchChildCateglistRequest.setPARENT_ID("");
-
-        Log.w(TAG,"GetThirdCategoryRequest "+ new Gson().toJson(fetchChildCateglistRequest));
-        return fetchChildCateglistRequest;
-    }
-
-    private void setThirdcategory(List<GetThirdCategoryResponse.DataBean.CategoriesBean> thirdcategoriesBeanList) {
-
-        rv_thirdcateg.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_thirdcateg.setMotionEventSplittingEnabled(false);
-
-        rv_thirdcateg.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_thirdcateg.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_thirdcateg.setItemAnimator(new DefaultItemAnimator());
-
-        SearchThirdChildCategoriesListAdapter searchThirdChildCategoriesListAdapter = new SearchThirdChildCategoriesListAdapter(FilterlistActivity.this, thirdcategoriesBeanList, this);
-
-        rv_thirdcateg.setAdapter(searchThirdChildCategoriesListAdapter);
 
     }
 
@@ -1035,72 +970,111 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
-    private void setPrice(){
+    /* Get Colors */
 
-//        if(response.body().getData().getMin_product_price()!=null&&!response.body().getData().getMin_product_price().isEmpty()){
-//
-//            Log.w(TAG,"MinPrice" + response.body().getData().getMin_product_price());
-//
-//            min_pri = response.body().getData().getMin_product_price();
-//        }
-//
-//        else {
-//
-//            min_pri = "0";
-//        }
-//
-//        if(response.body().getData().getMax_product_price()!=null&&!response.body().getData().getMax_product_price().isEmpty()){
-//
-//            Log.w(TAG,"MaxPrice" + response.body().getData().getMax_product_price());
-//
-//            max_pri = response.body().getData().getMax_product_price();
-//        }
-//
-//        else {
-//
-//            max_pri = "0";
-//        }
+    @SuppressLint("LongLogTag")
+    private void fetchallcolorListResponseCall() {
 
-        // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = findViewById(R.id.rangeSeekbar);
+        spin_kit_loadingView.setVisibility(View.VISIBLE);
+        //Creating an object of our api interface
+        RestApiInterface apiInterface = APIClient.getClient().create(RestApiInterface.class);
+        Call<FetchAllColorsResponse> call = apiInterface.fetchallcolorListResponseCall(RestUtils.getContentType(), fetchAllColorsRequest());
+        Log.w(TAG, "FetchAllColorsResponse url  :%s" + call.request().url().toString());
 
-        final TextView tvMin = findViewById(R.id.txt_min_value);
-        final TextView tvMax = findViewById(R.id.txt_max_value);
-
-        rangeSeekbar.setMinValue(Float.valueOf(min_pri));
-
-        rangeSeekbar.setMaxValue(Float.valueOf(max_pri));
-
-
-        tvMin.setText("$ "+min_pri);
-
-        tvMax.setText("$ "+max_pri);
-
-        // set listener
-        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+        call.enqueue(new Callback<FetchAllColorsResponse>() {
+            @SuppressLint("LogNotTimber")
             @Override
-            public void valueChanged(Number minValue, Number maxValue) {
-                tvMin.setText("$ "+String.valueOf(minValue));
-                tvMax.setText("$ " +String.valueOf(maxValue));
+            public void onResponse(@NonNull Call<FetchAllColorsResponse> call, @NonNull Response<FetchAllColorsResponse> response) {
+//                spin_kit_loadingView.setVisibility(View.GONE);
+
+                if (response.body() != null) {
+
+                    if (200 == response.body().getCode()) {
+
+                        Log.w(TAG, "FetchAllColorsResponse" + new Gson().toJson(response.body()));
+
+                        colorsBeanList = response.body().getData().getColors();
+
+                        if (colorsBeanList != null && colorsBeanList.size() > 0) {
+
+                            ll_year.setVisibility(View.VISIBLE);
+
+                            ll_makes.setVisibility(View.VISIBLE);
+
+                            ll_models.setVisibility(View.VISIBLE);
+
+                            ll_brand.setVisibility(View.VISIBLE);
+
+                            ll_categ.setVisibility(View.VISIBLE);
+
+                            ll_price_range.setVisibility(View.VISIBLE);
+
+                            ll_rating.setVisibility(View.VISIBLE);
+
+                            ll_color.setVisibility(View.VISIBLE);
+
+                            view4.setVisibility(View.VISIBLE);
+
+                            view6.setVisibility(View.VISIBLE);
+
+                            view16.setVisibility(View.VISIBLE);
+
+                            view7.setVisibility(View.VISIBLE);
+
+                            view8.setVisibility(View.VISIBLE);
+
+                            view9.setVisibility(View.VISIBLE);
+
+                            view10.setVisibility(View.VISIBLE);
+
+                            btn_reset.setVisibility(View.VISIBLE);
+
+                            btn_apply.setVisibility(View.VISIBLE);
+
+                            spin_kit_loadingView.setVisibility(View.GONE);
+
+                            setViewColorList(colorsBeanList);
+                        } else {
+
+
+                        }
+                    } else {
+
+                        showErrorLoading(response.body().getMessage());
+                    }
+
+
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(@NonNull Call<FetchAllColorsResponse> call, @NonNull Throwable t) {
+                spin_kit_loadingView.setVisibility(View.GONE);
+                Log.w(TAG, "FetchAllColorsResponse flr" + t.getMessage());
             }
         });
 
-        // set final value listener
-        rangeSeekbar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
-            @Override
-            public void finalValue(Number minValue, Number maxValue) {
-
-                final_min_value = String.valueOf(minValue);
-
-                final_max_value = String.valueOf(maxValue);
-
-                Log.d("CRS=>", String.valueOf(minValue) + " : " + String.valueOf(maxValue));
-            }
-        });
 
     }
 
+    @SuppressLint("LongLogTag")
+    private FetchAllColorsRequest fetchAllColorsRequest() {
 
+
+        /**
+         * ATTRIBUTE : COLORS
+         */
+
+
+        FetchAllColorsRequest fetchAllColorsRequest = new FetchAllColorsRequest();
+        fetchAllColorsRequest.setATTRIBUTE("COLORS");
+
+
+        Log.w(TAG, "FetchAllYearRequest " + new Gson().toJson(fetchAllColorsRequest));
+        return fetchAllColorsRequest;
+    }
 
     private void setViewColorList(List<FetchAllColorsResponse.DataBean.ColorsBean> colorsBeanList) {
 
@@ -1129,137 +1103,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
     }
 
-    /* Get engine size */
-
-    private void enginesizelist() {
-
-        if (expandable_layout_engine_size.isExpanded()) {
-            expandable_layout_engine_size.collapse();
-            rv_engine_size.setVisibility(View.GONE);
-            img_arrow_engine_size.setImageResource(R.drawable.ic_down_arrow);
-        } else {
-            expandable_layout_engine_size.expand();
-            rv_engine_size.setVisibility(View.VISIBLE);
-            img_arrow_engine_size.setImageResource(R.drawable.ic_up_arrow);
-        }
-
-    }
-
-    private void setEngineSizeList(List<GetEngineSizeResponse.DataBean.EngineSizeBean> engineSizeBeanList) {
-
-        rv_engine_size.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_engine_size.setMotionEventSplittingEnabled(false);
-
-        rv_engine_size.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_engine_size.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_engine_size.setItemAnimator(new DefaultItemAnimator());
-
-        SearchEnginelistAdapter searchEnginelistAdapter = new SearchEnginelistAdapter(FilterlistActivity.this, engineSizeBeanList, this);
-
-        rv_engine_size.setAdapter(searchEnginelistAdapter);
-
-
-    }
-
-   /* Get fuel type */
-
-    private void fueltypelist() {
-
-        if (expandable_layout_fuel_type.isExpanded()) {
-            expandable_layout_fuel_type.collapse();
-            rv_fuel_type.setVisibility(View.GONE);
-            img_arrow_fuel_type.setImageResource(R.drawable.ic_down_arrow);
-        } else {
-            expandable_layout_fuel_type.expand();
-            rv_fuel_type.setVisibility(View.VISIBLE);
-            img_arrow_fuel_type.setImageResource(R.drawable.ic_up_arrow);
-        }
-
-    }
-
-
-    private void setFuelTypeList(List<GetFuelTypesResponse.DataBean.FuelTypesBean> fuelTypesBeanList) {
-
-        rv_fuel_type.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_fuel_type.setMotionEventSplittingEnabled(false);
-
-        rv_fuel_type.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_fuel_type.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_fuel_type.setItemAnimator(new DefaultItemAnimator());
-
-        SearchFuelTypelistAdapter searchFuelTypelistAdapter = new SearchFuelTypelistAdapter(FilterlistActivity.this, fuelTypesBeanList, this);
-
-        rv_fuel_type.setAdapter(searchFuelTypelistAdapter);
-
-
-    }
-
-
-    /* Get Transmission */
-
-    private void transmissionlist() {
-
-        if (expandable_layout_transmission.isExpanded()) {
-            expandable_layout_transmission.collapse();
-            rv_transmission.setVisibility(View.GONE);
-            img_arrow_transmission.setImageResource(R.drawable.ic_down_arrow);
-        } else {
-            expandable_layout_transmission.expand();
-            rv_transmission.setVisibility(View.VISIBLE);
-            img_arrow_transmission.setImageResource(R.drawable.ic_up_arrow);
-        }
-
-    }
-
-    private void setTransmission(List<GetTransmissionsResponse.DataBean.TransmissionsBean> transmissionsBeanList) {
-
-        rv_transmission.setLayoutManager(new GridLayoutManager(FilterlistActivity.this, 2));
-
-        rv_transmission.setMotionEventSplittingEnabled(false);
-
-        rv_transmission.setNestedScrollingEnabled(false);
-
-        //int size =3;
-
-        int spanCount = 2; // 3 columns
-
-        int spacing = 0; // 50px
-
-        boolean includeEdge = true;
-
-        rv_transmission.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
-
-        rv_transmission.setItemAnimator(new DefaultItemAnimator());
-
-        SearchTransmisionlistAdapter searchTransmisionlistAdapter = new SearchTransmisionlistAdapter(FilterlistActivity.this, transmissionsBeanList, this);
-
-        rv_transmission.setAdapter(searchTransmisionlistAdapter);
-
-
-    }
-
     @Override
     public void getYearNameListener(String id, String year_name, CheckBox cb_flist, boolean isChecked) {
 
@@ -1273,8 +1116,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             year.add(year_name);
 
-            isFilter = true;
-
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
         }
 
@@ -1284,14 +1125,9 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             year.remove(year_name);
 
-            isFilter = false;
-
             Log.w(TAG, "Year_Values" + new Gson().toJson(year));
 
         }
-
-
-
 
     }
 
@@ -1308,8 +1144,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             make.add(id);
 
-            isFilter = true;
-
             Log.w(TAG, "Make_ID" + new Gson().toJson(make));
 
                /* toString method returns the output as [Data
@@ -1325,6 +1159,17 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             Log.w(TAG, "commaseparatedlist_Make_ID" + makesid);
 
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                fetchallmodelListResponseCall(makesid);
+
+            }
+
+            else {
+
+                callnointernet();
+            }
+
         }
 
         else {
@@ -1332,8 +1177,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(false);
 
             make.remove(id);
-
-            isFilter = false;
 
             Log.w(TAG, "Make_ID" + new Gson().toJson(make));
 
@@ -1348,6 +1191,16 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
                     .replace("]", "")
                     .replace(" ", "");
 
+            if (dd4YouConfig.isInternetConnectivity()) {
+
+                fetchallmodelListResponseCall(makesid);
+
+            }
+
+            else {
+
+                callnointernet();
+            }
 
         }
     }
@@ -1365,8 +1218,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(true);
 
             model.add(id);
-
-            isFilter = true;
 
             Log.w(TAG, "Model_ID" + new Gson().toJson(model));
 
@@ -1391,8 +1242,6 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
             cb_flist.setChecked(false);
 
             model.remove(id);
-
-            isFilter = false;
 
             Log.w(TAG, "Model_ID" + new Gson().toJson(model));
 
@@ -1423,16 +1272,11 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
         if(isChecked){
 
             brandid = idd;
-
-            isFilter = true;
-
         }
 
         else {
 
-           brandid="";
-
-            isFilter = false;
+            brandid="";
         }
     }
 
@@ -1441,29 +1285,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         Log.w(TAG,"Selected  Categ ID"+id);
 
-        categid = id;
-
         Log.w(TAG,"Selected  Categ Name"+categ_name);
-    }
-
-    @Override
-    public void getchildcategIDListener(String id, String childcateg_name) {
-
-        Log.w(TAG,"Selected Child Categ ID"+id);
-
-        subcategid = id;
-
-        Log.w(TAG,"Selected  Child Categ Name"+childcateg_name);
-    }
-
-    @Override
-    public void getthirdcategIDListener(String id, String thirdcateg_name) {
-
-        Log.w(TAG,"Selected Third Categ ID"+id);
-
-        thirdlevelcategid = id;
-
-        Log.w(TAG,"Selected  third Categ Name"+thirdcateg_name);
     }
 
     @Override
@@ -1471,179 +1293,7 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
         Log.w(TAG,"Selected  Color ID"+id);
 
-        color = id;
-
         Log.w(TAG,"Selected Color Name"+color_name);
-    }
-
-    @Override
-    public void getengineIDListener(String id, String engine_name) {
-
-
-        Log.w(TAG,"Selected  engine ID "+id);
-
-        engineid = id;
-
-        Log.w(TAG,"Selected engine Name "+engine_name);
-    }
-
-    @Override
-    public void getfueltypeIDListener(String id, String fuel_name) {
-
-        Log.w(TAG,"Selected  fuel ID "+id);
-
-        fueltypeid = id;
-
-        Log.w(TAG,"Selected Fuel Name "+fuel_name);
-    }
-
-    @Override
-    public void gettransmissionIDListener(String id, String transmission_name) {
-
-        Log.w(TAG,"Selected transmission ID "+id);
-
-        transmissionid = id;
-
-        Log.w(TAG,"Selected transmission Name "+transmission_name);
-    }
-
-    private void gotoSearchProd() {
-
-        String radioValue = "0";
-
-        if(rb_1star.isChecked()){
-
-            radioValue = "1";
-        }
-
-        else if(rb_2star.isChecked()){
-
-            radioValue = "2";
-        }
-
-        else if(rb_3star.isChecked()){
-
-            radioValue = "3";
-        }
-
-        else if(rb_4star.isChecked()){
-
-            radioValue = "4";
-        }
-
-        else if(rb_5star.isChecked()){
-
-            radioValue = "5";
-        }
-
-        Log.w(TAG, "year : " + year + "makesid : " + makesid + "modelid : "+ modelid + "brandid : "+ brandid +
-
-                "categid :" + categid + "final_min_value :" + final_min_value + "final_max_value :" +final_max_value
-
-                + "color : " + color + "radioValue : " + radioValue );
-
-                                        /* toString method returns the output as [Data
-                                        Structure,Algorithms,...] In order to replace
-                                        '[', ']' and spaces with empty strings to get
-                                        comma separated values.*/
-
-        String commaseparatedlist = year.toString();
-
-        String years = commaseparatedlist.replace("[", "")
-                .replace("]", "")
-                .replace(" ", "");
-
-        JSONObject data = new JSONObject();
-        try {
-
-            if(!years.isEmpty()){
-
-                data.put("years",years);
-            }
-            else {
-
-                data.put("years","");
-            }
-            if(makesid!=null){
-
-                data.put("makesid",makesid);
-            }
-            else {
-
-                data.put("makesid","");
-            }
-            if(modelid!=null){
-
-                data.put("modelid",modelid);
-            }
-            else {
-
-                data.put("modelid","");
-            }
-            if(brandid!=null){
-
-                data.put("brandid",brandid);
-            }
-            else {
-
-                data.put("brandid","");
-            }
-
-            if(categid!=null){
-
-                data.put("categid",categid);
-            }
-            else {
-
-                data.put("categid","");
-            }
-            if(final_min_value!=null){
-
-                data.put("min_value",final_min_value);
-            }
-            else {
-
-                data.put("min_value","");
-            }
-
-            if(final_max_value!=null){
-
-                data.put("max_value",final_max_value);
-            }
-            else {
-
-                data.put("max_value",final_max_value);
-            }
-
-
-            if(color!=null){
-
-                data.put("color",color);
-            }
-            else {
-
-                data.put("color","");
-            }
-
-
-            data.put("rate",radioValue);
-
-            Log.w(TAG, "Data" + new Gson().toJson(data));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Intent intent = new Intent(FilterlistActivity.this,SearchProductListActivity.class);
-
-        intent.putExtra("fromactivity",TAG);
-
-        intent.putExtra("search_text",search_text);
-
-        intent.putExtra("data", data.toString());
-
-        startActivity(intent);
-
     }
 
     @Override
@@ -1698,93 +1348,53 @@ public class FilterlistActivity extends AppCompatActivity implements GetYearName
 
             case R.id.ll_year:
 
-                yearlist();
+            yearlist();
 
-                break;
+            break;
 
             case R.id.ll_makes:
 
-                makelist();
+            makelist();
 
-                break;
+            break;
 
             case R.id.ll_models:
 
-                modellist();
+            modellist();
 
-                break;
+            break;
 
             case R.id.ll_brand:
 
-                brandlist();
+            brandlist();
 
-                break;
+            break;
 
             case R.id.ll_categ:
 
-                categlist();
+            categlist();
 
-                break;
+            break;
 
             case R.id.ll_price_range:
 
-                pricelist();
+            pricelist();
 
-                break;
+            break;
 
             case R.id.ll_rating:
 
-                ratinglist();
+            ratinglist();
 
-                break;
+            break;
 
             case R.id.ll_color:
 
-                colorlist();
+            colorlist();
 
-                break;
-
-            case R.id.ll_engine_size:
-
-                enginesizelist();
-
-                break;
-
-            case R.id.ll_fuel_type:
-
-                fueltypelist();
-
-                break;
-
-            case R.id.ll_transmission:
-
-                transmissionlist();
-
-                break;
-
-            case R.id.ll_subcateg:
-
-                subcategorylist();
-
-                break;
-
-            case R.id.ll_thirdcateg:
-
-                thirdcategorylist();
-
-                break;
-
-            case R.id.btn_apply:
-
-                gotoSearchProd();
-
-                break;
-
+            break;
 
         }
 
     }
-
-
-
 }

@@ -142,22 +142,21 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
             holder.txt_price.setText(price);
         }
 
-        if (prdouctsBean.getDefault_quantity() != 0) {
-
-            default_quantity = prdouctsBean.getDefault_quantity();
-        }
-
         SessionManager sessionManager = new SessionManager(context);
 
         HashMap<String, String> user = sessionManager.getProfileDetails();
 
         String user_role = user.get(SessionManager.KEY_TYPE);
 
+        Log.w(TAG,"USER_ROLE"+user_role);
+
+
+
         if (user_role!=null&&!user_role.equals("retail")) {
 
             holder.btn_addcart.setVisibility(View.GONE);
 
-        }
+           }
 
         else {
 
@@ -169,7 +168,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
                 if(qty.equals("0")){
 
-                    holder.txt_stock_status.setVisibility(View.GONE);
+
 
                     holder.btn_addcart.setText("Out of Stock");
 
@@ -193,7 +192,7 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
                         @Override
                         public void onClick(View v) {
 
-                            addProductListener.addproductListener(prdouctsBean.getId(),String.valueOf(default_quantity),prdouctsBean.getPrice(),holder.btn_addcart);
+                            addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(),holder.btn_addcart);
 
                         }
                     });

@@ -358,6 +358,35 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/rl_wholesaler_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_corner_white_background"
+                        android:padding="@dimen/_15dp"
+                        android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/sp_wholesaler_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@id/img_arrow1"
+                            android:background="@android:color/transparent" />
+
+                        <ImageView
+                            android:id="@+id/img_arrow1"
+                            android:layout_width="@dimen/_24dp"
+                            android:layout_height="@dimen/_24dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_right_down"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_retail_price"
                         android:layout_width="@dimen/_0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
@@ -410,7 +439,7 @@
 
                     <RelativeLayout
                         android:layout_width="@dimen/_0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_5dp"
                         android:layout_weight="@integer/_int1"
                         android:visibility="visible">
@@ -418,7 +447,7 @@
                         <Button
                             android:id="@+id/btn_addcart"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_45dp"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="@dimen/_10dp"
                             android:background="@drawable/rectangle_corner_yellow_background"

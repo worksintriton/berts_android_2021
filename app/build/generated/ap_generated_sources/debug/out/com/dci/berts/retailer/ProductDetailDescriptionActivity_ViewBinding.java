@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.UiThread;
@@ -89,10 +90,13 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.txt_2star_perc = Utils.findRequiredViewAsType(source, R.id.txt_2star_perc, "field 'txt_2star_perc'", TextView.class);
     target.progress_bar_1star = Utils.findRequiredViewAsType(source, R.id.progress_bar_1star, "field 'progress_bar_1star'", RoundedHorizontalProgressBar.class);
     target.txt_1star_perc = Utils.findRequiredViewAsType(source, R.id.txt_1star_perc, "field 'txt_1star_perc'", TextView.class);
+    target.sp_wholesaler_price = Utils.findRequiredViewAsType(source, R.id.sp_wholesaler_price, "field 'sp_wholesaler_price'", Spinner.class);
     target.txt_cart_count = Utils.findRequiredViewAsType(source, R.id.txt_cart_count, "field 'txt_cart_count'", TextView.class);
     target.rlcart = Utils.findRequiredViewAsType(source, R.id.rlcart, "field 'rlcart'", RelativeLayout.class);
     target.txt_stock_status = Utils.findRequiredViewAsType(source, R.id.txt_stock_status, "field 'txt_stock_status'", TextView.class);
     target.rl_write_review = Utils.findRequiredViewAsType(source, R.id.rl_write_review, "field 'rl_write_review'", RelativeLayout.class);
+    target.rl_wholesaler_price = Utils.findRequiredViewAsType(source, R.id.rl_wholesaler_price, "field 'rl_wholesaler_price'", RelativeLayout.class);
+    target.rl_retail_price = Utils.findRequiredViewAsType(source, R.id.rl_retail_price, "field 'rl_retail_price'", RelativeLayout.class);
   }
 
   @Override
@@ -157,9 +161,12 @@ public class ProductDetailDescriptionActivity_ViewBinding implements Unbinder {
     target.txt_2star_perc = null;
     target.progress_bar_1star = null;
     target.txt_1star_perc = null;
+    target.sp_wholesaler_price = null;
     target.txt_cart_count = null;
     target.rlcart = null;
     target.txt_stock_status = null;
     target.rl_write_review = null;
+    target.rl_wholesaler_price = null;
+    target.rl_retail_price = null;
   }
 }

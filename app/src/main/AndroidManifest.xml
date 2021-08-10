@@ -143,7 +143,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.BertsProject.SearchProduct"
             android:windowSoftInputMode="adjustPan"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity" >
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+
+        </activity>
         <activity
             android:name=".retailer.AddVehicleActivity"
             android:screenOrientation="portrait"
@@ -205,6 +213,13 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".retailer.RetailerProfileAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Customtheme"
+            android:windowSoftInputMode="adjustPan"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".retailer.WholeSalerProfileAccountActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Customtheme"
             android:windowSoftInputMode="adjustPan"
