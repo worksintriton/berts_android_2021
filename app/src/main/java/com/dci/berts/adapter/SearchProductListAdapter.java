@@ -21,9 +21,11 @@ import com.dci.berts.interfaces.AddProductListener;
 import com.dci.berts.responsepojo.SearchProductsResponse;
 import com.dci.berts.retailer.ProductDetailDescriptionActivity;
 import com.dci.berts.sessionmanager.Connectivity;
+import com.dci.berts.sessionmanager.SessionManager;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProductListAdapter.ShoplistHolder> {
@@ -63,6 +65,33 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
         if (prdouctsBean.getTitle()!= null&&!prdouctsBean.getTitle().isEmpty()) {
 
             holder.txt_product_name.setText(prdouctsBean.getTitle());
+
+        }
+
+        SessionManager sessionManager = new SessionManager(context);
+
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        String user_role = user.get(SessionManager.KEY_TYPE);
+
+        if (user_role!=null&&!user_role.equals("retail")) {
+
+            holder.btn_addcart.setVisibility(View.GONE);
+
+        }
+
+        else {
+
+            holder.btn_addcart.setVisibility(View.VISIBLE);
+
+            holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(), holder.btn_addcart);
+
+                }
+            });
 
         }
 
@@ -170,14 +199,7 @@ public class SearchProductListAdapter extends RecyclerView.Adapter<SearchProduct
             holder.txt_price.setText(price);
         }
 
-        holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                addProductListener.addproductListener(prdouctsBean.getId(),"1",prdouctsBean.getPrice(), holder.btn_addcart);
-
-            }
-        });
 
 
         holder.cv_root.setOnClickListener(new View.OnClickListener() {

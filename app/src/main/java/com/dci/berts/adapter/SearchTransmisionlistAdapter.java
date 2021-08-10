@@ -11,22 +11,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dci.berts.R;
-import com.dci.berts.interfaces.GetMakeIDListener;
-import com.dci.berts.responsepojo.FetchAllParentMakesResponse;
+import com.dci.berts.interfaces.GetFuelTypeIDListener;
+import com.dci.berts.interfaces.GetTransmissonIDListener;
+import com.dci.berts.responsepojo.GetFuelTypesResponse;
+import com.dci.berts.responsepojo.GetTransmissionsResponse;
 
 import java.util.List;
 
-public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMakeFilterlistAdapter.ShopFilterlistHolder> {
+public class SearchTransmisionlistAdapter extends RecyclerView.Adapter<SearchTransmisionlistAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
+    List<GetTransmissionsResponse.DataBean.TransmissionsBean> transmissionsBeanList;
     View view;
-    GetMakeIDListener getMakeIDListener;
-    private static final String TAG = "SearchMakeFilterlistAdapter";
+    GetTransmissonIDListener transmissonIDListener;
+    private static final String TAG = "SearchTransmisionlistAdapter";
 
-    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList, GetMakeIDListener getMakeIDListener) {
+    public SearchTransmisionlistAdapter(Context context, List<GetTransmissionsResponse.DataBean.TransmissionsBean> transmissionsBeanList, GetTransmissonIDListener transmissonIDListener) {
         this.context = context;
-        this.makesBeanList = makesBeanList;
-        this.getMakeIDListener=getMakeIDListener;
+        this.transmissionsBeanList =  transmissionsBeanList;
+        this.transmissonIDListener= transmissonIDListener;
 
     }
 
@@ -40,11 +42,11 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchAllParentMakesResponse.DataBean.MakeBean makeBean = makesBeanList.get(position);
+        final GetTransmissionsResponse.DataBean.TransmissionsBean transmissionbean = transmissionsBeanList.get(position);
 
-        if (makeBean.getName()!= null&&!makeBean.getName().isEmpty()) {
+        if (transmissionbean.getName()!= null&&!transmissionbean.getName().isEmpty()) {
 
-            holder.txt_flistname.setText(makeBean.getName());
+            holder.txt_flistname.setText(transmissionbean.getName());
 
         }
 
@@ -52,19 +54,15 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
 
             if(isChecked){
 
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
-            }
+                transmissonIDListener.gettransmissionIDListener(transmissionbean.getId(), transmissionbean.getName());
 
-            else {
-
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return makesBeanList.size();
+        return transmissionsBeanList.size();
     }
 
     public static class ShopFilterlistHolder extends RecyclerView.ViewHolder {

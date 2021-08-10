@@ -648,7 +648,13 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             onBackPressed();
         });
 
-
+//        user_role = user.get(SessionManager.KEY_TYPE);
+//
+//        if (user_role!=null&&!user_role.equals("retail")) {
+//
+//            holder.btn_addcart.setVisibility(View.GONE);
+//
+//        }
 
     }
 

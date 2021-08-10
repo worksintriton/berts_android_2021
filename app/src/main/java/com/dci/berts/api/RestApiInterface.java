@@ -21,7 +21,11 @@ import com.dci.berts.requestpojo.FetchProductBasedOnCatRequest;
 import com.dci.berts.requestpojo.FetchProductBasedOnMakeRequest;
 import com.dci.berts.requestpojo.FilterRequest;
 import com.dci.berts.requestpojo.ForgotPasswordRequest;
+import com.dci.berts.requestpojo.GetEngineSizeRequest;
+import com.dci.berts.requestpojo.GetFuelTypesRequest;
 import com.dci.berts.requestpojo.GetStateRequest;
+import com.dci.berts.requestpojo.GetThirdCategoryRequest;
+import com.dci.berts.requestpojo.GetTransmissionsRequest;
 import com.dci.berts.requestpojo.HomepageDashboardRequest;
 import com.dci.berts.requestpojo.HomepageDashboardResponse;
 import com.dci.berts.requestpojo.LoginRequest;
@@ -62,8 +66,12 @@ import com.dci.berts.responsepojo.FetchChildCateglistResponse;
 import com.dci.berts.responsepojo.FetchChildMakeslistRequestResponse;
 import com.dci.berts.responsepojo.ForgotPasswordResponse;
 import com.dci.berts.responsepojo.GetCountryResponse;
+import com.dci.berts.responsepojo.GetEngineSizeResponse;
+import com.dci.berts.responsepojo.GetFuelTypesResponse;
 import com.dci.berts.responsepojo.GetSettingsResponse;
 import com.dci.berts.responsepojo.GetStateResponse;
+import com.dci.berts.responsepojo.GetThirdCategoryResponse;
+import com.dci.berts.responsepojo.GetTransmissionsResponse;
 import com.dci.berts.responsepojo.LoginResponse;
 import com.dci.berts.responsepojo.NotificationGetlistResponse;
 import com.dci.berts.responsepojo.OrderCancelOverallResponse;
@@ -282,10 +290,23 @@ public interface RestApiInterface {
     Call<NotificationGetlistResponse> notificationGetlistResponseCall(@Header("Content-Type") String type, @Body NotificationGetlistRequest notificationGetlistRequest);
 
     /*add product review*/
-    @POST("api/productreview")
+    @POST("productreview")
     Call<AddReviewResponse> addproductreviewResponseCall(@Header("Content-Type") String type, @Body AddReviewRequest addReviewRequest);
 
+    /*Get All Engine Size*/
+    @POST("common")
+    Call<GetEngineSizeResponse> getenginesizeListResponseCall(@Header("Content-Type") String type, @Body GetEngineSizeRequest getEngineSizeRequest);
 
+    /*Get All Fuel Type*/
+    @POST("common")
+    Call<GetFuelTypesResponse> getfueltypeListResponseCall(@Header("Content-Type") String type, @Body GetFuelTypesRequest getFuelTypesRequest);
 
+    /*Get All Transmission*/
+    @POST("common")
+    Call<GetTransmissionsResponse> gettransmissionListResponseCall(@Header("Content-Type") String type, @Body GetTransmissionsRequest getTransmissionsRequest);
+
+    /*Get All Third Category*/
+    @POST("category")
+    Call<GetThirdCategoryResponse> getthirdcategoryListResponseCall(@Header("Content-Type") String type, @Body GetThirdCategoryRequest getThirdCategoryRequest);
 
 }

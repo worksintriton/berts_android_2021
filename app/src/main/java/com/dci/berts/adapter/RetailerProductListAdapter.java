@@ -20,7 +20,9 @@ import com.dci.berts.interfaces.AddProductListener;
 import com.dci.berts.interfaces.ProductListener;
 import com.dci.berts.interfaces.WishlistAddProductListener;
 import com.dci.berts.responsepojo.ProductListResponse;
+import com.dci.berts.sessionmanager.SessionManager;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerProductListAdapter.ShoplistHolder> {
@@ -144,45 +146,65 @@ public class RetailerProductListAdapter extends RecyclerView.Adapter<RetailerPro
 
             default_quantity = prdouctsBean.getDefault_quantity();
         }
-        if(prdouctsBean.getQuantity()!=null&&!prdouctsBean.getQuantity().isEmpty()){
 
-            String qty = prdouctsBean.getQuantity();
+        SessionManager sessionManager = new SessionManager(context);
 
-            if(qty.equals("0")){
+        HashMap<String, String> user = sessionManager.getProfileDetails();
 
-                holder.txt_stock_status.setVisibility(View.GONE);
+        String user_role = user.get(SessionManager.KEY_TYPE);
 
-                holder.btn_addcart.setText("Out of Stock");
+        if (user_role!=null&&!user_role.equals("retail")) {
 
-                holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        //do Nothing
-                    }
-                });
-
-            }
-
-            else {
-
-                holder.txt_stock_status.setVisibility(View.GONE);
-                
-                holder.btn_addcart.setText("Add to Cart");
-
-                holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        addProductListener.addproductListener(prdouctsBean.getId(),String.valueOf(default_quantity),prdouctsBean.getPrice(),holder.btn_addcart);
-
-                    }
-                });
-
-            }
-
+            holder.btn_addcart.setVisibility(View.GONE);
 
         }
+
+        else {
+
+            holder.btn_addcart.setVisibility(View.VISIBLE);
+
+            if(prdouctsBean.getQuantity()!=null&&!prdouctsBean.getQuantity().isEmpty()){
+
+                String qty = prdouctsBean.getQuantity();
+
+                if(qty.equals("0")){
+
+                    holder.txt_stock_status.setVisibility(View.GONE);
+
+                    holder.btn_addcart.setText("Out of Stock");
+
+                    holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            //do Nothing
+                        }
+                    });
+
+                }
+
+                else {
+
+                    holder.txt_stock_status.setVisibility(View.GONE);
+
+                    holder.btn_addcart.setText("Add to Cart");
+
+                    holder.btn_addcart.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            addProductListener.addproductListener(prdouctsBean.getId(),String.valueOf(default_quantity),prdouctsBean.getPrice(),holder.btn_addcart);
+
+                        }
+                    });
+
+                }
+
+
+            }
+        }
+
+
 
         if(prdouctsBean.getTag_new()!=null&&!prdouctsBean.getTag_new().isEmpty()){
 

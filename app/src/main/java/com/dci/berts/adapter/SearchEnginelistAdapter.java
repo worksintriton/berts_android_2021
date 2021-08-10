@@ -11,22 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dci.berts.R;
-import com.dci.berts.interfaces.GetMakeIDListener;
-import com.dci.berts.responsepojo.FetchAllParentMakesResponse;
+import com.dci.berts.interfaces.GetEngineIDListener;
+import com.dci.berts.responsepojo.GetEngineSizeResponse;
 
 import java.util.List;
 
-public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMakeFilterlistAdapter.ShopFilterlistHolder> {
+public class SearchEnginelistAdapter extends RecyclerView.Adapter<SearchEnginelistAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
+    List<GetEngineSizeResponse.DataBean.EngineSizeBean> enginebeanlist;
     View view;
-    GetMakeIDListener getMakeIDListener;
-    private static final String TAG = "SearchMakeFilterlistAdapter";
+    GetEngineIDListener engineIDListener;
+    private static final String TAG = "SearchEnginelistAdapter";
 
-    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList, GetMakeIDListener getMakeIDListener) {
+    public SearchEnginelistAdapter(Context context, List<GetEngineSizeResponse.DataBean.EngineSizeBean> enginebeanlist, GetEngineIDListener engineIDListener) {
         this.context = context;
-        this.makesBeanList = makesBeanList;
-        this.getMakeIDListener=getMakeIDListener;
+        this.enginebeanlist =  enginebeanlist;
+        this.engineIDListener= engineIDListener;
 
     }
 
@@ -40,11 +40,11 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchAllParentMakesResponse.DataBean.MakeBean makeBean = makesBeanList.get(position);
+        final GetEngineSizeResponse.DataBean.EngineSizeBean engineSizeBean = enginebeanlist.get(position);
 
-        if (makeBean.getName()!= null&&!makeBean.getName().isEmpty()) {
+        if (engineSizeBean.getName()!= null&&!engineSizeBean.getName().isEmpty()) {
 
-            holder.txt_flistname.setText(makeBean.getName());
+            holder.txt_flistname.setText(engineSizeBean.getName());
 
         }
 
@@ -52,19 +52,15 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
 
             if(isChecked){
 
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
-            }
+                engineIDListener.getengineIDListener(engineSizeBean.getId(), engineSizeBean.getName());
 
-            else {
-
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return makesBeanList.size();
+        return enginebeanlist.size();
     }
 
     public static class ShopFilterlistHolder extends RecyclerView.ViewHolder {

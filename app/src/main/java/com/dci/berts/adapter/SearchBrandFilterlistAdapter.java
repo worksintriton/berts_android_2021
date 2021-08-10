@@ -21,7 +21,7 @@ public class SearchBrandFilterlistAdapter extends RecyclerView.Adapter<SearchBra
     List<FetchAllBrandsResponse.DataBean.BrandBean> BrandBeanList;
     View view;
     GetBrandIDListener getBrandIDListener;
-    private static final String TAG = "SearchYearFilterlistAdapter";
+    private static final String TAG = "SearchBrandFilterlistAdapter";
     private int selectedPosition = -1;// no selection by default
 
     public SearchBrandFilterlistAdapter(Context context, List<FetchAllBrandsResponse.DataBean.BrandBean> BrandBeanList,  GetBrandIDListener getBrandIDListener) {

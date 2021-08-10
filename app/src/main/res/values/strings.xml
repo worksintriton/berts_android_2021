@@ -403,4 +403,14 @@
     <string name="no_notifications">No Notifications Found</string>
     <string name="write_review">WRITE REVIEW</string>
     <string name="write_here">Write Here. . .</string>
+    <string name="engine_size">Engine Size</string>
+    <string name="select_engine_size">Select Engine Size</string>
+    <string name="select_fuel_type">Select Fuel Type</string>
+    <string name="fuel_type">Fuel Type</string>
+    <string name="select_transmission">Select Transmission</string>
+    <string name="transmission">Transmission</string>
+    <string name="select_subcategory">Selected Sub Category</string>
+    <string name="subcategory1">Subcategory</string>
+    <string name="select_thirdcategory">Select Third Category</string>
+    <string name="thirdcategory1">Third Category</string>
 </resources>

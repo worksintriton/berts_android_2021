@@ -1,5 +1,6 @@
 package com.dci.berts.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,22 +12,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dci.berts.R;
-import com.dci.berts.interfaces.GetMakeIDListener;
-import com.dci.berts.responsepojo.FetchAllParentMakesResponse;
+import com.dci.berts.interfaces.GetThirdCategIDListener;
+import com.dci.berts.responsepojo.GetThirdCategoryResponse;
 
 import java.util.List;
 
-public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMakeFilterlistAdapter.ShopFilterlistHolder> {
+public class SearchThirdChildCategoriesListAdapter extends RecyclerView.Adapter<SearchThirdChildCategoriesListAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
+    List<GetThirdCategoryResponse.DataBean.CategoriesBean>  categoriesBeanList;
     View view;
-    GetMakeIDListener getMakeIDListener;
-    private static final String TAG = "SearchMakeFilterlistAdapter";
+    int size;
+    String parent_id,categ_name,fromactivity;
+    private static final String TAG = "SearchThirdChildCategoriesListAdapter";
+    GetThirdCategIDListener thirdCategIDListener;
 
-    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList, GetMakeIDListener getMakeIDListener) {
+    public SearchThirdChildCategoriesListAdapter(Context context, List<GetThirdCategoryResponse.DataBean.CategoriesBean> categoriesBeanLists, GetThirdCategIDListener thirdCategIDListener) {
         this.context = context;
-        this.makesBeanList = makesBeanList;
-        this.getMakeIDListener=getMakeIDListener;
+        this.categoriesBeanList = categoriesBeanLists;
+        this.thirdCategIDListener = thirdCategIDListener;
 
     }
 
@@ -37,14 +40,16 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
         return new ShopFilterlistHolder(view);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchAllParentMakesResponse.DataBean.MakeBean makeBean = makesBeanList.get(position);
+        final GetThirdCategoryResponse.DataBean.CategoriesBean categoriesBean = categoriesBeanList.get(position);
 
-        if (makeBean.getName()!= null&&!makeBean.getName().isEmpty()) {
 
-            holder.txt_flistname.setText(makeBean.getName());
+        if (categoriesBean.getName()!= null&&!categoriesBean.getName().isEmpty()) {
+
+            holder.txt_flistname.setText(categoriesBean.getName());
 
         }
 
@@ -52,20 +57,18 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
 
             if(isChecked){
 
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
-            }
+                thirdCategIDListener.getthirdcategIDListener(categoriesBean.getId(), categoriesBean.getName());
 
-            else {
-
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
+
     }
 
     @Override
     public int getItemCount() {
-        return makesBeanList.size();
+        return size;
     }
+
 
     public static class ShopFilterlistHolder extends RecyclerView.ViewHolder {
 

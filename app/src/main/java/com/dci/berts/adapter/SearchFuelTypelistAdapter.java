@@ -11,22 +11,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dci.berts.R;
-import com.dci.berts.interfaces.GetMakeIDListener;
-import com.dci.berts.responsepojo.FetchAllParentMakesResponse;
+import com.dci.berts.interfaces.GetEngineIDListener;
+import com.dci.berts.interfaces.GetFuelTypeIDListener;
+import com.dci.berts.responsepojo.GetEngineSizeResponse;
+import com.dci.berts.responsepojo.GetFuelTypesResponse;
 
 import java.util.List;
 
-public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMakeFilterlistAdapter.ShopFilterlistHolder> {
+public class SearchFuelTypelistAdapter extends RecyclerView.Adapter<SearchFuelTypelistAdapter.ShopFilterlistHolder> {
     Context context;
-    List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList;
+    List<GetFuelTypesResponse.DataBean.FuelTypesBean> fuelTypesBeanList;
     View view;
-    GetMakeIDListener getMakeIDListener;
-    private static final String TAG = "SearchMakeFilterlistAdapter";
+    GetFuelTypeIDListener fuelTypeIDListener;
+    private static final String TAG = "SearchFuelTypelistAdapter";
 
-    public SearchMakeFilterlistAdapter(Context context, List<FetchAllParentMakesResponse.DataBean.MakeBean> makesBeanList, GetMakeIDListener getMakeIDListener) {
+    public SearchFuelTypelistAdapter(Context context, List<GetFuelTypesResponse.DataBean.FuelTypesBean> fuelTypesBeanList, GetFuelTypeIDListener fuelTypeIDListener) {
         this.context = context;
-        this.makesBeanList = makesBeanList;
-        this.getMakeIDListener=getMakeIDListener;
+        this.fuelTypesBeanList =  fuelTypesBeanList;
+        this.fuelTypeIDListener= fuelTypeIDListener;
 
     }
 
@@ -40,11 +42,11 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
     @Override
     public void onBindViewHolder(@NonNull ShopFilterlistHolder holder, final int position) {
 
-        final FetchAllParentMakesResponse.DataBean.MakeBean makeBean = makesBeanList.get(position);
+        final GetFuelTypesResponse.DataBean.FuelTypesBean fueltypesbean = fuelTypesBeanList.get(position);
 
-        if (makeBean.getName()!= null&&!makeBean.getName().isEmpty()) {
+        if (fueltypesbean.getName()!= null&&!fueltypesbean.getName().isEmpty()) {
 
-            holder.txt_flistname.setText(makeBean.getName());
+            holder.txt_flistname.setText(fueltypesbean.getName());
 
         }
 
@@ -52,19 +54,15 @@ public class SearchMakeFilterlistAdapter extends RecyclerView.Adapter<SearchMake
 
             if(isChecked){
 
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
-            }
+                fuelTypeIDListener.getfueltypeIDListener(fueltypesbean.getId(), fueltypesbean.getName());
 
-            else {
-
-                getMakeIDListener.getMakeIDListener(makeBean.getId(),makeBean.getName(),holder.cb_flist,isChecked);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return makesBeanList.size();
+        return fuelTypesBeanList.size();
     }
 
     public static class ShopFilterlistHolder extends RecyclerView.ViewHolder {
