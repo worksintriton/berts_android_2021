@@ -5,23 +5,22 @@ import java.util.List;
 public class ShowCartListResponse {
 
 
-
     /**
      * status : Success
      * code : 200
      * message : Cart list successful
-     * data : {"cart":[{"basket_id":"16","userid":"541","basket_product_id":"2","basket_quantity":"2","basket_unit_price":"50000","basket_total_price":"100000","price":"1000","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","category_id":"6","subcategory_id":"21","part_number":"21460-8H303","vin":null,"images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]}],"shipping_cost":0,"discount":0,"cart_total":100000,"default_address":{"id":"348","user_id":"541","name":"tstaddr1a2","phone":"1234567890","zipcode":"123456","country_id":"13","state":"257","detail_address":null,"address1":"tstaddr1","address2":"tstaddr2","city":"tstcity1","created_at":"2021-05-18 11:48:51","is_default":"1","country_name":"Australia","state_name":"Cheltenham"}}
+     * data : {"cart":[{"basket_id":"170","userid":"690","basket_product_id":"106266","basket_quantity":"4","basket_unit_price":"600","basket_total_price":"2400","price":"936","title":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","subcategory_name":"Brake System","category_name":"Maintenance & Servicing Parts","category_id":"5","subcategory_id":"14","part_number":"44060-VE425-J","vin":null,"images":[{"id":"0","product_id":"106266","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}],"wholesaler_price":[{"quantity":"3","price":"450"},{"quantity":"4","price":"600"}]}],"shipping_cost":0,"discount":0,"cart_total":2400,"default_address":{"id":"398","user_id":"690","name":"Sam","phone":"9630852741","zipcode":"636009","country_id":"101","state":"35","detail_address":null,"address1":"sample xyz address","address2":"sample xyz address","city":"Salem","created_at":"2021-08-10 11:26:22","is_default":"1","country_name":"India","state_name":"Tamil Nadu"}}
      */
 
     private String status;
     private int code;
     private String message;
     /**
-     * cart : [{"basket_id":"16","userid":"541","basket_product_id":"2","basket_quantity":"2","basket_unit_price":"50000","basket_total_price":"100000","price":"1000","title":"RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03","subcategory_name":"Engine Cooling","category_name":"Performance & Tuning","category_id":"6","subcategory_id":"21","part_number":"21460-8H303","vin":null,"images":[{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]}]
+     * cart : [{"basket_id":"170","userid":"690","basket_product_id":"106266","basket_quantity":"4","basket_unit_price":"600","basket_total_price":"2400","price":"936","title":"BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-","subcategory_name":"Brake System","category_name":"Maintenance & Servicing Parts","category_id":"5","subcategory_id":"14","part_number":"44060-VE425-J","vin":null,"images":[{"id":"0","product_id":"106266","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}],"wholesaler_price":[{"quantity":"3","price":"450"},{"quantity":"4","price":"600"}]}]
      * shipping_cost : 0
      * discount : 0
-     * cart_total : 100000
-     * default_address : {"id":"348","user_id":"541","name":"tstaddr1a2","phone":"1234567890","zipcode":"123456","country_id":"13","state":"257","detail_address":null,"address1":"tstaddr1","address2":"tstaddr2","city":"tstcity1","created_at":"2021-05-18 11:48:51","is_default":"1","country_name":"Australia","state_name":"Cheltenham"}
+     * cart_total : 2400
+     * default_address : {"id":"398","user_id":"690","name":"Sam","phone":"9630852741","zipcode":"636009","country_id":"101","state":"35","detail_address":null,"address1":"sample xyz address","address2":"sample xyz address","city":"Salem","created_at":"2021-08-10 11:26:22","is_default":"1","country_name":"India","state_name":"Tamil Nadu"}
      */
 
     private DataBean data;
@@ -63,40 +62,41 @@ public class ShowCartListResponse {
         private int discount;
         private int cart_total;
         /**
-         * id : 348
-         * user_id : 541
-         * name : tstaddr1a2
-         * phone : 1234567890
-         * zipcode : 123456
-         * country_id : 13
-         * state : 257
+         * id : 398
+         * user_id : 690
+         * name : Sam
+         * phone : 9630852741
+         * zipcode : 636009
+         * country_id : 101
+         * state : 35
          * detail_address : null
-         * address1 : tstaddr1
-         * address2 : tstaddr2
-         * city : tstcity1
-         * created_at : 2021-05-18 11:48:51
+         * address1 : sample xyz address
+         * address2 : sample xyz address
+         * city : Salem
+         * created_at : 2021-08-10 11:26:22
          * is_default : 1
-         * country_name : Australia
-         * state_name : Cheltenham
+         * country_name : India
+         * state_name : Tamil Nadu
          */
 
         private DefaultAddressBean default_address;
         /**
-         * basket_id : 16
-         * userid : 541
-         * basket_product_id : 2
-         * basket_quantity : 2
-         * basket_unit_price : 50000
-         * basket_total_price : 100000
-         * price : 1000
-         * title : RADIATOR  (ATM) NIS/XTRAIL T30 QR20DE 2000-03
-         * subcategory_name : Engine Cooling
-         * category_name : Performance & Tuning
-         * category_id : 6
-         * subcategory_id : 21
-         * part_number : 21460-8H303
+         * basket_id : 170
+         * userid : 690
+         * basket_product_id : 106266
+         * basket_quantity : 4
+         * basket_unit_price : 600
+         * basket_total_price : 2400
+         * price : 936
+         * title : BRAKE SHOE NIS/CARAVAN URVAN HOMY E24 E25 Z20/24S TD23 TD25 TD27 93-  KA20 KA24 ZD30 02- 2WD D21/D22 PICKUP FRONTIER 90-
+         * subcategory_name : Brake System
+         * category_name : Maintenance & Servicing Parts
+         * category_id : 5
+         * subcategory_id : 14
+         * part_number : 44060-VE425-J
          * vin : null
-         * images : [{"id":"339","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg","image_order":"1","storage":"local"},{"id":"340","product_id":"2","image_default":"http://dciinternal.in/dev01/uploads/images/img_x500_6088087d10ad7.jpg","image_big":"http://dciinternal.in/dev01/uploads/images/img_1920x_6088087d345fe.jpg","image_small":"http://dciinternal.in/dev01/uploads/images/img_x300_6088087d570b9.jpg","image_order":"2","storage":"local"}]
+         * images : [{"id":"0","product_id":"106266","image_default":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_big":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_small":"http://dciinternal.in/dev01/assets/img/no-image.jpg","image_order":"1","storage":"local"}]
+         * wholesaler_price : [{"quantity":"3","price":"450"},{"quantity":"4","price":"600"}]
          */
 
         private List<CartBean> cart;
@@ -295,16 +295,22 @@ public class ShowCartListResponse {
             private String part_number;
             private Object vin;
             /**
-             * id : 339
-             * product_id : 2
-             * image_default : http://dciinternal.in/dev01/uploads/images/img_x500_6088083eaebd7.jpg
-             * image_big : http://dciinternal.in/dev01/uploads/images/img_1920x_6088083ed1a5e.jpg
-             * image_small : http://dciinternal.in/dev01/uploads/images/img_x300_6088083ef176b.jpg
+             * id : 0
+             * product_id : 106266
+             * image_default : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_big : http://dciinternal.in/dev01/assets/img/no-image.jpg
+             * image_small : http://dciinternal.in/dev01/assets/img/no-image.jpg
              * image_order : 1
              * storage : local
              */
 
             private List<ImagesBean> images;
+            /**
+             * quantity : 3
+             * price : 450
+             */
+
+            private List<WholesalerPriceBean> wholesaler_price;
 
             public String getBasket_id() {
                 return basket_id;
@@ -426,6 +432,14 @@ public class ShowCartListResponse {
                 this.images = images;
             }
 
+            public List<WholesalerPriceBean> getWholesaler_price() {
+                return wholesaler_price;
+            }
+
+            public void setWholesaler_price(List<WholesalerPriceBean> wholesaler_price) {
+                this.wholesaler_price = wholesaler_price;
+            }
+
             public static class ImagesBean {
                 private String id;
                 private String product_id;
@@ -489,6 +503,27 @@ public class ShowCartListResponse {
 
                 public void setStorage(String storage) {
                     this.storage = storage;
+                }
+            }
+
+            public static class WholesalerPriceBean {
+                private String quantity;
+                private String price;
+
+                public String getQuantity() {
+                    return quantity;
+                }
+
+                public void setQuantity(String quantity) {
+                    this.quantity = quantity;
+                }
+
+                public String getPrice() {
+                    return price;
+                }
+
+                public void setPrice(String price) {
+                    this.price = price;
                 }
             }
         }

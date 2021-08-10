@@ -352,6 +352,8 @@ com/dci/berts/retailer/FilterlistActivity.java
  com.dci.berts.retailer.FilterlistActivity$3
  com.dci.berts.retailer.FilterlistActivity$4
  com.dci.berts.retailer.FilterlistActivity$5
+ com.dci.berts.retailer.FilterlistActivity$6
+ com.dci.berts.retailer.FilterlistActivity$7
 com/dci/berts/adapter/FilterlistAdapter.java
  com.dci.berts.adapter.FilterlistAdapter
  com.dci.berts.adapter.FilterlistAdapter$FilterlistHolder
@@ -524,6 +526,7 @@ com/dci/berts/responsepojo/ShowCartListResponse.java
  com.dci.berts.responsepojo.ShowCartListResponse$DataBean
  com.dci.berts.responsepojo.ShowCartListResponse$DataBean$CartBean
  com.dci.berts.responsepojo.ShowCartListResponse$DataBean$CartBean$ImagesBean
+ com.dci.berts.responsepojo.ShowCartListResponse$DataBean$CartBean$WholesalerPriceBean
  com.dci.berts.responsepojo.ShowCartListResponse$DataBean$DefaultAddressBean
 com/dci/berts/requestpojo/DeleteVehicleRequest.java
  com.dci.berts.requestpojo.DeleteVehicleRequest
@@ -583,6 +586,7 @@ com/dci/berts/adapter/CartProductListAdapter.java
  com.dci.berts.adapter.CartProductListAdapter$1
  com.dci.berts.adapter.CartProductListAdapter$2
  com.dci.berts.adapter.CartProductListAdapter$3
+ com.dci.berts.adapter.CartProductListAdapter$4
  com.dci.berts.adapter.CartProductListAdapter$ShoplistHolder
 com/dci/berts/requestpojo/GetStateRequest.java
  com.dci.berts.requestpojo.GetStateRequest

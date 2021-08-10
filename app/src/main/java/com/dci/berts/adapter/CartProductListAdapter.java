@@ -1,12 +1,19 @@
 package com.dci.berts.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,8 +26,14 @@ import com.dci.berts.interfaces.AddProductListener;
 import com.dci.berts.interfaces.CartRemoveProductListener;
 import com.dci.berts.interfaces.RemoveProductListener;
 import com.dci.berts.responsepojo.ShowCartListResponse;
+import com.dci.berts.retailer.ProductDetailDescriptionActivity;
+import com.dci.berts.sessionmanager.SessionManager;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import es.dmoral.toasty.Toasty;
 
 public class CartProductListAdapter extends RecyclerView.Adapter<CartProductListAdapter.ShoplistHolder> {
     Context context;
@@ -30,6 +43,9 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
     AddProductListener addProductListener;
     RemoveProductListener removeProductListener;
     Button button;
+    String wholesaler_quantity,qty;
+
+    private final static String TAG = "CartProductListAdapter";
 
     public CartProductListAdapter(Context context2, List<ShowCartListResponse.DataBean.CartBean> cartBeanList,CartRemoveProductListener cartRemoveProductListener,AddProductListener addProductListener,RemoveProductListener removeProductListener) {
         this.context = context2;
@@ -89,17 +105,121 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 //            holder.txt_total_reviews.setText(review);
 //        }
 
-        if (cartBean.getPrice() != null&&!cartBean.getPrice().isEmpty()) {
 
-            String price = "USD " + cartBean.getPrice();
+        SessionManager sessionManager = new SessionManager(context);
 
-            holder.txt_price.setText(price);
+        HashMap<String, String> user = sessionManager.getProfileDetails();
+
+        String user_role = user.get(SessionManager.KEY_TYPE);
+
+        if (user_role!=null&&user_role.equals("retail")) {
+
+            holder.ll_multipleadd.setVisibility(View.VISIBLE);
+
+            holder.rl_wholesaler_price.setVisibility(View.GONE);
+
+
+            if (cartBean.getPrice() != null&&!cartBean.getPrice().isEmpty()) {
+
+                String price = "USD " + cartBean.getPrice();
+
+                holder.txt_price.setText(price);
+            }
+
+            holder.txt_decrease.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    removeProductListener.removeproductListener(cartBean.getBasket_product_id(),"1",cartBean.getBasket_unit_price());
+                }
+            });
+
+            holder.txt_increase.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    addProductListener.addproductListener(cartBean.getBasket_product_id(),"1",cartBean.getBasket_unit_price(),button);
+
+                }
+            });
+
+            if (cartBean.getBasket_quantity() != null&&!cartBean.getBasket_quantity().isEmpty()) {
+
+                holder.txt_count_number.setText(cartBean.getBasket_quantity());
+
+            }
+
         }
-        if (cartBean.getBasket_quantity() != null&&!cartBean.getBasket_quantity().isEmpty()) {
 
-            holder.txt_count_number.setText(cartBean.getBasket_quantity());
+        else
+        {
+            holder.ll_multipleadd.setVisibility(View.GONE);
+
+            holder.rl_wholesaler_price.setVisibility(View.VISIBLE);
+
+            HashMap<String, String> hashMap_wholesaler_price = new HashMap<>();
+
+            ArrayList<String> arrayList = new ArrayList<>();
+
+            for(int i=0;i<cartBeanList.size();i++){
+
+                arrayList.add(cartBeanList.get(i).getWholesaler_price().get(i).getQuantity());
+
+                hashMap_wholesaler_price.put(cartBeanList.get(i).getWholesaler_price().get(i).getQuantity(),cartBeanList.get(i).getWholesaler_price().get(i).getPrice());
+
+            }
+
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(context, R.layout.spinner_item, arrayList);
+
+            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+
+            holder.spinner.setAdapter(spinnerArrayAdapter);
+
+            if (cartBean.getBasket_quantity() != null&&!cartBean.getBasket_quantity().isEmpty()) {
+
+                qty = cartBean.getBasket_quantity();
+
+                Log.w(TAG,"basket_quantity "+qty);
+
+            }
+
+
+            int spinnerPosition = spinnerArrayAdapter.getPosition(qty);
+
+            holder.spinner.setSelection(spinnerPosition);
+
+            holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @SuppressLint("LongLogTag")
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    ((TextView) parent.getChildAt(0)).setTextColor(context.getResources().getColor(R.color.hint_color));
+
+                    wholesaler_quantity = holder.spinner.getSelectedItem().toString();
+
+                    String prices =  hashMap_wholesaler_price.get(wholesaler_quantity) ;
+
+                    Log.w(TAG,"quantity "+wholesaler_quantity);
+
+                    Log.w(TAG,"price "+prices);
+
+                    if(prices!=null&&!prices.equals("0")){
+
+                        addProductListener.addproductListener(cartBean.getBasket_product_id(),wholesaler_quantity,prices,button);
+                    }
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
 
         }
+
+
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,22 +228,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
             }
         });
 
-        holder.txt_decrease.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                removeProductListener.removeproductListener(cartBean.getBasket_product_id(),"1",cartBean.getBasket_unit_price());
-            }
-        });
-
-        holder.txt_increase.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                addProductListener.addproductListener(cartBean.getBasket_product_id(),"1",cartBean.getBasket_unit_price(),button);
-
-            }
-        });
     }
 
 
@@ -139,6 +244,8 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         TextView txt_product_name;
         TextView txt_total_reviews,txt_count_number,txt_decrease,txt_increase;
         LinearLayout ll_multipleadd;
+        RelativeLayout rl_wholesaler_price;
+        Spinner spinner;
 
         public ShoplistHolder(View itemView) {
             super(itemView);
@@ -151,8 +258,10 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
             txt_price = itemView.findViewById(R.id.txt_price);
             txt_count_number = itemView.findViewById(R.id.txt_count_number);
             ll_multipleadd = itemView.findViewById(R.id.ll_multipleadd);
+            rl_wholesaler_price = itemView.findViewById(R.id.rl_wholesaler_price);
             txt_increase = itemView.findViewById(R.id.txt_increase);
             txt_decrease = itemView.findViewById(R.id.txt_decrease);
+            spinner = itemView.findViewById(R.id.sp_wholesaler_price);
         }
     }
 }
