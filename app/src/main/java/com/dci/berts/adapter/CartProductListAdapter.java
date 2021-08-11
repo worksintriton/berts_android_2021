@@ -44,6 +44,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
     RemoveProductListener removeProductListener;
     Button button;
     String wholesaler_quantity,qty;
+    int check = 0;
 
     private final static String TAG = "CartProductListAdapter";
 
@@ -184,10 +185,10 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
             }
 
-
-            int spinnerPosition = spinnerArrayAdapter.getPosition(qty);
-
-            holder.spinner.setSelection(spinnerPosition);
+//
+//            int spinnerPosition = spinnerArrayAdapter.getPosition(qty);
+//
+//            holder.spinner.setSelection(spinnerPosition);
 
             holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @SuppressLint("LongLogTag")
@@ -195,18 +196,21 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     ((TextView) parent.getChildAt(0)).setTextColor(context.getResources().getColor(R.color.hint_color));
 
-                    wholesaler_quantity = holder.spinner.getSelectedItem().toString();
+                   if(++check>1){
 
-                    String prices =  hashMap_wholesaler_price.get(wholesaler_quantity) ;
+                       wholesaler_quantity = holder.spinner.getSelectedItem().toString();
 
-                    Log.w(TAG,"quantity "+wholesaler_quantity);
+                       String prices =  hashMap_wholesaler_price.get(wholesaler_quantity) ;
 
-                    Log.w(TAG,"price "+prices);
+                       Log.w(TAG,"quantity "+wholesaler_quantity);
 
-                    if(prices!=null&&!prices.equals("0")){
+                       Log.w(TAG,"price "+prices);
 
-                        addProductListener.addproductListener(cartBean.getBasket_product_id(),wholesaler_quantity,prices,button);
-                    }
+                       if(prices!=null&&!prices.equals("0")){
+
+                           addProductListener.addproductListener(cartBean.getBasket_product_id(),wholesaler_quantity,prices,button);
+                       }
+                   }
 
                 }
 
