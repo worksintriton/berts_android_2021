@@ -3034,6 +3034,7 @@ id rv_addrlist
 id rv_brand
 id rv_categ
 id rv_color
+id rv_couponlist
 id rv_currency_list
 id rv_default
 id rv_filterlist
@@ -3609,6 +3610,7 @@ layout activity_splash
 layout activity_terms_and_conditions
 layout adapter_cart_prodlist
 layout adapter_checkout_prodlist
+layout adapter_coupon_list
 layout adapter_filter_colorlist
 layout adapter_filter_yearlist
 layout adapter_filterlist
@@ -3951,6 +3953,7 @@ string continue_shopping
 string copyright
 string count
 string country
+string coupon_apply
 string coupon_date
 string coupon_description
 string coupon_name

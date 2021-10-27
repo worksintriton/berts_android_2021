@@ -101,10 +101,10 @@ public class CheckoutScreenActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.cv_order_total)
     CardView cv_order_total;
-//
-//    @SuppressLint("NonConstantResourceId")
-//    @BindView(R.id.cv_coupon)
-//    CardView cv_coupon;
+
+    @SuppressLint("NonConstantResourceId")
+    @BindView(R.id.cv_coupon)
+    CardView cv_coupon;
 
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.cv_payment)
@@ -346,7 +346,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
         cv_order_total.setVisibility(View.GONE);
 
-        //cv_coupon.setVisibility(View.GONE);
+        cv_coupon.setVisibility(View.GONE);
 
         cv_payment.setVisibility(View.GONE);
 
@@ -503,7 +503,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                 cv_order_total.setVisibility(View.VISIBLE);
 
-                              //  cv_coupon.setVisibility(View.VISIBLE);
+                                cv_coupon.setVisibility(View.VISIBLE);
 
                                 cv_payment.setVisibility(View.VISIBLE);
 
@@ -511,6 +511,13 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                 rv_productlist.setVisibility(View.VISIBLE);
 
+                                cv_coupon.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                        gotoCouponApply();
+                                    }
+                                });
 
                                 if(response.body().getData().getCart_total()!=0){
 
@@ -696,7 +703,7 @@ public class CheckoutScreenActivity extends AppCompatActivity {
 
                                 cv_order_total.setVisibility(View.GONE);
 
-                               // cv_coupon.setVisibility(View.GONE);
+                                cv_coupon.setVisibility(View.GONE);
 
                                 cv_payment.setVisibility(View.GONE);
 
@@ -734,6 +741,49 @@ public class CheckoutScreenActivity extends AppCompatActivity {
                 Log.w(TAG,"ShowCartListResponse flr"+t.getMessage());
             }
         });
+
+    }
+
+    private void gotoCouponApply() {
+
+        Intent intent=new Intent(CheckoutScreenActivity.this,CouponApplyDetailActivity.class);
+
+        intent.putExtra("fromactivity",TAG);
+
+        intent.putExtra("prod_id",prod_id);
+
+        intent.putExtra("prod_name",prod_name);
+
+        intent.putExtra("brand_id",brand_id);
+
+        intent.putExtra("brand_name",brand_name);
+
+        intent.putExtra("parent_id",parent_id);
+
+        intent.putExtra("categ_name",categ_name);
+
+        intent.putExtra("subcategid",subcategid);
+
+        intent.putExtra("subcategname",subcategname);
+
+        intent.putExtra("make_id",make_id);
+
+        intent.putExtra("make_name",make_name);
+
+        intent.putExtra("model_id", model_id);
+
+        intent.putExtra("model_name",model_name);
+
+        intent.putExtra("search_text",search_text);
+
+        intent.putExtra("data",data.toString());
+
+        connectivity.storeData(CheckoutScreenActivity.this,"CheckoutScreen",fromactivity);
+
+        startActivity(intent);
+
+        finish();
+
 
     }
 

@@ -281,14 +281,14 @@
     <string name="sort_by">Sort By</string>
     <string name="hot">Hot</string>
     <string name="price_low_to_high">Price Low to High</string>
-    <string name="top_rated_products">Top Rated Products</string>
+    <string name="top_rating">Top Rating</string>
     <string name="new_arrival">New Arrival</string>
     <string name="price_high_to_low">Price High to low</string>
     <string name="manageaddress">Manage Address</string>
     <string name="select_sort">Select an Option</string>
     <string name="txt_orders_count_label">Orders Count</string>
     <string name="_4_products">4 Products</string>
-
+    <string name="top_rated_products">Top Rated Products</string>
 
     <string-array name="array_name">
         <item>Price : Low to High</item>
@@ -365,7 +365,7 @@
     <string name="pet_1620638904266">PET-1620638904266</string>
     <string name="product_details">Product Details</string>
     <string name="select_model">Select Model</string>
-    <string name="top_rating">Top Rating</string>
+
     <string name="currency">Currency</string>
     <string name="language">Language</string>
     <string name="measurement_unit">Measurement Unit</string>
@@ -413,4 +413,5 @@
     <string name="subcategory1">Subcategory</string>
     <string name="select_thirdcategory">Select Third Category</string>
     <string name="thirdcategory1">Third Category</string>
+    <string name="coupon_apply">Coupon Apply</string>
 </resources>

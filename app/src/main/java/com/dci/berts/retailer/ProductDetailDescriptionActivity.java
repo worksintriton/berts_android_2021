@@ -1267,18 +1267,18 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
         }
 
 
-//        if(sessionManager.isLoggedIn()){
-//
-//            rl_write_review.setVisibility(VISIBLE);
-//
-//        }
-//
-//        else {
-//
-//
-//            rl_write_review.setVisibility(View.GONE);
-//
-//        }
+        if(sessionManager.isLoggedIn()){
+
+            rl_write_review.setVisibility(VISIBLE);
+
+        }
+
+        else {
+
+
+            rl_write_review.setVisibility(View.GONE);
+
+        }
 
         txt_product_name.setVisibility(VISIBLE);
 
@@ -1666,15 +1666,15 @@ public class ProductDetailDescriptionActivity extends AppCompatActivity {
             }
         });
 
-//        rl_write_review.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                showAddReviewLayout();
-//            }
-//        });
+        rl_write_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        rl_write_review.setVisibility(View.GONE);
+                showAddReviewLayout();
+            }
+        });
+
+
     }
 
     private void setWholesalerPrice(List<ProductDetailRespone.DataBean.ProductsBean.WholesalerPriceBean> wholesaler_price) {

@@ -38,6 +38,7 @@ public class CheckoutScreenActivity_ViewBinding implements Unbinder {
     target.txt_no_records = Utils.findRequiredViewAsType(source, R.id.txt_no_records, "field 'txt_no_records'", TextView.class);
     target.cv_orders = Utils.findRequiredViewAsType(source, R.id.cv_orders, "field 'cv_orders'", CardView.class);
     target.cv_order_total = Utils.findRequiredViewAsType(source, R.id.cv_order_total, "field 'cv_order_total'", CardView.class);
+    target.cv_coupon = Utils.findRequiredViewAsType(source, R.id.cv_coupon, "field 'cv_coupon'", CardView.class);
     target.cv_payment = Utils.findRequiredViewAsType(source, R.id.cv_payment, "field 'cv_payment'", CardView.class);
     target.txt_total_order = Utils.findRequiredViewAsType(source, R.id.txt_total_order, "field 'txt_total_order'", TextView.class);
     target.rl_default_shipping = Utils.findRequiredViewAsType(source, R.id.rl_default_shipping, "field 'rl_default_shipping'", RelativeLayout.class);
@@ -67,6 +68,7 @@ public class CheckoutScreenActivity_ViewBinding implements Unbinder {
     target.txt_no_records = null;
     target.cv_orders = null;
     target.cv_order_total = null;
+    target.cv_coupon = null;
     target.cv_payment = null;
     target.txt_total_order = null;
     target.rl_default_shipping = null;

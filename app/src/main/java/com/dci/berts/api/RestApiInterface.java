@@ -6,6 +6,7 @@ import com.dci.berts.requestpojo.AddReviewRequest;
 import com.dci.berts.requestpojo.AddToCartRequest;
 import com.dci.berts.requestpojo.AddVehicleRequest;
 import com.dci.berts.requestpojo.AddWishistRequest;
+import com.dci.berts.requestpojo.CouponApplyDetailRequest;
 import com.dci.berts.requestpojo.CreateAddressListRequest;
 import com.dci.berts.requestpojo.DeleteAddressListRequest;
 import com.dci.berts.requestpojo.DeleteVehicleRequest;
@@ -52,6 +53,7 @@ import com.dci.berts.requestpojo.UserAddressListRequest;
 import com.dci.berts.responsepojo.AddReviewResponse;
 import com.dci.berts.responsepojo.AddToCartResponse;
 import com.dci.berts.responsepojo.AddVehicleResponse;
+import com.dci.berts.responsepojo.CouponApplyDetailResponse;
 import com.dci.berts.responsepojo.CreateAddressListResponse;
 import com.dci.berts.responsepojo.DeleteAddressListResponse;
 import com.dci.berts.responsepojo.DeleteVehicleResponse;
@@ -309,4 +311,7 @@ public interface RestApiInterface {
     @POST("category")
     Call<GetThirdCategoryResponse> getthirdcategoryListResponseCall(@Header("Content-Type") String type, @Body GetThirdCategoryRequest getThirdCategoryRequest);
 
+    /*Get All Coupons*/
+    @POST("coupon")
+    Call<CouponApplyDetailResponse> couponListResponseCall(@Header("Content-Type") String type, @Body CouponApplyDetailRequest couponApplyDetailRequest);
 }
